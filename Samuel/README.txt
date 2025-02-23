@@ -1,4 +1,4 @@
-// Hello Samuel!
+// Hello Samuel! :)
 
 // Put any Art Assets/Concepts in your personal folder (keeps things organized)
 
