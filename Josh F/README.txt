@@ -1,4 +1,4 @@
-// Hello Josh F!
+// Hello Josh F! :)
 
 // Put any Art Assets/Concepts in your personal folder (keeps things organized)
 
