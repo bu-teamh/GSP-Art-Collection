@@ -1,0 +1,48 @@
+A Survey of Video Game Testing
+- Finding #2: Game testers should work alongside software testers to complement one another skills
+	- Drawing a parallel with traditional software development, game developers should be the responsible for creating and executing tests. Thus, testing in game projects should include game developers with knowledge of the source code and game testers with knowledge of the games.
+
+- Finding #4: Search for the "fun-factor" and "balancing" the game are mainly executed by game-play testers
+	- The search for the fun-factor is not the only thing that game testers do. They also use their skills and empirical knowledge to investigate the games intelligently. These techniques are hard to automate.
+
+- Finding #7: Issues like lack of plan and poor testing coverage call for game testing to be performed early
+	The most common issues gathered from video-game postmortems indicate that game developers do not plan ahead testing and, consequently, test coverage is low. Moreover, the specific requirements of the project are listed as the main cause of difficulties in adding proper testing during the development
+	- Implications - Testing and gameplay testing should not be delayed:
+	- Game developers should strive to release incremental builds to game testers.
+	
+- Grey literature results: Insufficient testing is the most common problem quoted by game developers, Eight postmortems cite lack of test as a problem (PM#4, PM#19, PM#33, PM#35, PM#38, PM#43, PM#45, PM#49). Five mention that more testing was need in the early phases of the development (PM#5, PM#6, PM#21, PM#22, PM#39) while two others in later phases (PM#7, PM#11). Lack of unit testing (PM#17) and regression testing (PM#18) were also cited as well as beta testing (PM#39), most of it because of time constraints (PM#9, PM#24, PM#26), and play-testing in general (PM#34). Finally, developers also mentioned problems regarding testing-tools setup, like continuous integration, testing systems, and automation (PM#6, PM#28).
+
+
+Towards Automated Video Game Testing: Still a Long Way to Go
+-  The results of the literature review show a rise in research topics related to automated video game testing in recent years. Yet, most testing tools and frameworks are more concerned with the
+ performance of the ML models instead of the testing objective. T
+- Weconclude that there is still a long way to go for video game
+ testing. Especially on how should we test video games.
+
+Video Game Automated Testing Approaches: An Assessment Framework
+- Fig 3 Adventure games / puzle games automated AI test strategies used were scenario-based and humanlike
+- >>><<<>>><<< pls rego over this literature, it does hint toward the field's infancy and whether it's actually current an effective tool
+
+Game Usability Heuristics (PLAY) for Evaluating and Designing Better Games: The Next Iteration
+- actually really interesting - widely cited
+
+***
+
+Market research
+
+Player Characteristics and Video Game Preferences
+	- very jargonistic but a deep analysis
+
+Towards a Trait Model of Video Game Preferences
+	- same
+
+A Duration Model Analysis of Consumer Preferences and Determinants of Video Game Consumption
+	- deep jargonistic but mentions about play duration episodes vs player archetypes and also how 
+	that relates to feelings of boredom and how developers extend the lifecycle of their games
+
+Market Research/Monetisation Strategy
+https://www.gamingscan.com/gaming-statistics/
+- price, interesting story / premise
+
+https://techjury.net/blog/video-game-demographics/
+^ a good literature survey
