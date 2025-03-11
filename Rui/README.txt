@@ -1,4 +1,4 @@
-// Hello Rui!
+// Hello Rui!    I HATE GITHUB
 
 // Put any Art Assets/Concepts in your personal folder (keeps things organized)
 
