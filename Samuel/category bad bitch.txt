@@ -1,0 +1,42 @@
+COMBAT
+
+- Areas locked during combat for enemies/player
+- Control TBC
+
+BASIC ATTACK
+- Achilles spear style fwd attack -> direction of cursor
+- Lantern can't be direclty controlled
+- When aiming, and player moves, lantern *slowly moves in the direction of player (maintain aim)
+
+ENEMIES
+- 2 kinds - cultist bitch / spider (+ mommy)
+- every enemy type has flavours - (we need one for every buff but for now just 2)
+- which is : ranged+damage(likely rock); melee+damage(likely fire)
+- new enemy flavour everytime boss defeated/+ new buff ( GDDD but we will intro. rock buff in cave)
+GDD but not gonna make (ideas welcome):
+ranged+squid ink mariokart hallucination
+melee+slowdown
+
+PARRY/DODGE
+parry - lantern does forcefield - radius centred on lantern - 
+big enough to cover child if near, if lantern far away, dont work
+dodge - child, has to be executed well to charge meter
+"
+"CHARGERS"
+- parry + dodge 2:1 ratio
+- likely not for attack
+- tbc on enemy death 
+
+ULTIMATE (supercharge)- 
+- fire basic attack++++ with aoe expl at end
+- earth - basic attack+++ stakes in ground @ end *bangg*
+- ...??? profit
+
+BUFF SYSTEM
+
+
+BUFFS
+- Fire
+- Rock
+
+
