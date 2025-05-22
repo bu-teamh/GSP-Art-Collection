@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
 //Name: Spider_Model_Anim2.ma
-//Last modified: Wed, May 21, 2025 10:43:49 PM
+//Last modified: Wed, May 21, 2025 10:56:43 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiImagerDenoiserOidn"
@@ -11,19 +11,19 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202407121012-8ed02f4c99";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "0DB4AD36-48F6-F8DD-B462-A49E6154CAC6";
+fileInfo "UUID" "3F3DB314-4C92-68C8-6D83-56AB92C0128E";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "9A331F52-4619-D3A7-4F5D-EE8186C0F345";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 0.75593776286795844 47.096056353666484 -105.9256827536408 ;
-	setAttr ".r" -type "double3" 340.20000002685265 4867.1999999990285 0 ;
+	setAttr ".t" -type "double3" -0.41029388938300748 70.519971937562346 -21.768028254560313 ;
+	setAttr ".r" -type "double3" 274.80000002683812 4859.9999999991287 0 ;
 	setAttr ".rpt" -type "double3" 8.3970338990581474e-15 -1.0760078972390051e-14 -2.2275888589040582e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "43F8F41F-43B8-E90C-F5D2-DD89D3AA74ED";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 122.50936224443289;
+	setAttr ".coi" 69.711548799976427;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -876,7 +876,6 @@ createNode nurbsCurve -n "L_Front_Leg_CtrlShape" -p "L_Front_Leg_Ctrl";
 		;
 createNode transform -n "L_Mid1_Leg_Ctrl" -p "Root_Ctrl";
 	rename -uid "1D648C8B-448C-DD20-FEC4-CDB602B15D8E";
-	setAttr ".t" -type "double3" 0 9.3849193086300389 -30.04595982672441 ;
 	setAttr ".rp" -type "double3" -25.208860397338867 13.906311988830572 -5.2413163185119629 ;
 	setAttr ".sp" -type "double3" -25.208860397338814 13.906311988830575 -5.2413163185119727 ;
 createNode nurbsCurve -n "L_Mid1_Leg_CtrlShape" -p "L_Mid1_Leg_Ctrl";
@@ -1002,7 +1001,6 @@ createNode nurbsCurve -n "R_Mid2_Leg_CtrlShape" -p "R_Mid2_Leg_Ctrl";
 		;
 createNode transform -n "R_Mid1_Leg_Ctrl" -p "Root_Ctrl";
 	rename -uid "FDBD9A75-4946-7DB9-E27B-72919AB782DC";
-	setAttr ".t" -type "double3" 0 1.583457454239223 -5.0694627724341954 ;
 	setAttr ".rp" -type "double3" 25.187417984008793 14.263712882995611 -5.2219705581665039 ;
 	setAttr ".sp" -type "double3" 25.187417984008814 14.263712882995625 -5.221970558166503 ;
 createNode nurbsCurve -n "R_Mid1_Leg_CtrlShape" -p "R_Mid1_Leg_Ctrl";
@@ -1124,7 +1122,7 @@ createNode joint -n "L_mid1_leg_top" -p "Root_Ctrl";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
 	setAttr ".t" -type "double3" -9.9591015814665589 13.073649080889352 -3.4549650462750718 ;
-	setAttr ".r" -type "double3" 118.15918105770847 -9.42948046786438 1.6090561844602633 ;
+	setAttr ".r" -type "double3" -0.69402369685736354 -1.4528988030183128 3.0909324526677184 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 174.78633140879995 0 ;
@@ -1265,7 +1263,7 @@ createNode joint -n "R_mid1_leg_top" -p "Root_Ctrl";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
 	setAttr ".t" -type "double3" 9.9591 13.0736 -3.45497 ;
-	setAttr ".r" -type "double3" -102.12986962701125 9.4917175140145122 3.6832451116792519 ;
+	setAttr ".r" -type "double3" 1.6486355395616916 1.4007834179197178 4.4403162598899737 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 5.2136477916687713 0 ;
