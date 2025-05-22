@@ -1,8 +1,9 @@
 //Maya ASCII 2025ff03 scene
-//Name: Boss_Anim.ma
-//Last modified: Thu, May 22, 2025 04:29:00 AM
+//Name: Boss_Anim_Export.ma
+//Last modified: Thu, May 22, 2025 04:32:53 AM
 //Codeset: 1252
 requires maya "2025ff03";
+requires -nodeType "gameFbxExporter" "gameFbxExporter" "1.0";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiImagerDenoiserOidn"
 		 "mtoa" "5.4.2.1";
 currentUnit -l centimeter -a degree -t film;
@@ -11,19 +12,19 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202407121012-8ed02f4c99";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "479A2AF8-4D76-D316-CE9C-DFAD07F45BA9";
+fileInfo "UUID" "AE3E5634-41A5-B74E-66CE-50A4DE335DEC";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "BEE1ECA9-41B6-AE7C-9318-1C95ACB636E2";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -15.401050928519513 13.139251957653986 34.53671978265006 ;
-	setAttr ".r" -type "double3" -12.000000000011839 -1105.1999999995328 0 ;
+	setAttr ".t" -type "double3" -40.691288622630687 10.152881163296765 18.918293306236013 ;
+	setAttr ".r" -type "double3" -6.0000000000117524 -1147.5999999995283 0 ;
 	setAttr ".rpt" -type "double3" -6.9482148902148692e-17 -4.7916365432788244e-16 2.1961048478998206e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "8E641E8F-4B5F-491D-BE56-709D86CB9E2E";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 36.504714548645133;
+	setAttr ".coi" 44.039546611168568;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -367,6 +368,7 @@ createNode ikHandle -n "L_Leg_IK" -p "IK";
 	rename -uid "B139D80F-4732-94E1-FEE5-83B30CAB825B";
 	setAttr ".hs" 1;
 	setAttr ".roc" yes;
+	setAttr ".ikb" 0;
 createNode pointConstraint -n "L_Leg_IK_pointConstraint1" -p "L_Leg_IK";
 	rename -uid "37CCC8A7-4A73-D726-60CE-BD9FCA865E78";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Foot_CtrlW0" -dv 1 -min 0 -at "double";
@@ -405,6 +407,7 @@ createNode ikHandle -n "R_Leg_IK" -p "IK";
 	rename -uid "4ED1EE68-4096-1BA5-9A34-D6BBA74395B9";
 	setAttr ".hs" 1;
 	setAttr ".roc" yes;
+	setAttr ".ikb" 0;
 createNode pointConstraint -n "R_Leg_IK_pointConstraint1" -p "R_Leg_IK";
 	rename -uid "FF78D91D-442B-5244-83A4-43B7DBA38A7C";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Foot_CtrlW0" -dv 1 -min 0 -at "double";
@@ -456,7 +459,6 @@ createNode joint -n "Spine_Joint1" -p "Root_Joint";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" 1.7260357335163012 -0.077486792659545278 -7.3276751327005764e-16 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" -2.1928877289966785e-33 1.2510465333518275 -2.0085299243853132e-31 ;
@@ -541,7 +543,7 @@ createNode parentConstraint -n "R_Wrist_Joint_parentConstraint1" -p "R_Wrist_Joi
 	setAttr ".tg[0].tot" -type "double3" 0.021652822015756357 0.0077710354376057111 
 		-0.18605555874276991 ;
 	setAttr ".tg[0].tor" -type "double3" 100.06329070487334 -0.5627857030834007 -80.21411764947139 ;
-	setAttr ".lr" -type "double3" 10.364515622824042 28.156554951590273 0.63832693868986867 ;
+	setAttr ".lr" -type "double3" 10.364515622824028 28.156554951590294 0.63832693868988011 ;
 	setAttr ".rst" -type "double3" 2.1389916713160479 -0.38578873618037357 -2.2797724162087105 ;
 	setAttr ".rsrr" -type "double3" 10.364515622823992 28.156554951590298 0.63832693868979984 ;
 	setAttr -k on ".w0";
@@ -563,7 +565,7 @@ createNode parentConstraint -n "R_Elbow_Joint_parentConstraint1" -p "R_Elbow_Joi
 	setAttr ".tg[0].tot" -type "double3" -8.0231322474588751e-08 1.6514328571304304e-08 
 		3.9353190706137298e-08 ;
 	setAttr ".tg[0].tor" -type "double3" 90.000000000000014 1.9083328088781101e-14 -108.37215200174485 ;
-	setAttr ".lr" -type "double3" 19.349655171997956 26.571065003195528 -79.647061761939426 ;
+	setAttr ".lr" -type "double3" 1.150130179850346 30.325881157741161 -102.93332429694438 ;
 	setAttr ".rst" -type "double3" -2.5394478761754824 -1.476378567112592 2.3293027903889749 ;
 	setAttr ".rsrr" -type "double3" -37.655032920969781 41.131565009051947 -140.04359284040765 ;
 	setAttr -k on ".w0";
@@ -584,7 +586,7 @@ createNode parentConstraint -n "R_Shoulder_Joint_parentConstraint1" -p "R_Should
 	setAttr ".erp" yes;
 	setAttr ".tg[0].tot" -type "double3" -0.16775403858575744 0.036501891219694826 -0.051943342374200507 ;
 	setAttr ".tg[0].tor" -type "double3" 38.5005417575113 -55.923544614723006 69.320899880390996 ;
-	setAttr ".lr" -type "double3" -104.08404349284747 -29.100817181816637 -136.21264909534764 ;
+	setAttr ".lr" -type "double3" -101.10436257110253 -20.459465404162984 -98.352663742406733 ;
 	setAttr ".rst" -type "double3" 0.22943315993434155 0.54359561259276024 1.4360774765896671 ;
 	setAttr ".rsrr" -type "double3" -96.041988164015791 -25.383839861916552 -113.53702886302786 ;
 	setAttr -k on ".w0";
@@ -643,7 +645,7 @@ createNode parentConstraint -n "L_Wrist_JOint_parentConstraint1" -p "L_Wrist_JOi
 		-1.2773290869461107e-08 ;
 	setAttr ".tg[0].tor" -type "double3" -90.000000000000639 -1.0699598023589339e-11 
 		93.40044186411761 ;
-	setAttr ".lr" -type "double3" -4.4909432102277624e-12 2.2518327144736223e-12 -6.5004176579751455e-11 ;
+	setAttr ".lr" -type "double3" -2.1818605114840421e-12 3.053332494199986e-13 -2.6207770575259385e-11 ;
 	setAttr ".rst" -type "double3" -2.6648730440742376 0.50705997664071534 1.6093778604368874 ;
 	setAttr ".rsrr" -type "double3" 6.3611093629267361e-15 -3.1805546814641116e-15 1.0715288721850589e-11 ;
 	setAttr -k on ".w0";
@@ -666,7 +668,7 @@ createNode parentConstraint -n "L_Elbow_Joint_parentConstraint1" -p "L_Elbow_Joi
 		3.2112374093173912e-08 ;
 	setAttr ".tg[0].tor" -type "double3" -90.000000000000057 -1.5902773407317588e-15 
 		93.400441864122485 ;
-	setAttr ".lr" -type "double3" -114.96469938267253 -31.526719259558263 8.3453963937369231 ;
+	setAttr ".lr" -type "double3" -142.79597634308416 -61.432355139048376 41.967949139062306 ;
 	setAttr ".rst" -type "double3" 1.8877131744378104 -1.6288300649682439 2.6869184664230517 ;
 	setAttr ".rsrr" -type "double3" -60.502379823991767 -96.880877162879315 -29.675448787317002 ;
 	setAttr -k on ".w0";
@@ -688,7 +690,7 @@ createNode parentConstraint -n "L_Shoulder_Joint_parentConstraint1" -p "L_Should
 	setAttr ".tg[0].tot" -type "double3" 1.5543122344752192e-15 7.5788539888321793e-08 
 		-1.3174969021312322e-07 ;
 	setAttr ".tg[0].tor" -type "double3" 7.3166378510458337e-14 82.506685791803136 -90.000000000004931 ;
-	setAttr ".lr" -type "double3" 68.293965812557232 21.201509944239042 -75.77012286885963 ;
+	setAttr ".lr" -type "double3" 73.197479185485065 -11.956089243692283 -113.86536424521904 ;
 	setAttr ".rst" -type "double3" 0.16105526067461717 0.46780556282412639 -1.4782590404279166 ;
 	setAttr ".rsrr" -type "double3" 60.972836482111269 -3.6518571147339651 -96.54765743127173 ;
 	setAttr -k on ".w0";
@@ -697,8 +699,6 @@ createNode joint -n "L_Hip_Joint" -p "Root_Joint";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -0.12907105564431554 -0.59676070664681202 1.0493240204595571 ;
-	setAttr ".r" -type "double3" -81.537536751691391 -8.5014275596071407 101.2978701568632 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 -2.7764263884325655 0 ;
@@ -745,8 +745,6 @@ createNode joint -n "R_Hip_Joint" -p "Root_Joint";
 	addAttr -ci true -sn "liw" -ln "lockInfluenceWeights" -min 0 -max 1 -at "bool";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 1;
-	setAttr ".t" -type "double3" -0.15809173030931234 -0.59676070664681202 -1.0291178886594505 ;
-	setAttr ".r" -type "double3" -97.741142551189199 6.7312840374592149 -28.966516426662341 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 -4.3762423615621246 -180 ;
@@ -760,7 +758,7 @@ createNode joint -n "R_Knee_Joint" -p "R_Hip_Joint";
 	setAttr ".uoc" 1;
 	setAttr ".oc" 2;
 	setAttr ".t" -type "double3" 2.0334200640654054 -4.9303806576313238e-32 1.4841489843944763e-17 ;
-	setAttr ".r" -type "double3" 6.4934309319130815e-16 -5.3252734447322325 6.0086512363823156e-13 ;
+	setAttr ".r" -type "double3" 6.4933850040547972e-16 -5.325235779220006 6.0016525829827171e-13 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 5.3252804195515671 0 ;
@@ -801,8 +799,6 @@ createNode parentConstraint -n "Root_Joint_parentConstraint1" -p "Root_Joint";
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" 0 2.2204460492503131e-16 -5.4406746607948975e-09 ;
-	setAttr ".tg[0].tor" -type "double3" -90 0 90.79990798656479 ;
 	setAttr ".rst" -type "double3" 0.0080998539924621582 5.7092876434326181 -0.59676070664681191 ;
 	setAttr ".rsrr" -type "double3" 0 -6.3611093629270335e-15 0 ;
 	setAttr -k on ".w0";
@@ -847,7 +843,7 @@ createNode mesh -n "BodShape" -p "Bod";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.5 ;
+	setAttr ".pv" -type "double2" 0.3125 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -910,8 +906,6 @@ createNode mesh -n "polySurfaceShape1" -p "Bod";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "Rocks" -p "Bod";
 	rename -uid "7E8D8E2D-4D39-A99C-0BEA-66AD82832D05";
-	setAttr ".t" -type "double3" 0 -3.5357687458559561 0 ;
-	setAttr ".s" -type "double3" 0.49939031589443278 0.49939031589443278 0.49939031589443278 ;
 createNode transform -n "Rock" -p "Rocks";
 	rename -uid "82C45B54-4386-5CE1-6C57-2BB06D5D6805";
 	setAttr ".t" -type "double3" 0.2621846674071322 11.201294818240074 0.36543997027490072 ;
@@ -965,7 +959,7 @@ createNode mesh -n "RockShape62" -p "Rock62";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.50000005960464478 0.5 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1002,7 +996,7 @@ createNode mesh -n "RockShape32" -p "Rock32";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1039,7 +1033,7 @@ createNode mesh -n "RockShape63" -p "Rock63";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.50000001490116119 0.47361099720001221 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1140,7 +1134,7 @@ createNode mesh -n "RockShape2" -p "Rock2";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.495880126953125 0.5 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1241,7 +1235,7 @@ createNode mesh -n "RockShape64" -p "Rock64";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1342,7 +1336,7 @@ createNode mesh -n "RockShape48" -p "Rock48";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.52846425771713257 0.17553630471229553 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1443,7 +1437,7 @@ createNode mesh -n "RockShape65" -p "Rock65";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.47054237127304077 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1544,7 +1538,7 @@ createNode mesh -n "RockShape4" -p "Rock4";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.50000001490116119 0.48164930939674377 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1645,7 +1639,7 @@ createNode mesh -n "RockShape66" -p "Rock66";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.50018644332885742 0.10567112267017365 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1746,7 +1740,7 @@ createNode mesh -n "RockShape34" -p "Rock34";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.50000001490116119 0.47077935934066772 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1847,7 +1841,7 @@ createNode mesh -n "RockShape67" -p "Rock67";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.10567111521959305 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -1948,7 +1942,7 @@ createNode mesh -n "RockShape6" -p "Rock6";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.10567111521959305 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -2049,7 +2043,7 @@ createNode mesh -n "RockShape68" -p "Rock68";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.10567111521959305 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -2150,7 +2144,7 @@ createNode mesh -n "RockShape56" -p "Rock56";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.45706246793270111 0.125 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -2251,7 +2245,7 @@ createNode mesh -n "RockShape69" -p "Rock69";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.24037966132164001 0.074933812022209167 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -2352,7 +2346,7 @@ createNode mesh -n "RockShape8" -p "Rock8";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.67346881330013275 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -2453,7 +2447,7 @@ createNode mesh -n "RockShape70" -p "Rock70";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.75 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -2667,7 +2661,7 @@ createNode mesh -n "RockShape71" -p "Rock71";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.50064575672149658 0.5 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -2772,7 +2766,7 @@ createNode mesh -n "RockShape10" -p "Rock10";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.43732362985610962 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -2873,7 +2867,7 @@ createNode mesh -n "RockShape72" -p "Rock72";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.50529682636260986 0.5 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -2980,7 +2974,7 @@ createNode mesh -n "RockShape50" -p "Rock50";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.46365070343017578 0.25 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -3089,7 +3083,7 @@ createNode mesh -n "RockShape73" -p "Rock73";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.64432889223098755 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -3190,7 +3184,7 @@ createNode mesh -n "RockShape12" -p "Rock12";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.75 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -3300,7 +3294,7 @@ createNode mesh -n "RockShape74" -p "Rock74";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.75 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -3502,7 +3496,7 @@ createNode mesh -n "RockShape75" -p "Rock75";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.25000001490116119 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -3603,7 +3597,7 @@ createNode mesh -n "RockShape14" -p "Rock14";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.75 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -3805,7 +3799,7 @@ createNode mesh -n "RockShape60" -p "Rock60";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.46709176898002625 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -3906,7 +3900,7 @@ createNode mesh -n "RockShape77" -p "Rock77";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.375 0.10567111521959305 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -4011,7 +4005,7 @@ createNode mesh -n "RockShape16" -p "Rock16";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.47351780533790588 0.64432889223098755 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -4121,7 +4115,7 @@ createNode mesh -n "RockShape78" -p "Rock78";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.4492606520652771 0.125 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -4222,7 +4216,7 @@ createNode mesh -n "RockShape40" -p "Rock40";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.48652315139770508 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -4323,7 +4317,7 @@ createNode mesh -n "RockShape79" -p "Rock79";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.375 0.25 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -4432,7 +4426,7 @@ createNode mesh -n "RockShape18" -p "Rock18";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.375 0.5 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -4534,7 +4528,7 @@ createNode mesh -n "RockShape80" -p "Rock80";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.39922094345092773 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -4635,7 +4629,7 @@ createNode mesh -n "RockShape52" -p "Rock52";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.25 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -4736,7 +4730,7 @@ createNode mesh -n "RockShape81" -p "Rock81";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.49999998509883881 0.45330014824867249 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -4938,7 +4932,7 @@ createNode mesh -n "RockShape82" -p "Rock82";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -5039,7 +5033,7 @@ createNode mesh -n "RockShape42" -p "Rock42";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -5140,7 +5134,7 @@ createNode mesh -n "RockShape83" -p "Rock83";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.51097118854522705 0.5 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -5241,7 +5235,7 @@ createNode mesh -n "RockShape22" -p "Rock22";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.375 0.5 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -5443,7 +5437,7 @@ createNode mesh -n "RockShape85" -p "Rock85";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.43319597840309143 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -5544,7 +5538,7 @@ createNode mesh -n "RockShape24" -p "Rock24";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.75 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -5645,7 +5639,7 @@ createNode mesh -n "RockShape86" -p "Rock86";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.29345065355300903 0.55283555388450623 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -5847,7 +5841,7 @@ createNode mesh -n "RockShape87" -p "Rock87";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.75 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -5948,7 +5942,7 @@ createNode mesh -n "RockShape26" -p "Rock26";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -6150,7 +6144,7 @@ createNode mesh -n "RockShape54" -p "Rock54";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -6251,7 +6245,7 @@ createNode mesh -n "RockShape89" -p "Rock89";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.10567111521959305 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -6453,7 +6447,7 @@ createNode mesh -n "RockShape90" -p "Rock90";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.31294246017932892 0.23989307880401611 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -6958,7 +6952,7 @@ createNode mesh -n "RockShape61" -p "Rock61";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.625 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -7148,7 +7142,7 @@ createNode mesh -n "RockShape94" -p "Rock94";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.30693677067756653 0.24589878693223 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -7249,7 +7243,7 @@ createNode mesh -n "RockShape95" -p "Rock95";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.75 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -7333,8 +7327,6 @@ createNode mesh -n "RockShape95Orig" -p "Rock95";
 	setAttr ".cdvm[0]"  0 1 1;
 createNode transform -n "Other_Props" -p "Bod";
 	rename -uid "F0A7AA6B-4B8F-4F90-8037-AC9DECA31BF7";
-	setAttr ".t" -type "double3" 0 -3.5357687458559561 0 ;
-	setAttr ".s" -type "double3" 0.49939031589443278 0.49939031589443278 0.49939031589443278 ;
 createNode transform -n "Bin_Lid" -p "Other_Props";
 	rename -uid "31835F08-4ED8-C3C2-1382-68BA4BD6A1B8";
 	setAttr ".t" -type "double3" 1.5195317423984982 8.59876973384468 -0.85752814223314477 ;
@@ -7354,7 +7346,7 @@ createNode mesh -n "Bin_LidShape" -p "Bin_Lid";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.5 ;
+	setAttr ".pv" -type "double2" 0.6875 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -7879,7 +7871,7 @@ createNode mesh -n "LunchtrayShape1" -p "Lunchtray1";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.47478485107421875 0.18743535876274109 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -7916,7 +7908,7 @@ createNode mesh -n "LunchtrayShape2" -p "Lunchtray2";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.60400396585464478 0.18743535876274109 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -8581,7 +8573,7 @@ createNode mesh -n "Broken_BottleShape1" -p "Broken_Bottle1";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.67766803503036499 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -9149,7 +9141,7 @@ createNode mesh -n "ForkShape" -p "Fork";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.5 0.3749999925494194 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -9174,7 +9166,7 @@ createNode mesh -n "BookShape" -p "Book";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.25 0.375 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -10667,9 +10659,24 @@ createNode displayLayer -n "Props";
 	setAttr ".do" 3;
 createNode animCurveTU -n "Rock94_visibility";
 	rename -uid "8A83C0A7-4BC2-4E3D-D384-9287205F88A4";
-	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  119 1;
-	setAttr ".kot[0]"  5;
+	setAttr ".tan" 18;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
 createNode animCurveTL -n "Rock94_translateX";
 	rename -uid "76052048-4358-78F4-7AC3-C9A8865D0FB7";
 	setAttr ".tan" 18;
@@ -10708,9 +10715,24 @@ createNode animCurveTU -n "Rock94_scaleZ";
 	setAttr ".ktv[0]"  119 1.4777970507653231;
 createNode animCurveTU -n "Book_visibility";
 	rename -uid "669C9023-4969-89D4-B7C4-A691B270406F";
-	setAttr ".tan" 9;
-	setAttr ".ktv[0]"  119 1;
-	setAttr ".kot[0]"  5;
+	setAttr ".tan" 18;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
 createNode animCurveTL -n "Book_translateX";
 	rename -uid "9DFD41DF-43E8-D2D8-047B-96A4DA11857F";
 	setAttr ".tan" 18;
@@ -16432,33 +16454,6 @@ createNode nodeGraphEditorInfo -n "MayaNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" -44.444442678380966 -72.222219352369066 ;
 	setAttr ".tgi[0].vh" -type "double2" 839.68250631655474 44.444442678380966 ;
-createNode makeNurbCircle -n "makeNurbCircle1";
-	rename -uid "04F93F84-47CB-2C07-52EF-129079FEAD62";
-	setAttr ".nr" -type "double3" 0 1 0 ;
-createNode makeNurbCircle -n "makeNurbCircle2";
-	rename -uid "6D038854-42E9-2CB3-004F-EFBEE97D8B7F";
-	setAttr ".nr" -type "double3" 0 1 0 ;
-createNode makeNurbCircle -n "makeNurbCircle3";
-	rename -uid "C8CAF684-4387-7C42-3922-DA95EF648752";
-	setAttr ".nr" -type "double3" 0 1 0 ;
-createNode makeNurbCircle -n "makeNurbCircle4";
-	rename -uid "AE534129-4DF9-F071-5BA0-D884899D904D";
-	setAttr ".nr" -type "double3" 0 1 0 ;
-createNode transformGeometry -n "transformGeometry1";
-	rename -uid "125AE3C9-4FBA-BC41-AF3D-BEB25EC7800A";
-	setAttr ".txf" -type "matrix" 1.0205651293191584 1.060539251437161 0 0 -1.060539251437161 1.0205651293191584 0 0
-		 0 0 1.4718344631856954 0 3.1072239875793457 6.5181088447570801 -1.5211910009384155 1;
-createNode transformGeometry -n "transformGeometry2";
-	rename -uid "6D11B15F-4F2A-A665-4C5A-67B08E1F092D";
-	setAttr ".txf" -type "matrix" 3.0206845976513428 0 0 0 0 3.0206845976513428 0 0
-		 0 0 3.0206845976513428 0 0.0080998539924621582 5.7092876434326172 -0.59676069021224976 1;
-createNode transformGeometry -n "transformGeometry3";
-	rename -uid "C48E6812-4CD8-52C2-B93B-389CA9649ED4";
-	setAttr ".txf" -type "matrix" -1 0 1.2246467991473532e-16 0 0 1 0 0 -2.2225071627065621e-16 0 -1.8148148219175997 0
-		 -0.99704402685165405 0.7667509913444519 1.8284916114246342e-16 1;
-createNode transformGeometry -n "transformGeometry4";
-	rename -uid "A4841B2B-4A06-2C73-DB0F-0AA4813D3646";
-	setAttr ".txf" -type "matrix" 1 0 0 0 0 0 1 0 0 -1 0 0 -0.91248297691345215 3.5361199378967285 -1.8551638682966719e-18 1;
 createNode skinCluster -n "skinCluster74";
 	rename -uid "0A24FA03-4FF2-F892-884E-4796230302B1";
 	setAttr ".skm" 2;
@@ -26970,22 +26965,5424 @@ createNode displayLayer -n "Control";
 	setAttr ".v" no;
 	setAttr ".ufem" -type "stringArray" 0  ;
 	setAttr ".do" 6;
-createNode animCurveTL -n "L_Foot_Ctrl_translateX";
-	rename -uid "0B5FEF27-4572-B987-8152-61814801730E";
+createNode animCurveTU -n "Root_Joint_visibility";
+	rename -uid "93B0950F-411E-D0D7-EAEC-4F906B3AF48D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 20 ".ktv[0:19]"  1 0.15400048758986995 15 0.019044307330728261
-		 20 -0.072291835281766081 40 -0.20404241227589881 50 0.20423959555208993 60 0.18920375277540313
-		 80 0.24684831706677213 90 0.33264544686264697 100 0.20699353250537311 120 0.47552007792292739
-		 130 0.15400048758986995 144 0.019044307330728261 149 -0.072291835281766081 169 -0.20404241227589881
-		 179 0.20423959555208993 189 0.18920375277540313 209 0.24684831706677213 219 0.33264544686264697
-		 229 0.20699353250537311 249 0.15400048758986995;
-	setAttr -s 20 ".kit[19]"  1;
-	setAttr -s 20 ".kot[19]"  1;
-	setAttr -s 20 ".kix[19]"  1;
-	setAttr -s 20 ".kiy[19]"  0;
-	setAttr -s 20 ".kox[19]"  1;
-	setAttr -s 20 ".koy[19]"  0;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "Root_Joint_translateX";
+	rename -uid "0A6FB624-4C38-2708-18B0-2DA8A0C34B81";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0.0080998539924621582 2 0.0080998539924621582
+		 3 0.0080998539924621582 4 0.0080998539924621582 5 0.0080998539924621582 6 0.0080998539924621582
+		 7 0.0080998539924621582 8 0.0080998539924621582 9 0.0080998539924621582 10 0.0080998539924621582
+		 11 0.0080998539924621582 12 0.0080998539924621582 13 0.0080998539924621582 14 0.0080998539924621582
+		 15 0.0080998539924621582 16 0.0080998539924621582 17 0.0080998539924621582 18 0.0080998539924621582
+		 19 0.0080998539924621582 20 0.0080998539924621582 21 0.0080998539924621582 22 0.0080998539924621582
+		 23 0.0080998539924621582 24 0.0080998539924621582 25 0.0080998539924621582 26 0.0080998539924621582
+		 27 0.0080998539924621582 28 0.0080998539924621582 29 0.0080998539924621582 30 0.0080998539924621582
+		 31 0.0080998539924621582 32 0.0080998539924621582 33 0.0080998539924621582 34 0.0080998539924621582
+		 35 0.0080998539924621582 36 0.0080998539924621582 37 0.0080998539924621582 38 0.0080998539924621582
+		 39 0.0080998539924621582 40 0.0080998539924621582 41 0.0080998539924621582 42 0.0080998539924621582
+		 43 0.0080998539924621582 44 0.0080998539924621582 45 0.0080998539924621582 46 0.0080998539924621582
+		 47 0.0080998539924621582 48 0.0080998539924621582 49 0.0080998539924621582 50 0.0080998539924621582
+		 51 0.0080998539924621582 52 0.0080998539924621582 53 0.0080998539924621582 54 0.0080998539924621582
+		 55 0.0080998539924621582 56 0.0080998539924621582 57 0.0080998539924621582 58 0.0080998539924621582
+		 59 0.0080998539924621582 60 0.0080998539924621582 61 0.0080998539924621582 62 0.0080998539924621582
+		 63 0.0080998539924621582 64 0.0080998539924621582 65 0.0080998539924621582 66 0.0080998539924621582
+		 67 0.0080998539924621582 68 0.0080998539924621582 69 0.0080998539924621582 70 0.0080998539924621582
+		 71 0.0080998539924621582 72 0.0080998539924621582 73 0.0080998539924621582 74 0.0080998539924621582
+		 75 0.0080998539924621582 76 0.0080998539924621582 77 0.0080998539924621582 78 0.0080998539924621582
+		 79 0.0080998539924621582 80 0.0080998539924621582 81 0.0080998539924621582 82 0.0080998539924621582
+		 83 0.0080998539924621582 84 0.0080998539924621582 85 0.0080998539924621582 86 0.0080998539924621582
+		 87 0.0080998539924621582 88 0.0080998539924621582 89 0.0080998539924621582 90 0.0080998539924621582
+		 91 0.0080998539924621582 92 0.0080998539924621582 93 0.0080998539924621582 94 0.0080998539924621582
+		 95 0.0080998539924621582 96 0.0080998539924621582 97 0.0080998539924621582 98 0.0080998539924621582
+		 99 0.0080998539924621582 100 0.0080998539924621582 101 0.0080998539924621582 102 0.0080998539924621582
+		 103 0.0080998539924621582 104 0.0080998539924621582 105 0.0080998539924621582 106 0.0080998539924621582
+		 107 0.0080998539924621582 108 0.0080998539924621582 109 0.0080998539924621582 110 0.0080998539924621582
+		 111 0.0080998539924621582 112 0.0080998539924621582 113 0.0080998539924621582 114 0.0080998539924621582
+		 115 0.0080998539924621582 116 0.0080998539924621582 117 0.0080998539924621582 118 0.0080998539924621582
+		 119 0.0080998539924621582 120 0.0080998539924621582 121 0.0080998539924621582 122 0.0080998539924621582
+		 123 0.0080998539924621582 124 0.0080998539924621582 125 0.0080998539924621582 126 0.0080998539924621582
+		 127 0.0080998539924621582 128 0.0080998539924621582 129 0.0080998539924621582 130 0.0080998539924621582
+		 131 0.0080998539924621582 132 0.0080998539924621582 133 0.0080998539924621582 134 0.0080998539924621582
+		 135 0.0080998539924621582 136 0.0080998539924621582 137 0.0080998539924621582 138 0.0080998539924621582
+		 139 0.0080998539924621582 140 0.0080998539924621582 141 0.0080998539924621582 142 0.0080998539924621582
+		 143 0.0080998539924621582 144 0.0080998539924621582 145 0.0080998539924621582 146 0.0080998539924621582
+		 147 0.0080998539924621582 148 0.0080998539924621582 149 0.0080998539924621582 150 0.0080998539924621582
+		 151 0.0080998539924621582 152 0.0080998539924621582 153 0.0080998539924621582 154 0.0080998539924621582
+		 155 0.0080998539924621582 156 0.0080998539924621582 157 0.0080998539924621582 158 0.0080998539924621582
+		 159 0.0080998539924621582 160 0.0080998539924621582 161 0.0080998539924621582 162 0.0080998539924621582
+		 163 0.0080998539924621582 164 0.0080998539924621582 165 0.0080998539924621582 166 0.0080998539924621582
+		 167 0.0080998539924621582 168 0.0080998539924621582 169 0.0080998539924621582 170 0.0080998539924621582
+		 171 0.0080998539924621582 172 0.0080998539924621582 173 0.0080998539924621582 174 0.0080998539924621582
+		 175 0.0080998539924621582 176 0.0080998539924621582 177 0.0080998539924621582 178 0.0080998539924621582
+		 179 0.0080998539924621582 180 0.0080998539924621582 181 0.0080998539924621582 182 0.0080998539924621582
+		 183 0.0080998539924621582 184 0.0080998539924621582 185 0.0080998539924621582 186 0.0080998539924621582
+		 187 0.0080998539924621582 188 0.0080998539924621582 189 0.0080998539924621582 190 0.0080998539924621582
+		 191 0.0080998539924621582 192 0.0080998539924621582 193 0.0080998539924621582 194 0.0080998539924621582
+		 195 0.0080998539924621582 196 0.0080998539924621582 197 0.0080998539924621582 198 0.0080998539924621582
+		 199 0.0080998539924621582 200 0.0080998539924621582 201 0.0080998539924621582 202 0.0080998539924621582
+		 203 0.0080998539924621582 204 0.0080998539924621582 205 0.0080998539924621582 206 0.0080998539924621582
+		 207 0.0080998539924621582 208 0.0080998539924621582 209 0.0080998539924621582 210 0.0080998539924621582
+		 211 0.0080998539924621582 212 0.0080998539924621582 213 0.0080998539924621582 214 0.0080998539924621582
+		 215 0.0080998539924621582 216 0.0080998539924621582 217 0.0080998539924621582 218 0.0080998539924621582
+		 219 0.0080998539924621582 220 0.0080998539924621582 221 0.0080998539924621582 222 0.0080998539924621582
+		 223 0.0080998539924621582 224 0.0080998539924621582 225 0.0080998539924621582 226 0.0080998539924621582
+		 227 0.0080998539924621582 228 0.0080998539924621582 229 0.0080998539924621582 230 0.0080998539924621582
+		 231 0.0080998539924621582 232 0.0080998539924621582 233 0.0080998539924621582 234 0.0080998539924621582
+		 235 0.0080998539924621582 236 0.0080998539924621582 237 0.0080998539924621582 238 0.0080998539924621582
+		 239 0.0080998539924621582 240 0.0080998539924621582 241 0.0080998539924621582 242 0.0080998539924621582
+		 243 0.0080998539924621582 244 0.0080998539924621582 245 0.0080998539924621582 246 0.0080998539924621582
+		 247 0.0080998539924621582 248 0.0080998539924621582 249 0.0080998539924621582;
+createNode animCurveTL -n "Root_Joint_translateY";
+	rename -uid "53557A22-42B9-A79D-373D-418668E4B2C3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 5.3776172606493189 2 5.3737635966494768
+		 3 5.3627631375953833 4 5.3454566829051844 5 5.3226850319970289 6 5.295288984289062
+		 7 5.2641093391994334 8 5.2299868961462881 9 5.1937624545477759 10 5.1562768138220418
+		 11 5.1183707733872339 12 5.0808851326614999 13 5.0446606910629876 14 5.0105382480098424
+		 15 4.9793586029202137 16 4.9519625552122477 17 4.9291909043040913 18 4.9118844496138925
+		 19 4.900883990559799 20 4.8970303265599568 21 4.9176700222947831 22 4.9736920535750242
+		 23 5.0562508365143284 24 5.1565007872263404 25 5.2655963218247059 26 5.3746918564230715
+		 27 5.4749418071350826 28 5.5575005900743868 29 5.6135226213546288 30 5.6341623170894541
+		 31 5.6081637861618807 32 5.5375963450727514 33 5.4336022213624569 34 5.3073236425713839
+		 35 5.169902836239924 36 5.0324820299084623 37 4.9062034511173893 38 4.8022093274070947
+		 39 4.7316418863179663 40 4.705643355390392 41 4.7326494779718331 42 4.8059518106928882
+		 43 4.9139763010186543 44 5.0451488964142257 45 5.1878955443447028 46 5.330642192275179
+		 47 5.4618147876707512 48 5.5698392779965165 49 5.6431416107175725 50 5.6701477332990136
+		 51 5.6445796197490488 52 5.5751804543991454 53 5.4729080001992854 54 5.3487200200994574
+		 55 5.213574277049644 56 5.0784285339998299 57 4.9542405539000018 58 4.8519680997001426
+		 59 4.7825689343502384 60 4.7570008208002736 61 4.7859402297645044 62 4.8644900540959899
+		 63 4.9802476899529147 64 5.1208105334934659 65 5.2737759808758318 66 5.4267414282581958
+		 67 5.5673042717987471 68 5.6830619076556728 69 5.7616117319871574 70 5.7905511409513881
+		 71 5.7464536541558786 72 5.626760475710924 73 5.4503705285288877 74 5.2361827355221262
+		 75 5.0030960196030065 76 4.770009303683886 77 4.5558215106771245 78 4.3794315634950882
+		 79 4.2597383850501336 80 4.2156408982546241 81 4.2447956387227537 82 4.3239299342791053
+		 83 4.4405488961516237 84 4.5821576355682527 85 4.7362612637569379 86 4.890364891945624
+		 87 5.031973631362253 88 5.1485925932347705 89 5.227726888791123 90 5.2568816292592526
+		 91 5.2501656586805128 92 5.2319365956810762 93 5.2050727133661168 94 5.1724522848408094
+		 95 5.1369535832103272 96 5.1014548815798459 97 5.0688344530545377 98 5.0419705707395783
+		 99 5.0237415077401417 100 5.0170255371614019 101 5.0364364227518603 102 5.0891231122116789
+		 103 5.1667666545735162 104 5.2610480988700319 105 5.3636484941338889 106 5.466248889397745
+		 107 5.5605303336942606 108 5.638173876056098 109 5.6908605655159166 110 5.710271451106375
+		 111 5.6923742402965933 112 5.6437960966700436 113 5.5722072534309195 114 5.4852779437834096
+		 115 5.3906784009317077 116 5.2960788580800084 117 5.2091495484324986 118 5.1375607051933727
+		 119 5.0889825615668247 120 5.071085350757043 121 5.0796682442340266 122 5.1029646693858393
+		 123 5.1372962432937745 124 5.1789845830391243 125 5.2243513057031805 126 5.2697180283672376
+		 127 5.3114063681125874 128 5.3457379420205218 129 5.3690343671723353 130 5.3776172606493189
+		 131 5.3737635966494768 132 5.3627631375953833 133 5.3454566829051844 134 5.3226850319970289
+		 135 5.295288984289062 136 5.2641093391994334 137 5.229986896146289 138 5.1937624545477759
+		 139 5.1562768138220409 140 5.1183707733872339 141 5.0808851326614999 142 5.0446606910629868
+		 143 5.0105382480098424 144 4.9793586029202128 145 4.9519625552122468 146 4.9291909043040913
+		 147 4.9118844496138925 148 4.9008839905597981 149 4.8970303265599568 150 4.9176700222947831
+		 151 4.9736920535750251 152 5.0562508365143284 153 5.1565007872263404 154 5.2655963218247068
+		 155 5.3746918564230706 156 5.4749418071350826 157 5.5575005900743868 158 5.6135226213546279
+		 159 5.6341623170894541 160 5.6081637861618798 161 5.5375963450727523 162 5.4336022213624569
+		 163 5.3073236425713839 164 5.1699028362399249 165 5.0324820299084623 166 4.9062034511173893
+		 167 4.8022093274070956 168 4.7316418863179663 169 4.705643355390392 170 4.7326494779718331
+		 171 4.8059518106928882 172 4.9139763010186552 173 5.0451488964142257 174 5.1878955443447028
+		 175 5.3306421922751799 176 5.4618147876707503 177 5.5698392779965173 178 5.6431416107175725
+		 179 5.6701477332990136 180 5.6445796197490488 181 5.5751804543991437 182 5.4729080001992862
+		 183 5.3487200200994565 184 5.2135742770496423 185 5.0784285339998307 186 4.954240553900001
+		 187 4.8519680997001418 188 4.7825689343502384 189 4.7570008208002736 190 4.7859402297645053
+		 191 4.864490054095989 192 4.9802476899529147 193 5.120810533493465 194 5.2737759808758344
+		 195 5.4267414282581967 196 5.5673042717987471 197 5.6830619076556754 198 5.7616117319871574
+		 199 5.7905511409513881 200 5.7464536541558768 201 5.6267604757109231 202 5.4503705285288886
+		 203 5.2361827355221235 204 5.0030960196030065 205 4.7700093036838886 206 4.5558215106771236
+		 207 4.3794315634950891 208 4.2597383850501354 209 4.2156408982546241 210 4.2447956387227528
+		 211 4.3239299342791027 212 4.4405488961516246 213 4.5821576355682518 214 4.7362612637569352
+		 215 4.8903648919456248 216 5.0319736313622521 217 5.1485925932347696 218 5.2277268887911239
+		 219 5.2568816292592526 220 5.2501656586805128 221 5.2319365956810762 222 5.2050727133661168
+		 223 5.1724522848408094 224 5.1369535832103264 225 5.1014548815798451 226 5.0688344530545377
+		 227 5.0419705707395774 228 5.0237415077401417 229 5.0170255371614019 230 5.0364364227518621
+		 231 5.0891231122116798 232 5.1667666545735154 233 5.2610480988700337 234 5.363648494133888
+		 235 5.4662488893977423 236 5.5605303336942615 237 5.6381738760560971 238 5.6908605655159148
+		 239 5.710271451106375 240 5.7009571337735778 241 5.6756754152988416 242 5.638418145967651
+		 243 5.5931771760654918 244 5.5439443558778478 245 5.4947115356902021 246 5.4494705657880429
+		 247 5.4122132964568532 248 5.3869315779821161 249 5.3776172606493189;
+createNode animCurveTL -n "Root_Joint_translateZ";
+	rename -uid "74CF41C3-4AAC-CDCF-CD6E-67BF62968F70";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1.7724759044073188 2 1.7724759044073188
+		 3 1.7724759044073188 4 1.7724759044073188 5 1.7724759044073188 6 1.7724759044073188
+		 7 1.7724759044073188 8 1.7724759044073188 9 1.7724759044073188 10 1.7724759044073188
+		 11 1.7724759044073188 12 1.7724759044073188 13 1.7724759044073188 14 1.7724759044073188
+		 15 1.7724759044073188 16 1.7724759044073188 17 1.7724759044073188 18 1.7724759044073188
+		 19 1.7724759044073188 20 1.7724759044073188 21 1.7724759044073188 22 1.7724759044073188
+		 23 1.7724759044073188 24 1.7724759044073188 25 1.7724759044073188 26 1.7724759044073188
+		 27 1.7724759044073188 28 1.7724759044073188 29 1.7724759044073188 30 1.7724759044073188
+		 31 1.7724759044073188 32 1.7724759044073188 33 1.7724759044073188 34 1.7724759044073188
+		 35 1.7724759044073188 36 1.7724759044073188 37 1.7724759044073188 38 1.7724759044073188
+		 39 1.7724759044073188 40 1.7724759044073188 41 1.7724759044073188 42 1.7724759044073188
+		 43 1.7724759044073188 44 1.7724759044073188 45 1.7724759044073188 46 1.7724759044073188
+		 47 1.7724759044073188 48 1.7724759044073188 49 1.7724759044073188 50 1.7724759044073188
+		 51 1.7724759044073188 52 1.7724759044073188 53 1.7724759044073188 54 1.7724759044073188
+		 55 1.7724759044073188 56 1.7724759044073188 57 1.7724759044073188 58 1.7724759044073188
+		 59 1.7724759044073188 60 1.7724759044073188 61 1.7724759044073188 62 1.7724759044073188
+		 63 1.7724759044073188 64 1.7724759044073188 65 1.7724759044073188 66 1.7724759044073188
+		 67 1.7724759044073188 68 1.7724759044073188 69 1.7724759044073188 70 1.7724759044073188
+		 71 1.7724759044073188 72 1.7724759044073188 73 1.7724759044073188 74 1.7724759044073188
+		 75 1.7724759044073188 76 1.7724759044073188 77 1.7724759044073188 78 1.7724759044073188
+		 79 1.7724759044073188 80 1.7724759044073188 81 1.7724759044073188 82 1.7724759044073188
+		 83 1.7724759044073188 84 1.7724759044073188 85 1.7724759044073188 86 1.7724759044073188
+		 87 1.7724759044073188 88 1.7724759044073188 89 1.7724759044073188 90 1.7724759044073188
+		 91 1.7724759044073188 92 1.7724759044073188 93 1.7724759044073188 94 1.7724759044073188
+		 95 1.7724759044073188 96 1.7724759044073188 97 1.7724759044073188 98 1.7724759044073188
+		 99 1.7724759044073188 100 1.7724759044073188 101 1.7724759044073188 102 1.7724759044073188
+		 103 1.7724759044073188 104 1.7724759044073188 105 1.7724759044073188 106 1.7724759044073188
+		 107 1.7724759044073188 108 1.7724759044073188 109 1.7724759044073188 110 1.7724759044073188
+		 111 1.7724759044073188 112 1.7724759044073188 113 1.7724759044073188 114 1.7724759044073188
+		 115 1.7724759044073188 116 1.7724759044073188 117 1.7724759044073188 118 1.7724759044073188
+		 119 1.7724759044073188 120 1.7724759044073188 121 1.7724759044073188 122 1.7724759044073188
+		 123 1.7724759044073188 124 1.7724759044073188 125 1.7724759044073188 126 1.7724759044073188
+		 127 1.7724759044073188 128 1.7724759044073188 129 1.7724759044073188 130 1.7724759044073188
+		 131 1.7724759044073188 132 1.7724759044073188 133 1.7724759044073188 134 1.7724759044073188
+		 135 1.7724759044073188 136 1.7724759044073188 137 1.7724759044073188 138 1.7724759044073188
+		 139 1.7724759044073188 140 1.7724759044073188 141 1.7724759044073188 142 1.7724759044073188
+		 143 1.7724759044073188 144 1.7724759044073188 145 1.7724759044073188 146 1.7724759044073188
+		 147 1.7724759044073188 148 1.7724759044073188 149 1.7724759044073188 150 1.7724759044073188
+		 151 1.7724759044073188 152 1.7724759044073188 153 1.7724759044073188 154 1.7724759044073188
+		 155 1.7724759044073188 156 1.7724759044073188 157 1.7724759044073188 158 1.7724759044073188
+		 159 1.7724759044073188 160 1.7724759044073188 161 1.7724759044073188 162 1.7724759044073188
+		 163 1.7724759044073188 164 1.7724759044073188 165 1.7724759044073188 166 1.7724759044073188
+		 167 1.7724759044073188 168 1.7724759044073188 169 1.7724759044073188 170 1.7724759044073188
+		 171 1.7724759044073188 172 1.7724759044073188 173 1.7724759044073188 174 1.7724759044073188
+		 175 1.7724759044073188 176 1.7724759044073188 177 1.7724759044073188 178 1.7724759044073188
+		 179 1.7724759044073188 180 1.7724759044073188 181 1.7724759044073188 182 1.7724759044073188
+		 183 1.7724759044073188 184 1.7724759044073188 185 1.7724759044073188 186 1.7724759044073188
+		 187 1.7724759044073188 188 1.7724759044073188 189 1.7724759044073188 190 1.7724759044073188
+		 191 1.7724759044073188 192 1.7724759044073188 193 1.7724759044073188 194 1.7724759044073188
+		 195 1.7724759044073188 196 1.7724759044073188 197 1.7724759044073188 198 1.7724759044073188
+		 199 1.7724759044073188 200 1.7724759044073188 201 1.7724759044073188 202 1.7724759044073188
+		 203 1.7724759044073188 204 1.7724759044073188 205 1.7724759044073188 206 1.7724759044073188
+		 207 1.7724759044073188 208 1.7724759044073188 209 1.7724759044073188 210 1.7724759044073188
+		 211 1.7724759044073188 212 1.7724759044073188 213 1.7724759044073188 214 1.7724759044073188
+		 215 1.7724759044073188 216 1.7724759044073188 217 1.7724759044073188 218 1.7724759044073188
+		 219 1.7724759044073188 220 1.7724759044073188 221 1.7724759044073188 222 1.7724759044073188
+		 223 1.7724759044073188 224 1.7724759044073188 225 1.7724759044073188 226 1.7724759044073188
+		 227 1.7724759044073188 228 1.7724759044073188 229 1.7724759044073188 230 1.7724759044073188
+		 231 1.7724759044073188 232 1.7724759044073188 233 1.7724759044073188 234 1.7724759044073188
+		 235 1.7724759044073188 236 1.7724759044073188 237 1.7724759044073188 238 1.7724759044073188
+		 239 1.7724759044073188 240 1.7724759044073188 241 1.7724759044073188 242 1.7724759044073188
+		 243 1.7724759044073188 244 1.7724759044073188 245 1.7724759044073188 246 1.7724759044073188
+		 247 1.7724759044073188 248 1.7724759044073188 249 1.7724759044073188;
+createNode animCurveTA -n "Root_Joint_rotateX";
+	rename -uid "DC3E0FB3-4E89-9636-445A-62907DFF5D29";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Root_Joint_rotateY";
+	rename -uid "B8279DFB-4284-BD6C-9BED-5BAB6020D629";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Root_Joint_rotateZ";
+	rename -uid "84E006F3-49D4-C497-70CA-BE9B7166D8BE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "Root_Joint_scaleX";
+	rename -uid "121EB0B1-4595-4CD2-11B3-FC98B3326614";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Root_Joint_scaleY";
+	rename -uid "6EC5EE48-4AA6-2A62-2A18-6B87D3A8D737";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Root_Joint_scaleZ";
+	rename -uid "EF0BE156-4214-8079-9FD3-44804872EC43";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Spine_Joint1_visibility";
+	rename -uid "581015F7-4233-332E-4D2E-5EB38B853E80";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "Spine_Joint1_translateX";
+	rename -uid "9D0C526A-4C34-28C9-679A-9EA92B0C2B16";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1.7260357335163012 2 1.7260357335163012
+		 3 1.7260357335163012 4 1.7260357335163012 5 1.7260357335163012 6 1.7260357335163012
+		 7 1.7260357335163012 8 1.7260357335163012 9 1.7260357335163012 10 1.7260357335163012
+		 11 1.7260357335163012 12 1.7260357335163012 13 1.7260357335163012 14 1.7260357335163012
+		 15 1.7260357335163012 16 1.7260357335163012 17 1.7260357335163012 18 1.7260357335163012
+		 19 1.7260357335163012 20 1.7260357335163012 21 1.7260357335163012 22 1.7260357335163012
+		 23 1.7260357335163012 24 1.7260357335163012 25 1.7260357335163012 26 1.7260357335163012
+		 27 1.7260357335163012 28 1.7260357335163012 29 1.7260357335163012 30 1.7260357335163012
+		 31 1.7260357335163012 32 1.7260357335163012 33 1.7260357335163012 34 1.7260357335163012
+		 35 1.7260357335163012 36 1.7260357335163012 37 1.7260357335163012 38 1.7260357335163012
+		 39 1.7260357335163012 40 1.7260357335163012 41 1.7260357335163012 42 1.7260357335163012
+		 43 1.7260357335163012 44 1.7260357335163012 45 1.7260357335163012 46 1.7260357335163012
+		 47 1.7260357335163012 48 1.7260357335163012 49 1.7260357335163012 50 1.7260357335163012
+		 51 1.7260357335163012 52 1.7260357335163012 53 1.7260357335163012 54 1.7260357335163012
+		 55 1.7260357335163012 56 1.7260357335163012 57 1.7260357335163012 58 1.7260357335163012
+		 59 1.7260357335163012 60 1.7260357335163012 61 1.7260357335163012 62 1.7260357335163012
+		 63 1.7260357335163012 64 1.7260357335163012 65 1.7260357335163012 66 1.7260357335163012
+		 67 1.7260357335163012 68 1.7260357335163012 69 1.7260357335163012 70 1.7260357335163012
+		 71 1.7260357335163012 72 1.7260357335163012 73 1.7260357335163012 74 1.7260357335163012
+		 75 1.7260357335163012 76 1.7260357335163012 77 1.7260357335163012 78 1.7260357335163012
+		 79 1.7260357335163012 80 1.7260357335163012 81 1.7260357335163012 82 1.7260357335163012
+		 83 1.7260357335163012 84 1.7260357335163012 85 1.7260357335163012 86 1.7260357335163012
+		 87 1.7260357335163012 88 1.7260357335163012 89 1.7260357335163012 90 1.7260357335163012
+		 91 1.7260357335163012 92 1.7260357335163012 93 1.7260357335163012 94 1.7260357335163012
+		 95 1.7260357335163012 96 1.7260357335163012 97 1.7260357335163012 98 1.7260357335163012
+		 99 1.7260357335163012 100 1.7260357335163012 101 1.7260357335163012 102 1.7260357335163012
+		 103 1.7260357335163012 104 1.7260357335163012 105 1.7260357335163012 106 1.7260357335163012
+		 107 1.7260357335163012 108 1.7260357335163012 109 1.7260357335163012 110 1.7260357335163012
+		 111 1.7260357335163012 112 1.7260357335163012 113 1.7260357335163012 114 1.7260357335163012
+		 115 1.7260357335163012 116 1.7260357335163012 117 1.7260357335163012 118 1.7260357335163012
+		 119 1.7260357335163012 120 1.7260357335163012 121 1.7260357335163012 122 1.7260357335163012
+		 123 1.7260357335163012 124 1.7260357335163012 125 1.7260357335163012 126 1.7260357335163012
+		 127 1.7260357335163012 128 1.7260357335163012 129 1.7260357335163012 130 1.7260357335163012
+		 131 1.7260357335163012 132 1.7260357335163012 133 1.7260357335163012 134 1.7260357335163012
+		 135 1.7260357335163012 136 1.7260357335163012 137 1.7260357335163012 138 1.7260357335163012
+		 139 1.7260357335163012 140 1.7260357335163012 141 1.7260357335163012 142 1.7260357335163012
+		 143 1.7260357335163012 144 1.7260357335163012 145 1.7260357335163012 146 1.7260357335163012
+		 147 1.7260357335163012 148 1.7260357335163012 149 1.7260357335163012 150 1.7260357335163012
+		 151 1.7260357335163012 152 1.7260357335163012 153 1.7260357335163012 154 1.7260357335163012
+		 155 1.7260357335163012 156 1.7260357335163012 157 1.7260357335163012 158 1.7260357335163012
+		 159 1.7260357335163012 160 1.7260357335163012 161 1.7260357335163012 162 1.7260357335163012
+		 163 1.7260357335163012 164 1.7260357335163012 165 1.7260357335163012 166 1.7260357335163012
+		 167 1.7260357335163012 168 1.7260357335163012 169 1.7260357335163012 170 1.7260357335163012
+		 171 1.7260357335163012 172 1.7260357335163012 173 1.7260357335163012 174 1.7260357335163012
+		 175 1.7260357335163012 176 1.7260357335163012 177 1.7260357335163012 178 1.7260357335163012
+		 179 1.7260357335163012 180 1.7260357335163012 181 1.7260357335163012 182 1.7260357335163012
+		 183 1.7260357335163012 184 1.7260357335163012 185 1.7260357335163012 186 1.7260357335163012
+		 187 1.7260357335163012 188 1.7260357335163012 189 1.7260357335163012 190 1.7260357335163012
+		 191 1.7260357335163012 192 1.7260357335163012 193 1.7260357335163012 194 1.7260357335163012
+		 195 1.7260357335163012 196 1.7260357335163012 197 1.7260357335163012 198 1.7260357335163012
+		 199 1.7260357335163012 200 1.7260357335163012 201 1.7260357335163012 202 1.7260357335163012
+		 203 1.7260357335163012 204 1.7260357335163012 205 1.7260357335163012 206 1.7260357335163012
+		 207 1.7260357335163012 208 1.7260357335163012 209 1.7260357335163012 210 1.7260357335163012
+		 211 1.7260357335163012 212 1.7260357335163012 213 1.7260357335163012 214 1.7260357335163012
+		 215 1.7260357335163012 216 1.7260357335163012 217 1.7260357335163012 218 1.7260357335163012
+		 219 1.7260357335163012 220 1.7260357335163012 221 1.7260357335163012 222 1.7260357335163012
+		 223 1.7260357335163012 224 1.7260357335163012 225 1.7260357335163012 226 1.7260357335163012
+		 227 1.7260357335163012 228 1.7260357335163012 229 1.7260357335163012 230 1.7260357335163012
+		 231 1.7260357335163012 232 1.7260357335163012 233 1.7260357335163012 234 1.7260357335163012
+		 235 1.7260357335163012 236 1.7260357335163012 237 1.7260357335163012 238 1.7260357335163012
+		 239 1.7260357335163012 240 1.7260357335163012 241 1.7260357335163012 242 1.7260357335163012
+		 243 1.7260357335163012 244 1.7260357335163012 245 1.7260357335163012 246 1.7260357335163012
+		 247 1.7260357335163012 248 1.7260357335163012 249 1.7260357335163012;
+createNode animCurveTL -n "Spine_Joint1_translateY";
+	rename -uid "5838FF27-48F7-F676-2BEB-3D84875EFAD2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -0.077486792659545278 2 -0.077486792659545278
+		 3 -0.077486792659545278 4 -0.077486792659545278 5 -0.077486792659545278 6 -0.077486792659545278
+		 7 -0.077486792659545278 8 -0.077486792659545278 9 -0.077486792659545278 10 -0.077486792659545278
+		 11 -0.077486792659545278 12 -0.077486792659545278 13 -0.077486792659545278 14 -0.077486792659545278
+		 15 -0.077486792659545278 16 -0.077486792659545278 17 -0.077486792659545278 18 -0.077486792659545278
+		 19 -0.077486792659545278 20 -0.077486792659545278 21 -0.077486792659545278 22 -0.077486792659545278
+		 23 -0.077486792659545278 24 -0.077486792659545278 25 -0.077486792659545278 26 -0.077486792659545278
+		 27 -0.077486792659545278 28 -0.077486792659545278 29 -0.077486792659545278 30 -0.077486792659545278
+		 31 -0.077486792659545278 32 -0.077486792659545278 33 -0.077486792659545278 34 -0.077486792659545278
+		 35 -0.077486792659545278 36 -0.077486792659545278 37 -0.077486792659545278 38 -0.077486792659545278
+		 39 -0.077486792659545278 40 -0.077486792659545278 41 -0.077486792659545278 42 -0.077486792659545278
+		 43 -0.077486792659545278 44 -0.077486792659545278 45 -0.077486792659545278 46 -0.077486792659545278
+		 47 -0.077486792659545278 48 -0.077486792659545278 49 -0.077486792659545278 50 -0.077486792659545278
+		 51 -0.077486792659545278 52 -0.077486792659545278 53 -0.077486792659545278 54 -0.077486792659545278
+		 55 -0.077486792659545278 56 -0.077486792659545278 57 -0.077486792659545278 58 -0.077486792659545278
+		 59 -0.077486792659545278 60 -0.077486792659545278 61 -0.077486792659545278 62 -0.077486792659545278
+		 63 -0.077486792659545278 64 -0.077486792659545278 65 -0.077486792659545278 66 -0.077486792659545278
+		 67 -0.077486792659545278 68 -0.077486792659545278 69 -0.077486792659545278 70 -0.077486792659545278
+		 71 -0.077486792659545278 72 -0.077486792659545278 73 -0.077486792659545278 74 -0.077486792659545278
+		 75 -0.077486792659545278 76 -0.077486792659545278 77 -0.077486792659545278 78 -0.077486792659545278
+		 79 -0.077486792659545278 80 -0.077486792659545278 81 -0.077486792659545278 82 -0.077486792659545278
+		 83 -0.077486792659545278 84 -0.077486792659545278 85 -0.077486792659545278 86 -0.077486792659545278
+		 87 -0.077486792659545278 88 -0.077486792659545278 89 -0.077486792659545278 90 -0.077486792659545278
+		 91 -0.077486792659545278 92 -0.077486792659545278 93 -0.077486792659545278 94 -0.077486792659545278
+		 95 -0.077486792659545278 96 -0.077486792659545278 97 -0.077486792659545278 98 -0.077486792659545278
+		 99 -0.077486792659545278 100 -0.077486792659545278 101 -0.077486792659545278 102 -0.077486792659545278
+		 103 -0.077486792659545278 104 -0.077486792659545278 105 -0.077486792659545278 106 -0.077486792659545278
+		 107 -0.077486792659545278 108 -0.077486792659545278 109 -0.077486792659545278 110 -0.077486792659545278
+		 111 -0.077486792659545278 112 -0.077486792659545278 113 -0.077486792659545278 114 -0.077486792659545278
+		 115 -0.077486792659545278 116 -0.077486792659545278 117 -0.077486792659545278 118 -0.077486792659545278
+		 119 -0.077486792659545278 120 -0.077486792659545278 121 -0.077486792659545278 122 -0.077486792659545278
+		 123 -0.077486792659545278 124 -0.077486792659545278 125 -0.077486792659545278 126 -0.077486792659545278
+		 127 -0.077486792659545278 128 -0.077486792659545278 129 -0.077486792659545278 130 -0.077486792659545278
+		 131 -0.077486792659545278 132 -0.077486792659545278 133 -0.077486792659545278 134 -0.077486792659545278
+		 135 -0.077486792659545278 136 -0.077486792659545278 137 -0.077486792659545278 138 -0.077486792659545278
+		 139 -0.077486792659545278 140 -0.077486792659545278 141 -0.077486792659545278 142 -0.077486792659545278
+		 143 -0.077486792659545278 144 -0.077486792659545278 145 -0.077486792659545278 146 -0.077486792659545278
+		 147 -0.077486792659545278 148 -0.077486792659545278 149 -0.077486792659545278 150 -0.077486792659545278
+		 151 -0.077486792659545278 152 -0.077486792659545278 153 -0.077486792659545278 154 -0.077486792659545278
+		 155 -0.077486792659545278 156 -0.077486792659545278 157 -0.077486792659545278 158 -0.077486792659545278
+		 159 -0.077486792659545278 160 -0.077486792659545278 161 -0.077486792659545278 162 -0.077486792659545278
+		 163 -0.077486792659545278 164 -0.077486792659545278 165 -0.077486792659545278 166 -0.077486792659545278
+		 167 -0.077486792659545278 168 -0.077486792659545278 169 -0.077486792659545278 170 -0.077486792659545278
+		 171 -0.077486792659545278 172 -0.077486792659545278 173 -0.077486792659545278 174 -0.077486792659545278
+		 175 -0.077486792659545278 176 -0.077486792659545278 177 -0.077486792659545278 178 -0.077486792659545278
+		 179 -0.077486792659545278 180 -0.077486792659545278 181 -0.077486792659545278 182 -0.077486792659545278
+		 183 -0.077486792659545278 184 -0.077486792659545278 185 -0.077486792659545278 186 -0.077486792659545278
+		 187 -0.077486792659545278 188 -0.077486792659545278 189 -0.077486792659545278 190 -0.077486792659545278
+		 191 -0.077486792659545278 192 -0.077486792659545278 193 -0.077486792659545278 194 -0.077486792659545278
+		 195 -0.077486792659545278 196 -0.077486792659545278 197 -0.077486792659545278 198 -0.077486792659545278
+		 199 -0.077486792659545278 200 -0.077486792659545278 201 -0.077486792659545278 202 -0.077486792659545278
+		 203 -0.077486792659545278 204 -0.077486792659545278 205 -0.077486792659545278 206 -0.077486792659545278
+		 207 -0.077486792659545278 208 -0.077486792659545278 209 -0.077486792659545278 210 -0.077486792659545278
+		 211 -0.077486792659545278 212 -0.077486792659545278 213 -0.077486792659545278 214 -0.077486792659545278
+		 215 -0.077486792659545278 216 -0.077486792659545278 217 -0.077486792659545278 218 -0.077486792659545278
+		 219 -0.077486792659545278 220 -0.077486792659545278 221 -0.077486792659545278 222 -0.077486792659545278
+		 223 -0.077486792659545278 224 -0.077486792659545278 225 -0.077486792659545278 226 -0.077486792659545278
+		 227 -0.077486792659545278 228 -0.077486792659545278 229 -0.077486792659545278 230 -0.077486792659545278
+		 231 -0.077486792659545278 232 -0.077486792659545278 233 -0.077486792659545278 234 -0.077486792659545278
+		 235 -0.077486792659545278 236 -0.077486792659545278 237 -0.077486792659545278 238 -0.077486792659545278
+		 239 -0.077486792659545278 240 -0.077486792659545278 241 -0.077486792659545278 242 -0.077486792659545278
+		 243 -0.077486792659545278 244 -0.077486792659545278 245 -0.077486792659545278 246 -0.077486792659545278
+		 247 -0.077486792659545278 248 -0.077486792659545278 249 -0.077486792659545278;
+createNode animCurveTL -n "Spine_Joint1_translateZ";
+	rename -uid "D5E1D2A9-4E0A-CB9C-81FF-7ABCC6DAED3C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -7.3276751327005764e-16 2 -7.3276751327005764e-16
+		 3 -7.3276751327005764e-16 4 -7.3276751327005764e-16 5 -7.3276751327005764e-16 6 -7.3276751327005764e-16
+		 7 -7.3276751327005764e-16 8 -7.3276751327005764e-16 9 -7.3276751327005764e-16 10 -7.3276751327005764e-16
+		 11 -7.3276751327005764e-16 12 -7.3276751327005764e-16 13 -7.3276751327005764e-16
+		 14 -7.3276751327005764e-16 15 -7.3276751327005764e-16 16 -7.3276751327005764e-16
+		 17 -7.3276751327005764e-16 18 -7.3276751327005764e-16 19 -7.3276751327005764e-16
+		 20 -7.3276751327005764e-16 21 -7.3276751327005764e-16 22 -7.3276751327005764e-16
+		 23 -7.3276751327005764e-16 24 -7.3276751327005764e-16 25 -7.3276751327005764e-16
+		 26 -7.3276751327005764e-16 27 -7.3276751327005764e-16 28 -7.3276751327005764e-16
+		 29 -7.3276751327005764e-16 30 -7.3276751327005764e-16 31 -7.3276751327005764e-16
+		 32 -7.3276751327005764e-16 33 -7.3276751327005764e-16 34 -7.3276751327005764e-16
+		 35 -7.3276751327005764e-16 36 -7.3276751327005764e-16 37 -7.3276751327005764e-16
+		 38 -7.3276751327005764e-16 39 -7.3276751327005764e-16 40 -7.3276751327005764e-16
+		 41 -7.3276751327005764e-16 42 -7.3276751327005764e-16 43 -7.3276751327005764e-16
+		 44 -7.3276751327005764e-16 45 -7.3276751327005764e-16 46 -7.3276751327005764e-16
+		 47 -7.3276751327005764e-16 48 -7.3276751327005764e-16 49 -7.3276751327005764e-16
+		 50 -7.3276751327005764e-16 51 -7.3276751327005764e-16 52 -7.3276751327005764e-16
+		 53 -7.3276751327005764e-16 54 -7.3276751327005764e-16 55 -7.3276751327005764e-16
+		 56 -7.3276751327005764e-16 57 -7.3276751327005764e-16 58 -7.3276751327005764e-16
+		 59 -7.3276751327005764e-16 60 -7.3276751327005764e-16 61 -7.3276751327005764e-16
+		 62 -7.3276751327005764e-16 63 -7.3276751327005764e-16 64 -7.3276751327005764e-16
+		 65 -7.3276751327005764e-16 66 -7.3276751327005764e-16 67 -7.3276751327005764e-16
+		 68 -7.3276751327005764e-16 69 -7.3276751327005764e-16 70 -7.3276751327005764e-16
+		 71 -7.3276751327005764e-16 72 -7.3276751327005764e-16 73 -7.3276751327005764e-16
+		 74 -7.3276751327005764e-16 75 -7.3276751327005764e-16 76 -7.3276751327005764e-16
+		 77 -7.3276751327005764e-16 78 -7.3276751327005764e-16 79 -7.3276751327005764e-16
+		 80 -7.3276751327005764e-16 81 -7.3276751327005764e-16 82 -7.3276751327005764e-16
+		 83 -7.3276751327005764e-16 84 -7.3276751327005764e-16 85 -7.3276751327005764e-16
+		 86 -7.3276751327005764e-16 87 -7.3276751327005764e-16 88 -7.3276751327005764e-16
+		 89 -7.3276751327005764e-16 90 -7.3276751327005764e-16 91 -7.3276751327005764e-16
+		 92 -7.3276751327005764e-16 93 -7.3276751327005764e-16 94 -7.3276751327005764e-16
+		 95 -7.3276751327005764e-16 96 -7.3276751327005764e-16 97 -7.3276751327005764e-16
+		 98 -7.3276751327005764e-16 99 -7.3276751327005764e-16 100 -7.3276751327005764e-16
+		 101 -7.3276751327005764e-16 102 -7.3276751327005764e-16 103 -7.3276751327005764e-16
+		 104 -7.3276751327005764e-16 105 -7.3276751327005764e-16 106 -7.3276751327005764e-16
+		 107 -7.3276751327005764e-16 108 -7.3276751327005764e-16 109 -7.3276751327005764e-16
+		 110 -7.3276751327005764e-16 111 -7.3276751327005764e-16 112 -7.3276751327005764e-16
+		 113 -7.3276751327005764e-16 114 -7.3276751327005764e-16 115 -7.3276751327005764e-16
+		 116 -7.3276751327005764e-16 117 -7.3276751327005764e-16 118 -7.3276751327005764e-16
+		 119 -7.3276751327005764e-16 120 -7.3276751327005764e-16 121 -7.3276751327005764e-16
+		 122 -7.3276751327005764e-16 123 -7.3276751327005764e-16 124 -7.3276751327005764e-16
+		 125 -7.3276751327005764e-16 126 -7.3276751327005764e-16 127 -7.3276751327005764e-16
+		 128 -7.3276751327005764e-16 129 -7.3276751327005764e-16 130 -7.3276751327005764e-16
+		 131 -7.3276751327005764e-16 132 -7.3276751327005764e-16 133 -7.3276751327005764e-16
+		 134 -7.3276751327005764e-16 135 -7.3276751327005764e-16 136 -7.3276751327005764e-16
+		 137 -7.3276751327005764e-16 138 -7.3276751327005764e-16 139 -7.3276751327005764e-16
+		 140 -7.3276751327005764e-16 141 -7.3276751327005764e-16 142 -7.3276751327005764e-16
+		 143 -7.3276751327005764e-16 144 -7.3276751327005764e-16 145 -7.3276751327005764e-16
+		 146 -7.3276751327005764e-16 147 -7.3276751327005764e-16 148 -7.3276751327005764e-16
+		 149 -7.3276751327005764e-16 150 -7.3276751327005764e-16 151 -7.3276751327005764e-16
+		 152 -7.3276751327005764e-16 153 -7.3276751327005764e-16 154 -7.3276751327005764e-16
+		 155 -7.3276751327005764e-16 156 -7.3276751327005764e-16 157 -7.3276751327005764e-16
+		 158 -7.3276751327005764e-16 159 -7.3276751327005764e-16 160 -7.3276751327005764e-16
+		 161 -7.3276751327005764e-16 162 -7.3276751327005764e-16 163 -7.3276751327005764e-16
+		 164 -7.3276751327005764e-16 165 -7.3276751327005764e-16 166 -7.3276751327005764e-16
+		 167 -7.3276751327005764e-16 168 -7.3276751327005764e-16 169 -7.3276751327005764e-16
+		 170 -7.3276751327005764e-16 171 -7.3276751327005764e-16 172 -7.3276751327005764e-16
+		 173 -7.3276751327005764e-16 174 -7.3276751327005764e-16 175 -7.3276751327005764e-16
+		 176 -7.3276751327005764e-16 177 -7.3276751327005764e-16 178 -7.3276751327005764e-16
+		 179 -7.3276751327005764e-16 180 -7.3276751327005764e-16 181 -7.3276751327005764e-16
+		 182 -7.3276751327005764e-16 183 -7.3276751327005764e-16 184 -7.3276751327005764e-16
+		 185 -7.3276751327005764e-16 186 -7.3276751327005764e-16 187 -7.3276751327005764e-16
+		 188 -7.3276751327005764e-16 189 -7.3276751327005764e-16 190 -7.3276751327005764e-16
+		 191 -7.3276751327005764e-16 192 -7.3276751327005764e-16 193 -7.3276751327005764e-16
+		 194 -7.3276751327005764e-16 195 -7.3276751327005764e-16 196 -7.3276751327005764e-16
+		 197 -7.3276751327005764e-16 198 -7.3276751327005764e-16 199 -7.3276751327005764e-16
+		 200 -7.3276751327005764e-16 201 -7.3276751327005764e-16 202 -7.3276751327005764e-16
+		 203 -7.3276751327005764e-16 204 -7.3276751327005764e-16 205 -7.3276751327005764e-16
+		 206 -7.3276751327005764e-16 207 -7.3276751327005764e-16 208 -7.3276751327005764e-16
+		 209 -7.3276751327005764e-16 210 -7.3276751327005764e-16 211 -7.3276751327005764e-16
+		 212 -7.3276751327005764e-16 213 -7.3276751327005764e-16 214 -7.3276751327005764e-16
+		 215 -7.3276751327005764e-16 216 -7.3276751327005764e-16 217 -7.3276751327005764e-16
+		 218 -7.3276751327005764e-16 219 -7.3276751327005764e-16 220 -7.3276751327005764e-16
+		 221 -7.3276751327005764e-16 222 -7.3276751327005764e-16 223 -7.3276751327005764e-16
+		 224 -7.3276751327005764e-16 225 -7.3276751327005764e-16 226 -7.3276751327005764e-16
+		 227 -7.3276751327005764e-16 228 -7.3276751327005764e-16 229 -7.3276751327005764e-16
+		 230 -7.3276751327005764e-16 231 -7.3276751327005764e-16 232 -7.3276751327005764e-16
+		 233 -7.3276751327005764e-16 234 -7.3276751327005764e-16 235 -7.3276751327005764e-16
+		 236 -7.3276751327005764e-16 237 -7.3276751327005764e-16 238 -7.3276751327005764e-16
+		 239 -7.3276751327005764e-16 240 -7.3276751327005764e-16 241 -7.3276751327005764e-16
+		 242 -7.3276751327005764e-16 243 -7.3276751327005764e-16 244 -7.3276751327005764e-16
+		 245 -7.3276751327005764e-16 246 -7.3276751327005764e-16 247 -7.3276751327005764e-16
+		 248 -7.3276751327005764e-16 249 -7.3276751327005764e-16;
+createNode animCurveTA -n "Spine_Joint1_rotateX";
+	rename -uid "44E49ECC-4690-6CD1-51D3-7984455DC404";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Spine_Joint1_rotateY";
+	rename -uid "2FC4E82B-4B4B-0BB7-5E60-95B9DAD4AE39";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Spine_Joint1_rotateZ";
+	rename -uid "56588423-4916-4CC1-A612-7994214B08CE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "Spine_Joint1_scaleX";
+	rename -uid "6E2C4D91-4E4A-1E4E-43C6-52A27572D581";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Spine_Joint1_scaleY";
+	rename -uid "96E549BC-4E09-0D8F-434E-D885F2C11A15";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Spine_Joint1_scaleZ";
+	rename -uid "E1A86A57-4519-577B-9750-01B376A30066";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "L_Hip_Joint_visibility";
+	rename -uid "67958C31-413B-7428-5702-20BF124BEFD4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "L_Hip_Joint_translateX";
+	rename -uid "837FF71A-4F72-AA06-0684-B690F17CC0A5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -0.12907105564431554 2 -0.12907105564431554
+		 3 -0.12907105564431554 4 -0.12907105564431554 5 -0.12907105564431554 6 -0.12907105564431554
+		 7 -0.12907105564431554 8 -0.12907105564431554 9 -0.12907105564431554 10 -0.12907105564431554
+		 11 -0.12907105564431554 12 -0.12907105564431554 13 -0.12907105564431554 14 -0.12907105564431554
+		 15 -0.12907105564431554 16 -0.12907105564431554 17 -0.12907105564431554 18 -0.12907105564431554
+		 19 -0.12907105564431554 20 -0.12907105564431554 21 -0.12907105564431554 22 -0.12907105564431554
+		 23 -0.12907105564431554 24 -0.12907105564431554 25 -0.12907105564431554 26 -0.12907105564431554
+		 27 -0.12907105564431554 28 -0.12907105564431554 29 -0.12907105564431554 30 -0.12907105564431554
+		 31 -0.12907105564431554 32 -0.12907105564431554 33 -0.12907105564431554 34 -0.12907105564431554
+		 35 -0.12907105564431554 36 -0.12907105564431554 37 -0.12907105564431554 38 -0.12907105564431554
+		 39 -0.12907105564431554 40 -0.12907105564431554 41 -0.12907105564431554 42 -0.12907105564431554
+		 43 -0.12907105564431554 44 -0.12907105564431554 45 -0.12907105564431554 46 -0.12907105564431554
+		 47 -0.12907105564431554 48 -0.12907105564431554 49 -0.12907105564431554 50 -0.12907105564431554
+		 51 -0.12907105564431554 52 -0.12907105564431554 53 -0.12907105564431554 54 -0.12907105564431554
+		 55 -0.12907105564431554 56 -0.12907105564431554 57 -0.12907105564431554 58 -0.12907105564431554
+		 59 -0.12907105564431554 60 -0.12907105564431554 61 -0.12907105564431554 62 -0.12907105564431554
+		 63 -0.12907105564431554 64 -0.12907105564431554 65 -0.12907105564431554 66 -0.12907105564431554
+		 67 -0.12907105564431554 68 -0.12907105564431554 69 -0.12907105564431554 70 -0.12907105564431554
+		 71 -0.12907105564431554 72 -0.12907105564431554 73 -0.12907105564431554 74 -0.12907105564431554
+		 75 -0.12907105564431554 76 -0.12907105564431554 77 -0.12907105564431554 78 -0.12907105564431554
+		 79 -0.12907105564431554 80 -0.12907105564431554 81 -0.12907105564431554 82 -0.12907105564431554
+		 83 -0.12907105564431554 84 -0.12907105564431554 85 -0.12907105564431554 86 -0.12907105564431554
+		 87 -0.12907105564431554 88 -0.12907105564431554 89 -0.12907105564431554 90 -0.12907105564431554
+		 91 -0.12907105564431554 92 -0.12907105564431554 93 -0.12907105564431554 94 -0.12907105564431554
+		 95 -0.12907105564431554 96 -0.12907105564431554 97 -0.12907105564431554 98 -0.12907105564431554
+		 99 -0.12907105564431554 100 -0.12907105564431554 101 -0.12907105564431554 102 -0.12907105564431554
+		 103 -0.12907105564431554 104 -0.12907105564431554 105 -0.12907105564431554 106 -0.12907105564431554
+		 107 -0.12907105564431554 108 -0.12907105564431554 109 -0.12907105564431554 110 -0.12907105564431554
+		 111 -0.12907105564431554 112 -0.12907105564431554 113 -0.12907105564431554 114 -0.12907105564431554
+		 115 -0.12907105564431554 116 -0.12907105564431554 117 -0.12907105564431554 118 -0.12907105564431554
+		 119 -0.12907105564431554 120 -0.12907105564431554 121 -0.12907105564431554 122 -0.12907105564431554
+		 123 -0.12907105564431554 124 -0.12907105564431554 125 -0.12907105564431554 126 -0.12907105564431554
+		 127 -0.12907105564431554 128 -0.12907105564431554 129 -0.12907105564431554 130 -0.12907105564431554
+		 131 -0.12907105564431554 132 -0.12907105564431554 133 -0.12907105564431554 134 -0.12907105564431554
+		 135 -0.12907105564431554 136 -0.12907105564431554 137 -0.12907105564431554 138 -0.12907105564431554
+		 139 -0.12907105564431554 140 -0.12907105564431554 141 -0.12907105564431554 142 -0.12907105564431554
+		 143 -0.12907105564431554 144 -0.12907105564431554 145 -0.12907105564431554 146 -0.12907105564431554
+		 147 -0.12907105564431554 148 -0.12907105564431554 149 -0.12907105564431554 150 -0.12907105564431554
+		 151 -0.12907105564431554 152 -0.12907105564431554 153 -0.12907105564431554 154 -0.12907105564431554
+		 155 -0.12907105564431554 156 -0.12907105564431554 157 -0.12907105564431554 158 -0.12907105564431554
+		 159 -0.12907105564431554 160 -0.12907105564431554 161 -0.12907105564431554 162 -0.12907105564431554
+		 163 -0.12907105564431554 164 -0.12907105564431554 165 -0.12907105564431554 166 -0.12907105564431554
+		 167 -0.12907105564431554 168 -0.12907105564431554 169 -0.12907105564431554 170 -0.12907105564431554
+		 171 -0.12907105564431554 172 -0.12907105564431554 173 -0.12907105564431554 174 -0.12907105564431554
+		 175 -0.12907105564431554 176 -0.12907105564431554 177 -0.12907105564431554 178 -0.12907105564431554
+		 179 -0.12907105564431554 180 -0.12907105564431554 181 -0.12907105564431554 182 -0.12907105564431554
+		 183 -0.12907105564431554 184 -0.12907105564431554 185 -0.12907105564431554 186 -0.12907105564431554
+		 187 -0.12907105564431554 188 -0.12907105564431554 189 -0.12907105564431554 190 -0.12907105564431554
+		 191 -0.12907105564431554 192 -0.12907105564431554 193 -0.12907105564431554 194 -0.12907105564431554
+		 195 -0.12907105564431554 196 -0.12907105564431554 197 -0.12907105564431554 198 -0.12907105564431554
+		 199 -0.12907105564431554 200 -0.12907105564431554 201 -0.12907105564431554 202 -0.12907105564431554
+		 203 -0.12907105564431554 204 -0.12907105564431554 205 -0.12907105564431554 206 -0.12907105564431554
+		 207 -0.12907105564431554 208 -0.12907105564431554 209 -0.12907105564431554 210 -0.12907105564431554
+		 211 -0.12907105564431554 212 -0.12907105564431554 213 -0.12907105564431554 214 -0.12907105564431554
+		 215 -0.12907105564431554 216 -0.12907105564431554 217 -0.12907105564431554 218 -0.12907105564431554
+		 219 -0.12907105564431554 220 -0.12907105564431554 221 -0.12907105564431554 222 -0.12907105564431554
+		 223 -0.12907105564431554 224 -0.12907105564431554 225 -0.12907105564431554 226 -0.12907105564431554
+		 227 -0.12907105564431554 228 -0.12907105564431554 229 -0.12907105564431554 230 -0.12907105564431554
+		 231 -0.12907105564431554 232 -0.12907105564431554 233 -0.12907105564431554 234 -0.12907105564431554
+		 235 -0.12907105564431554 236 -0.12907105564431554 237 -0.12907105564431554 238 -0.12907105564431554
+		 239 -0.12907105564431554 240 -0.12907105564431554 241 -0.12907105564431554 242 -0.12907105564431554
+		 243 -0.12907105564431554 244 -0.12907105564431554 245 -0.12907105564431554 246 -0.12907105564431554
+		 247 -0.12907105564431554 248 -0.12907105564431554 249 -0.12907105564431554;
+createNode animCurveTL -n "L_Hip_Joint_translateY";
+	rename -uid "41DF2BB8-4E3A-A509-2867-A9BCFD48FAA9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -0.59676070664681202 2 -0.59676070664681202
+		 3 -0.59676070664681202 4 -0.59676070664681202 5 -0.59676070664681202 6 -0.59676070664681202
+		 7 -0.59676070664681202 8 -0.59676070664681202 9 -0.59676070664681202 10 -0.59676070664681202
+		 11 -0.59676070664681202 12 -0.59676070664681202 13 -0.59676070664681202 14 -0.59676070664681202
+		 15 -0.59676070664681202 16 -0.59676070664681202 17 -0.59676070664681202 18 -0.59676070664681202
+		 19 -0.59676070664681202 20 -0.59676070664681202 21 -0.59676070664681202 22 -0.59676070664681202
+		 23 -0.59676070664681202 24 -0.59676070664681202 25 -0.59676070664681202 26 -0.59676070664681202
+		 27 -0.59676070664681202 28 -0.59676070664681202 29 -0.59676070664681202 30 -0.59676070664681202
+		 31 -0.59676070664681202 32 -0.59676070664681202 33 -0.59676070664681202 34 -0.59676070664681202
+		 35 -0.59676070664681202 36 -0.59676070664681202 37 -0.59676070664681202 38 -0.59676070664681202
+		 39 -0.59676070664681202 40 -0.59676070664681202 41 -0.59676070664681202 42 -0.59676070664681202
+		 43 -0.59676070664681202 44 -0.59676070664681202 45 -0.59676070664681202 46 -0.59676070664681202
+		 47 -0.59676070664681202 48 -0.59676070664681202 49 -0.59676070664681202 50 -0.59676070664681202
+		 51 -0.59676070664681202 52 -0.59676070664681202 53 -0.59676070664681202 54 -0.59676070664681202
+		 55 -0.59676070664681202 56 -0.59676070664681202 57 -0.59676070664681202 58 -0.59676070664681202
+		 59 -0.59676070664681202 60 -0.59676070664681202 61 -0.59676070664681202 62 -0.59676070664681202
+		 63 -0.59676070664681202 64 -0.59676070664681202 65 -0.59676070664681202 66 -0.59676070664681202
+		 67 -0.59676070664681202 68 -0.59676070664681202 69 -0.59676070664681202 70 -0.59676070664681202
+		 71 -0.59676070664681202 72 -0.59676070664681202 73 -0.59676070664681202 74 -0.59676070664681202
+		 75 -0.59676070664681202 76 -0.59676070664681202 77 -0.59676070664681202 78 -0.59676070664681202
+		 79 -0.59676070664681202 80 -0.59676070664681202 81 -0.59676070664681202 82 -0.59676070664681202
+		 83 -0.59676070664681202 84 -0.59676070664681202 85 -0.59676070664681202 86 -0.59676070664681202
+		 87 -0.59676070664681202 88 -0.59676070664681202 89 -0.59676070664681202 90 -0.59676070664681202
+		 91 -0.59676070664681202 92 -0.59676070664681202 93 -0.59676070664681202 94 -0.59676070664681202
+		 95 -0.59676070664681202 96 -0.59676070664681202 97 -0.59676070664681202 98 -0.59676070664681202
+		 99 -0.59676070664681202 100 -0.59676070664681202 101 -0.59676070664681202 102 -0.59676070664681202
+		 103 -0.59676070664681202 104 -0.59676070664681202 105 -0.59676070664681202 106 -0.59676070664681202
+		 107 -0.59676070664681202 108 -0.59676070664681202 109 -0.59676070664681202 110 -0.59676070664681202
+		 111 -0.59676070664681202 112 -0.59676070664681202 113 -0.59676070664681202 114 -0.59676070664681202
+		 115 -0.59676070664681202 116 -0.59676070664681202 117 -0.59676070664681202 118 -0.59676070664681202
+		 119 -0.59676070664681202 120 -0.59676070664681202 121 -0.59676070664681202 122 -0.59676070664681202
+		 123 -0.59676070664681202 124 -0.59676070664681202 125 -0.59676070664681202 126 -0.59676070664681202
+		 127 -0.59676070664681202 128 -0.59676070664681202 129 -0.59676070664681202 130 -0.59676070664681202
+		 131 -0.59676070664681202 132 -0.59676070664681202 133 -0.59676070664681202 134 -0.59676070664681202
+		 135 -0.59676070664681202 136 -0.59676070664681202 137 -0.59676070664681202 138 -0.59676070664681202
+		 139 -0.59676070664681202 140 -0.59676070664681202 141 -0.59676070664681202 142 -0.59676070664681202
+		 143 -0.59676070664681202 144 -0.59676070664681202 145 -0.59676070664681202 146 -0.59676070664681202
+		 147 -0.59676070664681202 148 -0.59676070664681202 149 -0.59676070664681202 150 -0.59676070664681202
+		 151 -0.59676070664681202 152 -0.59676070664681202 153 -0.59676070664681202 154 -0.59676070664681202
+		 155 -0.59676070664681202 156 -0.59676070664681202 157 -0.59676070664681202 158 -0.59676070664681202
+		 159 -0.59676070664681202 160 -0.59676070664681202 161 -0.59676070664681202 162 -0.59676070664681202
+		 163 -0.59676070664681202 164 -0.59676070664681202 165 -0.59676070664681202 166 -0.59676070664681202
+		 167 -0.59676070664681202 168 -0.59676070664681202 169 -0.59676070664681202 170 -0.59676070664681202
+		 171 -0.59676070664681202 172 -0.59676070664681202 173 -0.59676070664681202 174 -0.59676070664681202
+		 175 -0.59676070664681202 176 -0.59676070664681202 177 -0.59676070664681202 178 -0.59676070664681202
+		 179 -0.59676070664681202 180 -0.59676070664681202 181 -0.59676070664681202 182 -0.59676070664681202
+		 183 -0.59676070664681202 184 -0.59676070664681202 185 -0.59676070664681202 186 -0.59676070664681202
+		 187 -0.59676070664681202 188 -0.59676070664681202 189 -0.59676070664681202 190 -0.59676070664681202
+		 191 -0.59676070664681202 192 -0.59676070664681202 193 -0.59676070664681202 194 -0.59676070664681202
+		 195 -0.59676070664681202 196 -0.59676070664681202 197 -0.59676070664681202 198 -0.59676070664681202
+		 199 -0.59676070664681202 200 -0.59676070664681202 201 -0.59676070664681202 202 -0.59676070664681202
+		 203 -0.59676070664681202 204 -0.59676070664681202 205 -0.59676070664681202 206 -0.59676070664681202
+		 207 -0.59676070664681202 208 -0.59676070664681202 209 -0.59676070664681202 210 -0.59676070664681202
+		 211 -0.59676070664681202 212 -0.59676070664681202 213 -0.59676070664681202 214 -0.59676070664681202
+		 215 -0.59676070664681202 216 -0.59676070664681202 217 -0.59676070664681202 218 -0.59676070664681202
+		 219 -0.59676070664681202 220 -0.59676070664681202 221 -0.59676070664681202 222 -0.59676070664681202
+		 223 -0.59676070664681202 224 -0.59676070664681202 225 -0.59676070664681202 226 -0.59676070664681202
+		 227 -0.59676070664681202 228 -0.59676070664681202 229 -0.59676070664681202 230 -0.59676070664681202
+		 231 -0.59676070664681202 232 -0.59676070664681202 233 -0.59676070664681202 234 -0.59676070664681202
+		 235 -0.59676070664681202 236 -0.59676070664681202 237 -0.59676070664681202 238 -0.59676070664681202
+		 239 -0.59676070664681202 240 -0.59676070664681202 241 -0.59676070664681202 242 -0.59676070664681202
+		 243 -0.59676070664681202 244 -0.59676070664681202 245 -0.59676070664681202 246 -0.59676070664681202
+		 247 -0.59676070664681202 248 -0.59676070664681202 249 -0.59676070664681202;
+createNode animCurveTL -n "L_Hip_Joint_translateZ";
+	rename -uid "1D6D2DA0-4ECB-D8A8-BBBB-A096070CE4DD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1.0493240204595571 2 1.0493240204595571
+		 3 1.0493240204595571 4 1.0493240204595571 5 1.0493240204595571 6 1.0493240204595571
+		 7 1.0493240204595571 8 1.0493240204595571 9 1.0493240204595571 10 1.0493240204595571
+		 11 1.0493240204595571 12 1.0493240204595571 13 1.0493240204595571 14 1.0493240204595571
+		 15 1.0493240204595571 16 1.0493240204595571 17 1.0493240204595571 18 1.0493240204595571
+		 19 1.0493240204595571 20 1.0493240204595571 21 1.0493240204595571 22 1.0493240204595571
+		 23 1.0493240204595571 24 1.0493240204595571 25 1.0493240204595571 26 1.0493240204595571
+		 27 1.0493240204595571 28 1.0493240204595571 29 1.0493240204595571 30 1.0493240204595571
+		 31 1.0493240204595571 32 1.0493240204595571 33 1.0493240204595571 34 1.0493240204595571
+		 35 1.0493240204595571 36 1.0493240204595571 37 1.0493240204595571 38 1.0493240204595571
+		 39 1.0493240204595571 40 1.0493240204595571 41 1.0493240204595571 42 1.0493240204595571
+		 43 1.0493240204595571 44 1.0493240204595571 45 1.0493240204595571 46 1.0493240204595571
+		 47 1.0493240204595571 48 1.0493240204595571 49 1.0493240204595571 50 1.0493240204595571
+		 51 1.0493240204595571 52 1.0493240204595571 53 1.0493240204595571 54 1.0493240204595571
+		 55 1.0493240204595571 56 1.0493240204595571 57 1.0493240204595571 58 1.0493240204595571
+		 59 1.0493240204595571 60 1.0493240204595571 61 1.0493240204595571 62 1.0493240204595571
+		 63 1.0493240204595571 64 1.0493240204595571 65 1.0493240204595571 66 1.0493240204595571
+		 67 1.0493240204595571 68 1.0493240204595571 69 1.0493240204595571 70 1.0493240204595571
+		 71 1.0493240204595571 72 1.0493240204595571 73 1.0493240204595571 74 1.0493240204595571
+		 75 1.0493240204595571 76 1.0493240204595571 77 1.0493240204595571 78 1.0493240204595571
+		 79 1.0493240204595571 80 1.0493240204595571 81 1.0493240204595571 82 1.0493240204595571
+		 83 1.0493240204595571 84 1.0493240204595571 85 1.0493240204595571 86 1.0493240204595571
+		 87 1.0493240204595571 88 1.0493240204595571 89 1.0493240204595571 90 1.0493240204595571
+		 91 1.0493240204595571 92 1.0493240204595571 93 1.0493240204595571 94 1.0493240204595571
+		 95 1.0493240204595571 96 1.0493240204595571 97 1.0493240204595571 98 1.0493240204595571
+		 99 1.0493240204595571 100 1.0493240204595571 101 1.0493240204595571 102 1.0493240204595571
+		 103 1.0493240204595571 104 1.0493240204595571 105 1.0493240204595571 106 1.0493240204595571
+		 107 1.0493240204595571 108 1.0493240204595571 109 1.0493240204595571 110 1.0493240204595571
+		 111 1.0493240204595571 112 1.0493240204595571 113 1.0493240204595571 114 1.0493240204595571
+		 115 1.0493240204595571 116 1.0493240204595571 117 1.0493240204595571 118 1.0493240204595571
+		 119 1.0493240204595571 120 1.0493240204595571 121 1.0493240204595571 122 1.0493240204595571
+		 123 1.0493240204595571 124 1.0493240204595571 125 1.0493240204595571 126 1.0493240204595571
+		 127 1.0493240204595571 128 1.0493240204595571 129 1.0493240204595571 130 1.0493240204595571
+		 131 1.0493240204595571 132 1.0493240204595571 133 1.0493240204595571 134 1.0493240204595571
+		 135 1.0493240204595571 136 1.0493240204595571 137 1.0493240204595571 138 1.0493240204595571
+		 139 1.0493240204595571 140 1.0493240204595571 141 1.0493240204595571 142 1.0493240204595571
+		 143 1.0493240204595571 144 1.0493240204595571 145 1.0493240204595571 146 1.0493240204595571
+		 147 1.0493240204595571 148 1.0493240204595571 149 1.0493240204595571 150 1.0493240204595571
+		 151 1.0493240204595571 152 1.0493240204595571 153 1.0493240204595571 154 1.0493240204595571
+		 155 1.0493240204595571 156 1.0493240204595571 157 1.0493240204595571 158 1.0493240204595571
+		 159 1.0493240204595571 160 1.0493240204595571 161 1.0493240204595571 162 1.0493240204595571
+		 163 1.0493240204595571 164 1.0493240204595571 165 1.0493240204595571 166 1.0493240204595571
+		 167 1.0493240204595571 168 1.0493240204595571 169 1.0493240204595571 170 1.0493240204595571
+		 171 1.0493240204595571 172 1.0493240204595571 173 1.0493240204595571 174 1.0493240204595571
+		 175 1.0493240204595571 176 1.0493240204595571 177 1.0493240204595571 178 1.0493240204595571
+		 179 1.0493240204595571 180 1.0493240204595571 181 1.0493240204595571 182 1.0493240204595571
+		 183 1.0493240204595571 184 1.0493240204595571 185 1.0493240204595571 186 1.0493240204595571
+		 187 1.0493240204595571 188 1.0493240204595571 189 1.0493240204595571 190 1.0493240204595571
+		 191 1.0493240204595571 192 1.0493240204595571 193 1.0493240204595571 194 1.0493240204595571
+		 195 1.0493240204595571 196 1.0493240204595571 197 1.0493240204595571 198 1.0493240204595571
+		 199 1.0493240204595571 200 1.0493240204595571 201 1.0493240204595571 202 1.0493240204595571
+		 203 1.0493240204595571 204 1.0493240204595571 205 1.0493240204595571 206 1.0493240204595571
+		 207 1.0493240204595571 208 1.0493240204595571 209 1.0493240204595571 210 1.0493240204595571
+		 211 1.0493240204595571 212 1.0493240204595571 213 1.0493240204595571 214 1.0493240204595571
+		 215 1.0493240204595571 216 1.0493240204595571 217 1.0493240204595571 218 1.0493240204595571
+		 219 1.0493240204595571 220 1.0493240204595571 221 1.0493240204595571 222 1.0493240204595571
+		 223 1.0493240204595571 224 1.0493240204595571 225 1.0493240204595571 226 1.0493240204595571
+		 227 1.0493240204595571 228 1.0493240204595571 229 1.0493240204595571 230 1.0493240204595571
+		 231 1.0493240204595571 232 1.0493240204595571 233 1.0493240204595571 234 1.0493240204595571
+		 235 1.0493240204595571 236 1.0493240204595571 237 1.0493240204595571 238 1.0493240204595571
+		 239 1.0493240204595571 240 1.0493240204595571 241 1.0493240204595571 242 1.0493240204595571
+		 243 1.0493240204595571 244 1.0493240204595571 245 1.0493240204595571 246 1.0493240204595571
+		 247 1.0493240204595571 248 1.0493240204595571 249 1.0493240204595571;
+createNode animCurveTA -n "L_Hip_Joint_rotateX";
+	rename -uid "F60B1E83-48D0-02B1-8D19-11955CF260A0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -80.444008555977902 2 -80.428612453084057
+		 3 -80.383635624947459 4 -80.310554180863775 5 -80.210680603026901 6 -80.085457314335812
+		 7 -79.93666338919185 8 -79.76654179014507 9 -79.577904011055907 10 -79.373723605373044
+		 11 -79.153526207473831 12 -78.933105466036082 13 -78.716106063877476 14 -78.505914899665001
+		 15 -78.305593770080122 16 -78.028943667001883 17 -77.727192486796454 18 -77.462304667503801
+		 19 -77.31402435138547 20 -77.365960856480129 21 -77.48546651190253 22 -77.552932601435501
+		 23 -77.599153531467451 24 -77.647950653278897 25 -77.718039491433004 26 -77.822771559384208
+		 27 -77.967526478245716 28 -78.145791563131496 29 -78.339171984558362 30 -78.528961378883949
+		 31 -78.737570985200989 32 -78.980850983190763 33 -79.231281461817787 34 -79.460510451108519
+		 35 -79.649468952831413 36 -79.789660372861803 37 -79.879940504203148 38 -79.923542629179892
+		 39 -79.92737540970019 40 -79.900067555423163 41 -79.740914850891656 42 -79.412818301190626
+		 43 -79.209789765792451 44 -79.418722903832503 45 -79.995931718159497 46 -80.467988088202446
+		 47 -80.232284336265735 48 -78.651326469084438 49 -75.704778971592162 50 -73.704011739492458
+		 51 -74.72363198740517 52 -76.688958947043432 53 -78.403824551039165 54 -79.599047654462623
+		 55 -80.375020174812008 56 -80.870249080246722 57 -81.192271684424725 58 -81.420429290328386
+		 59 -81.617474840166963 60 -81.838832774679886 61 -82.056272629214121 62 -82.232951058179367
+		 63 -82.399665628684573 64 -82.574489961223378 65 -82.763914817797101 66 -82.965907414642004
+		 67 -83.174664982584275 68 -83.384713933836267 69 -83.592806674955156 70 -83.796854174876657
+		 71 -83.991862338685067 72 -84.134051894392258 73 -84.15809050018845 74 -83.99469108465
+		 75 -83.564306518549984 76 -82.772741934690529 77 -81.537143830143535 78 -79.894383562145947
+		 79 -78.232626996901431 80 -77.433324555224985 81 -78.681009784713794 82 -81.399820052237857
+		 83 -83.972677190370874 84 -85.763203209903608 85 -86.656877615023376 86 -86.868834895008362
+		 87 -86.614918420786353 88 -85.836514515239884 89 -84.651277525799117 90 -84.009661048704146
+		 91 -83.88025831181524 92 -83.556251199388285 93 -83.131995210086927 94 -82.679962262992802
+		 95 -82.24979970318617 96 -81.877683997002521 97 -81.593567936282241 98 -81.424842212721629
+		 99 -81.398851134072316 100 -81.546577131004611 101 -81.793133043609515 102 -82.056907083580441
+		 103 -82.358172848460143 104 -82.709401524092172 105 -83.115849364794229 106 -83.575720213539455
+		 107 -84.080434411801193 108 -84.615131068147093 109 -85.158978668429526 110 -85.684625335218044
+		 111 -86.138347190172084 112 -86.433971789379157 113 -86.501807668293239 114 -86.28297551279995
+		 115 -85.732725063187502 116 -84.844017421754671 117 -83.686804464739225 118 -82.450124115692489
+		 119 -81.473015271140838 120 -81.197683711302162 121 -81.964149921448353 122 -83.437071797320684
+		 123 -85.061353775821075 124 -86.405630059385786 125 -87.185416313247089 126 -87.462351046949166
+		 127 -87.244429057787642 128 -86.634982373233925 129 -85.869831190230542 130 -85.197259448628685
+		 131 -84.654813863873571 132 -84.144413177282104 133 -83.646929723890423 134 -83.143899769296183
+		 135 -82.623942964102469 136 -82.085765493130182 137 -81.537536751691391 138 -80.993301531997787
+		 139 -80.467954607274294 140 -79.972650842781505 141 -79.512492638085462 142 -79.085880996352117
+		 143 -78.686496475151856 144 -78.305593770080065 145 -77.935474572507459 146 -77.633840446886538
+		 147 -77.397181334723285 148 -77.292884169910934 149 -77.365960856480129 150 -77.485466511902501
+		 151 -77.552932601435515 152 -77.599153531467422 153 -77.647950653278897 154 -77.718039491433032
+		 155 -77.822771559384179 156 -77.967526478245716 157 -78.145791563131496 158 -78.339171984558362
+		 159 -78.528961378883949 160 -78.737570985200989 161 -78.980850983190791 162 -79.231281461817801
+		 163 -79.460510451108547 164 -79.649468952831384 165 -79.789660372861803 166 -79.879940504203134
+		 167 -79.923542629179892 168 -79.92737540970019 169 -79.900067555423163 170 -79.74091485089167
+		 171 -79.412818301190654 172 -79.209789765792451 173 -79.418722903832489 174 -79.995931718159468
+		 175 -80.467988088202446 176 -80.232284336265721 177 -78.65132646908441 178 -75.704778971591963
+		 179 -73.704011739492458 180 -74.723631987405142 181 -76.688958947043503 182 -78.403824551039179
+		 183 -79.599047654462609 184 -80.375020174812008 185 -80.870249080246737 186 -81.192271684424739
+		 187 -81.420429290328372 188 -81.617474840166963 189 -81.838832774679886 190 -82.056272629214092
+		 191 -82.232951058179353 192 -82.399665628684602 193 -82.574489961223364 194 -82.763914817797129
+		 195 -82.965907414642018 196 -83.174664982584233 197 -83.384713933836295 198 -83.592806674955227
+		 199 -83.796854174876643 200 -83.991862338685067 201 -84.134051894392258 202 -84.15809050018845
+		 203 -83.99469108465 204 -83.564306518549984 205 -82.772741934690544 206 -81.537143830143506
+		 207 -79.894383562145961 208 -78.232626996901445 209 -77.433324555224985 210 -78.68100978471378
+		 211 -81.399820052237757 212 -83.97267719037086 213 -85.763203209903622 214 -86.656877615023376
+		 215 -86.868834895008376 216 -86.614918420786424 217 -85.836514515239926 218 -84.651277525799117
+		 219 -84.009661048704146 220 -83.900650317685077 221 -83.623589598632009 222 -83.251879492341274
+		 223 -82.843283991220233 224 -82.439632479594493 225 -82.073756977222359 226 -81.774585287421047
+		 227 -81.569290133145046 228 -81.48425767352235 229 -81.546577131004611 230 -81.696506462167363
+		 231 -81.85205320567762 232 -82.011561588519882 233 -82.174141204046435 234 -82.337958808204675
+		 235 -82.500186643603939 236 -82.657788137050545 237 -82.808010895667834 238 -82.947835002111361
+		 239 -83.072217137287552 240 -83.148327419803962 241 -83.144514852695821 242 -83.050663185219278
+		 243 -82.858864340550085 244 -82.563304336818362 245 -82.158777108579002 246 -81.653617900441205
+		 247 -81.102879022385011 248 -80.637731563405836 249 -80.444008555977902;
+createNode animCurveTA -n "L_Hip_Joint_rotateY";
+	rename -uid "EF6A9600-4654-AF44-914B-E88932495EB7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -6.2119949362879483 2 -6.2418782303858844
+		 3 -6.3266073306644559 4 -6.4590658736465025 5 -6.6324482637384685 6 -6.8401591281281755
+		 7 -7.075618934818273 8 -7.3319839096703374 9 -7.6018641453851297 10 -7.8766357845179638
+		 11 -8.1438243448622742 12 -8.4008115217656716 13 -8.6340698607860205 14 -8.8290248800797535
+		 15 -8.9705223046529206 16 -8.3171202088742948 17 -6.7517505168072764 18 -4.9127215229868106
+		 19 -3.208065955133856 20 -2.3360123939674056 21 -2.1458231508773822 22 -1.8361198945072994
+		 23 -1.4319298858561544 24 -0.95230689864747786 25 -0.41922275413024335 26 0.13469116212088911
+		 27 0.65867822067917958 28 1.0783376181863347 29 1.3089621804379028 30 1.2980396953554627
+		 31 1.0779594045963032 32 0.80014754261617316 33 0.57230935131569083 34 0.42479686794700666
+		 35 0.34507623134771559 36 0.30344157330539839 37 0.26995342141293693 38 0.22597784907298452
+		 39 0.17121584290148986 40 0.12095621032233585 41 -0.16981423436602827 42 -0.91970935110132646
+		 43 -2.1310255357873515 44 -3.613038422258573 45 -5.0239153067151854 46 -6.2560864184798222
+		 47 -7.526267898866501 48 -8.9378715672183962 49 -10.401814660374482 50 -11.193329446440645
+		 51 -10.507014031940535 52 -9.157924492099129 53 -7.9362150002202467 54 -7.0350618220461074
+		 55 -6.4003718323788492 56 -5.952005100015958 57 -5.6327360390537136 58 -5.407077803643566
+		 59 -5.2520454585880465 60 -5.1481793283308299 61 -4.9951417974036758 62 -4.7252285552359927
+		 63 -4.3630912848925254 64 -3.9367429217297878 65 -3.4783845447470001 66 -3.0217077927904863
+		 67 -2.6009969781337383 68 -2.2543775284695333 69 -2.0288603251214989 70 -1.9760252602330644
+		 71 -2.1479927700393806 72 -2.5048992120149967 73 -3.0054404582191814 74 -3.6793374834344288
+		 75 -4.5954106774694399 76 -5.8272645074966753 77 -7.4107090168293785 78 -9.2574560303124258
+		 79 -10.996726331164664 80 -11.894871554533532 81 -11.796721501216014 82 -10.882793185650183
+		 83 -9.1777700292981805 84 -7.2318829240394855 85 -5.5796109333867276 86 -4.7174661163919787
+		 87 -4.7705530354704351 88 -5.3588114648703504 89 -5.8454968955835147 90 -5.9997713389795457
+		 91 -6.0008809212672514 92 -5.9814373541381531 93 -5.9041828949756354 94 -5.7477223250820293
+		 95 -5.5126861225316492 96 -5.2184799355193157 97 -4.8997523656607447 98 -4.6034012948080347
+		 99 -4.3831167647552762 100 -4.2874849281796203 101 -4.2216055962706109 102 -4.0891527363259721
+		 103 -3.9154060646938582 104 -3.7234843425398703 105 -3.5374932001849224 106 -3.3824347610706953
+		 107 -3.2818226616179635 108 -3.2541179036397612 109 -3.3103071654835459 110 -3.4562415199512682
+		 111 -3.694533111284918 112 -4.038762106663861 113 -4.5105204443771258 114 -5.0998504334989656
+		 115 -5.74324053018751 116 -6.3280630085258487 117 -6.7289569960384252 118 -6.8834603645312047
+		 119 -6.9137734205133139 120 -7.1511601002281164 121 -7.7857775681843107 122 -8.2752546220817784
+		 123 -8.1678475559853663 124 -7.4206266734440476 125 -6.2219402691246763 126 -4.9473119146949456
+		 127 -3.8504204704738587 128 -3.1847295433973017 129 -3.0835654448148215 130 -3.4077177229980364
+		 131 -3.9208925538124291 132 -4.5900524976142991 133 -5.3685942996595468 134 -6.2049144673580283
+		 135 -7.0428985370881652 136 -7.8255496460722682 137 -8.5014275596071407 138 -9.0317233221243125
+		 139 -9.3950620082309904 140 -9.5880310713803798 141 -9.6218390451459008 142 -9.5159494022979185
+		 143 -9.2923071983496008 144 -8.9705223046529436 145 -8.0317254383813026 146 -6.4492275337496112
+		 147 -4.6905390659939474 148 -3.1177979437273557 149 -2.3360123939674056 150 -2.1458231508773817
+		 151 -1.8361198945072927 152 -1.431929885856158 153 -0.95230689864747786 154 -0.41922275413023546
+		 155 0.13469116212092089 156 0.65867822067917958 157 1.0783376181863347 158 1.3089621804379012
+		 159 1.2980396953554627 160 1.0779594045962921 161 0.80014754261617016 162 0.57230935131567318
+		 163 0.42479686794699406 164 0.34507623134774412 165 0.30344157330539839 166 0.26995342141295448
+		 167 0.22597784907300036 168 0.17121584290148986 169 0.12095621032233585 170 -0.16981423436601398
+		 171 -0.9197093511013168 172 -2.131025535787368 173 -3.6130384222585752 174 -5.0239153067152049
+		 175 -6.2560864184798417 176 -7.5262678988665295 177 -8.9378715672184192 178 -10.40181466037458
+		 179 -11.193329446440645 180 -10.507014031940539 181 -9.1579244920990597 182 -7.9362150002202387
+		 183 -7.0350618220461092 184 -6.4003718323788537 185 -5.9520051000159713 186 -5.632736039053726
+		 187 -5.4070778036435687 188 -5.2520454585880545 189 -5.1481793283308299 190 -4.9951417974036856
+		 191 -4.7252285552359963 192 -4.363091284892521 193 -3.936742921729786 194 -3.4783845447470161
+		 195 -3.0217077927904987 196 -2.6009969781337361 197 -2.2543775284695355 198 -2.0288603251215056
+		 199 -1.9760252602330588 200 -2.1479927700393668 201 -2.5048992120149984 202 -3.0054404582191871
+		 203 -3.6793374834344204 204 -4.595410677469447 205 -5.8272645074966478 206 -7.4107090168293768
+		 207 -9.2574560303124063 208 -10.996726331164643 209 -11.894871554533532 210 -11.796721501216002
+		 211 -10.882793185650229 212 -9.1777700292981734 213 -7.2318829240394855 214 -5.5796109333867383
+		 215 -4.7174661163919662 216 -4.770553035470428 217 -5.3588114648703389 218 -5.8454968955835218
+		 219 -5.9997713389795457 220 -5.994826337481074 221 -5.9640104327490535 222 -5.8799685084266624
+		 223 -5.7262663202820656 224 -5.5028969235573637 225 -5.2249132173693678 226 -4.9208443354913607
+		 227 -4.6312609785916594 228 -4.4047284150877344 229 -4.2874849281796203 230 -4.1786882142487816
+		 231 -3.9715178422382689 232 -3.691397994298705 233 -3.3654604532367762 234 -3.0230110510132358
+		 235 -2.6956292160854014 236 -2.4177906049692348 237 -2.2265137786325813 238 -2.1559551804448298
+		 239 -2.2261102202535432 240 -2.4211712721041487 241 -2.6978017408902808 242 -3.0404133756874723
+		 243 -3.4549247620933889 244 -3.9497804846981084 245 -4.5160223848900429 246 -5.1122752845667954
+		 247 -5.6607283344932773 248 -6.0602593332249786 249 -6.2119949362879483;
+createNode animCurveTA -n "L_Hip_Joint_rotateZ";
+	rename -uid "5A09DD0E-4D5C-347F-8B53-D88009A8B5CA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 69.712477911441994 2 69.969884427157638
+		 3 70.693989170923231 4 71.810616834381619 5 73.245090489812668 6 74.924329215720448
+		 7 76.777977844742381 8 78.738607129316591 9 80.741803678907985 10 82.722387525244685
+		 11 84.61907416741569 12 86.368255243712937 13 87.904019271216939 14 89.160711666123049
+		 15 90.070512818038722 16 86.005266275109719 17 75.265198289257398 18 61.908277771116076
+		 19 49.696895492595637 20 43.541514573146664 21 41.898992480833684 22 39.268201389089008
+		 23 35.908787753074279 24 32.043301377506701 25 27.88492858097786 26 23.670063372609309
+		 27 19.698156232234691 28 16.374480274877854 29 14.16873345685662 30 13.428776169534435
+		 31 13.991029869974948 32 14.993885261115562 33 15.794488611627228 34 16.082712052044986
+		 35 15.776331602928467 36 14.957553847992111 37 13.838409478681395 38 12.733904951436649
+		 39 12.020407851630218 40 12.084226632260929 41 16.126769606573397 42 26.019134641575153
+		 43 39.943815304768641 44 55.452279186731744 45 69.104196722208115 46 77.870478706213078
+		 47 81.076029733864161 48 80.115952932552574 49 77.318724136576634 50 75.69321022235232
+		 51 75.555344394169254 52 74.985948543200891 53 73.838082396565738 54 72.135586930731279
+		 55 69.967610454172231 56 67.459058602623671 57 64.778444554072294 58 62.14290972891019
+		 59 59.810415840600307 60 58.072879675720102 61 55.885186324812054 62 52.244271764728403
+		 63 47.494206160086648 64 41.948446788855982 65 35.896037077761498 66 29.61267703199039
+		 67 23.397456280586198 68 17.626644707769682 69 12.802242113834964 70 9.4991470192489817
+		 71 7.9301255160166271 72 7.1268581482401787 73 6.0612512837210808 74 4.1865821560169199
+		 75 1.3664586513886694 76 -2.2194617851440959 77 -6.1513061642373312 78 -9.8459011116878337
+		 79 -12.605622495729646 80 -13.663547273816459 81 -8.8822449508357906 82 3.5839831048772148
+		 83 21.303489312955328 84 41.953409089935072 85 61.456292486581432 86 74.665443415337094
+		 87 79.889718781476148 88 79.292246294128844 89 76.273881035244884 90 74.535114453655396
+		 91 73.958167795221584 92 72.362706450120157 93 69.917378506892604 94 66.781095103071067
+		 95 63.137464721347193 96 59.216754554985897 97 55.307976832179513 98 51.762809981468102
+		 99 48.987295069151877 100 47.411024632680899 101 46.086817723531858 102 43.983776653519165
+		 103 41.341731631652877 104 38.361806460303576 105 35.228710252789398 106 32.123158879091989
+		 107 29.221687859133617 108 26.676842143912797 109 24.575413674646544 110 22.888267354032234
+		 111 20.77627410164812 112 17.205665812114287 113 11.951486461682112 114 5.0869904761229474
+		 115 -3.0504880703534933 116 -11.934203669484438 117 -20.888507942616716 118 -28.988184931772345
+		 119 -34.716800807282389 120 -35.928203111045036 121 -30.698764178815413 122 -21.074040557999524
+		 123 -9.3611766674247079 124 3.7107333107075733 125 17.946201443702819 126 33.200783500355612
+		 127 48.941910219673375 128 63.853509773433451 129 76.065677928606306 130 84.140753637030201
+		 131 89.388915884434468 132 93.56499302170063 133 96.729681079729843 134 98.978714686000899
+		 135 100.42065590186931 136 101.16182793465994 137 101.2978701568632 138 100.90967547368972
+		 139 100.06173555424905 140 98.801209475062933 141 97.161527921894859 142 95.158600779404821
+		 143 92.797017733031993 144 90.070512818038708 145 83.723118029073163 146 72.735584760387596
+		 147 60.167592105126005 148 49.06206978548451 149 43.541514573146664 150 41.898992480833662
+		 151 39.268201389088901 152 35.9087877530743 153 32.043301377506701 154 27.884928580977874
+		 155 23.670063372609338 156 19.698156232234691 157 16.374480274877854 158 14.168733456856629
+		 159 13.428776169534435 160 13.991029869974952 161 14.993885261115539 162 15.794488611627191
+		 163 16.082712052044929 164 15.776331602928478 165 14.957553847992111 166 13.838409478681385
+		 167 12.73390495143664 168 12.020407851630218 169 12.084226632260929 170 16.126769606573301
+		 171 26.019134641575135 172 39.943815304768762 173 55.452279186731658 174 69.104196722208172
+		 175 77.870478706213177 176 81.076029733864161 177 80.11595293255256 178 77.318724136576563
+		 179 75.69321022235232 180 75.555344394169225 181 74.985948543200834 182 73.838082396565738
+		 183 72.13558693073125 184 69.967610454172231 185 67.459058602623699 186 64.778444554072308
+		 187 62.14290972891019 188 59.810415840600342 189 58.072879675720102 190 55.885186324812004
+		 191 52.244271764728445 192 47.494206160086627 193 41.948446788856039 194 35.896037077761406
+		 195 29.612677031990366 196 23.397456280586205 197 17.626644707769554 198 12.802242113834918
+		 199 9.4991470192489533 200 7.9301255160165987 201 7.1268581482401068 202 6.0612512837209973
+		 203 4.1865821560167955 204 1.3664586513885681 205 -2.2194617851440892 206 -6.1513061642373605
+		 207 -9.8459011116878479 208 -12.60562249572965 209 -13.663547273816459 210 -8.8822449508358847
+		 211 3.5839831048769382 212 21.30348931295535 213 41.953409089934944 214 61.456292486581219
+		 215 74.665443415337165 216 79.889718781476176 217 79.292246294128844 218 76.27388103524487
+		 219 74.535114453655396 220 73.957835678894668 221 72.361567432368403 222 69.915176236409039
+		 223 66.777688211280093 224 63.132823281712014 225 59.211061987562665 226 55.301786911156164
+		 227 51.757168569593873 228 48.983686237321422 229 47.411024632680899 230 45.958216847684305
+		 231 43.413865065921414 232 40.017523365241892 233 36.046938562750327 234 31.826060162271219
+		 235 27.734041016889879 236 24.216818638932189 237 21.785496205687277 238 20.966785053940004
+		 239 22.193609955652704 240 25.860750564234216 241 31.591999213172784 242 38.541982216341772
+		 243 45.921666223203367 244 53.000939176626581 245 59.154872201969177 246 63.955796589992431
+		 247 67.24554971695332 248 69.108227427073672 249 69.712477911441994;
+createNode animCurveTU -n "L_Hip_Joint_scaleX";
+	rename -uid "B189BB8B-4B32-6DEE-B04B-BDA9810EE422";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "L_Hip_Joint_scaleY";
+	rename -uid "5A79BAB6-45C2-5BB7-06C6-3CB4629C2EEE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "L_Hip_Joint_scaleZ";
+	rename -uid "76B0DA0A-4D75-C797-3695-CDAE66E89128";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "R_Hip_Joint_visibility";
+	rename -uid "EFB83189-451B-65A0-056F-1FA2B1161E9F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "R_Hip_Joint_translateX";
+	rename -uid "C12C180D-4BBC-58F4-2E11-20B6F9ACFEDA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -0.15809173030931234 2 -0.15809173030931234
+		 3 -0.15809173030931234 4 -0.15809173030931234 5 -0.15809173030931234 6 -0.15809173030931234
+		 7 -0.15809173030931234 8 -0.15809173030931234 9 -0.15809173030931234 10 -0.15809173030931234
+		 11 -0.15809173030931234 12 -0.15809173030931234 13 -0.15809173030931234 14 -0.15809173030931234
+		 15 -0.15809173030931234 16 -0.15809173030931234 17 -0.15809173030931234 18 -0.15809173030931234
+		 19 -0.15809173030931234 20 -0.15809173030931234 21 -0.15809173030931234 22 -0.15809173030931234
+		 23 -0.15809173030931234 24 -0.15809173030931234 25 -0.15809173030931234 26 -0.15809173030931234
+		 27 -0.15809173030931234 28 -0.15809173030931234 29 -0.15809173030931234 30 -0.15809173030931234
+		 31 -0.15809173030931234 32 -0.15809173030931234 33 -0.15809173030931234 34 -0.15809173030931234
+		 35 -0.15809173030931234 36 -0.15809173030931234 37 -0.15809173030931234 38 -0.15809173030931234
+		 39 -0.15809173030931234 40 -0.15809173030931234 41 -0.15809173030931234 42 -0.15809173030931234
+		 43 -0.15809173030931234 44 -0.15809173030931234 45 -0.15809173030931234 46 -0.15809173030931234
+		 47 -0.15809173030931234 48 -0.15809173030931234 49 -0.15809173030931234 50 -0.15809173030931234
+		 51 -0.15809173030931234 52 -0.15809173030931234 53 -0.15809173030931234 54 -0.15809173030931234
+		 55 -0.15809173030931234 56 -0.15809173030931234 57 -0.15809173030931234 58 -0.15809173030931234
+		 59 -0.15809173030931234 60 -0.15809173030931234 61 -0.15809173030931234 62 -0.15809173030931234
+		 63 -0.15809173030931234 64 -0.15809173030931234 65 -0.15809173030931234 66 -0.15809173030931234
+		 67 -0.15809173030931234 68 -0.15809173030931234 69 -0.15809173030931234 70 -0.15809173030931234
+		 71 -0.15809173030931234 72 -0.15809173030931234 73 -0.15809173030931234 74 -0.15809173030931234
+		 75 -0.15809173030931234 76 -0.15809173030931234 77 -0.15809173030931234 78 -0.15809173030931234
+		 79 -0.15809173030931234 80 -0.15809173030931234 81 -0.15809173030931234 82 -0.15809173030931234
+		 83 -0.15809173030931234 84 -0.15809173030931234 85 -0.15809173030931234 86 -0.15809173030931234
+		 87 -0.15809173030931234 88 -0.15809173030931234 89 -0.15809173030931234 90 -0.15809173030931234
+		 91 -0.15809173030931234 92 -0.15809173030931234 93 -0.15809173030931234 94 -0.15809173030931234
+		 95 -0.15809173030931234 96 -0.15809173030931234 97 -0.15809173030931234 98 -0.15809173030931234
+		 99 -0.15809173030931234 100 -0.15809173030931234 101 -0.15809173030931234 102 -0.15809173030931234
+		 103 -0.15809173030931234 104 -0.15809173030931234 105 -0.15809173030931234 106 -0.15809173030931234
+		 107 -0.15809173030931234 108 -0.15809173030931234 109 -0.15809173030931234 110 -0.15809173030931234
+		 111 -0.15809173030931234 112 -0.15809173030931234 113 -0.15809173030931234 114 -0.15809173030931234
+		 115 -0.15809173030931234 116 -0.15809173030931234 117 -0.15809173030931234 118 -0.15809173030931234
+		 119 -0.15809173030931234 120 -0.15809173030931234 121 -0.15809173030931234 122 -0.15809173030931234
+		 123 -0.15809173030931234 124 -0.15809173030931234 125 -0.15809173030931234 126 -0.15809173030931234
+		 127 -0.15809173030931234 128 -0.15809173030931234 129 -0.15809173030931234 130 -0.15809173030931234
+		 131 -0.15809173030931234 132 -0.15809173030931234 133 -0.15809173030931234 134 -0.15809173030931234
+		 135 -0.15809173030931234 136 -0.15809173030931234 137 -0.15809173030931234 138 -0.15809173030931234
+		 139 -0.15809173030931234 140 -0.15809173030931234 141 -0.15809173030931234 142 -0.15809173030931234
+		 143 -0.15809173030931234 144 -0.15809173030931234 145 -0.15809173030931234 146 -0.15809173030931234
+		 147 -0.15809173030931234 148 -0.15809173030931234 149 -0.15809173030931234 150 -0.15809173030931234
+		 151 -0.15809173030931234 152 -0.15809173030931234 153 -0.15809173030931234 154 -0.15809173030931234
+		 155 -0.15809173030931234 156 -0.15809173030931234 157 -0.15809173030931234 158 -0.15809173030931234
+		 159 -0.15809173030931234 160 -0.15809173030931234 161 -0.15809173030931234 162 -0.15809173030931234
+		 163 -0.15809173030931234 164 -0.15809173030931234 165 -0.15809173030931234 166 -0.15809173030931234
+		 167 -0.15809173030931234 168 -0.15809173030931234 169 -0.15809173030931234 170 -0.15809173030931234
+		 171 -0.15809173030931234 172 -0.15809173030931234 173 -0.15809173030931234 174 -0.15809173030931234
+		 175 -0.15809173030931234 176 -0.15809173030931234 177 -0.15809173030931234 178 -0.15809173030931234
+		 179 -0.15809173030931234 180 -0.15809173030931234 181 -0.15809173030931234 182 -0.15809173030931234
+		 183 -0.15809173030931234 184 -0.15809173030931234 185 -0.15809173030931234 186 -0.15809173030931234
+		 187 -0.15809173030931234 188 -0.15809173030931234 189 -0.15809173030931234 190 -0.15809173030931234
+		 191 -0.15809173030931234 192 -0.15809173030931234 193 -0.15809173030931234 194 -0.15809173030931234
+		 195 -0.15809173030931234 196 -0.15809173030931234 197 -0.15809173030931234 198 -0.15809173030931234
+		 199 -0.15809173030931234 200 -0.15809173030931234 201 -0.15809173030931234 202 -0.15809173030931234
+		 203 -0.15809173030931234 204 -0.15809173030931234 205 -0.15809173030931234 206 -0.15809173030931234
+		 207 -0.15809173030931234 208 -0.15809173030931234 209 -0.15809173030931234 210 -0.15809173030931234
+		 211 -0.15809173030931234 212 -0.15809173030931234 213 -0.15809173030931234 214 -0.15809173030931234
+		 215 -0.15809173030931234 216 -0.15809173030931234 217 -0.15809173030931234 218 -0.15809173030931234
+		 219 -0.15809173030931234 220 -0.15809173030931234 221 -0.15809173030931234 222 -0.15809173030931234
+		 223 -0.15809173030931234 224 -0.15809173030931234 225 -0.15809173030931234 226 -0.15809173030931234
+		 227 -0.15809173030931234 228 -0.15809173030931234 229 -0.15809173030931234 230 -0.15809173030931234
+		 231 -0.15809173030931234 232 -0.15809173030931234 233 -0.15809173030931234 234 -0.15809173030931234
+		 235 -0.15809173030931234 236 -0.15809173030931234 237 -0.15809173030931234 238 -0.15809173030931234
+		 239 -0.15809173030931234 240 -0.15809173030931234 241 -0.15809173030931234 242 -0.15809173030931234
+		 243 -0.15809173030931234 244 -0.15809173030931234 245 -0.15809173030931234 246 -0.15809173030931234
+		 247 -0.15809173030931234 248 -0.15809173030931234 249 -0.15809173030931234;
+createNode animCurveTL -n "R_Hip_Joint_translateY";
+	rename -uid "CB4ADFC9-476F-3471-0E34-1B928E9DB4E8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -0.59676070664681202 2 -0.59676070664681202
+		 3 -0.59676070664681202 4 -0.59676070664681202 5 -0.59676070664681202 6 -0.59676070664681202
+		 7 -0.59676070664681202 8 -0.59676070664681202 9 -0.59676070664681202 10 -0.59676070664681202
+		 11 -0.59676070664681202 12 -0.59676070664681202 13 -0.59676070664681202 14 -0.59676070664681202
+		 15 -0.59676070664681202 16 -0.59676070664681202 17 -0.59676070664681202 18 -0.59676070664681202
+		 19 -0.59676070664681202 20 -0.59676070664681202 21 -0.59676070664681202 22 -0.59676070664681202
+		 23 -0.59676070664681202 24 -0.59676070664681202 25 -0.59676070664681202 26 -0.59676070664681202
+		 27 -0.59676070664681202 28 -0.59676070664681202 29 -0.59676070664681202 30 -0.59676070664681202
+		 31 -0.59676070664681202 32 -0.59676070664681202 33 -0.59676070664681202 34 -0.59676070664681202
+		 35 -0.59676070664681202 36 -0.59676070664681202 37 -0.59676070664681202 38 -0.59676070664681202
+		 39 -0.59676070664681202 40 -0.59676070664681202 41 -0.59676070664681202 42 -0.59676070664681202
+		 43 -0.59676070664681202 44 -0.59676070664681202 45 -0.59676070664681202 46 -0.59676070664681202
+		 47 -0.59676070664681202 48 -0.59676070664681202 49 -0.59676070664681202 50 -0.59676070664681202
+		 51 -0.59676070664681202 52 -0.59676070664681202 53 -0.59676070664681202 54 -0.59676070664681202
+		 55 -0.59676070664681202 56 -0.59676070664681202 57 -0.59676070664681202 58 -0.59676070664681202
+		 59 -0.59676070664681202 60 -0.59676070664681202 61 -0.59676070664681202 62 -0.59676070664681202
+		 63 -0.59676070664681202 64 -0.59676070664681202 65 -0.59676070664681202 66 -0.59676070664681202
+		 67 -0.59676070664681202 68 -0.59676070664681202 69 -0.59676070664681202 70 -0.59676070664681202
+		 71 -0.59676070664681202 72 -0.59676070664681202 73 -0.59676070664681202 74 -0.59676070664681202
+		 75 -0.59676070664681202 76 -0.59676070664681202 77 -0.59676070664681202 78 -0.59676070664681202
+		 79 -0.59676070664681202 80 -0.59676070664681202 81 -0.59676070664681202 82 -0.59676070664681202
+		 83 -0.59676070664681202 84 -0.59676070664681202 85 -0.59676070664681202 86 -0.59676070664681202
+		 87 -0.59676070664681202 88 -0.59676070664681202 89 -0.59676070664681202 90 -0.59676070664681202
+		 91 -0.59676070664681202 92 -0.59676070664681202 93 -0.59676070664681202 94 -0.59676070664681202
+		 95 -0.59676070664681202 96 -0.59676070664681202 97 -0.59676070664681202 98 -0.59676070664681202
+		 99 -0.59676070664681202 100 -0.59676070664681202 101 -0.59676070664681202 102 -0.59676070664681202
+		 103 -0.59676070664681202 104 -0.59676070664681202 105 -0.59676070664681202 106 -0.59676070664681202
+		 107 -0.59676070664681202 108 -0.59676070664681202 109 -0.59676070664681202 110 -0.59676070664681202
+		 111 -0.59676070664681202 112 -0.59676070664681202 113 -0.59676070664681202 114 -0.59676070664681202
+		 115 -0.59676070664681202 116 -0.59676070664681202 117 -0.59676070664681202 118 -0.59676070664681202
+		 119 -0.59676070664681202 120 -0.59676070664681202 121 -0.59676070664681202 122 -0.59676070664681202
+		 123 -0.59676070664681202 124 -0.59676070664681202 125 -0.59676070664681202 126 -0.59676070664681202
+		 127 -0.59676070664681202 128 -0.59676070664681202 129 -0.59676070664681202 130 -0.59676070664681202
+		 131 -0.59676070664681202 132 -0.59676070664681202 133 -0.59676070664681202 134 -0.59676070664681202
+		 135 -0.59676070664681202 136 -0.59676070664681202 137 -0.59676070664681202 138 -0.59676070664681202
+		 139 -0.59676070664681202 140 -0.59676070664681202 141 -0.59676070664681202 142 -0.59676070664681202
+		 143 -0.59676070664681202 144 -0.59676070664681202 145 -0.59676070664681202 146 -0.59676070664681202
+		 147 -0.59676070664681202 148 -0.59676070664681202 149 -0.59676070664681202 150 -0.59676070664681202
+		 151 -0.59676070664681202 152 -0.59676070664681202 153 -0.59676070664681202 154 -0.59676070664681202
+		 155 -0.59676070664681202 156 -0.59676070664681202 157 -0.59676070664681202 158 -0.59676070664681202
+		 159 -0.59676070664681202 160 -0.59676070664681202 161 -0.59676070664681202 162 -0.59676070664681202
+		 163 -0.59676070664681202 164 -0.59676070664681202 165 -0.59676070664681202 166 -0.59676070664681202
+		 167 -0.59676070664681202 168 -0.59676070664681202 169 -0.59676070664681202 170 -0.59676070664681202
+		 171 -0.59676070664681202 172 -0.59676070664681202 173 -0.59676070664681202 174 -0.59676070664681202
+		 175 -0.59676070664681202 176 -0.59676070664681202 177 -0.59676070664681202 178 -0.59676070664681202
+		 179 -0.59676070664681202 180 -0.59676070664681202 181 -0.59676070664681202 182 -0.59676070664681202
+		 183 -0.59676070664681202 184 -0.59676070664681202 185 -0.59676070664681202 186 -0.59676070664681202
+		 187 -0.59676070664681202 188 -0.59676070664681202 189 -0.59676070664681202 190 -0.59676070664681202
+		 191 -0.59676070664681202 192 -0.59676070664681202 193 -0.59676070664681202 194 -0.59676070664681202
+		 195 -0.59676070664681202 196 -0.59676070664681202 197 -0.59676070664681202 198 -0.59676070664681202
+		 199 -0.59676070664681202 200 -0.59676070664681202 201 -0.59676070664681202 202 -0.59676070664681202
+		 203 -0.59676070664681202 204 -0.59676070664681202 205 -0.59676070664681202 206 -0.59676070664681202
+		 207 -0.59676070664681202 208 -0.59676070664681202 209 -0.59676070664681202 210 -0.59676070664681202
+		 211 -0.59676070664681202 212 -0.59676070664681202 213 -0.59676070664681202 214 -0.59676070664681202
+		 215 -0.59676070664681202 216 -0.59676070664681202 217 -0.59676070664681202 218 -0.59676070664681202
+		 219 -0.59676070664681202 220 -0.59676070664681202 221 -0.59676070664681202 222 -0.59676070664681202
+		 223 -0.59676070664681202 224 -0.59676070664681202 225 -0.59676070664681202 226 -0.59676070664681202
+		 227 -0.59676070664681202 228 -0.59676070664681202 229 -0.59676070664681202 230 -0.59676070664681202
+		 231 -0.59676070664681202 232 -0.59676070664681202 233 -0.59676070664681202 234 -0.59676070664681202
+		 235 -0.59676070664681202 236 -0.59676070664681202 237 -0.59676070664681202 238 -0.59676070664681202
+		 239 -0.59676070664681202 240 -0.59676070664681202 241 -0.59676070664681202 242 -0.59676070664681202
+		 243 -0.59676070664681202 244 -0.59676070664681202 245 -0.59676070664681202 246 -0.59676070664681202
+		 247 -0.59676070664681202 248 -0.59676070664681202 249 -0.59676070664681202;
+createNode animCurveTL -n "R_Hip_Joint_translateZ";
+	rename -uid "D0E15AD8-4A4B-D0DB-009A-5E984E19CAAC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -1.0291178886594505 2 -1.0291178886594505
+		 3 -1.0291178886594505 4 -1.0291178886594505 5 -1.0291178886594505 6 -1.0291178886594505
+		 7 -1.0291178886594505 8 -1.0291178886594505 9 -1.0291178886594505 10 -1.0291178886594505
+		 11 -1.0291178886594505 12 -1.0291178886594505 13 -1.0291178886594505 14 -1.0291178886594505
+		 15 -1.0291178886594505 16 -1.0291178886594505 17 -1.0291178886594505 18 -1.0291178886594505
+		 19 -1.0291178886594505 20 -1.0291178886594505 21 -1.0291178886594505 22 -1.0291178886594505
+		 23 -1.0291178886594505 24 -1.0291178886594505 25 -1.0291178886594505 26 -1.0291178886594505
+		 27 -1.0291178886594505 28 -1.0291178886594505 29 -1.0291178886594505 30 -1.0291178886594505
+		 31 -1.0291178886594505 32 -1.0291178886594505 33 -1.0291178886594505 34 -1.0291178886594505
+		 35 -1.0291178886594505 36 -1.0291178886594505 37 -1.0291178886594505 38 -1.0291178886594505
+		 39 -1.0291178886594505 40 -1.0291178886594505 41 -1.0291178886594505 42 -1.0291178886594505
+		 43 -1.0291178886594505 44 -1.0291178886594505 45 -1.0291178886594505 46 -1.0291178886594505
+		 47 -1.0291178886594505 48 -1.0291178886594505 49 -1.0291178886594505 50 -1.0291178886594505
+		 51 -1.0291178886594505 52 -1.0291178886594505 53 -1.0291178886594505 54 -1.0291178886594505
+		 55 -1.0291178886594505 56 -1.0291178886594505 57 -1.0291178886594505 58 -1.0291178886594505
+		 59 -1.0291178886594505 60 -1.0291178886594505 61 -1.0291178886594505 62 -1.0291178886594505
+		 63 -1.0291178886594505 64 -1.0291178886594505 65 -1.0291178886594505 66 -1.0291178886594505
+		 67 -1.0291178886594505 68 -1.0291178886594505 69 -1.0291178886594505 70 -1.0291178886594505
+		 71 -1.0291178886594505 72 -1.0291178886594505 73 -1.0291178886594505 74 -1.0291178886594505
+		 75 -1.0291178886594505 76 -1.0291178886594505 77 -1.0291178886594505 78 -1.0291178886594505
+		 79 -1.0291178886594505 80 -1.0291178886594505 81 -1.0291178886594505 82 -1.0291178886594505
+		 83 -1.0291178886594505 84 -1.0291178886594505 85 -1.0291178886594505 86 -1.0291178886594505
+		 87 -1.0291178886594505 88 -1.0291178886594505 89 -1.0291178886594505 90 -1.0291178886594505
+		 91 -1.0291178886594505 92 -1.0291178886594505 93 -1.0291178886594505 94 -1.0291178886594505
+		 95 -1.0291178886594505 96 -1.0291178886594505 97 -1.0291178886594505 98 -1.0291178886594505
+		 99 -1.0291178886594505 100 -1.0291178886594505 101 -1.0291178886594505 102 -1.0291178886594505
+		 103 -1.0291178886594505 104 -1.0291178886594505 105 -1.0291178886594505 106 -1.0291178886594505
+		 107 -1.0291178886594505 108 -1.0291178886594505 109 -1.0291178886594505 110 -1.0291178886594505
+		 111 -1.0291178886594505 112 -1.0291178886594505 113 -1.0291178886594505 114 -1.0291178886594505
+		 115 -1.0291178886594505 116 -1.0291178886594505 117 -1.0291178886594505 118 -1.0291178886594505
+		 119 -1.0291178886594505 120 -1.0291178886594505 121 -1.0291178886594505 122 -1.0291178886594505
+		 123 -1.0291178886594505 124 -1.0291178886594505 125 -1.0291178886594505 126 -1.0291178886594505
+		 127 -1.0291178886594505 128 -1.0291178886594505 129 -1.0291178886594505 130 -1.0291178886594505
+		 131 -1.0291178886594505 132 -1.0291178886594505 133 -1.0291178886594505 134 -1.0291178886594505
+		 135 -1.0291178886594505 136 -1.0291178886594505 137 -1.0291178886594505 138 -1.0291178886594505
+		 139 -1.0291178886594505 140 -1.0291178886594505 141 -1.0291178886594505 142 -1.0291178886594505
+		 143 -1.0291178886594505 144 -1.0291178886594505 145 -1.0291178886594505 146 -1.0291178886594505
+		 147 -1.0291178886594505 148 -1.0291178886594505 149 -1.0291178886594505 150 -1.0291178886594505
+		 151 -1.0291178886594505 152 -1.0291178886594505 153 -1.0291178886594505 154 -1.0291178886594505
+		 155 -1.0291178886594505 156 -1.0291178886594505 157 -1.0291178886594505 158 -1.0291178886594505
+		 159 -1.0291178886594505 160 -1.0291178886594505 161 -1.0291178886594505 162 -1.0291178886594505
+		 163 -1.0291178886594505 164 -1.0291178886594505 165 -1.0291178886594505 166 -1.0291178886594505
+		 167 -1.0291178886594505 168 -1.0291178886594505 169 -1.0291178886594505 170 -1.0291178886594505
+		 171 -1.0291178886594505 172 -1.0291178886594505 173 -1.0291178886594505 174 -1.0291178886594505
+		 175 -1.0291178886594505 176 -1.0291178886594505 177 -1.0291178886594505 178 -1.0291178886594505
+		 179 -1.0291178886594505 180 -1.0291178886594505 181 -1.0291178886594505 182 -1.0291178886594505
+		 183 -1.0291178886594505 184 -1.0291178886594505 185 -1.0291178886594505 186 -1.0291178886594505
+		 187 -1.0291178886594505 188 -1.0291178886594505 189 -1.0291178886594505 190 -1.0291178886594505
+		 191 -1.0291178886594505 192 -1.0291178886594505 193 -1.0291178886594505 194 -1.0291178886594505
+		 195 -1.0291178886594505 196 -1.0291178886594505 197 -1.0291178886594505 198 -1.0291178886594505
+		 199 -1.0291178886594505 200 -1.0291178886594505 201 -1.0291178886594505 202 -1.0291178886594505
+		 203 -1.0291178886594505 204 -1.0291178886594505 205 -1.0291178886594505 206 -1.0291178886594505
+		 207 -1.0291178886594505 208 -1.0291178886594505 209 -1.0291178886594505 210 -1.0291178886594505
+		 211 -1.0291178886594505 212 -1.0291178886594505 213 -1.0291178886594505 214 -1.0291178886594505
+		 215 -1.0291178886594505 216 -1.0291178886594505 217 -1.0291178886594505 218 -1.0291178886594505
+		 219 -1.0291178886594505 220 -1.0291178886594505 221 -1.0291178886594505 222 -1.0291178886594505
+		 223 -1.0291178886594505 224 -1.0291178886594505 225 -1.0291178886594505 226 -1.0291178886594505
+		 227 -1.0291178886594505 228 -1.0291178886594505 229 -1.0291178886594505 230 -1.0291178886594505
+		 231 -1.0291178886594505 232 -1.0291178886594505 233 -1.0291178886594505 234 -1.0291178886594505
+		 235 -1.0291178886594505 236 -1.0291178886594505 237 -1.0291178886594505 238 -1.0291178886594505
+		 239 -1.0291178886594505 240 -1.0291178886594505 241 -1.0291178886594505 242 -1.0291178886594505
+		 243 -1.0291178886594505 244 -1.0291178886594505 245 -1.0291178886594505 246 -1.0291178886594505
+		 247 -1.0291178886594505 248 -1.0291178886594505 249 -1.0291178886594505;
+createNode animCurveTA -n "R_Hip_Joint_rotateX";
+	rename -uid "051E7AA2-470F-43CF-14B4-F8838DD67A4A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -97.039136160673522 2 -97.053071719689868
+		 3 -97.093717004851825 4 -97.160073633627803 5 -97.251969307375973 6 -97.3699040874681
+		 7 -97.514934565665143 8 -97.688571363254724 9 -97.892667731222147 10 -96.065621473701228
+		 11 -95.028751796151184 12 -94.21558250000659 13 -93.518209523344694 14 -92.902271874431705
+		 15 -92.353312557002283 16 -91.864879443347519 17 -91.433665159976385 18 -91.058075340609065
+		 19 -90.736915428088267 20 -90.469007648429454 21 -90.269710422843758 22 -90.146568887063054
+		 23 -90.093514182398934 24 -90.111838346287371 25 -90.20481294944706 26 -86.802692205449162
+		 27 -79.388385503740295 28 -74.286907855165339 29 -72.161323178181021 30 -72.263610641473406
+		 31 -73.587917090522879 32 -74.996282800738811 33 -76.357181760055497 34 -77.583507758114337
+		 35 -78.631351889664529 36 -79.486659053849891 37 -80.150196826642599 38 -80.626553086619481
+		 39 -80.917612769742675 40 -81.018933720106872 41 -81.111794745779861 42 -81.375139161248498
+		 43 -81.792267384093876 44 -82.338110962591543 45 -82.975699114524062 46 -83.654842511820931
+		 47 -84.312331768660499 48 -84.874021205929836 49 -85.260491905110555 50 -85.397084867292946
+		 51 -85.399445636965012 52 -85.519232604071235 53 -85.881621397285144 54 -86.583626707560967
+		 55 -87.678296189248471 56 -89.14537125490746 57 -90.857483168411932 58 -92.556806956655691
+		 59 -93.86808376848866 60 -94.381406132769413 61 -92.219089304981395 62 -87.0457063996637
+		 63 -81.318432057837143 64 -77.421823171089187 65 -76.566555829384157 66 -78.053914899432712
+		 67 -80.520169123377414 68 -83.190954987614035 69 -85.519396990654727 70 -86.766409939720631
+		 71 -87.001482815486597 72 -86.869770896655993 73 -86.473226210587029 74 -85.922718792029499
+		 75 -85.307778598357459 76 -84.696776578288222 77 -84.148675205634603 78 -83.725277943289569
+		 79 -83.500746591155206 80 -83.56446808159177 81 -83.97109484917226 82 -84.714357186734105
+		 83 -85.782977924622955 84 -87.146177432309187 85 -88.771932405192629 86 -90.668016776011711
+		 87 -93.064749358021345 88 -95.467619835831144 89 -95.726254498521087 90 -95.993455402351927
+		 91 -96.30307753762537 92 -96.679196869728727 93 -97.135555150833099 94 -95.53709486834687
+		 95 -93.862292262951613 96 -92.741236496605296 97 -91.905233167582637 98 -91.305657353413437
+		 99 -90.932834216959264 100 -90.799992019443337 101 -89.906502517294072 102 -87.734898637765838
+		 103 -85.228937451252179 104 -83.317744279025533 105 -82.548141240465029 106 -82.897342574798301
+		 107 -84.033673782984991 108 -85.610662809964154 109 -87.228592564104531 110 -88.256957531617203
+		 111 -88.681318398747564 112 -89.00194549051119 113 -89.242152655672228 114 -89.433935955530302
+		 115 -89.606530105888154 116 -89.783504499661973 117 -89.981868541627321 118 -90.212159228581569
+		 119 -90.479007334233017 120 -90.782211109793934 121 -91.142472294798424 122 -91.6656907573431
+		 123 -92.479553521946784 124 -93.775071806137106 125 -95.819432486087493 126 -96.198697059716579
+		 127 -96.531752343758839 128 -96.794997845577285 129 -96.969772394716728 130 -97.039136160673522
+		 131 -97.062951962118731 132 -97.112272644198143 133 -97.186464813440807 134 -97.285588329378683
+		 135 -97.410273926307383 136 -97.561627814496234 137 -97.741142551189199 138 -97.95059465356249
+		 139 -96.211892226835744 140 -95.134594128602728 141 -94.301201710454009 142 -93.589686019857368
+		 143 -92.962592190109405 144 -92.404283825159681 145 -91.907737200916756 146 -91.469242667744595
+		 147 -91.086963173474601 148 -90.759556812519961 149 -90.485796843856505 150 -90.281056402410499
+		 151 -90.153126629908954 152 -90.096444005771588 153 -90.112563703825856 154 -90.204812949447032
+		 155 -86.802692205449233 156 -79.388385503740352 157 -74.286907855165339 158 -72.161323178181021
+		 159 -72.263610641473406 160 -73.587917090522907 161 -74.996282800738783 162 -76.357181760055511
+		 163 -77.583507758114337 164 -78.631351889664529 165 -79.486659053849891 166 -80.150196826642613
+		 167 -80.626553086619424 168 -80.917612769742647 169 -81.018933720106872 170 -81.111794745779861
+		 171 -81.375139161248526 172 -81.792267384093904 173 -82.338110962591543 174 -82.97569911452409
+		 175 -83.654842511820945 176 -84.312331768660499 177 -84.874021205929807 178 -85.26049190511057
+		 179 -85.397084867292961 180 -85.399445636965012 181 -85.519232604071249 182 -85.881621397285144
+		 183 -86.583626707560995 184 -87.678296189248528 185 -89.145371254907488 186 -90.857483168411946
+		 187 -92.556806956655663 188 -93.868083768488646 189 -94.381406132769413 190 -92.219089304981367
+		 191 -87.045706399663743 192 -81.318432057837128 193 -77.421823171089216 194 -76.5665558293842
+		 195 -78.053914899432712 196 -80.520169123377414 197 -83.19095498761412 198 -85.519396990654755
+		 199 -86.766409939720631 200 -87.001482815486654 201 -86.869770896656064 202 -86.473226210587072
+		 203 -85.922718792029457 204 -85.307778598357402 205 -84.696776578288265 206 -84.148675205634618
+		 207 -83.725277943289569 208 -83.500746591155206 209 -83.564468081591755 210 -83.971094849172289
+		 211 -84.714357186734063 212 -85.782977924622955 213 -87.146177432309187 214 -88.771932405192644
+		 215 -90.668016776011711 216 -93.064749358021345 217 -95.467619835831158 218 -95.726254498521115
+		 219 -95.993455402351927 220 -96.30307753762537 221 -96.679196869728727 222 -97.135555150833099
+		 223 -95.537094868346884 224 -93.862292262951541 225 -92.741236496605268 226 -91.905233167582608
+		 227 -91.305657353413409 228 -90.932834216959222 229 -90.799992019443337 230 -89.915057052401394
+		 231 -87.778169695241488 232 -85.345233788264267 233 -83.537626697837055 234 -82.874730928941844
+		 235 -83.305494303034791 236 -84.476184811955875 237 -86.014123384133711 238 -87.48968788702409
+		 239 -88.256957531617203 240 -88.157994052697134 241 -87.851111236264089 242 -87.824517906381445
+		 243 -88.448590068127629 244 -89.953687294257122 245 -92.521158580274331 246 -95.802255065029755
+		 247 -96.478747389646315 248 -96.894493127339857 249 -97.039136160673522;
+createNode animCurveTA -n "R_Hip_Joint_rotateY";
+	rename -uid "22AC0B10-4400-0A07-52D7-FA97B80D88CD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 6.3623835859655546 2 6.3686800101127092
+		 3 6.3869938087504403 4 6.4166113515635832 5 6.4569690254594638 6 6.5075959232272771
+		 7 6.5680590315794438 8 6.6379083224764859 9 6.7166202384907265 10 8.6921285657854597
+		 11 9.6309965887343427 12 10.33680548988746 13 10.943936957377941 14 11.500222954638014
+		 15 12.028712741061428 16 12.540693354596206 17 13.039512571987368 18 13.521425433908137
+		 19 13.975782909870693 20 14.385291871059435 21 14.636836867443829 22 14.643036194263512
+		 23 14.444316727479912 24 14.100135321319691 25 13.672467133643282 26 13.424778620000273
+		 27 10.46421446328422 28 5.4874166616894691 29 4.6499514782553639 30 6.4931460497045084
+		 31 7.5662182183636144 32 8.3565356834865998 33 8.8868870086021623 34 9.2149127796327193
+		 35 9.4090969379514817 36 9.5309126041201306 37 9.6275732247815036 38 9.7324830532728033
+		 39 9.8684588113863878 40 10.050483852614429 41 10.326485939812791 42 10.715569594569489
+		 43 11.181738885956912 44 11.68844722481462 45 12.203576568454141 46 12.704424750336051
+		 47 13.18169189513536 48 13.64218484376779 49 14.110264264179605 50 14.628410216622363
+		 51 15.296756124880465 52 16.200932321493749 53 17.362464932714577 54 18.770048535755269
+		 55 20.366289568931013 56 22.04396163702711 57 23.65436842161186 58 25.02362752679457
+		 59 25.970395832752406 60 26.32125592899585 61 25.897120799611098 62 24.054190551084787
+		 63 20.051490959665692 64 14.352736239869524 65 9.0071207862978895 66 6.0147503263121518
+		 67 5.3389432027325681 68 5.7553587735960265 69 6.2676064921519368 70 6.5327119403216525
+		 71 6.6461400579190624 72 6.675456473306169 73 6.6481003419194815 74 6.5846347970223782
+		 75 6.510901452223429 76 6.4619766161109018 77 6.481261111049947 78 6.6153965443402925
+		 79 6.9033539157340362 80 7.3580802030105268 81 7.9672705119533687 82 8.6660532273776099
+		 83 9.3465617794458744 84 9.9058776235364103 85 10.257211733804965 86 10.316096521243995
+		 87 9.8868655036053976 88 8.8315821600964686 89 8.750113205420476 90 8.7311610742071526
+		 91 8.7927509095412706 92 8.9303220110502313 93 9.1276498048909982 94 10.769550165606006
+		 95 12.116243718422595 96 13.105832462176346 97 13.951364473904032 98 14.656742136446256
+		 99 15.154884278545712 100 15.343888885088466 101 15.133880813928929 102 14.341321404728514
+		 103 12.76893244203738 104 10.634230850845171 105 8.6038246572943571 106 7.2945132003797761
+		 107 6.796769512723257 108 6.7755941496529459 109 6.832688780386448 110 6.7823184682209856
+		 111 6.692373110170772 112 6.6095982280744199 113 6.5455399509353791 114 6.5047133484852866
+		 115 6.487867983997389 116 6.4947985757502238 117 6.5251708810485543 118 6.5783331906699516
+		 119 6.6529697041455336 120 6.7469579278505796 121 6.8898385371686324 122 7.0726396272988818
+		 123 7.1965567304854208 124 7.0413782399475284 125 6.0122775558309218 126 6.1274440811707382
+		 127 6.2157799095661748 128 6.2817478934428213 129 6.3298822820377341 130 6.3623835859655546
+		 131 6.3911197112912053 132 6.4282939728514004 133 6.4736017402688804 134 6.5267952586546807
+		 135 6.5876470703851533 136 6.6559116209114917 137 6.7312840374592149 138 6.8133557807932803
+		 139 8.7249663283000025 140 9.7032607282701822 141 10.42417571240478 142 11.037907892878469
+		 143 11.595689895757751 144 12.121831694084612 145 12.628259210458619 146 13.118792808719881
+		 147 13.590160850571609 148 14.032302099248019 149 14.42868295576249 150 14.666845962858128
+		 151 14.660744180846722 152 14.452371337608103 153 14.102156453601104 154 13.672467133643295
+		 155 13.424778620000307 156 10.464214463284279 157 5.4874166616894895 158 4.6499514782553506
+		 159 6.4931460497045084 160 7.5662182183636331 161 8.3565356834865963 162 8.8868870086021516
+		 163 9.2149127796327193 164 9.4090969379514888 165 9.5309126041201218 166 9.6275732247815213
+		 167 9.7324830532727944 168 9.8684588113863878 169 10.050483852614429 170 10.326485939812786
+		 171 10.715569594569502 172 11.181738885956918 173 11.688447224814617 174 12.203576568454144
+		 175 12.704424750336075 176 13.181691895135383 177 13.642184843767835 178 14.110264264179609
+		 179 14.628410216622347 180 15.296756124880465 181 16.200932321493791 182 17.362464932714531
+		 183 18.770048535755294 184 20.366289568931073 185 22.043961637027124 186 23.654368421611863
+		 187 25.023627526794616 188 25.970395832752384 189 26.32125592899585 190 25.897120799611095
+		 191 24.054190551084815 192 20.051490959665671 193 14.352736239869587 194 9.0071207862978628
+		 195 6.0147503263121607 196 5.338943202732592 197 5.7553587735960416 198 6.2676064921519474
+		 199 6.5327119403216525 200 6.6461400579190686 201 6.6754564733061859 202 6.6481003419194815
+		 203 6.5846347970223844 204 6.5109014522234157 205 6.4619766161109142 206 6.4812611110499496
+		 207 6.6153965443403147 208 6.903353915734006 209 7.358080203010557 210 7.9672705119533713
+		 211 8.6660532273776152 212 9.3465617794458762 213 9.9058776235364014 214 10.257211733804978
+		 215 10.316096521244013 216 9.8868655036054118 217 8.8315821600964881 218 8.7501132054204955
+		 219 8.7311610742071544 220 8.7927509095412688 221 8.9303220110502224 222 9.1276498048909769
+		 223 10.769550165606013 224 12.1162437184226 225 13.105832462176357 226 13.951364473904023
+		 227 14.65674213644628 228 15.154884278545712 229 15.343888885088466 230 15.113342008322357
+		 231 14.273611700920085 232 12.656206594974902 233 10.506815586391189 234 8.497851102063116
+		 235 7.2227501310320914 236 6.7429582715911538 237 6.7173362500514129 238 6.7772334182043279
+		 239 6.7823184682209856 240 6.8232134428700153 241 6.9836854080103725 242 7.3385241680523148
+		 243 7.8921634913999545 244 8.4245627627605977 245 8.4018892693927043 246 6.9688298741185353
+		 247 6.6603977933999365 248 6.4428181029220584 249 6.3623835859655546;
+createNode animCurveTA -n "R_Hip_Joint_rotateZ";
+	rename -uid "73DE501D-4583-E0F0-157E-C1890E9A2E9D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -25.397815125646503 2 -25.472860360708758
+		 3 -25.691126324050298 4 -26.045012409868065 5 -26.529788883785702 6 -27.142829907900314
+		 7 -27.88294741383524 8 -28.749749874753583 9 -29.742962860645452 10 -15.644681501126435
+		 11 -8.9662150373226783 12 -4.2972128016858662 13 -0.69344738433216557 14 2.1662450132231261
+		 15 4.438062625808656 16 6.2160348788327999 17 7.5710945335667494 18 8.5641708256014084
+		 19 9.2545143739708795 20 9.7013417271997859 21 9.9133675595367645 22 9.9366389319326061
+		 23 9.8270760795668739 24 9.5781858397227069 25 9.1515278210910314 26 22.422734813384558
+		 27 51.934305582004264 28 73.826902055240083 29 75.734526951932651 30 69.746271162908812
+		 31 66.28099399287639 32 63.610687027934624 33 61.700271851018108 34 60.442912905791829
+		 35 59.6717207763148 36 59.195799551854698 37 58.835004247644939 38 58.439355795660965
+		 39 57.894406432925159 40 57.119055741994899 41 55.543801565141827 42 52.802879466923855
+		 43 49.143314580202613 44 44.82211949692303 45 40.111729249991036 46 35.303008539103438
+		 47 30.706967873404199 48 26.649084312731382 49 23.444277003157104 50 21.346091109196472
+		 51 19.815740192234127 52 17.903576039750032 53 15.302326816014725 54 11.911406926791379
+		 55 7.8306140875918722 56 3.3436936388061222 57 -1.1154192889405825 58 -5.0071664977503634
+		 59 -7.7414989745394296 60 -8.7575466766555188 61 -3.9292863369269142 62 8.679231092340796
+		 63 26.150404400594979 64 45.410944660206297 65 62.417222743119595 66 73.069866964794656
+		 67 76.245363991023794 68 73.730925301523641 69 68.304900221758743 70 63.475844641765768
+		 71 61.633330233348794 72 62.156697578699998 73 64.286505509390935 74 67.181767657193447
+		 75 70.159044934156128 76 72.696413379678972 77 74.366292417522885 78 74.788621062471321
+		 79 73.616814449462225 80 70.550390387693767 81 65.436429616763547 82 58.542911398670626
+		 83 50.229715639974003 84 40.781236619799344 85 30.318134417619493 86 18.609328055168639
+		 87 3.9680868267408651 88 -11.611464388024137 89 -13.909039606465551 90 -15.907030791558354
+		 91 -17.875780674041998 92 -20.064345622132358 93 -22.483079669079363 94 -12.894806023182865
+		 95 -4.6116411147354848 96 0.022554722449743134 97 2.9327251629649873 98 4.6898880159820404
+		 99 5.6271859303936491 100 5.9326740376574261 101 9.5249938282604418 102 18.878752764201849
+		 103 31.616629494905883 104 45.076490351109598 105 56.386770065973636 106 63.327170480953171
+		 107 65.280034097952054 108 63.099917698063784 109 58.73649291916864 110 55.829498674130818
+		 111 55.560067451682286 112 55.702754842525053 113 55.90243184920088 114 55.810470255792097
+		 115 55.167839458721986 116 53.808786156077502 117 51.65043837760529 118 48.680492840253727
+		 119 44.945014430892577 120 40.532062591568533 121 34.953589110334924 122 27.53925283787833
+		 123 18.004819031061693 124 5.2347331831686486 125 -13.819136213791943 126 -17.719686404332592
+		 127 -20.909819626689412 128 -23.301355931573983 129 -24.825520334577906 130 -25.397815125646503
+		 131 -25.525240928802688 132 -25.787515707538091 133 -26.177965585946922 134 -26.692575326517687
+		 135 -27.329266878475909 136 -28.087270598082693 137 -28.966516426662341 138 -29.96698461021775
+		 139 -16.601200652585515 140 -9.6775459981516736 141 -4.9025981771902929 142 -1.22591264292564
+		 143 1.6954183566715511 144 4.0249056083606947 145 5.8592199751967176 146 7.2702385798078053
+		 147 8.3185946009038378 148 9.0625826649707406 149 9.5600406648601357 150 9.8177965820080431
+		 151 9.8801416506374 152 9.800804755623103 153 9.5713442019814057 154 9.1515278210910491
+		 155 22.422734813384338 156 51.934305582004171 157 73.826902055240112 158 75.734526951932736
+		 159 69.746271162908812 160 66.280993992876375 161 63.610687027934652 162 61.700271851018151
+		 163 60.442912905791829 164 59.671720776314807 165 59.195799551854734 166 58.835004247644889
+		 167 58.439355795660965 168 57.894406432925173 169 57.119055741994899 170 55.543801565141834
+		 171 52.802879466923841 172 49.143314580202563 173 44.822119496923008 174 40.111729249991008
+		 175 35.303008539103381 176 30.706967873404217 177 26.649084312731336 178 23.444277003157019
+		 179 21.346091109196411 180 19.81574019223406 181 17.903576039749954 182 15.302326816014707
+		 183 11.911406926791287 184 7.8306140875917514 185 3.3436936388061542 186 -1.1154192889406382
+		 187 -5.007166497750358 188 -7.7414989745394234 189 -8.7575466766555188 190 -3.9292863369268138
+		 191 8.6792310923406735 192 26.150404400595047 193 45.410944660206141 194 62.417222743119829
+		 195 73.069866964794684 196 76.245363991023751 197 73.730925301523513 198 68.304900221758658
+		 199 63.475844641765768 200 61.633330233348872 201 62.156697578700033 202 64.286505509390906
+		 203 67.181767657193532 204 70.159044934156142 205 72.696413379678901 206 74.366292417522899
+		 207 74.788621062471321 208 73.616814449462197 209 70.550390387693781 210 65.436429616763618
+		 211 58.542911398670846 212 50.229715639973982 213 40.781236619799401 214 30.318134417619689
+		 215 18.609328055168611 216 3.968086826740989 217 -11.611464388024128 218 -13.909039606465599
+		 219 -15.90703079155835 220 -17.875780674041973 221 -20.064345622132343 222 -22.483079669079338
+		 223 -12.894806023182774 224 -4.6116411147352894 225 0.02255472244985127 226 2.9327251629650206
+		 227 4.6898880159820946 228 5.6271859303936624 229 5.9326740376574261 230 9.5266788541203926
+		 231 18.882531114224847 232 31.622270524130354 233 45.089651150242652 234 56.41450045863683
+		 235 63.367120407171569 236 65.322613858117307 237 63.137433095231579 238 58.76313145033734
+		 239 55.829498674130818 240 55.625854998902987 241 54.61488802539516 242 50.404691350589083
+		 243 41.704634338017001 244 28.212829174684721 245 9.1276367274982224 246 -15.491461672491232
+		 247 -20.919092750295615 248 -24.243234995866132 249 -25.397815125646503;
+createNode animCurveTU -n "R_Hip_Joint_scaleX";
+	rename -uid "92FA033F-46E0-3478-CED5-71AA77208FF4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "R_Hip_Joint_scaleY";
+	rename -uid "33C9C44F-4E98-AFD0-9D06-889D81EF04E6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "R_Hip_Joint_scaleZ";
+	rename -uid "57C334B3-4EF3-8FA4-5476-F180122489E2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Root_Joint_parentConstraint1_nodeState";
+	rename -uid "C4F7CBB3-4307-AF2C-02E1-6FB5FC43CA2B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "Root_Joint_parentConstraint1_target_0__targetWeight";
+	rename -uid "7A800D17-4A0B-66E5-7192-63BCA9BA711F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "Root_Joint_parentConstraint1_target_0__targetOffsetTranslateX";
+	rename -uid "3470D723-4768-C50F-B71B-11AD0D34752D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "Root_Joint_parentConstraint1_target_0__targetOffsetTranslateY";
+	rename -uid "39C7BE11-415B-D5A4-28AE-2EA7426E1DB4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 2.2204460492503131e-16 2 2.2204460492503131e-16
+		 3 2.2204460492503131e-16 4 2.2204460492503131e-16 5 2.2204460492503131e-16 6 2.2204460492503131e-16
+		 7 2.2204460492503131e-16 8 2.2204460492503131e-16 9 2.2204460492503131e-16 10 2.2204460492503131e-16
+		 11 2.2204460492503131e-16 12 2.2204460492503131e-16 13 2.2204460492503131e-16 14 2.2204460492503131e-16
+		 15 2.2204460492503131e-16 16 2.2204460492503131e-16 17 2.2204460492503131e-16 18 2.2204460492503131e-16
+		 19 2.2204460492503131e-16 20 2.2204460492503131e-16 21 2.2204460492503131e-16 22 2.2204460492503131e-16
+		 23 2.2204460492503131e-16 24 2.2204460492503131e-16 25 2.2204460492503131e-16 26 2.2204460492503131e-16
+		 27 2.2204460492503131e-16 28 2.2204460492503131e-16 29 2.2204460492503131e-16 30 2.2204460492503131e-16
+		 31 2.2204460492503131e-16 32 2.2204460492503131e-16 33 2.2204460492503131e-16 34 2.2204460492503131e-16
+		 35 2.2204460492503131e-16 36 2.2204460492503131e-16 37 2.2204460492503131e-16 38 2.2204460492503131e-16
+		 39 2.2204460492503131e-16 40 2.2204460492503131e-16 41 2.2204460492503131e-16 42 2.2204460492503131e-16
+		 43 2.2204460492503131e-16 44 2.2204460492503131e-16 45 2.2204460492503131e-16 46 2.2204460492503131e-16
+		 47 2.2204460492503131e-16 48 2.2204460492503131e-16 49 2.2204460492503131e-16 50 2.2204460492503131e-16
+		 51 2.2204460492503131e-16 52 2.2204460492503131e-16 53 2.2204460492503131e-16 54 2.2204460492503131e-16
+		 55 2.2204460492503131e-16 56 2.2204460492503131e-16 57 2.2204460492503131e-16 58 2.2204460492503131e-16
+		 59 2.2204460492503131e-16 60 2.2204460492503131e-16 61 2.2204460492503131e-16 62 2.2204460492503131e-16
+		 63 2.2204460492503131e-16 64 2.2204460492503131e-16 65 2.2204460492503131e-16 66 2.2204460492503131e-16
+		 67 2.2204460492503131e-16 68 2.2204460492503131e-16 69 2.2204460492503131e-16 70 2.2204460492503131e-16
+		 71 2.2204460492503131e-16 72 2.2204460492503131e-16 73 2.2204460492503131e-16 74 2.2204460492503131e-16
+		 75 2.2204460492503131e-16 76 2.2204460492503131e-16 77 2.2204460492503131e-16 78 2.2204460492503131e-16
+		 79 2.2204460492503131e-16 80 2.2204460492503131e-16 81 2.2204460492503131e-16 82 2.2204460492503131e-16
+		 83 2.2204460492503131e-16 84 2.2204460492503131e-16 85 2.2204460492503131e-16 86 2.2204460492503131e-16
+		 87 2.2204460492503131e-16 88 2.2204460492503131e-16 89 2.2204460492503131e-16 90 2.2204460492503131e-16
+		 91 2.2204460492503131e-16 92 2.2204460492503131e-16 93 2.2204460492503131e-16 94 2.2204460492503131e-16
+		 95 2.2204460492503131e-16 96 2.2204460492503131e-16 97 2.2204460492503131e-16 98 2.2204460492503131e-16
+		 99 2.2204460492503131e-16 100 2.2204460492503131e-16 101 2.2204460492503131e-16 102 2.2204460492503131e-16
+		 103 2.2204460492503131e-16 104 2.2204460492503131e-16 105 2.2204460492503131e-16
+		 106 2.2204460492503131e-16 107 2.2204460492503131e-16 108 2.2204460492503131e-16
+		 109 2.2204460492503131e-16 110 2.2204460492503131e-16 111 2.2204460492503131e-16
+		 112 2.2204460492503131e-16 113 2.2204460492503131e-16 114 2.2204460492503131e-16
+		 115 2.2204460492503131e-16 116 2.2204460492503131e-16 117 2.2204460492503131e-16
+		 118 2.2204460492503131e-16 119 2.2204460492503131e-16 120 2.2204460492503131e-16
+		 121 2.2204460492503131e-16 122 2.2204460492503131e-16 123 2.2204460492503131e-16
+		 124 2.2204460492503131e-16 125 2.2204460492503131e-16 126 2.2204460492503131e-16
+		 127 2.2204460492503131e-16 128 2.2204460492503131e-16 129 2.2204460492503131e-16
+		 130 2.2204460492503131e-16 131 2.2204460492503131e-16 132 2.2204460492503131e-16
+		 133 2.2204460492503131e-16 134 2.2204460492503131e-16 135 2.2204460492503131e-16
+		 136 2.2204460492503131e-16 137 2.2204460492503131e-16 138 2.2204460492503131e-16
+		 139 2.2204460492503131e-16 140 2.2204460492503131e-16 141 2.2204460492503131e-16
+		 142 2.2204460492503131e-16 143 2.2204460492503131e-16 144 2.2204460492503131e-16
+		 145 2.2204460492503131e-16 146 2.2204460492503131e-16 147 2.2204460492503131e-16
+		 148 2.2204460492503131e-16 149 2.2204460492503131e-16 150 2.2204460492503131e-16
+		 151 2.2204460492503131e-16 152 2.2204460492503131e-16 153 2.2204460492503131e-16
+		 154 2.2204460492503131e-16 155 2.2204460492503131e-16 156 2.2204460492503131e-16
+		 157 2.2204460492503131e-16 158 2.2204460492503131e-16 159 2.2204460492503131e-16
+		 160 2.2204460492503131e-16 161 2.2204460492503131e-16 162 2.2204460492503131e-16
+		 163 2.2204460492503131e-16 164 2.2204460492503131e-16 165 2.2204460492503131e-16
+		 166 2.2204460492503131e-16 167 2.2204460492503131e-16 168 2.2204460492503131e-16
+		 169 2.2204460492503131e-16 170 2.2204460492503131e-16 171 2.2204460492503131e-16
+		 172 2.2204460492503131e-16 173 2.2204460492503131e-16 174 2.2204460492503131e-16
+		 175 2.2204460492503131e-16 176 2.2204460492503131e-16 177 2.2204460492503131e-16
+		 178 2.2204460492503131e-16 179 2.2204460492503131e-16 180 2.2204460492503131e-16
+		 181 2.2204460492503131e-16 182 2.2204460492503131e-16 183 2.2204460492503131e-16
+		 184 2.2204460492503131e-16 185 2.2204460492503131e-16 186 2.2204460492503131e-16
+		 187 2.2204460492503131e-16 188 2.2204460492503131e-16 189 2.2204460492503131e-16
+		 190 2.2204460492503131e-16 191 2.2204460492503131e-16 192 2.2204460492503131e-16
+		 193 2.2204460492503131e-16 194 2.2204460492503131e-16 195 2.2204460492503131e-16
+		 196 2.2204460492503131e-16 197 2.2204460492503131e-16 198 2.2204460492503131e-16
+		 199 2.2204460492503131e-16 200 2.2204460492503131e-16 201 2.2204460492503131e-16
+		 202 2.2204460492503131e-16 203 2.2204460492503131e-16 204 2.2204460492503131e-16
+		 205 2.2204460492503131e-16 206 2.2204460492503131e-16 207 2.2204460492503131e-16
+		 208 2.2204460492503131e-16 209 2.2204460492503131e-16 210 2.2204460492503131e-16
+		 211 2.2204460492503131e-16 212 2.2204460492503131e-16 213 2.2204460492503131e-16
+		 214 2.2204460492503131e-16 215 2.2204460492503131e-16 216 2.2204460492503131e-16
+		 217 2.2204460492503131e-16 218 2.2204460492503131e-16 219 2.2204460492503131e-16
+		 220 2.2204460492503131e-16 221 2.2204460492503131e-16 222 2.2204460492503131e-16
+		 223 2.2204460492503131e-16 224 2.2204460492503131e-16 225 2.2204460492503131e-16
+		 226 2.2204460492503131e-16 227 2.2204460492503131e-16 228 2.2204460492503131e-16
+		 229 2.2204460492503131e-16 230 2.2204460492503131e-16 231 2.2204460492503131e-16
+		 232 2.2204460492503131e-16 233 2.2204460492503131e-16 234 2.2204460492503131e-16
+		 235 2.2204460492503131e-16 236 2.2204460492503131e-16 237 2.2204460492503131e-16
+		 238 2.2204460492503131e-16 239 2.2204460492503131e-16 240 2.2204460492503131e-16
+		 241 2.2204460492503131e-16 242 2.2204460492503131e-16 243 2.2204460492503131e-16
+		 244 2.2204460492503131e-16 245 2.2204460492503131e-16 246 2.2204460492503131e-16
+		 247 2.2204460492503131e-16 248 2.2204460492503131e-16 249 2.2204460492503131e-16;
+createNode animCurveTL -n "Root_Joint_parentConstraint1_target_0__targetOffsetTranslateZ";
+	rename -uid "FD84B1D3-474E-27FF-E78E-51A525C06F4E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -5.4406746607948975e-09 2 -5.4406746607948975e-09
+		 3 -5.4406746607948975e-09 4 -5.4406746607948975e-09 5 -5.4406746607948975e-09 6 -5.4406746607948975e-09
+		 7 -5.4406746607948975e-09 8 -5.4406746607948975e-09 9 -5.4406746607948975e-09 10 -5.4406746607948975e-09
+		 11 -5.4406746607948975e-09 12 -5.4406746607948975e-09 13 -5.4406746607948975e-09
+		 14 -5.4406746607948975e-09 15 -5.4406746607948975e-09 16 -5.4406746607948975e-09
+		 17 -5.4406746607948975e-09 18 -5.4406746607948975e-09 19 -5.4406746607948975e-09
+		 20 -5.4406746607948975e-09 21 -5.4406746607948975e-09 22 -5.4406746607948975e-09
+		 23 -5.4406746607948975e-09 24 -5.4406746607948975e-09 25 -5.4406746607948975e-09
+		 26 -5.4406746607948975e-09 27 -5.4406746607948975e-09 28 -5.4406746607948975e-09
+		 29 -5.4406746607948975e-09 30 -5.4406746607948975e-09 31 -5.4406746607948975e-09
+		 32 -5.4406746607948975e-09 33 -5.4406746607948975e-09 34 -5.4406746607948975e-09
+		 35 -5.4406746607948975e-09 36 -5.4406746607948975e-09 37 -5.4406746607948975e-09
+		 38 -5.4406746607948975e-09 39 -5.4406746607948975e-09 40 -5.4406746607948975e-09
+		 41 -5.4406746607948975e-09 42 -5.4406746607948975e-09 43 -5.4406746607948975e-09
+		 44 -5.4406746607948975e-09 45 -5.4406746607948975e-09 46 -5.4406746607948975e-09
+		 47 -5.4406746607948975e-09 48 -5.4406746607948975e-09 49 -5.4406746607948975e-09
+		 50 -5.4406746607948975e-09 51 -5.4406746607948975e-09 52 -5.4406746607948975e-09
+		 53 -5.4406746607948975e-09 54 -5.4406746607948975e-09 55 -5.4406746607948975e-09
+		 56 -5.4406746607948975e-09 57 -5.4406746607948975e-09 58 -5.4406746607948975e-09
+		 59 -5.4406746607948975e-09 60 -5.4406746607948975e-09 61 -5.4406746607948975e-09
+		 62 -5.4406746607948975e-09 63 -5.4406746607948975e-09 64 -5.4406746607948975e-09
+		 65 -5.4406746607948975e-09 66 -5.4406746607948975e-09 67 -5.4406746607948975e-09
+		 68 -5.4406746607948975e-09 69 -5.4406746607948975e-09 70 -5.4406746607948975e-09
+		 71 -5.4406746607948975e-09 72 -5.4406746607948975e-09 73 -5.4406746607948975e-09
+		 74 -5.4406746607948975e-09 75 -5.4406746607948975e-09 76 -5.4406746607948975e-09
+		 77 -5.4406746607948975e-09 78 -5.4406746607948975e-09 79 -5.4406746607948975e-09
+		 80 -5.4406746607948975e-09 81 -5.4406746607948975e-09 82 -5.4406746607948975e-09
+		 83 -5.4406746607948975e-09 84 -5.4406746607948975e-09 85 -5.4406746607948975e-09
+		 86 -5.4406746607948975e-09 87 -5.4406746607948975e-09 88 -5.4406746607948975e-09
+		 89 -5.4406746607948975e-09 90 -5.4406746607948975e-09 91 -5.4406746607948975e-09
+		 92 -5.4406746607948975e-09 93 -5.4406746607948975e-09 94 -5.4406746607948975e-09
+		 95 -5.4406746607948975e-09 96 -5.4406746607948975e-09 97 -5.4406746607948975e-09
+		 98 -5.4406746607948975e-09 99 -5.4406746607948975e-09 100 -5.4406746607948975e-09
+		 101 -5.4406746607948975e-09 102 -5.4406746607948975e-09 103 -5.4406746607948975e-09
+		 104 -5.4406746607948975e-09 105 -5.4406746607948975e-09 106 -5.4406746607948975e-09
+		 107 -5.4406746607948975e-09 108 -5.4406746607948975e-09 109 -5.4406746607948975e-09
+		 110 -5.4406746607948975e-09 111 -5.4406746607948975e-09 112 -5.4406746607948975e-09
+		 113 -5.4406746607948975e-09 114 -5.4406746607948975e-09 115 -5.4406746607948975e-09
+		 116 -5.4406746607948975e-09 117 -5.4406746607948975e-09 118 -5.4406746607948975e-09
+		 119 -5.4406746607948975e-09 120 -5.4406746607948975e-09 121 -5.4406746607948975e-09
+		 122 -5.4406746607948975e-09 123 -5.4406746607948975e-09 124 -5.4406746607948975e-09
+		 125 -5.4406746607948975e-09 126 -5.4406746607948975e-09 127 -5.4406746607948975e-09
+		 128 -5.4406746607948975e-09 129 -5.4406746607948975e-09 130 -5.4406746607948975e-09
+		 131 -5.4406746607948975e-09 132 -5.4406746607948975e-09 133 -5.4406746607948975e-09
+		 134 -5.4406746607948975e-09 135 -5.4406746607948975e-09 136 -5.4406746607948975e-09
+		 137 -5.4406746607948975e-09 138 -5.4406746607948975e-09 139 -5.4406746607948975e-09
+		 140 -5.4406746607948975e-09 141 -5.4406746607948975e-09 142 -5.4406746607948975e-09
+		 143 -5.4406746607948975e-09 144 -5.4406746607948975e-09 145 -5.4406746607948975e-09
+		 146 -5.4406746607948975e-09 147 -5.4406746607948975e-09 148 -5.4406746607948975e-09
+		 149 -5.4406746607948975e-09 150 -5.4406746607948975e-09 151 -5.4406746607948975e-09
+		 152 -5.4406746607948975e-09 153 -5.4406746607948975e-09 154 -5.4406746607948975e-09
+		 155 -5.4406746607948975e-09 156 -5.4406746607948975e-09 157 -5.4406746607948975e-09
+		 158 -5.4406746607948975e-09 159 -5.4406746607948975e-09 160 -5.4406746607948975e-09
+		 161 -5.4406746607948975e-09 162 -5.4406746607948975e-09 163 -5.4406746607948975e-09
+		 164 -5.4406746607948975e-09 165 -5.4406746607948975e-09 166 -5.4406746607948975e-09
+		 167 -5.4406746607948975e-09 168 -5.4406746607948975e-09 169 -5.4406746607948975e-09
+		 170 -5.4406746607948975e-09 171 -5.4406746607948975e-09 172 -5.4406746607948975e-09
+		 173 -5.4406746607948975e-09 174 -5.4406746607948975e-09 175 -5.4406746607948975e-09
+		 176 -5.4406746607948975e-09 177 -5.4406746607948975e-09 178 -5.4406746607948975e-09
+		 179 -5.4406746607948975e-09 180 -5.4406746607948975e-09 181 -5.4406746607948975e-09
+		 182 -5.4406746607948975e-09 183 -5.4406746607948975e-09 184 -5.4406746607948975e-09
+		 185 -5.4406746607948975e-09 186 -5.4406746607948975e-09 187 -5.4406746607948975e-09
+		 188 -5.4406746607948975e-09 189 -5.4406746607948975e-09 190 -5.4406746607948975e-09
+		 191 -5.4406746607948975e-09 192 -5.4406746607948975e-09 193 -5.4406746607948975e-09
+		 194 -5.4406746607948975e-09 195 -5.4406746607948975e-09 196 -5.4406746607948975e-09
+		 197 -5.4406746607948975e-09 198 -5.4406746607948975e-09 199 -5.4406746607948975e-09
+		 200 -5.4406746607948975e-09 201 -5.4406746607948975e-09 202 -5.4406746607948975e-09
+		 203 -5.4406746607948975e-09 204 -5.4406746607948975e-09 205 -5.4406746607948975e-09
+		 206 -5.4406746607948975e-09 207 -5.4406746607948975e-09 208 -5.4406746607948975e-09
+		 209 -5.4406746607948975e-09 210 -5.4406746607948975e-09 211 -5.4406746607948975e-09
+		 212 -5.4406746607948975e-09 213 -5.4406746607948975e-09 214 -5.4406746607948975e-09
+		 215 -5.4406746607948975e-09 216 -5.4406746607948975e-09 217 -5.4406746607948975e-09
+		 218 -5.4406746607948975e-09 219 -5.4406746607948975e-09 220 -5.4406746607948975e-09
+		 221 -5.4406746607948975e-09 222 -5.4406746607948975e-09 223 -5.4406746607948975e-09
+		 224 -5.4406746607948975e-09 225 -5.4406746607948975e-09 226 -5.4406746607948975e-09
+		 227 -5.4406746607948975e-09 228 -5.4406746607948975e-09 229 -5.4406746607948975e-09
+		 230 -5.4406746607948975e-09 231 -5.4406746607948975e-09 232 -5.4406746607948975e-09
+		 233 -5.4406746607948975e-09 234 -5.4406746607948975e-09 235 -5.4406746607948975e-09
+		 236 -5.4406746607948975e-09 237 -5.4406746607948975e-09 238 -5.4406746607948975e-09
+		 239 -5.4406746607948975e-09 240 -5.4406746607948975e-09 241 -5.4406746607948975e-09
+		 242 -5.4406746607948975e-09 243 -5.4406746607948975e-09 244 -5.4406746607948975e-09
+		 245 -5.4406746607948975e-09 246 -5.4406746607948975e-09 247 -5.4406746607948975e-09
+		 248 -5.4406746607948975e-09 249 -5.4406746607948975e-09;
+createNode animCurveTA -n "Root_Joint_parentConstraint1_target_0__targetOffsetRotateX";
+	rename -uid "6AD1EC5A-49A6-6BE7-74BA-F2BB498D4592";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -90 2 -90 3 -90 4 -90 5 -90 6 -90 7 -90
+		 8 -90 9 -90 10 -90 11 -90 12 -90 13 -90 14 -90 15 -90 16 -90 17 -90 18 -90 19 -90
+		 20 -90 21 -90 22 -90 23 -90 24 -90 25 -90 26 -90 27 -90 28 -90 29 -90 30 -90 31 -90
+		 32 -90 33 -90 34 -90 35 -90 36 -90 37 -90 38 -90 39 -90 40 -90 41 -90 42 -90 43 -90
+		 44 -90 45 -90 46 -90 47 -90 48 -90 49 -90 50 -90 51 -90 52 -90 53 -90 54 -90 55 -90
+		 56 -90 57 -90 58 -90 59 -90 60 -90 61 -90 62 -90 63 -90 64 -90 65 -90 66 -90 67 -90
+		 68 -90 69 -90 70 -90 71 -90 72 -90 73 -90 74 -90 75 -90 76 -90 77 -90 78 -90 79 -90
+		 80 -90 81 -90 82 -90 83 -90 84 -90 85 -90 86 -90 87 -90 88 -90 89 -90 90 -90 91 -90
+		 92 -90 93 -90 94 -90 95 -90 96 -90 97 -90 98 -90 99 -90 100 -90 101 -90 102 -90 103 -90
+		 104 -90 105 -90 106 -90 107 -90 108 -90 109 -90 110 -90 111 -90 112 -90 113 -90 114 -90
+		 115 -90 116 -90 117 -90 118 -90 119 -90 120 -90 121 -90 122 -90 123 -90 124 -90 125 -90
+		 126 -90 127 -90 128 -90 129 -90 130 -90 131 -90 132 -90 133 -90 134 -90 135 -90 136 -90
+		 137 -90 138 -90 139 -90 140 -90 141 -90 142 -90 143 -90 144 -90 145 -90 146 -90 147 -90
+		 148 -90 149 -90 150 -90 151 -90 152 -90 153 -90 154 -90 155 -90 156 -90 157 -90 158 -90
+		 159 -90 160 -90 161 -90 162 -90 163 -90 164 -90 165 -90 166 -90 167 -90 168 -90 169 -90
+		 170 -90 171 -90 172 -90 173 -90 174 -90 175 -90 176 -90 177 -90 178 -90 179 -90 180 -90
+		 181 -90 182 -90 183 -90 184 -90 185 -90 186 -90 187 -90 188 -90 189 -90 190 -90 191 -90
+		 192 -90 193 -90 194 -90 195 -90 196 -90 197 -90 198 -90 199 -90 200 -90 201 -90 202 -90
+		 203 -90 204 -90 205 -90 206 -90 207 -90 208 -90 209 -90 210 -90 211 -90 212 -90 213 -90
+		 214 -90 215 -90 216 -90 217 -90 218 -90 219 -90 220 -90 221 -90 222 -90 223 -90 224 -90
+		 225 -90 226 -90 227 -90 228 -90 229 -90 230 -90 231 -90 232 -90 233 -90 234 -90 235 -90
+		 236 -90 237 -90 238 -90 239 -90 240 -90 241 -90 242 -90 243 -90 244 -90 245 -90 246 -90
+		 247 -90 248 -90 249 -90;
+createNode animCurveTA -n "Root_Joint_parentConstraint1_target_0__targetOffsetRotateY";
+	rename -uid "3A6631D9-4F9F-32E5-DA4A-49B236C815E9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Root_Joint_parentConstraint1_target_0__targetOffsetRotateZ";
+	rename -uid "EF31327A-4F36-C8A9-27BB-95AF58F1C502";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 90.79990798656479 2 90.79990798656479
+		 3 90.79990798656479 4 90.79990798656479 5 90.79990798656479 6 90.79990798656479 7 90.79990798656479
+		 8 90.79990798656479 9 90.79990798656479 10 90.79990798656479 11 90.79990798656479
+		 12 90.79990798656479 13 90.79990798656479 14 90.79990798656479 15 90.79990798656479
+		 16 90.79990798656479 17 90.79990798656479 18 90.79990798656479 19 90.79990798656479
+		 20 90.79990798656479 21 90.79990798656479 22 90.79990798656479 23 90.79990798656479
+		 24 90.79990798656479 25 90.79990798656479 26 90.79990798656479 27 90.79990798656479
+		 28 90.79990798656479 29 90.79990798656479 30 90.79990798656479 31 90.79990798656479
+		 32 90.79990798656479 33 90.79990798656479 34 90.79990798656479 35 90.79990798656479
+		 36 90.79990798656479 37 90.79990798656479 38 90.79990798656479 39 90.79990798656479
+		 40 90.79990798656479 41 90.79990798656479 42 90.79990798656479 43 90.79990798656479
+		 44 90.79990798656479 45 90.79990798656479 46 90.79990798656479 47 90.79990798656479
+		 48 90.79990798656479 49 90.79990798656479 50 90.79990798656479 51 90.79990798656479
+		 52 90.79990798656479 53 90.79990798656479 54 90.79990798656479 55 90.79990798656479
+		 56 90.79990798656479 57 90.79990798656479 58 90.79990798656479 59 90.79990798656479
+		 60 90.79990798656479 61 90.79990798656479 62 90.79990798656479 63 90.79990798656479
+		 64 90.79990798656479 65 90.79990798656479 66 90.79990798656479 67 90.79990798656479
+		 68 90.79990798656479 69 90.79990798656479 70 90.79990798656479 71 90.79990798656479
+		 72 90.79990798656479 73 90.79990798656479 74 90.79990798656479 75 90.79990798656479
+		 76 90.79990798656479 77 90.79990798656479 78 90.79990798656479 79 90.79990798656479
+		 80 90.79990798656479 81 90.79990798656479 82 90.79990798656479 83 90.79990798656479
+		 84 90.79990798656479 85 90.79990798656479 86 90.79990798656479 87 90.79990798656479
+		 88 90.79990798656479 89 90.79990798656479 90 90.79990798656479 91 90.79990798656479
+		 92 90.79990798656479 93 90.79990798656479 94 90.79990798656479 95 90.79990798656479
+		 96 90.79990798656479 97 90.79990798656479 98 90.79990798656479 99 90.79990798656479
+		 100 90.79990798656479 101 90.79990798656479 102 90.79990798656479 103 90.79990798656479
+		 104 90.79990798656479 105 90.79990798656479 106 90.79990798656479 107 90.79990798656479
+		 108 90.79990798656479 109 90.79990798656479 110 90.79990798656479 111 90.79990798656479
+		 112 90.79990798656479 113 90.79990798656479 114 90.79990798656479 115 90.79990798656479
+		 116 90.79990798656479 117 90.79990798656479 118 90.79990798656479 119 90.79990798656479
+		 120 90.79990798656479 121 90.79990798656479 122 90.79990798656479 123 90.79990798656479
+		 124 90.79990798656479 125 90.79990798656479 126 90.79990798656479 127 90.79990798656479
+		 128 90.79990798656479 129 90.79990798656479 130 90.79990798656479 131 90.79990798656479
+		 132 90.79990798656479 133 90.79990798656479 134 90.79990798656479 135 90.79990798656479
+		 136 90.79990798656479 137 90.79990798656479 138 90.79990798656479 139 90.79990798656479
+		 140 90.79990798656479 141 90.79990798656479 142 90.79990798656479 143 90.79990798656479
+		 144 90.79990798656479 145 90.79990798656479 146 90.79990798656479 147 90.79990798656479
+		 148 90.79990798656479 149 90.79990798656479 150 90.79990798656479 151 90.79990798656479
+		 152 90.79990798656479 153 90.79990798656479 154 90.79990798656479 155 90.79990798656479
+		 156 90.79990798656479 157 90.79990798656479 158 90.79990798656479 159 90.79990798656479
+		 160 90.79990798656479 161 90.79990798656479 162 90.79990798656479 163 90.79990798656479
+		 164 90.79990798656479 165 90.79990798656479 166 90.79990798656479 167 90.79990798656479
+		 168 90.79990798656479 169 90.79990798656479 170 90.79990798656479 171 90.79990798656479
+		 172 90.79990798656479 173 90.79990798656479 174 90.79990798656479 175 90.79990798656479
+		 176 90.79990798656479 177 90.79990798656479 178 90.79990798656479 179 90.79990798656479
+		 180 90.79990798656479 181 90.79990798656479 182 90.79990798656479 183 90.79990798656479
+		 184 90.79990798656479 185 90.79990798656479 186 90.79990798656479 187 90.79990798656479
+		 188 90.79990798656479 189 90.79990798656479 190 90.79990798656479 191 90.79990798656479
+		 192 90.79990798656479 193 90.79990798656479 194 90.79990798656479 195 90.79990798656479
+		 196 90.79990798656479 197 90.79990798656479 198 90.79990798656479 199 90.79990798656479
+		 200 90.79990798656479 201 90.79990798656479 202 90.79990798656479 203 90.79990798656479
+		 204 90.79990798656479 205 90.79990798656479 206 90.79990798656479 207 90.79990798656479
+		 208 90.79990798656479 209 90.79990798656479 210 90.79990798656479 211 90.79990798656479
+		 212 90.79990798656479 213 90.79990798656479 214 90.79990798656479 215 90.79990798656479
+		 216 90.79990798656479 217 90.79990798656479 218 90.79990798656479 219 90.79990798656479
+		 220 90.79990798656479 221 90.79990798656479 222 90.79990798656479 223 90.79990798656479
+		 224 90.79990798656479 225 90.79990798656479 226 90.79990798656479 227 90.79990798656479
+		 228 90.79990798656479 229 90.79990798656479 230 90.79990798656479 231 90.79990798656479
+		 232 90.79990798656479 233 90.79990798656479 234 90.79990798656479 235 90.79990798656479
+		 236 90.79990798656479 237 90.79990798656479 238 90.79990798656479 239 90.79990798656479
+		 240 90.79990798656479 241 90.79990798656479 242 90.79990798656479 243 90.79990798656479
+		 244 90.79990798656479 245 90.79990798656479 246 90.79990798656479 247 90.79990798656479
+		 248 90.79990798656479 249 90.79990798656479;
+createNode animCurveTU -n "Root_Joint_parentConstraint1_interpType";
+	rename -uid "AF97A1ED-42ED-1130-08E1-818145167049";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "Root_Joint_parentConstraint1_rotationDecompositionTargetX";
+	rename -uid "F3CF07DF-4B35-4F9A-1097-8AB3E7BA98A6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "Root_Joint_parentConstraint1_rotationDecompositionTargetY";
+	rename -uid "6774B6CC-49A5-E7E9-2852-B986538C63D7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "Root_Joint_parentConstraint1_rotationDecompositionTargetZ";
+	rename -uid "0E621D73-439B-6D9C-5F31-C8B930BA6D91";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "Root_Joint_parentConstraint1_Root_CtrlW0";
+	rename -uid "FEE9231D-49E2-A2AC-FDF2-49A8D76A3551";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "General_Joint_visibility";
+	rename -uid "0C8991F5-44E7-8876-8957-56930D4A2876";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "General_Joint_translateX";
+	rename -uid "3DD76851-4A12-CEE3-A025-D6885C1748CD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "General_Joint_translateY";
+	rename -uid "05137E94-4B17-3C77-7A1B-DAA88F74B62C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "General_Joint_translateZ";
+	rename -uid "1C79E030-4465-7B76-CDE2-7C99EC86A10A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "General_Joint_rotateX";
+	rename -uid "79D1DEA6-4253-6649-4FBD-159679452665";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "General_Joint_rotateY";
+	rename -uid "82D0BEA8-4F6A-033A-747F-C99012DA1FEF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "General_Joint_rotateZ";
+	rename -uid "D7FA3055-45E7-A668-598F-FCA5C7B9E31F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "General_Joint_scaleX";
+	rename -uid "B6BFAAE9-4D99-EA23-8B90-0FB80FC18CE5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "General_Joint_scaleY";
+	rename -uid "16F0F6AD-4A0F-9F2D-8E42-788CCC2D75B0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "General_Joint_scaleZ";
+	rename -uid "15F6BAB3-4BEC-D9BB-ABD4-5F8893886FA2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "General_Joint_parentConstraint1_nodeState";
+	rename -uid "1BB11E07-48DD-BEE5-86E5-4A81A5A1386B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "General_Joint_parentConstraint1_target_0__targetWeight";
+	rename -uid "54C75FE3-4843-C3E5-6863-419D2A39D3A3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "General_Joint_parentConstraint1_target_0__targetOffsetTranslateX";
+	rename -uid "FE74668D-45B6-5828-7D0D-F2ACC9F7E9F3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "General_Joint_parentConstraint1_target_0__targetOffsetTranslateY";
+	rename -uid "42EAA896-40EE-B125-00A8-A8BA5E7A8DFE";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "General_Joint_parentConstraint1_target_0__targetOffsetTranslateZ";
+	rename -uid "A345D4F4-4864-3FD9-06A3-C2903CC85269";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "General_Joint_parentConstraint1_target_0__targetOffsetRotateX";
+	rename -uid "E0E3122E-40AE-99C6-7FFC-FF89DA75B1E8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "General_Joint_parentConstraint1_target_0__targetOffsetRotateY";
+	rename -uid "6DD60F40-45F4-C29F-6B0F-188435BD6470";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "General_Joint_parentConstraint1_target_0__targetOffsetRotateZ";
+	rename -uid "363511E2-49F8-99AE-E1E7-C69FE384CB12";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "General_Joint_parentConstraint1_interpType";
+	rename -uid "D166B71A-4128-D355-2E0F-8EB0024962D8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "General_Joint_parentConstraint1_rotationDecompositionTargetX";
+	rename -uid "04BC6401-4983-D955-6204-ADB72EC68D99";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "General_Joint_parentConstraint1_rotationDecompositionTargetY";
+	rename -uid "5FE50AAE-4AE7-C578-2EEA-BC9E0F44C0BF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "General_Joint_parentConstraint1_rotationDecompositionTargetZ";
+	rename -uid "D67974FB-48AE-87E4-25C0-2489B00DED82";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "General_Joint_parentConstraint1_General_CtrlW0";
+	rename -uid "7BDE48FE-4D20-44D3-C9A9-46923AF4718D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "GEO_visibility";
+	rename -uid "03DB5ACD-4453-B07A-6D79-8C84397D4254";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "GEO_translateX";
+	rename -uid "801008BC-40CE-5ED1-3C8A-1DB307008B1C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "GEO_translateY";
+	rename -uid "4DAEF5F4-42D7-0973-002F-D791A6DDF1BA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "GEO_translateZ";
+	rename -uid "1BEA4843-4D29-5526-1448-DE9BD009700C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "GEO_rotateX";
+	rename -uid "6F4739D4-4C4A-B353-F79C-2CB498479D7A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "GEO_rotateY";
+	rename -uid "D90DDB5E-4E2C-9C18-8C3C-61B6DEFF7416";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "GEO_rotateZ";
+	rename -uid "5D55D63E-46EF-34CE-CAE0-D9A031C5A5CA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "GEO_scaleX";
+	rename -uid "B40B4284-49F8-3E93-F9B4-B9A8C26FED7B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "GEO_scaleY";
+	rename -uid "AAF1674F-4549-6684-CFB7-BDB2E9393708";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "GEO_scaleZ";
+	rename -uid "2C3E37E3-44AD-7BC3-F737-7B9693E7D7B3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Bod_visibility";
+	rename -uid "36AA69AD-4312-EF01-F008-158E7EAE1639";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rocks_visibility";
+	rename -uid "C64CB651-4405-AA13-5DB3-D0BF2B84EF35";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "Rocks_translateX";
+	rename -uid "565D42DC-4579-1362-7D2B-CAAB8F1F2985";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "Rocks_translateY";
+	rename -uid "3BF4379C-4B61-E745-2CCB-F5AB353B413E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -3.5357687458559561 2 -3.5357687458559561
+		 3 -3.5357687458559561 4 -3.5357687458559561 5 -3.5357687458559561 6 -3.5357687458559561
+		 7 -3.5357687458559561 8 -3.5357687458559561 9 -3.5357687458559561 10 -3.5357687458559561
+		 11 -3.5357687458559561 12 -3.5357687458559561 13 -3.5357687458559561 14 -3.5357687458559561
+		 15 -3.5357687458559561 16 -3.5357687458559561 17 -3.5357687458559561 18 -3.5357687458559561
+		 19 -3.5357687458559561 20 -3.5357687458559561 21 -3.5357687458559561 22 -3.5357687458559561
+		 23 -3.5357687458559561 24 -3.5357687458559561 25 -3.5357687458559561 26 -3.5357687458559561
+		 27 -3.5357687458559561 28 -3.5357687458559561 29 -3.5357687458559561 30 -3.5357687458559561
+		 31 -3.5357687458559561 32 -3.5357687458559561 33 -3.5357687458559561 34 -3.5357687458559561
+		 35 -3.5357687458559561 36 -3.5357687458559561 37 -3.5357687458559561 38 -3.5357687458559561
+		 39 -3.5357687458559561 40 -3.5357687458559561 41 -3.5357687458559561 42 -3.5357687458559561
+		 43 -3.5357687458559561 44 -3.5357687458559561 45 -3.5357687458559561 46 -3.5357687458559561
+		 47 -3.5357687458559561 48 -3.5357687458559561 49 -3.5357687458559561 50 -3.5357687458559561
+		 51 -3.5357687458559561 52 -3.5357687458559561 53 -3.5357687458559561 54 -3.5357687458559561
+		 55 -3.5357687458559561 56 -3.5357687458559561 57 -3.5357687458559561 58 -3.5357687458559561
+		 59 -3.5357687458559561 60 -3.5357687458559561 61 -3.5357687458559561 62 -3.5357687458559561
+		 63 -3.5357687458559561 64 -3.5357687458559561 65 -3.5357687458559561 66 -3.5357687458559561
+		 67 -3.5357687458559561 68 -3.5357687458559561 69 -3.5357687458559561 70 -3.5357687458559561
+		 71 -3.5357687458559561 72 -3.5357687458559561 73 -3.5357687458559561 74 -3.5357687458559561
+		 75 -3.5357687458559561 76 -3.5357687458559561 77 -3.5357687458559561 78 -3.5357687458559561
+		 79 -3.5357687458559561 80 -3.5357687458559561 81 -3.5357687458559561 82 -3.5357687458559561
+		 83 -3.5357687458559561 84 -3.5357687458559561 85 -3.5357687458559561 86 -3.5357687458559561
+		 87 -3.5357687458559561 88 -3.5357687458559561 89 -3.5357687458559561 90 -3.5357687458559561
+		 91 -3.5357687458559561 92 -3.5357687458559561 93 -3.5357687458559561 94 -3.5357687458559561
+		 95 -3.5357687458559561 96 -3.5357687458559561 97 -3.5357687458559561 98 -3.5357687458559561
+		 99 -3.5357687458559561 100 -3.5357687458559561 101 -3.5357687458559561 102 -3.5357687458559561
+		 103 -3.5357687458559561 104 -3.5357687458559561 105 -3.5357687458559561 106 -3.5357687458559561
+		 107 -3.5357687458559561 108 -3.5357687458559561 109 -3.5357687458559561 110 -3.5357687458559561
+		 111 -3.5357687458559561 112 -3.5357687458559561 113 -3.5357687458559561 114 -3.5357687458559561
+		 115 -3.5357687458559561 116 -3.5357687458559561 117 -3.5357687458559561 118 -3.5357687458559561
+		 119 -3.5357687458559561 120 -3.5357687458559561 121 -3.5357687458559561 122 -3.5357687458559561
+		 123 -3.5357687458559561 124 -3.5357687458559561 125 -3.5357687458559561 126 -3.5357687458559561
+		 127 -3.5357687458559561 128 -3.5357687458559561 129 -3.5357687458559561 130 -3.5357687458559561
+		 131 -3.5357687458559561 132 -3.5357687458559561 133 -3.5357687458559561 134 -3.5357687458559561
+		 135 -3.5357687458559561 136 -3.5357687458559561 137 -3.5357687458559561 138 -3.5357687458559561
+		 139 -3.5357687458559561 140 -3.5357687458559561 141 -3.5357687458559561 142 -3.5357687458559561
+		 143 -3.5357687458559561 144 -3.5357687458559561 145 -3.5357687458559561 146 -3.5357687458559561
+		 147 -3.5357687458559561 148 -3.5357687458559561 149 -3.5357687458559561 150 -3.5357687458559561
+		 151 -3.5357687458559561 152 -3.5357687458559561 153 -3.5357687458559561 154 -3.5357687458559561
+		 155 -3.5357687458559561 156 -3.5357687458559561 157 -3.5357687458559561 158 -3.5357687458559561
+		 159 -3.5357687458559561 160 -3.5357687458559561 161 -3.5357687458559561 162 -3.5357687458559561
+		 163 -3.5357687458559561 164 -3.5357687458559561 165 -3.5357687458559561 166 -3.5357687458559561
+		 167 -3.5357687458559561 168 -3.5357687458559561 169 -3.5357687458559561 170 -3.5357687458559561
+		 171 -3.5357687458559561 172 -3.5357687458559561 173 -3.5357687458559561 174 -3.5357687458559561
+		 175 -3.5357687458559561 176 -3.5357687458559561 177 -3.5357687458559561 178 -3.5357687458559561
+		 179 -3.5357687458559561 180 -3.5357687458559561 181 -3.5357687458559561 182 -3.5357687458559561
+		 183 -3.5357687458559561 184 -3.5357687458559561 185 -3.5357687458559561 186 -3.5357687458559561
+		 187 -3.5357687458559561 188 -3.5357687458559561 189 -3.5357687458559561 190 -3.5357687458559561
+		 191 -3.5357687458559561 192 -3.5357687458559561 193 -3.5357687458559561 194 -3.5357687458559561
+		 195 -3.5357687458559561 196 -3.5357687458559561 197 -3.5357687458559561 198 -3.5357687458559561
+		 199 -3.5357687458559561 200 -3.5357687458559561 201 -3.5357687458559561 202 -3.5357687458559561
+		 203 -3.5357687458559561 204 -3.5357687458559561 205 -3.5357687458559561 206 -3.5357687458559561
+		 207 -3.5357687458559561 208 -3.5357687458559561 209 -3.5357687458559561 210 -3.5357687458559561
+		 211 -3.5357687458559561 212 -3.5357687458559561 213 -3.5357687458559561 214 -3.5357687458559561
+		 215 -3.5357687458559561 216 -3.5357687458559561 217 -3.5357687458559561 218 -3.5357687458559561
+		 219 -3.5357687458559561 220 -3.5357687458559561 221 -3.5357687458559561 222 -3.5357687458559561
+		 223 -3.5357687458559561 224 -3.5357687458559561 225 -3.5357687458559561 226 -3.5357687458559561
+		 227 -3.5357687458559561 228 -3.5357687458559561 229 -3.5357687458559561 230 -3.5357687458559561
+		 231 -3.5357687458559561 232 -3.5357687458559561 233 -3.5357687458559561 234 -3.5357687458559561
+		 235 -3.5357687458559561 236 -3.5357687458559561 237 -3.5357687458559561 238 -3.5357687458559561
+		 239 -3.5357687458559561 240 -3.5357687458559561 241 -3.5357687458559561 242 -3.5357687458559561
+		 243 -3.5357687458559561 244 -3.5357687458559561 245 -3.5357687458559561 246 -3.5357687458559561
+		 247 -3.5357687458559561 248 -3.5357687458559561 249 -3.5357687458559561;
+createNode animCurveTL -n "Rocks_translateZ";
+	rename -uid "13626BA3-4B7B-874F-0FB0-C797C631E8AF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Rocks_rotateX";
+	rename -uid "1EC62EBA-4C6B-923C-173C-F99C49FAC54E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Rocks_rotateY";
+	rename -uid "D90506B0-4F99-72EF-0FDE-608DED198EC1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Rocks_rotateZ";
+	rename -uid "FBE8614C-446D-ECED-8668-FBA68305B070";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "Rocks_scaleX";
+	rename -uid "F595E41E-4CA0-68DB-FCDB-82BC96C27839";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0.49939031589443278 2 0.49939031589443278
+		 3 0.49939031589443278 4 0.49939031589443278 5 0.49939031589443278 6 0.49939031589443278
+		 7 0.49939031589443278 8 0.49939031589443278 9 0.49939031589443278 10 0.49939031589443278
+		 11 0.49939031589443278 12 0.49939031589443278 13 0.49939031589443278 14 0.49939031589443278
+		 15 0.49939031589443278 16 0.49939031589443278 17 0.49939031589443278 18 0.49939031589443278
+		 19 0.49939031589443278 20 0.49939031589443278 21 0.49939031589443278 22 0.49939031589443278
+		 23 0.49939031589443278 24 0.49939031589443278 25 0.49939031589443278 26 0.49939031589443278
+		 27 0.49939031589443278 28 0.49939031589443278 29 0.49939031589443278 30 0.49939031589443278
+		 31 0.49939031589443278 32 0.49939031589443278 33 0.49939031589443278 34 0.49939031589443278
+		 35 0.49939031589443278 36 0.49939031589443278 37 0.49939031589443278 38 0.49939031589443278
+		 39 0.49939031589443278 40 0.49939031589443278 41 0.49939031589443278 42 0.49939031589443278
+		 43 0.49939031589443278 44 0.49939031589443278 45 0.49939031589443278 46 0.49939031589443278
+		 47 0.49939031589443278 48 0.49939031589443278 49 0.49939031589443278 50 0.49939031589443278
+		 51 0.49939031589443278 52 0.49939031589443278 53 0.49939031589443278 54 0.49939031589443278
+		 55 0.49939031589443278 56 0.49939031589443278 57 0.49939031589443278 58 0.49939031589443278
+		 59 0.49939031589443278 60 0.49939031589443278 61 0.49939031589443278 62 0.49939031589443278
+		 63 0.49939031589443278 64 0.49939031589443278 65 0.49939031589443278 66 0.49939031589443278
+		 67 0.49939031589443278 68 0.49939031589443278 69 0.49939031589443278 70 0.49939031589443278
+		 71 0.49939031589443278 72 0.49939031589443278 73 0.49939031589443278 74 0.49939031589443278
+		 75 0.49939031589443278 76 0.49939031589443278 77 0.49939031589443278 78 0.49939031589443278
+		 79 0.49939031589443278 80 0.49939031589443278 81 0.49939031589443278 82 0.49939031589443278
+		 83 0.49939031589443278 84 0.49939031589443278 85 0.49939031589443278 86 0.49939031589443278
+		 87 0.49939031589443278 88 0.49939031589443278 89 0.49939031589443278 90 0.49939031589443278
+		 91 0.49939031589443278 92 0.49939031589443278 93 0.49939031589443278 94 0.49939031589443278
+		 95 0.49939031589443278 96 0.49939031589443278 97 0.49939031589443278 98 0.49939031589443278
+		 99 0.49939031589443278 100 0.49939031589443278 101 0.49939031589443278 102 0.49939031589443278
+		 103 0.49939031589443278 104 0.49939031589443278 105 0.49939031589443278 106 0.49939031589443278
+		 107 0.49939031589443278 108 0.49939031589443278 109 0.49939031589443278 110 0.49939031589443278
+		 111 0.49939031589443278 112 0.49939031589443278 113 0.49939031589443278 114 0.49939031589443278
+		 115 0.49939031589443278 116 0.49939031589443278 117 0.49939031589443278 118 0.49939031589443278
+		 119 0.49939031589443278 120 0.49939031589443278 121 0.49939031589443278 122 0.49939031589443278
+		 123 0.49939031589443278 124 0.49939031589443278 125 0.49939031589443278 126 0.49939031589443278
+		 127 0.49939031589443278 128 0.49939031589443278 129 0.49939031589443278 130 0.49939031589443278
+		 131 0.49939031589443278 132 0.49939031589443278 133 0.49939031589443278 134 0.49939031589443278
+		 135 0.49939031589443278 136 0.49939031589443278 137 0.49939031589443278 138 0.49939031589443278
+		 139 0.49939031589443278 140 0.49939031589443278 141 0.49939031589443278 142 0.49939031589443278
+		 143 0.49939031589443278 144 0.49939031589443278 145 0.49939031589443278 146 0.49939031589443278
+		 147 0.49939031589443278 148 0.49939031589443278 149 0.49939031589443278 150 0.49939031589443278
+		 151 0.49939031589443278 152 0.49939031589443278 153 0.49939031589443278 154 0.49939031589443278
+		 155 0.49939031589443278 156 0.49939031589443278 157 0.49939031589443278 158 0.49939031589443278
+		 159 0.49939031589443278 160 0.49939031589443278 161 0.49939031589443278 162 0.49939031589443278
+		 163 0.49939031589443278 164 0.49939031589443278 165 0.49939031589443278 166 0.49939031589443278
+		 167 0.49939031589443278 168 0.49939031589443278 169 0.49939031589443278 170 0.49939031589443278
+		 171 0.49939031589443278 172 0.49939031589443278 173 0.49939031589443278 174 0.49939031589443278
+		 175 0.49939031589443278 176 0.49939031589443278 177 0.49939031589443278 178 0.49939031589443278
+		 179 0.49939031589443278 180 0.49939031589443278 181 0.49939031589443278 182 0.49939031589443278
+		 183 0.49939031589443278 184 0.49939031589443278 185 0.49939031589443278 186 0.49939031589443278
+		 187 0.49939031589443278 188 0.49939031589443278 189 0.49939031589443278 190 0.49939031589443278
+		 191 0.49939031589443278 192 0.49939031589443278 193 0.49939031589443278 194 0.49939031589443278
+		 195 0.49939031589443278 196 0.49939031589443278 197 0.49939031589443278 198 0.49939031589443278
+		 199 0.49939031589443278 200 0.49939031589443278 201 0.49939031589443278 202 0.49939031589443278
+		 203 0.49939031589443278 204 0.49939031589443278 205 0.49939031589443278 206 0.49939031589443278
+		 207 0.49939031589443278 208 0.49939031589443278 209 0.49939031589443278 210 0.49939031589443278
+		 211 0.49939031589443278 212 0.49939031589443278 213 0.49939031589443278 214 0.49939031589443278
+		 215 0.49939031589443278 216 0.49939031589443278 217 0.49939031589443278 218 0.49939031589443278
+		 219 0.49939031589443278 220 0.49939031589443278 221 0.49939031589443278 222 0.49939031589443278
+		 223 0.49939031589443278 224 0.49939031589443278 225 0.49939031589443278 226 0.49939031589443278
+		 227 0.49939031589443278 228 0.49939031589443278 229 0.49939031589443278 230 0.49939031589443278
+		 231 0.49939031589443278 232 0.49939031589443278 233 0.49939031589443278 234 0.49939031589443278
+		 235 0.49939031589443278 236 0.49939031589443278 237 0.49939031589443278 238 0.49939031589443278
+		 239 0.49939031589443278 240 0.49939031589443278 241 0.49939031589443278 242 0.49939031589443278
+		 243 0.49939031589443278 244 0.49939031589443278 245 0.49939031589443278 246 0.49939031589443278
+		 247 0.49939031589443278 248 0.49939031589443278 249 0.49939031589443278;
+createNode animCurveTU -n "Rocks_scaleY";
+	rename -uid "D0CD7A8D-4895-08E4-04C6-9599D959913A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0.49939031589443278 2 0.49939031589443278
+		 3 0.49939031589443278 4 0.49939031589443278 5 0.49939031589443278 6 0.49939031589443278
+		 7 0.49939031589443278 8 0.49939031589443278 9 0.49939031589443278 10 0.49939031589443278
+		 11 0.49939031589443278 12 0.49939031589443278 13 0.49939031589443278 14 0.49939031589443278
+		 15 0.49939031589443278 16 0.49939031589443278 17 0.49939031589443278 18 0.49939031589443278
+		 19 0.49939031589443278 20 0.49939031589443278 21 0.49939031589443278 22 0.49939031589443278
+		 23 0.49939031589443278 24 0.49939031589443278 25 0.49939031589443278 26 0.49939031589443278
+		 27 0.49939031589443278 28 0.49939031589443278 29 0.49939031589443278 30 0.49939031589443278
+		 31 0.49939031589443278 32 0.49939031589443278 33 0.49939031589443278 34 0.49939031589443278
+		 35 0.49939031589443278 36 0.49939031589443278 37 0.49939031589443278 38 0.49939031589443278
+		 39 0.49939031589443278 40 0.49939031589443278 41 0.49939031589443278 42 0.49939031589443278
+		 43 0.49939031589443278 44 0.49939031589443278 45 0.49939031589443278 46 0.49939031589443278
+		 47 0.49939031589443278 48 0.49939031589443278 49 0.49939031589443278 50 0.49939031589443278
+		 51 0.49939031589443278 52 0.49939031589443278 53 0.49939031589443278 54 0.49939031589443278
+		 55 0.49939031589443278 56 0.49939031589443278 57 0.49939031589443278 58 0.49939031589443278
+		 59 0.49939031589443278 60 0.49939031589443278 61 0.49939031589443278 62 0.49939031589443278
+		 63 0.49939031589443278 64 0.49939031589443278 65 0.49939031589443278 66 0.49939031589443278
+		 67 0.49939031589443278 68 0.49939031589443278 69 0.49939031589443278 70 0.49939031589443278
+		 71 0.49939031589443278 72 0.49939031589443278 73 0.49939031589443278 74 0.49939031589443278
+		 75 0.49939031589443278 76 0.49939031589443278 77 0.49939031589443278 78 0.49939031589443278
+		 79 0.49939031589443278 80 0.49939031589443278 81 0.49939031589443278 82 0.49939031589443278
+		 83 0.49939031589443278 84 0.49939031589443278 85 0.49939031589443278 86 0.49939031589443278
+		 87 0.49939031589443278 88 0.49939031589443278 89 0.49939031589443278 90 0.49939031589443278
+		 91 0.49939031589443278 92 0.49939031589443278 93 0.49939031589443278 94 0.49939031589443278
+		 95 0.49939031589443278 96 0.49939031589443278 97 0.49939031589443278 98 0.49939031589443278
+		 99 0.49939031589443278 100 0.49939031589443278 101 0.49939031589443278 102 0.49939031589443278
+		 103 0.49939031589443278 104 0.49939031589443278 105 0.49939031589443278 106 0.49939031589443278
+		 107 0.49939031589443278 108 0.49939031589443278 109 0.49939031589443278 110 0.49939031589443278
+		 111 0.49939031589443278 112 0.49939031589443278 113 0.49939031589443278 114 0.49939031589443278
+		 115 0.49939031589443278 116 0.49939031589443278 117 0.49939031589443278 118 0.49939031589443278
+		 119 0.49939031589443278 120 0.49939031589443278 121 0.49939031589443278 122 0.49939031589443278
+		 123 0.49939031589443278 124 0.49939031589443278 125 0.49939031589443278 126 0.49939031589443278
+		 127 0.49939031589443278 128 0.49939031589443278 129 0.49939031589443278 130 0.49939031589443278
+		 131 0.49939031589443278 132 0.49939031589443278 133 0.49939031589443278 134 0.49939031589443278
+		 135 0.49939031589443278 136 0.49939031589443278 137 0.49939031589443278 138 0.49939031589443278
+		 139 0.49939031589443278 140 0.49939031589443278 141 0.49939031589443278 142 0.49939031589443278
+		 143 0.49939031589443278 144 0.49939031589443278 145 0.49939031589443278 146 0.49939031589443278
+		 147 0.49939031589443278 148 0.49939031589443278 149 0.49939031589443278 150 0.49939031589443278
+		 151 0.49939031589443278 152 0.49939031589443278 153 0.49939031589443278 154 0.49939031589443278
+		 155 0.49939031589443278 156 0.49939031589443278 157 0.49939031589443278 158 0.49939031589443278
+		 159 0.49939031589443278 160 0.49939031589443278 161 0.49939031589443278 162 0.49939031589443278
+		 163 0.49939031589443278 164 0.49939031589443278 165 0.49939031589443278 166 0.49939031589443278
+		 167 0.49939031589443278 168 0.49939031589443278 169 0.49939031589443278 170 0.49939031589443278
+		 171 0.49939031589443278 172 0.49939031589443278 173 0.49939031589443278 174 0.49939031589443278
+		 175 0.49939031589443278 176 0.49939031589443278 177 0.49939031589443278 178 0.49939031589443278
+		 179 0.49939031589443278 180 0.49939031589443278 181 0.49939031589443278 182 0.49939031589443278
+		 183 0.49939031589443278 184 0.49939031589443278 185 0.49939031589443278 186 0.49939031589443278
+		 187 0.49939031589443278 188 0.49939031589443278 189 0.49939031589443278 190 0.49939031589443278
+		 191 0.49939031589443278 192 0.49939031589443278 193 0.49939031589443278 194 0.49939031589443278
+		 195 0.49939031589443278 196 0.49939031589443278 197 0.49939031589443278 198 0.49939031589443278
+		 199 0.49939031589443278 200 0.49939031589443278 201 0.49939031589443278 202 0.49939031589443278
+		 203 0.49939031589443278 204 0.49939031589443278 205 0.49939031589443278 206 0.49939031589443278
+		 207 0.49939031589443278 208 0.49939031589443278 209 0.49939031589443278 210 0.49939031589443278
+		 211 0.49939031589443278 212 0.49939031589443278 213 0.49939031589443278 214 0.49939031589443278
+		 215 0.49939031589443278 216 0.49939031589443278 217 0.49939031589443278 218 0.49939031589443278
+		 219 0.49939031589443278 220 0.49939031589443278 221 0.49939031589443278 222 0.49939031589443278
+		 223 0.49939031589443278 224 0.49939031589443278 225 0.49939031589443278 226 0.49939031589443278
+		 227 0.49939031589443278 228 0.49939031589443278 229 0.49939031589443278 230 0.49939031589443278
+		 231 0.49939031589443278 232 0.49939031589443278 233 0.49939031589443278 234 0.49939031589443278
+		 235 0.49939031589443278 236 0.49939031589443278 237 0.49939031589443278 238 0.49939031589443278
+		 239 0.49939031589443278 240 0.49939031589443278 241 0.49939031589443278 242 0.49939031589443278
+		 243 0.49939031589443278 244 0.49939031589443278 245 0.49939031589443278 246 0.49939031589443278
+		 247 0.49939031589443278 248 0.49939031589443278 249 0.49939031589443278;
+createNode animCurveTU -n "Rocks_scaleZ";
+	rename -uid "0E888517-4F91-D056-0B78-E1B84C643623";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0.49939031589443278 2 0.49939031589443278
+		 3 0.49939031589443278 4 0.49939031589443278 5 0.49939031589443278 6 0.49939031589443278
+		 7 0.49939031589443278 8 0.49939031589443278 9 0.49939031589443278 10 0.49939031589443278
+		 11 0.49939031589443278 12 0.49939031589443278 13 0.49939031589443278 14 0.49939031589443278
+		 15 0.49939031589443278 16 0.49939031589443278 17 0.49939031589443278 18 0.49939031589443278
+		 19 0.49939031589443278 20 0.49939031589443278 21 0.49939031589443278 22 0.49939031589443278
+		 23 0.49939031589443278 24 0.49939031589443278 25 0.49939031589443278 26 0.49939031589443278
+		 27 0.49939031589443278 28 0.49939031589443278 29 0.49939031589443278 30 0.49939031589443278
+		 31 0.49939031589443278 32 0.49939031589443278 33 0.49939031589443278 34 0.49939031589443278
+		 35 0.49939031589443278 36 0.49939031589443278 37 0.49939031589443278 38 0.49939031589443278
+		 39 0.49939031589443278 40 0.49939031589443278 41 0.49939031589443278 42 0.49939031589443278
+		 43 0.49939031589443278 44 0.49939031589443278 45 0.49939031589443278 46 0.49939031589443278
+		 47 0.49939031589443278 48 0.49939031589443278 49 0.49939031589443278 50 0.49939031589443278
+		 51 0.49939031589443278 52 0.49939031589443278 53 0.49939031589443278 54 0.49939031589443278
+		 55 0.49939031589443278 56 0.49939031589443278 57 0.49939031589443278 58 0.49939031589443278
+		 59 0.49939031589443278 60 0.49939031589443278 61 0.49939031589443278 62 0.49939031589443278
+		 63 0.49939031589443278 64 0.49939031589443278 65 0.49939031589443278 66 0.49939031589443278
+		 67 0.49939031589443278 68 0.49939031589443278 69 0.49939031589443278 70 0.49939031589443278
+		 71 0.49939031589443278 72 0.49939031589443278 73 0.49939031589443278 74 0.49939031589443278
+		 75 0.49939031589443278 76 0.49939031589443278 77 0.49939031589443278 78 0.49939031589443278
+		 79 0.49939031589443278 80 0.49939031589443278 81 0.49939031589443278 82 0.49939031589443278
+		 83 0.49939031589443278 84 0.49939031589443278 85 0.49939031589443278 86 0.49939031589443278
+		 87 0.49939031589443278 88 0.49939031589443278 89 0.49939031589443278 90 0.49939031589443278
+		 91 0.49939031589443278 92 0.49939031589443278 93 0.49939031589443278 94 0.49939031589443278
+		 95 0.49939031589443278 96 0.49939031589443278 97 0.49939031589443278 98 0.49939031589443278
+		 99 0.49939031589443278 100 0.49939031589443278 101 0.49939031589443278 102 0.49939031589443278
+		 103 0.49939031589443278 104 0.49939031589443278 105 0.49939031589443278 106 0.49939031589443278
+		 107 0.49939031589443278 108 0.49939031589443278 109 0.49939031589443278 110 0.49939031589443278
+		 111 0.49939031589443278 112 0.49939031589443278 113 0.49939031589443278 114 0.49939031589443278
+		 115 0.49939031589443278 116 0.49939031589443278 117 0.49939031589443278 118 0.49939031589443278
+		 119 0.49939031589443278 120 0.49939031589443278 121 0.49939031589443278 122 0.49939031589443278
+		 123 0.49939031589443278 124 0.49939031589443278 125 0.49939031589443278 126 0.49939031589443278
+		 127 0.49939031589443278 128 0.49939031589443278 129 0.49939031589443278 130 0.49939031589443278
+		 131 0.49939031589443278 132 0.49939031589443278 133 0.49939031589443278 134 0.49939031589443278
+		 135 0.49939031589443278 136 0.49939031589443278 137 0.49939031589443278 138 0.49939031589443278
+		 139 0.49939031589443278 140 0.49939031589443278 141 0.49939031589443278 142 0.49939031589443278
+		 143 0.49939031589443278 144 0.49939031589443278 145 0.49939031589443278 146 0.49939031589443278
+		 147 0.49939031589443278 148 0.49939031589443278 149 0.49939031589443278 150 0.49939031589443278
+		 151 0.49939031589443278 152 0.49939031589443278 153 0.49939031589443278 154 0.49939031589443278
+		 155 0.49939031589443278 156 0.49939031589443278 157 0.49939031589443278 158 0.49939031589443278
+		 159 0.49939031589443278 160 0.49939031589443278 161 0.49939031589443278 162 0.49939031589443278
+		 163 0.49939031589443278 164 0.49939031589443278 165 0.49939031589443278 166 0.49939031589443278
+		 167 0.49939031589443278 168 0.49939031589443278 169 0.49939031589443278 170 0.49939031589443278
+		 171 0.49939031589443278 172 0.49939031589443278 173 0.49939031589443278 174 0.49939031589443278
+		 175 0.49939031589443278 176 0.49939031589443278 177 0.49939031589443278 178 0.49939031589443278
+		 179 0.49939031589443278 180 0.49939031589443278 181 0.49939031589443278 182 0.49939031589443278
+		 183 0.49939031589443278 184 0.49939031589443278 185 0.49939031589443278 186 0.49939031589443278
+		 187 0.49939031589443278 188 0.49939031589443278 189 0.49939031589443278 190 0.49939031589443278
+		 191 0.49939031589443278 192 0.49939031589443278 193 0.49939031589443278 194 0.49939031589443278
+		 195 0.49939031589443278 196 0.49939031589443278 197 0.49939031589443278 198 0.49939031589443278
+		 199 0.49939031589443278 200 0.49939031589443278 201 0.49939031589443278 202 0.49939031589443278
+		 203 0.49939031589443278 204 0.49939031589443278 205 0.49939031589443278 206 0.49939031589443278
+		 207 0.49939031589443278 208 0.49939031589443278 209 0.49939031589443278 210 0.49939031589443278
+		 211 0.49939031589443278 212 0.49939031589443278 213 0.49939031589443278 214 0.49939031589443278
+		 215 0.49939031589443278 216 0.49939031589443278 217 0.49939031589443278 218 0.49939031589443278
+		 219 0.49939031589443278 220 0.49939031589443278 221 0.49939031589443278 222 0.49939031589443278
+		 223 0.49939031589443278 224 0.49939031589443278 225 0.49939031589443278 226 0.49939031589443278
+		 227 0.49939031589443278 228 0.49939031589443278 229 0.49939031589443278 230 0.49939031589443278
+		 231 0.49939031589443278 232 0.49939031589443278 233 0.49939031589443278 234 0.49939031589443278
+		 235 0.49939031589443278 236 0.49939031589443278 237 0.49939031589443278 238 0.49939031589443278
+		 239 0.49939031589443278 240 0.49939031589443278 241 0.49939031589443278 242 0.49939031589443278
+		 243 0.49939031589443278 244 0.49939031589443278 245 0.49939031589443278 246 0.49939031589443278
+		 247 0.49939031589443278 248 0.49939031589443278 249 0.49939031589443278;
+createNode animCurveTU -n "Rock_visibility";
+	rename -uid "6E4D8EAB-40FD-468C-84CA-D2949E717973";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock62_visibility";
+	rename -uid "DF3FC51A-41D5-5FCC-D6D1-4E920E0250DF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock32_visibility";
+	rename -uid "CB48EE90-42BA-DE9B-8D18-B29789578DF2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock63_visibility";
+	rename -uid "2A94C89F-4166-03D2-0F37-F6A5C3DFFB12";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock2_visibility";
+	rename -uid "9E72CBAB-45F1-98B7-AB80-FDBE9E6D2827";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock64_visibility";
+	rename -uid "10A25E82-46AE-A7B7-4158-8FA0823DCAD2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock48_visibility";
+	rename -uid "78C91A74-4E89-0E25-62E4-9FB98340221B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock65_visibility";
+	rename -uid "99EA9679-4991-0BC7-2F7A-C6B9AA69306D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock4_visibility";
+	rename -uid "FA45A8F3-470B-AA23-1962-D99B7683276A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock66_visibility";
+	rename -uid "836CE0A5-4AE4-1558-2646-24976132903E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock34_visibility";
+	rename -uid "A540B0C5-44F2-B5BF-D521-358899F51F6C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock67_visibility";
+	rename -uid "72493E02-49A7-FC12-C5EA-6886C3617B90";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock6_visibility";
+	rename -uid "9DBA155B-4A0F-3AFB-C6C9-67A2A0007C52";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock68_visibility";
+	rename -uid "A6F6289E-4200-E7E3-4984-AB9B23AECA3C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock56_visibility";
+	rename -uid "908E5F6A-412B-CE93-DE65-DBBDA1D95877";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock69_visibility";
+	rename -uid "573A1A3B-431A-9117-961E-6CABC2A0EC67";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock8_visibility";
+	rename -uid "CC733FF5-4FC7-4E58-5363-849327B3F01C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock70_visibility";
+	rename -uid "B14AA3B6-4B3B-495C-D297-BE9F2DE56A3A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock36_visibility";
+	rename -uid "49F809E6-45B6-F4CE-8E4F-20B0AFC86B06";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock71_visibility";
+	rename -uid "BED8B5A9-40D1-7E09-DFF6-48BBEFB8CEBD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock10_visibility";
+	rename -uid "27C592F5-4F20-EE4D-D446-C6A7893D2B9E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock72_visibility";
+	rename -uid "561007B1-4678-E7D0-B50B-C29E0A5E727C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock50_visibility";
+	rename -uid "C037DFA5-4CFF-B3A2-5A84-7698C7B46C87";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock73_visibility";
+	rename -uid "42AF500F-47CE-81FB-7D30-C1B5A5D2A52D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock12_visibility";
+	rename -uid "1F496FB8-40C0-E510-0C33-C8BF99702896";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock74_visibility";
+	rename -uid "0C68ADF5-4D43-AC57-065C-61A4709F3741";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock38_visibility";
+	rename -uid "A0284EAB-4B24-4BB0-3633-F9A5D5802AF1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock75_visibility";
+	rename -uid "A29BB195-429A-5D11-1AF8-E28947137932";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock14_visibility";
+	rename -uid "AF174326-41D0-93A7-2AC4-A78C99641460";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock76_visibility";
+	rename -uid "733D27D9-457B-D313-F811-06930B7872C4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock60_visibility";
+	rename -uid "6D881857-4628-8746-7C74-C6A48C7B3592";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock77_visibility";
+	rename -uid "F3D412F5-4E7D-FA00-251A-358E3DB0CF86";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock16_visibility";
+	rename -uid "59DE43B2-4DCD-1E1F-5B56-D1A1DE085A01";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock78_visibility";
+	rename -uid "4E98F3D1-4F20-ABF6-FA9A-AEB511DA2FCD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock40_visibility";
+	rename -uid "7E323B1B-44FC-331D-E409-968B114D6CF1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock79_visibility";
+	rename -uid "F0459915-4DE8-AAE7-0091-D7B501B06E78";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock18_visibility";
+	rename -uid "8ABF108C-4924-6347-C534-CE8CA507D1E0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock80_visibility";
+	rename -uid "61D2E042-4AA2-0C6B-FD80-5488D635AD34";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock52_visibility";
+	rename -uid "52D81473-458E-4E5F-76CC-0E9FF07EFBC1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock81_visibility";
+	rename -uid "2B7E6DDB-4F04-DB33-0760-47845FABD292";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock20_visibility";
+	rename -uid "FD73C73F-40A8-1C0E-D874-52B8303FC471";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock82_visibility";
+	rename -uid "1FA05E0F-4E24-80C5-DF0D-048FB68E3936";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock42_visibility";
+	rename -uid "BDBD780B-457E-7507-3C00-AAAF67C7F62A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock83_visibility";
+	rename -uid "01A46E0E-4165-881B-22CE-F99E328060BC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock22_visibility";
+	rename -uid "EF404338-4FEA-82C6-CAA3-8CA35577CE50";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock58_visibility";
+	rename -uid "40775DB6-4930-EE97-3104-34A73B2C3427";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock85_visibility";
+	rename -uid "B5E1FEE2-4782-A334-26C1-27B62B11C0F9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock24_visibility";
+	rename -uid "40C9F14A-4F19-F37B-CA10-9BA151C78AE6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock86_visibility";
+	rename -uid "FD77C493-4D7B-D1CD-BF79-CE89F446C7BC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock44_visibility";
+	rename -uid "472DF922-42F6-3F69-825F-03A3ED3F5DE8";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock87_visibility";
+	rename -uid "6154DDA2-4E9A-5C2F-F4DF-4C940647C1EF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock26_visibility";
+	rename -uid "45E81267-41D9-7B29-E5C0-12BB24B924AC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock88_visibility";
+	rename -uid "551776A0-484A-5331-39AA-3F80297F5719";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock54_visibility";
+	rename -uid "1EF2B4AB-489B-94ED-6DA4-C7AA61FB9122";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock89_visibility";
+	rename -uid "2EBFC777-4F8B-78FF-B2F9-F0969BAC4780";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock28_visibility";
+	rename -uid "38FD19C3-442A-E361-0B7E-8FBFB0DF3850";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock90_visibility";
+	rename -uid "0FE3D702-4887-3402-FBFC-0A8B68AD368A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock46_visibility";
+	rename -uid "A74B4556-4E52-2586-2D2E-F4A9F16529B6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock91_visibility";
+	rename -uid "73EE43E1-4E02-F93A-43C7-6A885DB53E0C";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock30_visibility";
+	rename -uid "4BD77759-49DC-1B90-88E6-7BBA8A2AB253";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock92_visibility";
+	rename -uid "215ECE69-4861-A970-2861-FAA583702032";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock61_visibility";
+	rename -uid "3610BC1E-4D46-34A0-037C-83A7961A6FEC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock93_visibility";
+	rename -uid "F88DF14D-4EE1-A5C1-45D4-41BFC8241C3E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Rock95_visibility";
+	rename -uid "1DE0526C-4C37-6990-9B47-79B0DC416693";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Other_Props_visibility";
+	rename -uid "1F5CC97A-4612-F460-AC37-9DAE797370C6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTL -n "Other_Props_translateX";
+	rename -uid "574F8567-47B6-0D25-1CAF-538EECA2CDFD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTL -n "Other_Props_translateY";
+	rename -uid "FFE67EAE-4CEF-2887-E3CC-76A65EE7424B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 -3.5357687458559561 2 -3.5357687458559561
+		 3 -3.5357687458559561 4 -3.5357687458559561 5 -3.5357687458559561 6 -3.5357687458559561
+		 7 -3.5357687458559561 8 -3.5357687458559561 9 -3.5357687458559561 10 -3.5357687458559561
+		 11 -3.5357687458559561 12 -3.5357687458559561 13 -3.5357687458559561 14 -3.5357687458559561
+		 15 -3.5357687458559561 16 -3.5357687458559561 17 -3.5357687458559561 18 -3.5357687458559561
+		 19 -3.5357687458559561 20 -3.5357687458559561 21 -3.5357687458559561 22 -3.5357687458559561
+		 23 -3.5357687458559561 24 -3.5357687458559561 25 -3.5357687458559561 26 -3.5357687458559561
+		 27 -3.5357687458559561 28 -3.5357687458559561 29 -3.5357687458559561 30 -3.5357687458559561
+		 31 -3.5357687458559561 32 -3.5357687458559561 33 -3.5357687458559561 34 -3.5357687458559561
+		 35 -3.5357687458559561 36 -3.5357687458559561 37 -3.5357687458559561 38 -3.5357687458559561
+		 39 -3.5357687458559561 40 -3.5357687458559561 41 -3.5357687458559561 42 -3.5357687458559561
+		 43 -3.5357687458559561 44 -3.5357687458559561 45 -3.5357687458559561 46 -3.5357687458559561
+		 47 -3.5357687458559561 48 -3.5357687458559561 49 -3.5357687458559561 50 -3.5357687458559561
+		 51 -3.5357687458559561 52 -3.5357687458559561 53 -3.5357687458559561 54 -3.5357687458559561
+		 55 -3.5357687458559561 56 -3.5357687458559561 57 -3.5357687458559561 58 -3.5357687458559561
+		 59 -3.5357687458559561 60 -3.5357687458559561 61 -3.5357687458559561 62 -3.5357687458559561
+		 63 -3.5357687458559561 64 -3.5357687458559561 65 -3.5357687458559561 66 -3.5357687458559561
+		 67 -3.5357687458559561 68 -3.5357687458559561 69 -3.5357687458559561 70 -3.5357687458559561
+		 71 -3.5357687458559561 72 -3.5357687458559561 73 -3.5357687458559561 74 -3.5357687458559561
+		 75 -3.5357687458559561 76 -3.5357687458559561 77 -3.5357687458559561 78 -3.5357687458559561
+		 79 -3.5357687458559561 80 -3.5357687458559561 81 -3.5357687458559561 82 -3.5357687458559561
+		 83 -3.5357687458559561 84 -3.5357687458559561 85 -3.5357687458559561 86 -3.5357687458559561
+		 87 -3.5357687458559561 88 -3.5357687458559561 89 -3.5357687458559561 90 -3.5357687458559561
+		 91 -3.5357687458559561 92 -3.5357687458559561 93 -3.5357687458559561 94 -3.5357687458559561
+		 95 -3.5357687458559561 96 -3.5357687458559561 97 -3.5357687458559561 98 -3.5357687458559561
+		 99 -3.5357687458559561 100 -3.5357687458559561 101 -3.5357687458559561 102 -3.5357687458559561
+		 103 -3.5357687458559561 104 -3.5357687458559561 105 -3.5357687458559561 106 -3.5357687458559561
+		 107 -3.5357687458559561 108 -3.5357687458559561 109 -3.5357687458559561 110 -3.5357687458559561
+		 111 -3.5357687458559561 112 -3.5357687458559561 113 -3.5357687458559561 114 -3.5357687458559561
+		 115 -3.5357687458559561 116 -3.5357687458559561 117 -3.5357687458559561 118 -3.5357687458559561
+		 119 -3.5357687458559561 120 -3.5357687458559561 121 -3.5357687458559561 122 -3.5357687458559561
+		 123 -3.5357687458559561 124 -3.5357687458559561 125 -3.5357687458559561 126 -3.5357687458559561
+		 127 -3.5357687458559561 128 -3.5357687458559561 129 -3.5357687458559561 130 -3.5357687458559561
+		 131 -3.5357687458559561 132 -3.5357687458559561 133 -3.5357687458559561 134 -3.5357687458559561
+		 135 -3.5357687458559561 136 -3.5357687458559561 137 -3.5357687458559561 138 -3.5357687458559561
+		 139 -3.5357687458559561 140 -3.5357687458559561 141 -3.5357687458559561 142 -3.5357687458559561
+		 143 -3.5357687458559561 144 -3.5357687458559561 145 -3.5357687458559561 146 -3.5357687458559561
+		 147 -3.5357687458559561 148 -3.5357687458559561 149 -3.5357687458559561 150 -3.5357687458559561
+		 151 -3.5357687458559561 152 -3.5357687458559561 153 -3.5357687458559561 154 -3.5357687458559561
+		 155 -3.5357687458559561 156 -3.5357687458559561 157 -3.5357687458559561 158 -3.5357687458559561
+		 159 -3.5357687458559561 160 -3.5357687458559561 161 -3.5357687458559561 162 -3.5357687458559561
+		 163 -3.5357687458559561 164 -3.5357687458559561 165 -3.5357687458559561 166 -3.5357687458559561
+		 167 -3.5357687458559561 168 -3.5357687458559561 169 -3.5357687458559561 170 -3.5357687458559561
+		 171 -3.5357687458559561 172 -3.5357687458559561 173 -3.5357687458559561 174 -3.5357687458559561
+		 175 -3.5357687458559561 176 -3.5357687458559561 177 -3.5357687458559561 178 -3.5357687458559561
+		 179 -3.5357687458559561 180 -3.5357687458559561 181 -3.5357687458559561 182 -3.5357687458559561
+		 183 -3.5357687458559561 184 -3.5357687458559561 185 -3.5357687458559561 186 -3.5357687458559561
+		 187 -3.5357687458559561 188 -3.5357687458559561 189 -3.5357687458559561 190 -3.5357687458559561
+		 191 -3.5357687458559561 192 -3.5357687458559561 193 -3.5357687458559561 194 -3.5357687458559561
+		 195 -3.5357687458559561 196 -3.5357687458559561 197 -3.5357687458559561 198 -3.5357687458559561
+		 199 -3.5357687458559561 200 -3.5357687458559561 201 -3.5357687458559561 202 -3.5357687458559561
+		 203 -3.5357687458559561 204 -3.5357687458559561 205 -3.5357687458559561 206 -3.5357687458559561
+		 207 -3.5357687458559561 208 -3.5357687458559561 209 -3.5357687458559561 210 -3.5357687458559561
+		 211 -3.5357687458559561 212 -3.5357687458559561 213 -3.5357687458559561 214 -3.5357687458559561
+		 215 -3.5357687458559561 216 -3.5357687458559561 217 -3.5357687458559561 218 -3.5357687458559561
+		 219 -3.5357687458559561 220 -3.5357687458559561 221 -3.5357687458559561 222 -3.5357687458559561
+		 223 -3.5357687458559561 224 -3.5357687458559561 225 -3.5357687458559561 226 -3.5357687458559561
+		 227 -3.5357687458559561 228 -3.5357687458559561 229 -3.5357687458559561 230 -3.5357687458559561
+		 231 -3.5357687458559561 232 -3.5357687458559561 233 -3.5357687458559561 234 -3.5357687458559561
+		 235 -3.5357687458559561 236 -3.5357687458559561 237 -3.5357687458559561 238 -3.5357687458559561
+		 239 -3.5357687458559561 240 -3.5357687458559561 241 -3.5357687458559561 242 -3.5357687458559561
+		 243 -3.5357687458559561 244 -3.5357687458559561 245 -3.5357687458559561 246 -3.5357687458559561
+		 247 -3.5357687458559561 248 -3.5357687458559561 249 -3.5357687458559561;
+createNode animCurveTL -n "Other_Props_translateZ";
+	rename -uid "6A0310D5-475C-F077-33CB-39841EA97640";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Other_Props_rotateX";
+	rename -uid "41DBE94D-4F59-8868-DE40-FC81B3D13679";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Other_Props_rotateY";
+	rename -uid "AC9DF5B6-48AF-B03B-D4A4-7C9D10F2DAF2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTA -n "Other_Props_rotateZ";
+	rename -uid "AF58DC35-48E9-82B0-A5C5-32BCEFA8D999";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9 0 10 0
+		 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26 0 27 0
+		 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35 0 36 0 37 0 38 0 39 0 40 0 41 0 42 0 43 0 44 0
+		 45 0 46 0 47 0 48 0 49 0 50 0 51 0 52 0 53 0 54 0 55 0 56 0 57 0 58 0 59 0 60 0 61 0
+		 62 0 63 0 64 0 65 0 66 0 67 0 68 0 69 0 70 0 71 0 72 0 73 0 74 0 75 0 76 0 77 0 78 0
+		 79 0 80 0 81 0 82 0 83 0 84 0 85 0 86 0 87 0 88 0 89 0 90 0 91 0 92 0 93 0 94 0 95 0
+		 96 0 97 0 98 0 99 0 100 0 101 0 102 0 103 0 104 0 105 0 106 0 107 0 108 0 109 0 110 0
+		 111 0 112 0 113 0 114 0 115 0 116 0 117 0 118 0 119 0 120 0 121 0 122 0 123 0 124 0
+		 125 0 126 0 127 0 128 0 129 0 130 0 131 0 132 0 133 0 134 0 135 0 136 0 137 0 138 0
+		 139 0 140 0 141 0 142 0 143 0 144 0 145 0 146 0 147 0 148 0 149 0 150 0 151 0 152 0
+		 153 0 154 0 155 0 156 0 157 0 158 0 159 0 160 0 161 0 162 0 163 0 164 0 165 0 166 0
+		 167 0 168 0 169 0 170 0 171 0 172 0 173 0 174 0 175 0 176 0 177 0 178 0 179 0 180 0
+		 181 0 182 0 183 0 184 0 185 0 186 0 187 0 188 0 189 0 190 0 191 0 192 0 193 0 194 0
+		 195 0 196 0 197 0 198 0 199 0 200 0 201 0 202 0 203 0 204 0 205 0 206 0 207 0 208 0
+		 209 0 210 0 211 0 212 0 213 0 214 0 215 0 216 0 217 0 218 0 219 0 220 0 221 0 222 0
+		 223 0 224 0 225 0 226 0 227 0 228 0 229 0 230 0 231 0 232 0 233 0 234 0 235 0 236 0
+		 237 0 238 0 239 0 240 0 241 0 242 0 243 0 244 0 245 0 246 0 247 0 248 0 249 0;
+createNode animCurveTU -n "Other_Props_scaleX";
+	rename -uid "E39E4BA6-4E93-D8B0-98F6-ADA1CD824C15";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0.49939031589443278 2 0.49939031589443278
+		 3 0.49939031589443278 4 0.49939031589443278 5 0.49939031589443278 6 0.49939031589443278
+		 7 0.49939031589443278 8 0.49939031589443278 9 0.49939031589443278 10 0.49939031589443278
+		 11 0.49939031589443278 12 0.49939031589443278 13 0.49939031589443278 14 0.49939031589443278
+		 15 0.49939031589443278 16 0.49939031589443278 17 0.49939031589443278 18 0.49939031589443278
+		 19 0.49939031589443278 20 0.49939031589443278 21 0.49939031589443278 22 0.49939031589443278
+		 23 0.49939031589443278 24 0.49939031589443278 25 0.49939031589443278 26 0.49939031589443278
+		 27 0.49939031589443278 28 0.49939031589443278 29 0.49939031589443278 30 0.49939031589443278
+		 31 0.49939031589443278 32 0.49939031589443278 33 0.49939031589443278 34 0.49939031589443278
+		 35 0.49939031589443278 36 0.49939031589443278 37 0.49939031589443278 38 0.49939031589443278
+		 39 0.49939031589443278 40 0.49939031589443278 41 0.49939031589443278 42 0.49939031589443278
+		 43 0.49939031589443278 44 0.49939031589443278 45 0.49939031589443278 46 0.49939031589443278
+		 47 0.49939031589443278 48 0.49939031589443278 49 0.49939031589443278 50 0.49939031589443278
+		 51 0.49939031589443278 52 0.49939031589443278 53 0.49939031589443278 54 0.49939031589443278
+		 55 0.49939031589443278 56 0.49939031589443278 57 0.49939031589443278 58 0.49939031589443278
+		 59 0.49939031589443278 60 0.49939031589443278 61 0.49939031589443278 62 0.49939031589443278
+		 63 0.49939031589443278 64 0.49939031589443278 65 0.49939031589443278 66 0.49939031589443278
+		 67 0.49939031589443278 68 0.49939031589443278 69 0.49939031589443278 70 0.49939031589443278
+		 71 0.49939031589443278 72 0.49939031589443278 73 0.49939031589443278 74 0.49939031589443278
+		 75 0.49939031589443278 76 0.49939031589443278 77 0.49939031589443278 78 0.49939031589443278
+		 79 0.49939031589443278 80 0.49939031589443278 81 0.49939031589443278 82 0.49939031589443278
+		 83 0.49939031589443278 84 0.49939031589443278 85 0.49939031589443278 86 0.49939031589443278
+		 87 0.49939031589443278 88 0.49939031589443278 89 0.49939031589443278 90 0.49939031589443278
+		 91 0.49939031589443278 92 0.49939031589443278 93 0.49939031589443278 94 0.49939031589443278
+		 95 0.49939031589443278 96 0.49939031589443278 97 0.49939031589443278 98 0.49939031589443278
+		 99 0.49939031589443278 100 0.49939031589443278 101 0.49939031589443278 102 0.49939031589443278
+		 103 0.49939031589443278 104 0.49939031589443278 105 0.49939031589443278 106 0.49939031589443278
+		 107 0.49939031589443278 108 0.49939031589443278 109 0.49939031589443278 110 0.49939031589443278
+		 111 0.49939031589443278 112 0.49939031589443278 113 0.49939031589443278 114 0.49939031589443278
+		 115 0.49939031589443278 116 0.49939031589443278 117 0.49939031589443278 118 0.49939031589443278
+		 119 0.49939031589443278 120 0.49939031589443278 121 0.49939031589443278 122 0.49939031589443278
+		 123 0.49939031589443278 124 0.49939031589443278 125 0.49939031589443278 126 0.49939031589443278
+		 127 0.49939031589443278 128 0.49939031589443278 129 0.49939031589443278 130 0.49939031589443278
+		 131 0.49939031589443278 132 0.49939031589443278 133 0.49939031589443278 134 0.49939031589443278
+		 135 0.49939031589443278 136 0.49939031589443278 137 0.49939031589443278 138 0.49939031589443278
+		 139 0.49939031589443278 140 0.49939031589443278 141 0.49939031589443278 142 0.49939031589443278
+		 143 0.49939031589443278 144 0.49939031589443278 145 0.49939031589443278 146 0.49939031589443278
+		 147 0.49939031589443278 148 0.49939031589443278 149 0.49939031589443278 150 0.49939031589443278
+		 151 0.49939031589443278 152 0.49939031589443278 153 0.49939031589443278 154 0.49939031589443278
+		 155 0.49939031589443278 156 0.49939031589443278 157 0.49939031589443278 158 0.49939031589443278
+		 159 0.49939031589443278 160 0.49939031589443278 161 0.49939031589443278 162 0.49939031589443278
+		 163 0.49939031589443278 164 0.49939031589443278 165 0.49939031589443278 166 0.49939031589443278
+		 167 0.49939031589443278 168 0.49939031589443278 169 0.49939031589443278 170 0.49939031589443278
+		 171 0.49939031589443278 172 0.49939031589443278 173 0.49939031589443278 174 0.49939031589443278
+		 175 0.49939031589443278 176 0.49939031589443278 177 0.49939031589443278 178 0.49939031589443278
+		 179 0.49939031589443278 180 0.49939031589443278 181 0.49939031589443278 182 0.49939031589443278
+		 183 0.49939031589443278 184 0.49939031589443278 185 0.49939031589443278 186 0.49939031589443278
+		 187 0.49939031589443278 188 0.49939031589443278 189 0.49939031589443278 190 0.49939031589443278
+		 191 0.49939031589443278 192 0.49939031589443278 193 0.49939031589443278 194 0.49939031589443278
+		 195 0.49939031589443278 196 0.49939031589443278 197 0.49939031589443278 198 0.49939031589443278
+		 199 0.49939031589443278 200 0.49939031589443278 201 0.49939031589443278 202 0.49939031589443278
+		 203 0.49939031589443278 204 0.49939031589443278 205 0.49939031589443278 206 0.49939031589443278
+		 207 0.49939031589443278 208 0.49939031589443278 209 0.49939031589443278 210 0.49939031589443278
+		 211 0.49939031589443278 212 0.49939031589443278 213 0.49939031589443278 214 0.49939031589443278
+		 215 0.49939031589443278 216 0.49939031589443278 217 0.49939031589443278 218 0.49939031589443278
+		 219 0.49939031589443278 220 0.49939031589443278 221 0.49939031589443278 222 0.49939031589443278
+		 223 0.49939031589443278 224 0.49939031589443278 225 0.49939031589443278 226 0.49939031589443278
+		 227 0.49939031589443278 228 0.49939031589443278 229 0.49939031589443278 230 0.49939031589443278
+		 231 0.49939031589443278 232 0.49939031589443278 233 0.49939031589443278 234 0.49939031589443278
+		 235 0.49939031589443278 236 0.49939031589443278 237 0.49939031589443278 238 0.49939031589443278
+		 239 0.49939031589443278 240 0.49939031589443278 241 0.49939031589443278 242 0.49939031589443278
+		 243 0.49939031589443278 244 0.49939031589443278 245 0.49939031589443278 246 0.49939031589443278
+		 247 0.49939031589443278 248 0.49939031589443278 249 0.49939031589443278;
+createNode animCurveTU -n "Other_Props_scaleY";
+	rename -uid "8477CBCB-4D5A-3B84-A5DD-D993FB75D72E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0.49939031589443278 2 0.49939031589443278
+		 3 0.49939031589443278 4 0.49939031589443278 5 0.49939031589443278 6 0.49939031589443278
+		 7 0.49939031589443278 8 0.49939031589443278 9 0.49939031589443278 10 0.49939031589443278
+		 11 0.49939031589443278 12 0.49939031589443278 13 0.49939031589443278 14 0.49939031589443278
+		 15 0.49939031589443278 16 0.49939031589443278 17 0.49939031589443278 18 0.49939031589443278
+		 19 0.49939031589443278 20 0.49939031589443278 21 0.49939031589443278 22 0.49939031589443278
+		 23 0.49939031589443278 24 0.49939031589443278 25 0.49939031589443278 26 0.49939031589443278
+		 27 0.49939031589443278 28 0.49939031589443278 29 0.49939031589443278 30 0.49939031589443278
+		 31 0.49939031589443278 32 0.49939031589443278 33 0.49939031589443278 34 0.49939031589443278
+		 35 0.49939031589443278 36 0.49939031589443278 37 0.49939031589443278 38 0.49939031589443278
+		 39 0.49939031589443278 40 0.49939031589443278 41 0.49939031589443278 42 0.49939031589443278
+		 43 0.49939031589443278 44 0.49939031589443278 45 0.49939031589443278 46 0.49939031589443278
+		 47 0.49939031589443278 48 0.49939031589443278 49 0.49939031589443278 50 0.49939031589443278
+		 51 0.49939031589443278 52 0.49939031589443278 53 0.49939031589443278 54 0.49939031589443278
+		 55 0.49939031589443278 56 0.49939031589443278 57 0.49939031589443278 58 0.49939031589443278
+		 59 0.49939031589443278 60 0.49939031589443278 61 0.49939031589443278 62 0.49939031589443278
+		 63 0.49939031589443278 64 0.49939031589443278 65 0.49939031589443278 66 0.49939031589443278
+		 67 0.49939031589443278 68 0.49939031589443278 69 0.49939031589443278 70 0.49939031589443278
+		 71 0.49939031589443278 72 0.49939031589443278 73 0.49939031589443278 74 0.49939031589443278
+		 75 0.49939031589443278 76 0.49939031589443278 77 0.49939031589443278 78 0.49939031589443278
+		 79 0.49939031589443278 80 0.49939031589443278 81 0.49939031589443278 82 0.49939031589443278
+		 83 0.49939031589443278 84 0.49939031589443278 85 0.49939031589443278 86 0.49939031589443278
+		 87 0.49939031589443278 88 0.49939031589443278 89 0.49939031589443278 90 0.49939031589443278
+		 91 0.49939031589443278 92 0.49939031589443278 93 0.49939031589443278 94 0.49939031589443278
+		 95 0.49939031589443278 96 0.49939031589443278 97 0.49939031589443278 98 0.49939031589443278
+		 99 0.49939031589443278 100 0.49939031589443278 101 0.49939031589443278 102 0.49939031589443278
+		 103 0.49939031589443278 104 0.49939031589443278 105 0.49939031589443278 106 0.49939031589443278
+		 107 0.49939031589443278 108 0.49939031589443278 109 0.49939031589443278 110 0.49939031589443278
+		 111 0.49939031589443278 112 0.49939031589443278 113 0.49939031589443278 114 0.49939031589443278
+		 115 0.49939031589443278 116 0.49939031589443278 117 0.49939031589443278 118 0.49939031589443278
+		 119 0.49939031589443278 120 0.49939031589443278 121 0.49939031589443278 122 0.49939031589443278
+		 123 0.49939031589443278 124 0.49939031589443278 125 0.49939031589443278 126 0.49939031589443278
+		 127 0.49939031589443278 128 0.49939031589443278 129 0.49939031589443278 130 0.49939031589443278
+		 131 0.49939031589443278 132 0.49939031589443278 133 0.49939031589443278 134 0.49939031589443278
+		 135 0.49939031589443278 136 0.49939031589443278 137 0.49939031589443278 138 0.49939031589443278
+		 139 0.49939031589443278 140 0.49939031589443278 141 0.49939031589443278 142 0.49939031589443278
+		 143 0.49939031589443278 144 0.49939031589443278 145 0.49939031589443278 146 0.49939031589443278
+		 147 0.49939031589443278 148 0.49939031589443278 149 0.49939031589443278 150 0.49939031589443278
+		 151 0.49939031589443278 152 0.49939031589443278 153 0.49939031589443278 154 0.49939031589443278
+		 155 0.49939031589443278 156 0.49939031589443278 157 0.49939031589443278 158 0.49939031589443278
+		 159 0.49939031589443278 160 0.49939031589443278 161 0.49939031589443278 162 0.49939031589443278
+		 163 0.49939031589443278 164 0.49939031589443278 165 0.49939031589443278 166 0.49939031589443278
+		 167 0.49939031589443278 168 0.49939031589443278 169 0.49939031589443278 170 0.49939031589443278
+		 171 0.49939031589443278 172 0.49939031589443278 173 0.49939031589443278 174 0.49939031589443278
+		 175 0.49939031589443278 176 0.49939031589443278 177 0.49939031589443278 178 0.49939031589443278
+		 179 0.49939031589443278 180 0.49939031589443278 181 0.49939031589443278 182 0.49939031589443278
+		 183 0.49939031589443278 184 0.49939031589443278 185 0.49939031589443278 186 0.49939031589443278
+		 187 0.49939031589443278 188 0.49939031589443278 189 0.49939031589443278 190 0.49939031589443278
+		 191 0.49939031589443278 192 0.49939031589443278 193 0.49939031589443278 194 0.49939031589443278
+		 195 0.49939031589443278 196 0.49939031589443278 197 0.49939031589443278 198 0.49939031589443278
+		 199 0.49939031589443278 200 0.49939031589443278 201 0.49939031589443278 202 0.49939031589443278
+		 203 0.49939031589443278 204 0.49939031589443278 205 0.49939031589443278 206 0.49939031589443278
+		 207 0.49939031589443278 208 0.49939031589443278 209 0.49939031589443278 210 0.49939031589443278
+		 211 0.49939031589443278 212 0.49939031589443278 213 0.49939031589443278 214 0.49939031589443278
+		 215 0.49939031589443278 216 0.49939031589443278 217 0.49939031589443278 218 0.49939031589443278
+		 219 0.49939031589443278 220 0.49939031589443278 221 0.49939031589443278 222 0.49939031589443278
+		 223 0.49939031589443278 224 0.49939031589443278 225 0.49939031589443278 226 0.49939031589443278
+		 227 0.49939031589443278 228 0.49939031589443278 229 0.49939031589443278 230 0.49939031589443278
+		 231 0.49939031589443278 232 0.49939031589443278 233 0.49939031589443278 234 0.49939031589443278
+		 235 0.49939031589443278 236 0.49939031589443278 237 0.49939031589443278 238 0.49939031589443278
+		 239 0.49939031589443278 240 0.49939031589443278 241 0.49939031589443278 242 0.49939031589443278
+		 243 0.49939031589443278 244 0.49939031589443278 245 0.49939031589443278 246 0.49939031589443278
+		 247 0.49939031589443278 248 0.49939031589443278 249 0.49939031589443278;
+createNode animCurveTU -n "Other_Props_scaleZ";
+	rename -uid "BB0E8D1C-44DA-1E30-EDAE-15A2441EACDA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 0.49939031589443278 2 0.49939031589443278
+		 3 0.49939031589443278 4 0.49939031589443278 5 0.49939031589443278 6 0.49939031589443278
+		 7 0.49939031589443278 8 0.49939031589443278 9 0.49939031589443278 10 0.49939031589443278
+		 11 0.49939031589443278 12 0.49939031589443278 13 0.49939031589443278 14 0.49939031589443278
+		 15 0.49939031589443278 16 0.49939031589443278 17 0.49939031589443278 18 0.49939031589443278
+		 19 0.49939031589443278 20 0.49939031589443278 21 0.49939031589443278 22 0.49939031589443278
+		 23 0.49939031589443278 24 0.49939031589443278 25 0.49939031589443278 26 0.49939031589443278
+		 27 0.49939031589443278 28 0.49939031589443278 29 0.49939031589443278 30 0.49939031589443278
+		 31 0.49939031589443278 32 0.49939031589443278 33 0.49939031589443278 34 0.49939031589443278
+		 35 0.49939031589443278 36 0.49939031589443278 37 0.49939031589443278 38 0.49939031589443278
+		 39 0.49939031589443278 40 0.49939031589443278 41 0.49939031589443278 42 0.49939031589443278
+		 43 0.49939031589443278 44 0.49939031589443278 45 0.49939031589443278 46 0.49939031589443278
+		 47 0.49939031589443278 48 0.49939031589443278 49 0.49939031589443278 50 0.49939031589443278
+		 51 0.49939031589443278 52 0.49939031589443278 53 0.49939031589443278 54 0.49939031589443278
+		 55 0.49939031589443278 56 0.49939031589443278 57 0.49939031589443278 58 0.49939031589443278
+		 59 0.49939031589443278 60 0.49939031589443278 61 0.49939031589443278 62 0.49939031589443278
+		 63 0.49939031589443278 64 0.49939031589443278 65 0.49939031589443278 66 0.49939031589443278
+		 67 0.49939031589443278 68 0.49939031589443278 69 0.49939031589443278 70 0.49939031589443278
+		 71 0.49939031589443278 72 0.49939031589443278 73 0.49939031589443278 74 0.49939031589443278
+		 75 0.49939031589443278 76 0.49939031589443278 77 0.49939031589443278 78 0.49939031589443278
+		 79 0.49939031589443278 80 0.49939031589443278 81 0.49939031589443278 82 0.49939031589443278
+		 83 0.49939031589443278 84 0.49939031589443278 85 0.49939031589443278 86 0.49939031589443278
+		 87 0.49939031589443278 88 0.49939031589443278 89 0.49939031589443278 90 0.49939031589443278
+		 91 0.49939031589443278 92 0.49939031589443278 93 0.49939031589443278 94 0.49939031589443278
+		 95 0.49939031589443278 96 0.49939031589443278 97 0.49939031589443278 98 0.49939031589443278
+		 99 0.49939031589443278 100 0.49939031589443278 101 0.49939031589443278 102 0.49939031589443278
+		 103 0.49939031589443278 104 0.49939031589443278 105 0.49939031589443278 106 0.49939031589443278
+		 107 0.49939031589443278 108 0.49939031589443278 109 0.49939031589443278 110 0.49939031589443278
+		 111 0.49939031589443278 112 0.49939031589443278 113 0.49939031589443278 114 0.49939031589443278
+		 115 0.49939031589443278 116 0.49939031589443278 117 0.49939031589443278 118 0.49939031589443278
+		 119 0.49939031589443278 120 0.49939031589443278 121 0.49939031589443278 122 0.49939031589443278
+		 123 0.49939031589443278 124 0.49939031589443278 125 0.49939031589443278 126 0.49939031589443278
+		 127 0.49939031589443278 128 0.49939031589443278 129 0.49939031589443278 130 0.49939031589443278
+		 131 0.49939031589443278 132 0.49939031589443278 133 0.49939031589443278 134 0.49939031589443278
+		 135 0.49939031589443278 136 0.49939031589443278 137 0.49939031589443278 138 0.49939031589443278
+		 139 0.49939031589443278 140 0.49939031589443278 141 0.49939031589443278 142 0.49939031589443278
+		 143 0.49939031589443278 144 0.49939031589443278 145 0.49939031589443278 146 0.49939031589443278
+		 147 0.49939031589443278 148 0.49939031589443278 149 0.49939031589443278 150 0.49939031589443278
+		 151 0.49939031589443278 152 0.49939031589443278 153 0.49939031589443278 154 0.49939031589443278
+		 155 0.49939031589443278 156 0.49939031589443278 157 0.49939031589443278 158 0.49939031589443278
+		 159 0.49939031589443278 160 0.49939031589443278 161 0.49939031589443278 162 0.49939031589443278
+		 163 0.49939031589443278 164 0.49939031589443278 165 0.49939031589443278 166 0.49939031589443278
+		 167 0.49939031589443278 168 0.49939031589443278 169 0.49939031589443278 170 0.49939031589443278
+		 171 0.49939031589443278 172 0.49939031589443278 173 0.49939031589443278 174 0.49939031589443278
+		 175 0.49939031589443278 176 0.49939031589443278 177 0.49939031589443278 178 0.49939031589443278
+		 179 0.49939031589443278 180 0.49939031589443278 181 0.49939031589443278 182 0.49939031589443278
+		 183 0.49939031589443278 184 0.49939031589443278 185 0.49939031589443278 186 0.49939031589443278
+		 187 0.49939031589443278 188 0.49939031589443278 189 0.49939031589443278 190 0.49939031589443278
+		 191 0.49939031589443278 192 0.49939031589443278 193 0.49939031589443278 194 0.49939031589443278
+		 195 0.49939031589443278 196 0.49939031589443278 197 0.49939031589443278 198 0.49939031589443278
+		 199 0.49939031589443278 200 0.49939031589443278 201 0.49939031589443278 202 0.49939031589443278
+		 203 0.49939031589443278 204 0.49939031589443278 205 0.49939031589443278 206 0.49939031589443278
+		 207 0.49939031589443278 208 0.49939031589443278 209 0.49939031589443278 210 0.49939031589443278
+		 211 0.49939031589443278 212 0.49939031589443278 213 0.49939031589443278 214 0.49939031589443278
+		 215 0.49939031589443278 216 0.49939031589443278 217 0.49939031589443278 218 0.49939031589443278
+		 219 0.49939031589443278 220 0.49939031589443278 221 0.49939031589443278 222 0.49939031589443278
+		 223 0.49939031589443278 224 0.49939031589443278 225 0.49939031589443278 226 0.49939031589443278
+		 227 0.49939031589443278 228 0.49939031589443278 229 0.49939031589443278 230 0.49939031589443278
+		 231 0.49939031589443278 232 0.49939031589443278 233 0.49939031589443278 234 0.49939031589443278
+		 235 0.49939031589443278 236 0.49939031589443278 237 0.49939031589443278 238 0.49939031589443278
+		 239 0.49939031589443278 240 0.49939031589443278 241 0.49939031589443278 242 0.49939031589443278
+		 243 0.49939031589443278 244 0.49939031589443278 245 0.49939031589443278 246 0.49939031589443278
+		 247 0.49939031589443278 248 0.49939031589443278 249 0.49939031589443278;
+createNode animCurveTU -n "Bin_Lid_visibility";
+	rename -uid "C72D9E7C-4AA0-82AB-658B-079D4118DE9B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Lunchtray1_visibility";
+	rename -uid "F215B70E-4E36-209A-454C-F695344CA8D7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Lunchtray2_visibility";
+	rename -uid "147BC8A6-4F1D-B0CA-8D91-0FAD00364A91";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Broken_Bottle1_visibility";
+	rename -uid "0D621EE9-4DA0-0052-A1AD-49BE7F517E6A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Broken_Bottle2_visibility";
+	rename -uid "46DB5FB1-4A62-9218-ABC6-38816B1EFCE9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Fork_visibility";
+	rename -uid "F20C9757-45B7-DC7C-7B21-5C91B3A90DD2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTU -n "Eyeball_visibility";
+	rename -uid "FC3B87B6-4CC1-DB1E-11F3-D2AD1C5DC0CB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 249 ".ktv[0:248]"  1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1
+		 11 1 12 1 13 1 14 1 15 1 16 1 17 1 18 1 19 1 20 1 21 1 22 1 23 1 24 1 25 1 26 1 27 1
+		 28 1 29 1 30 1 31 1 32 1 33 1 34 1 35 1 36 1 37 1 38 1 39 1 40 1 41 1 42 1 43 1 44 1
+		 45 1 46 1 47 1 48 1 49 1 50 1 51 1 52 1 53 1 54 1 55 1 56 1 57 1 58 1 59 1 60 1 61 1
+		 62 1 63 1 64 1 65 1 66 1 67 1 68 1 69 1 70 1 71 1 72 1 73 1 74 1 75 1 76 1 77 1 78 1
+		 79 1 80 1 81 1 82 1 83 1 84 1 85 1 86 1 87 1 88 1 89 1 90 1 91 1 92 1 93 1 94 1 95 1
+		 96 1 97 1 98 1 99 1 100 1 101 1 102 1 103 1 104 1 105 1 106 1 107 1 108 1 109 1 110 1
+		 111 1 112 1 113 1 114 1 115 1 116 1 117 1 118 1 119 1 120 1 121 1 122 1 123 1 124 1
+		 125 1 126 1 127 1 128 1 129 1 130 1 131 1 132 1 133 1 134 1 135 1 136 1 137 1 138 1
+		 139 1 140 1 141 1 142 1 143 1 144 1 145 1 146 1 147 1 148 1 149 1 150 1 151 1 152 1
+		 153 1 154 1 155 1 156 1 157 1 158 1 159 1 160 1 161 1 162 1 163 1 164 1 165 1 166 1
+		 167 1 168 1 169 1 170 1 171 1 172 1 173 1 174 1 175 1 176 1 177 1 178 1 179 1 180 1
+		 181 1 182 1 183 1 184 1 185 1 186 1 187 1 188 1 189 1 190 1 191 1 192 1 193 1 194 1
+		 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1 208 1
+		 209 1 210 1 211 1 212 1 213 1 214 1 215 1 216 1 217 1 218 1 219 1 220 1 221 1 222 1
+		 223 1 224 1 225 1 226 1 227 1 228 1 229 1 230 1 231 1 232 1 233 1 234 1 235 1 236 1
+		 237 1 238 1 239 1 240 1 241 1 242 1 243 1 244 1 245 1 246 1 247 1 248 1 249 1;
+createNode animCurveTA -n "General_Ctrl_rotateZ";
+	rename -uid "4C3B7B7F-4092-64F3-0B17-488CA7451635";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
+createNode animCurveTA -n "General_Ctrl_rotateY";
+	rename -uid "29556729-4F99-876B-867E-138340BAE8D7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
+createNode animCurveTA -n "General_Ctrl_rotateX";
+	rename -uid "593F8F9F-402D-0B89-4EAC-76A9755123EA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
+createNode animCurveTU -n "General_Ctrl_visibility";
+	rename -uid "C812A333-4537-C40C-B554-F1BC566B2255";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode animCurveTU -n "General_Ctrl_scaleY";
+	rename -uid "3411C98D-4800-7BE7-8BB5-E583F07CF0ED";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
+createNode animCurveTU -n "General_Ctrl_scaleX";
+	rename -uid "ABAC25C1-451B-8268-3A42-23ABD1C16015";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
+createNode animCurveTL -n "General_Ctrl_translateY";
+	rename -uid "09256184-44D5-EE80-FA20-2C80879FDA7B";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
+createNode animCurveTU -n "General_Ctrl_scaleZ";
+	rename -uid "7318B1A0-462C-5395-8662-E0967043A8F2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
+createNode animCurveTL -n "General_Ctrl_translateZ";
+	rename -uid "9A75D169-4C2C-A3BC-5EFC-D68D97E9B427";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
+createNode animCurveTL -n "General_Ctrl_translateX";
+	rename -uid "2D410BEF-43C7-C007-B45F-D98B220C9A8F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
+createNode animCurveTU -n "R_Knee_Ctrl_visibility";
+	rename -uid "5207F5C7-4CF1-1B70-0D49-0F801C3A7C1D";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 1 248 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode animCurveTU -n "R_Knee_Ctrl_scaleZ";
+	rename -uid "54297BC2-4D2C-CBC5-76D3-E8A9279ADDE2";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 1 248 1;
+createNode animCurveTU -n "R_Knee_Ctrl_scaleY";
+	rename -uid "0BDF14A0-46AE-6105-CA5D-7B9507EACCBA";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 1 248 1;
+createNode animCurveTU -n "R_Knee_Ctrl_scaleX";
+	rename -uid "068B93BB-46C4-C228-E879-EAAC6F7253B3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 1 248 1;
+createNode animCurveTA -n "R_Knee_Ctrl_rotateY";
+	rename -uid "9C43208A-479B-9E2C-40BC-3D8C3B7D49A0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0 248 0;
+createNode animCurveTA -n "R_Knee_Ctrl_rotateX";
+	rename -uid "C678C58B-43C8-A590-E70A-D5AE95C012D0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0 248 0;
+createNode animCurveTA -n "R_Knee_Ctrl_rotateZ";
+	rename -uid "F3720B84-43CC-FC8F-6E3C-FDBA6FBED86D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0 248 0;
+createNode animCurveTL -n "R_Knee_Ctrl_translateZ";
+	rename -uid "992D6469-4609-8378-B64F-3393E09D5650";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 7.914171760925937 248 7.914171760925937;
+createNode animCurveTL -n "R_Knee_Ctrl_translateY";
+	rename -uid "0825517A-4AAA-7C27-DEBD-5FBE308C5DD5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0 248 0;
+createNode animCurveTL -n "R_Knee_Ctrl_translateX";
+	rename -uid "A2E7732F-4F17-85ED-20CA-1FA67D905F50";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  0 0.63517510725665227 248 0.63517510725665227;
+createNode animCurveTU -n "L_Knee_Ctrl_scaleZ";
+	rename -uid "F0ECA4C0-40F0-17E7-B254-5A8BD64C68CC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
+createNode animCurveTL -n "L_Knee_Ctrl_translateX";
+	rename -uid "FE601936-4F95-A301-73C0-40A5628F1688";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0.085173816254048518 249 0.085173816254048518;
+createNode animCurveTU -n "L_Knee_Ctrl_scaleY";
+	rename -uid "AC6D230A-4E08-378F-06AC-B085C9C4E9A5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
+createNode animCurveTU -n "L_Knee_Ctrl_visibility";
+	rename -uid "A70E8A63-4ABA-097B-08E5-0A8FECF0E2C1";
+	setAttr ".tan" 9;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
+	setAttr -s 2 ".kot[0:1]"  5 5;
+createNode animCurveTU -n "L_Knee_Ctrl_scaleX";
+	rename -uid "77FB2A57-4741-FC8E-5B2F-A7AE20080CBC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
+createNode animCurveTL -n "L_Knee_Ctrl_translateY";
+	rename -uid "185A9445-4851-C907-7064-5881DE25B5F6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0.50986931269347657 249 0.50986931269347657;
+createNode animCurveTL -n "L_Knee_Ctrl_translateZ";
+	rename -uid "D087D771-407D-54F1-24A8-A99CA9575AE5";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 4.0463660593557531 249 4.0463660593557531;
+createNode animCurveTA -n "L_Knee_Ctrl_rotateY";
+	rename -uid "6054C636-42A6-1FDE-AEC3-2291C171FDBC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
+createNode animCurveTA -n "L_Knee_Ctrl_rotateX";
+	rename -uid "D8A4705D-4D47-15A4-9EEC-0E8F2D766B0D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
+createNode animCurveTA -n "L_Knee_Ctrl_rotateZ";
+	rename -uid "1F19A71B-4D4E-BC01-93D6-AEBC43D46FCF";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
+createNode transformGeometry -n "transformGeometry4";
+	rename -uid "A4841B2B-4A06-2C73-DB0F-0AA4813D3646";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 0 1 0 0 -1 0 0 -0.91248297691345215 3.5361199378967285 -1.8551638682966719e-18 1;
+createNode makeNurbCircle -n "makeNurbCircle4";
+	rename -uid "AE534129-4DF9-F071-5BA0-D884899D904D";
+	setAttr ".nr" -type "double3" 0 1 0 ;
+createNode animCurveTA -n "R_Foot_Ctrl_rotateZ";
+	rename -uid "73E00823-4E5C-BCAF-A450-73B1C2EAA019";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "R_Foot_Ctrl_rotateX";
+	rename -uid "DD4503ED-40C4-4BA9-4A1E-D58C5B22AAF4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "R_Foot_Ctrl_rotateY";
+	rename -uid "45B9C3A7-4226-90BA-BFE3-BBB7037D3AED";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Foot_Ctrl_visibility";
+	rename -uid "F50E6715-4BAF-53BE-0D82-EAAB212200C3";
+	setAttr ".tan" 5;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[0:2]"  9 9 1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+createNode animCurveTU -n "R_Foot_Ctrl_scaleZ";
+	rename -uid "7625F282-4736-46FA-2A83-4D95A831C641";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Foot_Ctrl_scaleY";
+	rename -uid "188765CE-4536-1199-6F0D-C4B880ED14EB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Foot_Ctrl_scaleX";
+	rename -uid "55921CB3-4DE2-E84F-BE87-4FB328AA424F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "R_Foot_Ctrl_translateY";
+	rename -uid "10F57DE2-48AC-7B97-123B-69B05AD29C8E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 22 ".ktv[0:21]"  1 -0.55163717077444652 25 1.915127606697264
+		 30 1.379409361634822 40 -0.010049208430289447 60 1.7409015263989489 70 1.2712917583727172
+		 80 -0.02337927269320228 90 -0.57959489829478494 100 1.0683351683519584 110 1.0226338158707011
+		 120 -0.076972690976222946 130 -0.55163717077444652 154 1.915127606697264 159 1.379409361634822
+		 169 -0.010049208430289447 189 1.7409015263989489 199 1.2712917583727172 209 -0.02337927269320228
+		 219 -0.57959489829478494 229 1.0683351683519584 239 1.0226338158707011 249 -0.55163717077444652;
+	setAttr -s 22 ".kit[21]"  1;
+	setAttr -s 22 ".kot[21]"  1;
+	setAttr -s 22 ".kix[21]"  1;
+	setAttr -s 22 ".kiy[21]"  0;
+	setAttr -s 22 ".kox[21]"  1;
+	setAttr -s 22 ".koy[21]"  0;
+createNode animCurveTL -n "R_Foot_Ctrl_translateZ";
+	rename -uid "9550DA2F-4496-D44C-BAEE-5A97F5FA39DB";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 24 ".ktv[0:23]"  1 0 25 -0.047986149667479161 30 4.7507909839558113
+		 40 3.5815891048965507 50 1.2441033208018886 60 -0.66623927317238762 70 4.8056871635849001
+		 80 3.4524868278192278 90 0.97653106119861244 100 0.013571051636031006 110 4.8979928696632911
+		 120 3.021604899701634 130 0 154 -0.047986149667479161 159 4.7507909839558113 169 3.5815891048965507
+		 179 1.2441033208018886 189 -0.66623927317238762 199 4.8056871635849001 209 3.4524868278192278
+		 219 0.97653106119861244 229 0.013571051636031006 239 4.8979928696632911 249 0;
+	setAttr -s 24 ".kit[23]"  1;
+	setAttr -s 24 ".kot[23]"  1;
+	setAttr -s 24 ".kix[23]"  1;
+	setAttr -s 24 ".kiy[23]"  0;
+	setAttr -s 24 ".kox[23]"  1;
+	setAttr -s 24 ".koy[23]"  0;
+createNode animCurveTL -n "R_Foot_Ctrl_translateX";
+	rename -uid "7824FB75-4189-2CC0-1D16-49A988450694";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 18 ".ktv[0:17]"  1 0.34574850511542765 25 0.3670001477183864
+		 30 0.94463712774156194 40 0.74828033543403949 60 0.91240612022642908 70 0.37093753660094508
+		 100 0.56720953552796916 110 0.35816776399503114 120 0.1769991041506711 130 0.34574850511542765
+		 154 0.3670001477183864 159 0.94463712774156194 169 0.74828033543403949 189 0.91240612022642908
+		 199 0.37093753660094508 229 0.56720953552796916 239 0.35816776399503114 249 0.34574850511542765;
+	setAttr -s 18 ".kit[17]"  1;
+	setAttr -s 18 ".kot[17]"  1;
+	setAttr -s 18 ".kix[17]"  1;
+	setAttr -s 18 ".kiy[17]"  0;
+	setAttr -s 18 ".kox[17]"  1;
+	setAttr -s 18 ".koy[17]"  0;
+createNode animCurveTU -n "L_Foot_Ctrl_visibility";
+	rename -uid "654A1CC7-416A-D373-E786-BDADBA2681F8";
+	setAttr ".tan" 5;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[0:2]"  9 9 1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
 createNode animCurveTL -n "L_Foot_Ctrl_translateY";
 	rename -uid "D00C9690-4E5B-46E4-C866-3EA1F83328E4";
 	setAttr ".tan" 18;
@@ -27002,6 +32399,17 @@ createNode animCurveTL -n "L_Foot_Ctrl_translateY";
 	setAttr -s 20 ".kiy[19]"  0;
 	setAttr -s 20 ".kox[19]"  1;
 	setAttr -s 20 ".koy[19]"  0;
+createNode animCurveTU -n "L_Foot_Ctrl_scaleY";
+	rename -uid "F972987F-4941-7C3F-1895-CE9991CCA4A0";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
 createNode animCurveTL -n "L_Foot_Ctrl_translateZ";
 	rename -uid "702730A6-47DB-16DE-2D74-FEBE416DF12B";
 	setAttr ".tan" 18;
@@ -27019,52 +32427,8 @@ createNode animCurveTL -n "L_Foot_Ctrl_translateZ";
 	setAttr -s 26 ".kiy[25]"  0;
 	setAttr -s 26 ".kox[25]"  1;
 	setAttr -s 26 ".koy[25]"  0;
-createNode animCurveTA -n "L_Foot_Ctrl_rotateX";
-	rename -uid "589FC985-41D1-D258-5C93-E3BA61A5D129";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "L_Foot_Ctrl_rotateY";
-	rename -uid "DF5E23D4-4F6B-144A-603F-B08FED2BE875";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "L_Foot_Ctrl_rotateZ";
-	rename -uid "68C1F72B-44FA-0CA6-0C72-3081DD678BB7";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
 createNode animCurveTU -n "L_Foot_Ctrl_scaleX";
 	rename -uid "50BD4CC3-471E-A3DF-6D8E-26AA0E0BF088";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Foot_Ctrl_scaleY";
-	rename -uid "F972987F-4941-7C3F-1895-CE9991CCA4A0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
@@ -27085,16 +32449,8 @@ createNode animCurveTU -n "L_Foot_Ctrl_scaleZ";
 	setAttr -s 3 ".kiy[2]"  0;
 	setAttr -s 3 ".kox[2]"  1;
 	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Foot_Ctrl_visibility";
-	rename -uid "654A1CC7-416A-D373-E786-BDADBA2681F8";
-	setAttr ".tan" 5;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[0:2]"  9 9 1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-createNode animCurveTL -n "R_Shoulder_Ctrl_translateX";
-	rename -uid "6BB3AA9C-4AFB-D428-7BEA-C0942B64EF5E";
+createNode animCurveTA -n "L_Foot_Ctrl_rotateY";
+	rename -uid "DF5E23D4-4F6B-144A-603F-B08FED2BE875";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
@@ -27104,8 +32460,8 @@ createNode animCurveTL -n "R_Shoulder_Ctrl_translateX";
 	setAttr -s 3 ".kiy[2]"  0;
 	setAttr -s 3 ".kox[2]"  1;
 	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "R_Shoulder_Ctrl_translateY";
-	rename -uid "606DBEF9-4DAD-F826-FAE4-94A68C0B7D68";
+createNode animCurveTA -n "L_Foot_Ctrl_rotateX";
+	rename -uid "589FC985-41D1-D258-5C93-E3BA61A5D129";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
@@ -27115,8 +32471,8 @@ createNode animCurveTL -n "R_Shoulder_Ctrl_translateY";
 	setAttr -s 3 ".kiy[2]"  0;
 	setAttr -s 3 ".kox[2]"  1;
 	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "R_Shoulder_Ctrl_translateZ";
-	rename -uid "99F711C3-4564-BBE0-DE2B-48BA0A9C35E5";
+createNode animCurveTA -n "L_Foot_Ctrl_rotateZ";
+	rename -uid "68C1F72B-44FA-0CA6-0C72-3081DD678BB7";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
@@ -27126,672 +32482,29 @@ createNode animCurveTL -n "R_Shoulder_Ctrl_translateZ";
 	setAttr -s 3 ".kiy[2]"  0;
 	setAttr -s 3 ".kox[2]"  1;
 	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "R_Shoulder_Ctrl_rotateX";
-	rename -uid "F4AEFA14-42F3-C325-3936-4C84F90E5BD0";
+createNode animCurveTL -n "L_Foot_Ctrl_translateX";
+	rename -uid "0B5FEF27-4572-B987-8152-61814801730E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 18 ".ktv[0:17]"  1 14.420478290580304 10 -2.8810410501454955
-		 30 -36.850761943263926 40 32.35603479563644 50 -28.566813550018601 70 28.282561444941187
-		 90 -30.734558301993022 110 30.739562018488737 120 0.13345311137421584 130 14.420478290580304
-		 139 -2.8810410501454955 159 -36.850761943263926 169 32.35603479563644 179 -28.566813550018601
-		 199 28.282561444941187 219 -30.734558301993022 239 30.739562018488737 249 14.420478290580304;
-	setAttr -s 18 ".kit[17]"  1;
-	setAttr -s 18 ".kot[17]"  1;
-	setAttr -s 18 ".kix[17]"  1;
-	setAttr -s 18 ".kiy[17]"  0;
-	setAttr -s 18 ".kox[17]"  1;
-	setAttr -s 18 ".koy[17]"  0;
-createNode animCurveTA -n "R_Shoulder_Ctrl_rotateY";
-	rename -uid "5F7541E2-4D78-C5F2-E15F-248977E4BCFF";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  1 1.5666076677278393 10 -11.865818281696072
-		 40 -15.008101165367673 50 -13.394446653729956 130 1.5666076677278393 139 -11.865818281696072
-		 169 -15.008101165367673 179 -13.394446653729956 249 1.5666076677278393;
-	setAttr -s 9 ".kit[8]"  1;
-	setAttr -s 9 ".kot[8]"  1;
-	setAttr -s 9 ".kix[8]"  1;
-	setAttr -s 9 ".kiy[8]"  0;
-	setAttr -s 9 ".kox[8]"  1;
-	setAttr -s 9 ".koy[8]"  0;
-createNode animCurveTA -n "R_Shoulder_Ctrl_rotateZ";
-	rename -uid "79188B7A-4C43-6EB9-0CFF-F2B2809224E3";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 9 ".ktv[0:8]"  1 -2.9581848138068261 10 8.5895898888093623
-		 40 -7.5115816387129248 50 5.2995395879961373 130 -2.9581848138068261 139 8.5895898888093623
-		 169 -7.5115816387129248 179 5.2995395879961373 249 -2.9581848138068261;
-	setAttr -s 9 ".kit[8]"  1;
-	setAttr -s 9 ".kot[8]"  1;
-	setAttr -s 9 ".kix[8]"  1;
-	setAttr -s 9 ".kiy[8]"  0;
-	setAttr -s 9 ".kox[8]"  1;
-	setAttr -s 9 ".koy[8]"  0;
-createNode animCurveTU -n "R_Shoulder_Ctrl_scaleX";
-	rename -uid "8AE4310B-455F-0A05-2A73-C49AC8FFAFEC";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Shoulder_Ctrl_scaleY";
-	rename -uid "54C5C806-49B7-A854-8347-7D9D33FD9571";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Shoulder_Ctrl_scaleZ";
-	rename -uid "51C245F3-4F2B-D6BB-C080-28A6A7EABB0A";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Shoulder_Ctrl_visibility";
-	rename -uid "FE778281-497A-8BBD-A547-31A00B5682B1";
-	setAttr ".tan" 5;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[0:2]"  9 9 1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-createNode animCurveTL -n "R_Elbow_Ctrl_translateX";
-	rename -uid "CDFBEED1-43EC-2D51-A1F2-EFBE5E120D6F";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "R_Elbow_Ctrl_translateY";
-	rename -uid "8CF9154B-41E2-4E9E-4272-43849276E6C6";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "R_Elbow_Ctrl_translateZ";
-	rename -uid "6B9FBCBB-4618-FCB5-8826-3CA3AE8BD203";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "R_Elbow_Ctrl_rotateX";
-	rename -uid "72C3408D-49EF-2583-3949-8485AE63E0D4";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  1 -27.680312153255077 10 -52.374095164453024
-		 130 -27.680312153255077 139 -52.374095164453024 249 -27.680312153255077;
-	setAttr -s 5 ".kit[4]"  1;
-	setAttr -s 5 ".kot[4]"  1;
-	setAttr -s 5 ".kix[4]"  1;
-	setAttr -s 5 ".kiy[4]"  0;
-	setAttr -s 5 ".kox[4]"  1;
-	setAttr -s 5 ".koy[4]"  0;
-createNode animCurveTA -n "R_Elbow_Ctrl_rotateY";
-	rename -uid "9E42269E-45AC-FC22-6FB5-40BCFDFEDD85";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 -11.664652766171505 130 -11.664652766171505
-		 249 -11.664652766171505;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "R_Elbow_Ctrl_rotateZ";
-	rename -uid "38C4AC59-44D3-FECF-E17F-2E86FDC32306";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 -16.863267450916812 130 -16.863267450916812
-		 249 -16.863267450916812;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Elbow_Ctrl_scaleX";
-	rename -uid "407AEAA5-4F14-006B-B8B7-B0B89B40BDAD";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Elbow_Ctrl_scaleY";
-	rename -uid "1E2BA4F2-4A93-7F02-A498-61AE4369D305";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Elbow_Ctrl_scaleZ";
-	rename -uid "EC406B61-4E0E-AB73-ADAB-28A1F4985908";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Elbow_Ctrl_visibility";
-	rename -uid "BCD4E5AC-4369-EB43-825F-9B8E0038E7D2";
-	setAttr ".tan" 5;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[0:2]"  9 9 1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-createNode animCurveTL -n "R_Wrist_Ctrl_translateX";
-	rename -uid "664551A4-4D28-D385-764E-95B3B915CD41";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "R_Wrist_Ctrl_translateY";
-	rename -uid "BC48354C-42FA-64DC-B142-B285C825641A";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "R_Wrist_Ctrl_translateZ";
-	rename -uid "F6058413-47D1-5FFD-108B-AEB646F187C9";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "R_Wrist_Ctrl_rotateX";
-	rename -uid "38B025D4-4B62-8CD0-7809-BF8DC94D2809";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "R_Wrist_Ctrl_rotateY";
-	rename -uid "CACE8F41-44E6-D89C-2534-57A37444F682";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "R_Wrist_Ctrl_rotateZ";
-	rename -uid "FEA93666-482D-CF74-F3E1-E4AC4D1929D4";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Wrist_Ctrl_scaleX";
-	rename -uid "E7CF67BB-4F82-38E1-DF27-E489A16A6632";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Wrist_Ctrl_scaleY";
-	rename -uid "2CD2D3CA-4EAD-34F7-9ACC-E8B1FA98EDF6";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Wrist_Ctrl_scaleZ";
-	rename -uid "4ED224AA-4306-700A-4A39-8A945F2D01C1";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Wrist_Ctrl_visibility";
-	rename -uid "AE7CC7D8-4B78-2CA0-89AB-0EAFA5BF6A28";
-	setAttr ".tan" 5;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[0:2]"  9 9 1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-createNode animCurveTL -n "L_Shoulder_Ctrl_translateX";
-	rename -uid "34977FF1-401F-602B-1887-D5A7EA7097E3";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "L_Shoulder_Ctrl_translateY";
-	rename -uid "9AA25948-40CD-87B7-8093-5F9F012301F1";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "L_Shoulder_Ctrl_translateZ";
-	rename -uid "44A3F236-42FE-2309-E2A0-B1953B7DC6A7";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "L_Shoulder_Ctrl_rotateX";
-	rename -uid "089F6672-45D3-0E28-FA01-038C4C8D29F0";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 20 ".ktv[0:19]"  1 -18.802151991506584 10 17.655554178718063
-		 20 -18.568784155197616 30 41.804115173591818 40 -16.983885909143012 50 37.446715243755172
-		 70 -38.47875294718223 90 37.936612175653366 110 -25.751508205289664 120 -25.338881261146629
-		 130 -18.802151991506584 139 17.655554178718063 149 -18.568784155197616 159 41.804115173591818
-		 169 -16.983885909143012 179 37.446715243755172 199 -38.47875294718223 219 37.936612175653366
-		 239 -25.751508205289664 249 -18.802151991506584;
+	setAttr -s 20 ".ktv[0:19]"  1 0.15400048758986995 15 0.019044307330728261
+		 20 -0.072291835281766081 40 -0.20404241227589881 50 0.20423959555208993 60 0.18920375277540313
+		 80 0.24684831706677213 90 0.33264544686264697 100 0.20699353250537311 120 0.47552007792292739
+		 130 0.15400048758986995 144 0.019044307330728261 149 -0.072291835281766081 169 -0.20404241227589881
+		 179 0.20423959555208993 189 0.18920375277540313 209 0.24684831706677213 219 0.33264544686264697
+		 229 0.20699353250537311 249 0.15400048758986995;
 	setAttr -s 20 ".kit[19]"  1;
 	setAttr -s 20 ".kot[19]"  1;
 	setAttr -s 20 ".kix[19]"  1;
 	setAttr -s 20 ".kiy[19]"  0;
 	setAttr -s 20 ".kox[19]"  1;
 	setAttr -s 20 ".koy[19]"  0;
-createNode animCurveTA -n "L_Shoulder_Ctrl_rotateY";
-	rename -uid "A8D1E7C4-4A8B-694B-DCEC-228E8810DB53";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 19 ".ktv[0:18]"  1 -3.6926955629181526 10 10.547702260193395
-		 20 16.569899340059465 30 15.2445333181198 40 9.8274645099016258 50 15.41410948643987
-		 70 13.557571778731017 90 22.606950495130434 110 2.8541770834863671 130 -3.6926955629181526
-		 139 10.547702260193395 149 16.569899340059465 159 15.2445333181198 169 9.8274645099016258
-		 179 15.41410948643987 199 13.557571778731017 219 22.606950495130434 239 2.8541770834863671
-		 249 -3.6926955629181526;
-	setAttr -s 19 ".kit[18]"  1;
-	setAttr -s 19 ".kot[18]"  1;
-	setAttr -s 19 ".kix[18]"  1;
-	setAttr -s 19 ".kiy[18]"  0;
-	setAttr -s 19 ".kox[18]"  1;
-	setAttr -s 19 ".koy[18]"  0;
-createNode animCurveTA -n "L_Shoulder_Ctrl_rotateZ";
-	rename -uid "A061604E-47D5-721C-2885-04AF29B1ED20";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 19 ".ktv[0:18]"  1 -9.0352996461712838 10 -1.6044181692782773
-		 20 -9.6404960023870032 30 1.1439278447145784 40 -14.568480785071195 50 -0.12601242127869414
-		 70 -16.409130087766023 90 -7.9311571789396504 110 -17.663947495042787 130 -9.0352996461712838
-		 139 -1.6044181692782773 149 -9.6404960023870032 159 1.1439278447145784 169 -14.568480785071195
-		 179 -0.12601242127869414 199 -16.409130087766023 219 -7.9311571789396504 239 -17.663947495042787
-		 249 -9.0352996461712838;
-	setAttr -s 19 ".kit[18]"  1;
-	setAttr -s 19 ".kot[18]"  1;
-	setAttr -s 19 ".kix[18]"  1;
-	setAttr -s 19 ".kiy[18]"  0;
-	setAttr -s 19 ".kox[18]"  1;
-	setAttr -s 19 ".koy[18]"  0;
-createNode animCurveTU -n "L_Shoulder_Ctrl_scaleX";
-	rename -uid "A33916FB-41C5-BBF6-1680-E7AADF650CDC";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Shoulder_Ctrl_scaleY";
-	rename -uid "45FACA58-46DA-8884-0083-51B711D9564D";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Shoulder_Ctrl_scaleZ";
-	rename -uid "5D43E785-455E-5474-BBA6-7693C5856335";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Shoulder_Ctrl_visibility";
-	rename -uid "880E53E1-4700-AB67-CD43-6EBC0AD38141";
-	setAttr ".tan" 5;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[0:2]"  9 9 1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-createNode animCurveTL -n "L_Elbow_Ctrl_translateX";
-	rename -uid "A46F56FD-446F-6986-2E7F-B7856A98FD52";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "L_Elbow_Ctrl_translateY";
-	rename -uid "72F514C7-4A93-64AA-80BF-579319A5A410";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "L_Elbow_Ctrl_translateZ";
-	rename -uid "831FC458-48D7-EE8B-D9B7-E198D8AA4B43";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "L_Elbow_Ctrl_rotateX";
-	rename -uid "FF5693BE-430E-A9EA-EEF0-5E90E25B246E";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 5 ".ktv[0:4]"  1 -26.245960686178403 10 -68.02778960592282
-		 130 -26.245960686178403 139 -68.02778960592282 249 -26.245960686178403;
-	setAttr -s 5 ".kit[4]"  1;
-	setAttr -s 5 ".kot[4]"  1;
-	setAttr -s 5 ".kix[4]"  1;
-	setAttr -s 5 ".kiy[4]"  0;
-	setAttr -s 5 ".kox[4]"  1;
-	setAttr -s 5 ".koy[4]"  0;
-createNode animCurveTA -n "L_Elbow_Ctrl_rotateY";
-	rename -uid "ED2F2A71-406D-8565-558C-4AB9D03ED6DA";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 -5.8364253410796261 130 -5.8364253410796261
-		 249 -5.8364253410796261;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "L_Elbow_Ctrl_rotateZ";
-	rename -uid "02E53D20-463B-4A89-B6BD-3C8FDDC46AB4";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 20.020036999841437 130 20.020036999841437
-		 249 20.020036999841437;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Elbow_Ctrl_scaleX";
-	rename -uid "5836AD7A-4AD6-7FA2-CAB9-FA86F2BA4C19";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Elbow_Ctrl_scaleY";
-	rename -uid "FEEDBE12-4C58-8C0A-7571-97A782703036";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Elbow_Ctrl_scaleZ";
-	rename -uid "BE23304A-42DD-DCD9-2E79-9F90107EEF4A";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Elbow_Ctrl_visibility";
-	rename -uid "9E67FA2C-4E8D-1D37-9AF5-99B8282E4D45";
-	setAttr ".tan" 5;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[0:2]"  9 9 1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-createNode animCurveTL -n "L_Wrist_Ctrl_translateX";
-	rename -uid "24BBC442-4B10-0B81-4068-7C9F152AB505";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "L_Wrist_Ctrl_translateY";
-	rename -uid "9608441F-4621-FA60-FF74-7591FFD18852";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "L_Wrist_Ctrl_translateZ";
-	rename -uid "ECEFE59F-4483-C0F4-E5CC-8BB94BC834CF";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "L_Wrist_Ctrl_rotateX";
-	rename -uid "A3EF1FA5-4B98-7574-821B-C4B854707BC8";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "L_Wrist_Ctrl_rotateY";
-	rename -uid "7FF96325-4F18-E875-3A67-7380BE55287E";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "L_Wrist_Ctrl_rotateZ";
-	rename -uid "E336C081-4894-7B03-FB7A-B8B170171683";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Wrist_Ctrl_scaleX";
-	rename -uid "BEBF44A4-4C02-9B81-E8BA-A28D2E69CC98";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Wrist_Ctrl_scaleY";
-	rename -uid "385167B1-4B0D-DDEA-37FC-8DA63EB76546";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Wrist_Ctrl_scaleZ";
-	rename -uid "80E3E509-4882-3FD1-0029-42A692A2F0EF";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "L_Wrist_Ctrl_visibility";
-	rename -uid "413B1A00-46BA-6201-800B-A1A4C03655A3";
-	setAttr ".tan" 5;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[0:2]"  9 9 1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-createNode animCurveTL -n "Root_Ctrl_translateX";
-	rename -uid "69C63F34-4864-6B16-E65C-EB901BCC441D";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTL -n "Root_Ctrl_translateY";
-	rename -uid "BEB9CB41-404D-5EF7-CF77-ABB2FBC3DB34";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 24 ".ktv[0:23]"  1 -0.3316703827832983 20 -0.81225731687266034
-		 30 -0.075125326343163046 40 -1.0036442880422252 50 -0.039139910133603628 60 -0.95228682263234354
-		 70 0.081263497518770933 80 -1.4936467451779931 90 -0.45240601417336457 100 -0.69226210627121532
-		 110 0.00098380767375783051 120 -0.63820229267557416 130 -0.3316703827832983 149 -0.81225731687266034
-		 159 -0.075125326343163046 169 -1.0036442880422252 179 -0.039139910133603628 189 -0.95228682263234354
-		 199 0.081263497518770933 209 -1.4936467451779931 219 -0.45240601417336457 229 -0.69226210627121532
-		 239 0.00098380767375783051 249 -0.3316703827832983;
-	setAttr -s 24 ".kit[23]"  1;
-	setAttr -s 24 ".kot[23]"  1;
-	setAttr -s 24 ".kix[23]"  1;
-	setAttr -s 24 ".kiy[23]"  0;
-	setAttr -s 24 ".kox[23]"  1;
-	setAttr -s 24 ".koy[23]"  0;
+createNode transformGeometry -n "transformGeometry3";
+	rename -uid "C48E6812-4CD8-52C2-B93B-389CA9649ED4";
+	setAttr ".txf" -type "matrix" -1 0 1.2246467991473532e-16 0 0 1 0 0 -2.2225071627065621e-16 0 -1.8148148219175997 0
+		 -0.99704402685165405 0.7667509913444519 1.8284916114246342e-16 1;
+createNode makeNurbCircle -n "makeNurbCircle3";
+	rename -uid "C8CAF684-4387-7C42-3922-DA95EF648752";
+	setAttr ".nr" -type "double3" 0 1 0 ;
 createNode animCurveTA -n "Root_Ctrl_rotateX";
 	rename -uid "AAAEE9AD-4026-1142-023A-6098E8317436";
 	setAttr ".tan" 18;
@@ -27825,8 +32538,16 @@ createNode animCurveTA -n "Root_Ctrl_rotateZ";
 	setAttr -s 3 ".kiy[2]"  0;
 	setAttr -s 3 ".kox[2]"  1;
 	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "Root_Ctrl_scaleX";
-	rename -uid "88BC807E-4B35-BBB0-63E4-1596050D723F";
+createNode animCurveTU -n "Root_Ctrl_visibility";
+	rename -uid "018AA1E8-4946-CCE8-1D2B-1CA5C74E4A89";
+	setAttr ".tan" 5;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[0:2]"  9 9 1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+createNode animCurveTU -n "Root_Ctrl_scaleY";
+	rename -uid "D0B939D3-421B-1674-7BB2-71B8CC163554";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
@@ -27836,8 +32557,19 @@ createNode animCurveTU -n "Root_Ctrl_scaleX";
 	setAttr -s 3 ".kiy[2]"  0;
 	setAttr -s 3 ".kox[2]"  1;
 	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "Root_Ctrl_scaleY";
-	rename -uid "D0B939D3-421B-1674-7BB2-71B8CC163554";
+createNode animCurveTL -n "Root_Ctrl_translateX";
+	rename -uid "69C63F34-4864-6B16-E65C-EB901BCC441D";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "Root_Ctrl_scaleX";
+	rename -uid "88BC807E-4B35-BBB0-63E4-1596050D723F";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
@@ -27858,96 +32590,32 @@ createNode animCurveTU -n "Root_Ctrl_scaleZ";
 	setAttr -s 3 ".kiy[2]"  0;
 	setAttr -s 3 ".kox[2]"  1;
 	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "Root_Ctrl_visibility";
-	rename -uid "018AA1E8-4946-CCE8-1D2B-1CA5C74E4A89";
-	setAttr ".tan" 5;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
-	setAttr -s 3 ".kit[0:2]"  9 9 1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-createNode animCurveTL -n "R_Foot_Ctrl_translateX";
-	rename -uid "7824FB75-4189-2CC0-1D16-49A988450694";
+createNode animCurveTL -n "Root_Ctrl_translateY";
+	rename -uid "BEB9CB41-404D-5EF7-CF77-ABB2FBC3DB34";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 18 ".ktv[0:17]"  1 0.34574850511542765 25 0.3670001477183864
-		 30 0.94463712774156194 40 0.74828033543403949 60 0.91240612022642908 70 0.37093753660094508
-		 100 0.56720953552796916 110 0.35816776399503114 120 0.1769991041506711 130 0.34574850511542765
-		 154 0.3670001477183864 159 0.94463712774156194 169 0.74828033543403949 189 0.91240612022642908
-		 199 0.37093753660094508 229 0.56720953552796916 239 0.35816776399503114 249 0.34574850511542765;
-	setAttr -s 18 ".kit[17]"  1;
-	setAttr -s 18 ".kot[17]"  1;
-	setAttr -s 18 ".kix[17]"  1;
-	setAttr -s 18 ".kiy[17]"  0;
-	setAttr -s 18 ".kox[17]"  1;
-	setAttr -s 18 ".koy[17]"  0;
-createNode animCurveTL -n "R_Foot_Ctrl_translateY";
-	rename -uid "10F57DE2-48AC-7B97-123B-69B05AD29C8E";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 22 ".ktv[0:21]"  1 -0.55163717077444652 25 1.915127606697264
-		 30 1.379409361634822 40 -0.010049208430289447 60 1.7409015263989489 70 1.2712917583727172
-		 80 -0.02337927269320228 90 -0.57959489829478494 100 1.0683351683519584 110 1.0226338158707011
-		 120 -0.076972690976222946 130 -0.55163717077444652 154 1.915127606697264 159 1.379409361634822
-		 169 -0.010049208430289447 189 1.7409015263989489 199 1.2712917583727172 209 -0.02337927269320228
-		 219 -0.57959489829478494 229 1.0683351683519584 239 1.0226338158707011 249 -0.55163717077444652;
-	setAttr -s 22 ".kit[21]"  1;
-	setAttr -s 22 ".kot[21]"  1;
-	setAttr -s 22 ".kix[21]"  1;
-	setAttr -s 22 ".kiy[21]"  0;
-	setAttr -s 22 ".kox[21]"  1;
-	setAttr -s 22 ".koy[21]"  0;
-createNode animCurveTL -n "R_Foot_Ctrl_translateZ";
-	rename -uid "9550DA2F-4496-D44C-BAEE-5A97F5FA39DB";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 24 ".ktv[0:23]"  1 0 25 -0.047986149667479161 30 4.7507909839558113
-		 40 3.5815891048965507 50 1.2441033208018886 60 -0.66623927317238762 70 4.8056871635849001
-		 80 3.4524868278192278 90 0.97653106119861244 100 0.013571051636031006 110 4.8979928696632911
-		 120 3.021604899701634 130 0 154 -0.047986149667479161 159 4.7507909839558113 169 3.5815891048965507
-		 179 1.2441033208018886 189 -0.66623927317238762 199 4.8056871635849001 209 3.4524868278192278
-		 219 0.97653106119861244 229 0.013571051636031006 239 4.8979928696632911 249 0;
+	setAttr -s 24 ".ktv[0:23]"  1 -0.3316703827832983 20 -0.81225731687266034
+		 30 -0.075125326343163046 40 -1.0036442880422252 50 -0.039139910133603628 60 -0.95228682263234354
+		 70 0.081263497518770933 80 -1.4936467451779931 90 -0.45240601417336457 100 -0.69226210627121532
+		 110 0.00098380767375783051 120 -0.63820229267557416 130 -0.3316703827832983 149 -0.81225731687266034
+		 159 -0.075125326343163046 169 -1.0036442880422252 179 -0.039139910133603628 189 -0.95228682263234354
+		 199 0.081263497518770933 209 -1.4936467451779931 219 -0.45240601417336457 229 -0.69226210627121532
+		 239 0.00098380767375783051 249 -0.3316703827832983;
 	setAttr -s 24 ".kit[23]"  1;
 	setAttr -s 24 ".kot[23]"  1;
 	setAttr -s 24 ".kix[23]"  1;
 	setAttr -s 24 ".kiy[23]"  0;
 	setAttr -s 24 ".kox[23]"  1;
 	setAttr -s 24 ".koy[23]"  0;
-createNode animCurveTA -n "R_Foot_Ctrl_rotateX";
-	rename -uid "DD4503ED-40C4-4BA9-4A1E-D58C5B22AAF4";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "R_Foot_Ctrl_rotateY";
-	rename -uid "45B9C3A7-4226-90BA-BFE3-BBB7037D3AED";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTA -n "R_Foot_Ctrl_rotateZ";
-	rename -uid "73E00823-4E5C-BCAF-A450-73B1C2EAA019";
-	setAttr ".tan" 18;
-	setAttr ".wgt" no;
-	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
-	setAttr -s 3 ".kit[2]"  1;
-	setAttr -s 3 ".kot[2]"  1;
-	setAttr -s 3 ".kix[2]"  1;
-	setAttr -s 3 ".kiy[2]"  0;
-	setAttr -s 3 ".kox[2]"  1;
-	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Foot_Ctrl_scaleX";
-	rename -uid "55921CB3-4DE2-E84F-BE87-4FB328AA424F";
+createNode transformGeometry -n "transformGeometry2";
+	rename -uid "6D11B15F-4F2A-A665-4C5A-67B08E1F092D";
+	setAttr ".txf" -type "matrix" 3.0206845976513428 0 0 0 0 3.0206845976513428 0 0
+		 0 0 3.0206845976513428 0 0.0080998539924621582 5.7092876434326172 -0.59676069021224976 1;
+createNode makeNurbCircle -n "makeNurbCircle2";
+	rename -uid "6D038854-42E9-2CB3-004F-EFBEE97D8B7F";
+	setAttr ".nr" -type "double3" 0 1 0 ;
+createNode animCurveTU -n "L_Shoulder_Ctrl_scaleY";
+	rename -uid "45FACA58-46DA-8884-0083-51B711D9564D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
@@ -27957,8 +32625,19 @@ createNode animCurveTU -n "R_Foot_Ctrl_scaleX";
 	setAttr -s 3 ".kiy[2]"  0;
 	setAttr -s 3 ".kox[2]"  1;
 	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Foot_Ctrl_scaleY";
-	rename -uid "188765CE-4536-1199-6F0D-C4B880ED14EB";
+createNode animCurveTL -n "L_Shoulder_Ctrl_translateY";
+	rename -uid "9AA25948-40CD-87B7-8093-5F9F012301F1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "L_Shoulder_Ctrl_scaleX";
+	rename -uid "A33916FB-41C5-BBF6-1680-E7AADF650CDC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
@@ -27968,8 +32647,30 @@ createNode animCurveTU -n "R_Foot_Ctrl_scaleY";
 	setAttr -s 3 ".kiy[2]"  0;
 	setAttr -s 3 ".kox[2]"  1;
 	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Foot_Ctrl_scaleZ";
-	rename -uid "7625F282-4736-46FA-2A83-4D95A831C641";
+createNode animCurveTL -n "L_Shoulder_Ctrl_translateX";
+	rename -uid "34977FF1-401F-602B-1887-D5A7EA7097E3";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "L_Shoulder_Ctrl_translateZ";
+	rename -uid "44A3F236-42FE-2309-E2A0-B1953B7DC6A7";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "L_Shoulder_Ctrl_scaleZ";
+	rename -uid "5D43E785-455E-5474-BBA6-7693C5856335";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
@@ -27979,167 +32680,648 @@ createNode animCurveTU -n "R_Foot_Ctrl_scaleZ";
 	setAttr -s 3 ".kiy[2]"  0;
 	setAttr -s 3 ".kox[2]"  1;
 	setAttr -s 3 ".koy[2]"  0;
-createNode animCurveTU -n "R_Foot_Ctrl_visibility";
-	rename -uid "F50E6715-4BAF-53BE-0D82-EAAB212200C3";
+createNode animCurveTU -n "L_Shoulder_Ctrl_visibility";
+	rename -uid "880E53E1-4700-AB67-CD43-6EBC0AD38141";
 	setAttr ".tan" 5;
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
 	setAttr -s 3 ".kit[0:2]"  9 9 1;
 	setAttr -s 3 ".kix[2]"  1;
 	setAttr -s 3 ".kiy[2]"  0;
-createNode animCurveTL -n "General_Ctrl_translateX";
-	rename -uid "2D410BEF-43C7-C007-B45F-D98B220C9A8F";
+createNode animCurveTA -n "L_Shoulder_Ctrl_rotateY";
+	rename -uid "A8D1E7C4-4A8B-694B-DCEC-228E8810DB53";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
-createNode animCurveTL -n "General_Ctrl_translateY";
-	rename -uid "09256184-44D5-EE80-FA20-2C80879FDA7B";
+	setAttr -s 19 ".ktv[0:18]"  1 -3.6926955629181526 10 10.547702260193395
+		 20 16.569899340059465 30 15.2445333181198 40 9.8274645099016258 50 15.41410948643987
+		 70 13.557571778731017 90 22.606950495130434 110 2.8541770834863671 130 -3.6926955629181526
+		 139 10.547702260193395 149 16.569899340059465 159 15.2445333181198 169 9.8274645099016258
+		 179 15.41410948643987 199 13.557571778731017 219 22.606950495130434 239 2.8541770834863671
+		 249 -3.6926955629181526;
+	setAttr -s 19 ".kit[18]"  1;
+	setAttr -s 19 ".kot[18]"  1;
+	setAttr -s 19 ".kix[18]"  1;
+	setAttr -s 19 ".kiy[18]"  0;
+	setAttr -s 19 ".kox[18]"  1;
+	setAttr -s 19 ".koy[18]"  0;
+createNode animCurveTA -n "L_Shoulder_Ctrl_rotateX";
+	rename -uid "089F6672-45D3-0E28-FA01-038C4C8D29F0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
-createNode animCurveTL -n "General_Ctrl_translateZ";
-	rename -uid "9A75D169-4C2C-A3BC-5EFC-D68D97E9B427";
+	setAttr -s 20 ".ktv[0:19]"  1 -18.802151991506584 10 17.655554178718063
+		 20 -18.568784155197616 30 41.804115173591818 40 -16.983885909143012 50 37.446715243755172
+		 70 -38.47875294718223 90 37.936612175653366 110 -25.751508205289664 120 -25.338881261146629
+		 130 -18.802151991506584 139 17.655554178718063 149 -18.568784155197616 159 41.804115173591818
+		 169 -16.983885909143012 179 37.446715243755172 199 -38.47875294718223 219 37.936612175653366
+		 239 -25.751508205289664 249 -18.802151991506584;
+	setAttr -s 20 ".kit[19]"  1;
+	setAttr -s 20 ".kot[19]"  1;
+	setAttr -s 20 ".kix[19]"  1;
+	setAttr -s 20 ".kiy[19]"  0;
+	setAttr -s 20 ".kox[19]"  1;
+	setAttr -s 20 ".koy[19]"  0;
+createNode animCurveTA -n "L_Shoulder_Ctrl_rotateZ";
+	rename -uid "A061604E-47D5-721C-2885-04AF29B1ED20";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
-createNode animCurveTA -n "General_Ctrl_rotateX";
-	rename -uid "593F8F9F-402D-0B89-4EAC-76A9755123EA";
+	setAttr -s 19 ".ktv[0:18]"  1 -9.0352996461712838 10 -1.6044181692782773
+		 20 -9.6404960023870032 30 1.1439278447145784 40 -14.568480785071195 50 -0.12601242127869414
+		 70 -16.409130087766023 90 -7.9311571789396504 110 -17.663947495042787 130 -9.0352996461712838
+		 139 -1.6044181692782773 149 -9.6404960023870032 159 1.1439278447145784 169 -14.568480785071195
+		 179 -0.12601242127869414 199 -16.409130087766023 219 -7.9311571789396504 239 -17.663947495042787
+		 249 -9.0352996461712838;
+	setAttr -s 19 ".kit[18]"  1;
+	setAttr -s 19 ".kot[18]"  1;
+	setAttr -s 19 ".kix[18]"  1;
+	setAttr -s 19 ".kiy[18]"  0;
+	setAttr -s 19 ".kox[18]"  1;
+	setAttr -s 19 ".koy[18]"  0;
+createNode animCurveTU -n "L_Elbow_Ctrl_visibility";
+	rename -uid "9E67FA2C-4E8D-1D37-9AF5-99B8282E4D45";
+	setAttr ".tan" 5;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[0:2]"  9 9 1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+createNode animCurveTU -n "L_Elbow_Ctrl_scaleY";
+	rename -uid "FEEDBE12-4C58-8C0A-7571-97A782703036";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
-createNode animCurveTA -n "General_Ctrl_rotateY";
-	rename -uid "29556729-4F99-876B-867E-138340BAE8D7";
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "L_Elbow_Ctrl_translateZ";
+	rename -uid "831FC458-48D7-EE8B-D9B7-E198D8AA4B43";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
-createNode animCurveTA -n "General_Ctrl_rotateZ";
-	rename -uid "4C3B7B7F-4092-64F3-0B17-488CA7451635";
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "L_Elbow_Ctrl_translateX";
+	rename -uid "A46F56FD-446F-6986-2E7F-B7856A98FD52";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
-createNode animCurveTU -n "General_Ctrl_scaleX";
-	rename -uid "ABAC25C1-451B-8268-3A42-23ABD1C16015";
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "L_Elbow_Ctrl_scaleX";
+	rename -uid "5836AD7A-4AD6-7FA2-CAB9-FA86F2BA4C19";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
-createNode animCurveTU -n "General_Ctrl_scaleY";
-	rename -uid "3411C98D-4800-7BE7-8BB5-E583F07CF0ED";
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "L_Elbow_Ctrl_translateY";
+	rename -uid "72F514C7-4A93-64AA-80BF-579319A5A410";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
-createNode animCurveTU -n "General_Ctrl_scaleZ";
-	rename -uid "7318B1A0-462C-5395-8662-E0967043A8F2";
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "L_Elbow_Ctrl_scaleZ";
+	rename -uid "BE23304A-42DD-DCD9-2E79-9F90107EEF4A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
-createNode animCurveTU -n "General_Ctrl_visibility";
-	rename -uid "C812A333-4537-C40C-B554-F1BC566B2255";
-	setAttr ".tan" 9;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
-	setAttr -s 2 ".kot[0:1]"  5 5;
-createNode animCurveTL -n "R_Knee_Ctrl_translateX";
-	rename -uid "A2E7732F-4F17-85ED-20CA-1FA67D905F50";
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "L_Elbow_Ctrl_rotateZ";
+	rename -uid "02E53D20-463B-4A89-B6BD-3C8FDDC46AB4";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 0.63517510725665227 248 0.63517510725665227;
-createNode animCurveTL -n "R_Knee_Ctrl_translateY";
-	rename -uid "0825517A-4AAA-7C27-DEBD-5FBE308C5DD5";
+	setAttr -s 3 ".ktv[0:2]"  1 20.020036999841437 130 20.020036999841437
+		 249 20.020036999841437;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "L_Elbow_Ctrl_rotateX";
+	rename -uid "FF5693BE-430E-A9EA-EEF0-5E90E25B246E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 0 248 0;
-createNode animCurveTL -n "R_Knee_Ctrl_translateZ";
-	rename -uid "992D6469-4609-8378-B64F-3393E09D5650";
+	setAttr -s 5 ".ktv[0:4]"  1 -26.245960686178403 10 -68.02778960592282
+		 130 -26.245960686178403 139 -68.02778960592282 249 -26.245960686178403;
+	setAttr -s 5 ".kit[4]"  1;
+	setAttr -s 5 ".kot[4]"  1;
+	setAttr -s 5 ".kix[4]"  1;
+	setAttr -s 5 ".kiy[4]"  0;
+	setAttr -s 5 ".kox[4]"  1;
+	setAttr -s 5 ".koy[4]"  0;
+createNode animCurveTA -n "L_Elbow_Ctrl_rotateY";
+	rename -uid "ED2F2A71-406D-8565-558C-4AB9D03ED6DA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 7.914171760925937 248 7.914171760925937;
-createNode animCurveTA -n "R_Knee_Ctrl_rotateX";
-	rename -uid "C678C58B-43C8-A590-E70A-D5AE95C012D0";
+	setAttr -s 3 ".ktv[0:2]"  1 -5.8364253410796261 130 -5.8364253410796261
+		 249 -5.8364253410796261;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "L_Wrist_Ctrl_scaleZ";
+	rename -uid "80E3E509-4882-3FD1-0029-42A692A2F0EF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 0 248 0;
-createNode animCurveTA -n "R_Knee_Ctrl_rotateY";
-	rename -uid "9C43208A-479B-9E2C-40BC-3D8C3B7D49A0";
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "L_Wrist_Ctrl_translateZ";
+	rename -uid "ECEFE59F-4483-C0F4-E5CC-8BB94BC834CF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 0 248 0;
-createNode animCurveTA -n "R_Knee_Ctrl_rotateZ";
-	rename -uid "F3720B84-43CC-FC8F-6E3C-FDBA6FBED86D";
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "L_Wrist_Ctrl_translateX";
+	rename -uid "24BBC442-4B10-0B81-4068-7C9F152AB505";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 0 248 0;
-createNode animCurveTU -n "R_Knee_Ctrl_scaleX";
-	rename -uid "068B93BB-46C4-C228-E879-EAAC6F7253B3";
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "L_Wrist_Ctrl_scaleX";
+	rename -uid "BEBF44A4-4C02-9B81-E8BA-A28D2E69CC98";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 1 248 1;
-createNode animCurveTU -n "R_Knee_Ctrl_scaleY";
-	rename -uid "0BDF14A0-46AE-6105-CA5D-7B9507EACCBA";
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "L_Wrist_Ctrl_visibility";
+	rename -uid "413B1A00-46BA-6201-800B-A1A4C03655A3";
+	setAttr ".tan" 5;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[0:2]"  9 9 1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+createNode animCurveTU -n "L_Wrist_Ctrl_scaleY";
+	rename -uid "385167B1-4B0D-DDEA-37FC-8DA63EB76546";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 1 248 1;
-createNode animCurveTU -n "R_Knee_Ctrl_scaleZ";
-	rename -uid "54297BC2-4D2C-CBC5-76D3-E8A9279ADDE2";
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "L_Wrist_Ctrl_translateY";
+	rename -uid "9608441F-4621-FA60-FF74-7591FFD18852";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 1 248 1;
-createNode animCurveTU -n "R_Knee_Ctrl_visibility";
-	rename -uid "5207F5C7-4CF1-1B70-0D49-0F801C3A7C1D";
-	setAttr ".tan" 9;
-	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  0 1 248 1;
-	setAttr -s 2 ".kot[0:1]"  5 5;
-createNode animCurveTL -n "L_Knee_Ctrl_translateX";
-	rename -uid "FE601936-4F95-A301-73C0-40A5628F1688";
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "L_Wrist_Ctrl_rotateZ";
+	rename -uid "E336C081-4894-7B03-FB7A-B8B170171683";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0.085173816254048518 249 0.085173816254048518;
-createNode animCurveTL -n "L_Knee_Ctrl_translateY";
-	rename -uid "185A9445-4851-C907-7064-5881DE25B5F6";
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "L_Wrist_Ctrl_rotateY";
+	rename -uid "7FF96325-4F18-E875-3A67-7380BE55287E";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0.50986931269347657 249 0.50986931269347657;
-createNode animCurveTL -n "L_Knee_Ctrl_translateZ";
-	rename -uid "D087D771-407D-54F1-24A8-A99CA9575AE5";
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "L_Wrist_Ctrl_rotateX";
+	rename -uid "A3EF1FA5-4B98-7574-821B-C4B854707BC8";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 4.0463660593557531 249 4.0463660593557531;
-createNode animCurveTA -n "L_Knee_Ctrl_rotateX";
-	rename -uid "D8A4705D-4D47-15A4-9EEC-0E8F2D766B0D";
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "R_Shoulder_Ctrl_rotateZ";
+	rename -uid "79188B7A-4C43-6EB9-0CFF-F2B2809224E3";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
-createNode animCurveTA -n "L_Knee_Ctrl_rotateY";
-	rename -uid "6054C636-42A6-1FDE-AEC3-2291C171FDBC";
+	setAttr -s 9 ".ktv[0:8]"  1 -2.9581848138068261 10 8.5895898888093623
+		 40 -7.5115816387129248 50 5.2995395879961373 130 -2.9581848138068261 139 8.5895898888093623
+		 169 -7.5115816387129248 179 5.2995395879961373 249 -2.9581848138068261;
+	setAttr -s 9 ".kit[8]"  1;
+	setAttr -s 9 ".kot[8]"  1;
+	setAttr -s 9 ".kix[8]"  1;
+	setAttr -s 9 ".kiy[8]"  0;
+	setAttr -s 9 ".kox[8]"  1;
+	setAttr -s 9 ".koy[8]"  0;
+createNode animCurveTA -n "R_Shoulder_Ctrl_rotateY";
+	rename -uid "5F7541E2-4D78-C5F2-E15F-248977E4BCFF";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
-createNode animCurveTA -n "L_Knee_Ctrl_rotateZ";
-	rename -uid "1F19A71B-4D4E-BC01-93D6-AEBC43D46FCF";
+	setAttr -s 9 ".ktv[0:8]"  1 1.5666076677278393 10 -11.865818281696072
+		 40 -15.008101165367673 50 -13.394446653729956 130 1.5666076677278393 139 -11.865818281696072
+		 169 -15.008101165367673 179 -13.394446653729956 249 1.5666076677278393;
+	setAttr -s 9 ".kit[8]"  1;
+	setAttr -s 9 ".kot[8]"  1;
+	setAttr -s 9 ".kix[8]"  1;
+	setAttr -s 9 ".kiy[8]"  0;
+	setAttr -s 9 ".kox[8]"  1;
+	setAttr -s 9 ".koy[8]"  0;
+createNode animCurveTA -n "R_Shoulder_Ctrl_rotateX";
+	rename -uid "F4AEFA14-42F3-C325-3936-4C84F90E5BD0";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 0 249 0;
-createNode animCurveTU -n "L_Knee_Ctrl_scaleX";
-	rename -uid "77FB2A57-4741-FC8E-5B2F-A7AE20080CBC";
+	setAttr -s 18 ".ktv[0:17]"  1 14.420478290580304 10 -2.8810410501454955
+		 30 -36.850761943263926 40 32.35603479563644 50 -28.566813550018601 70 28.282561444941187
+		 90 -30.734558301993022 110 30.739562018488737 120 0.13345311137421584 130 14.420478290580304
+		 139 -2.8810410501454955 159 -36.850761943263926 169 32.35603479563644 179 -28.566813550018601
+		 199 28.282561444941187 219 -30.734558301993022 239 30.739562018488737 249 14.420478290580304;
+	setAttr -s 18 ".kit[17]"  1;
+	setAttr -s 18 ".kot[17]"  1;
+	setAttr -s 18 ".kix[17]"  1;
+	setAttr -s 18 ".kiy[17]"  0;
+	setAttr -s 18 ".kox[17]"  1;
+	setAttr -s 18 ".koy[17]"  0;
+createNode animCurveTU -n "R_Shoulder_Ctrl_scaleZ";
+	rename -uid "51C245F3-4F2B-D6BB-C080-28A6A7EABB0A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
-createNode animCurveTU -n "L_Knee_Ctrl_scaleY";
-	rename -uid "AC6D230A-4E08-378F-06AC-B085C9C4E9A5";
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "R_Shoulder_Ctrl_translateY";
+	rename -uid "606DBEF9-4DAD-F826-FAE4-94A68C0B7D68";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
-createNode animCurveTU -n "L_Knee_Ctrl_scaleZ";
-	rename -uid "F0ECA4C0-40F0-17E7-B254-5A8BD64C68CC";
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Shoulder_Ctrl_visibility";
+	rename -uid "FE778281-497A-8BBD-A547-31A00B5682B1";
+	setAttr ".tan" 5;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[0:2]"  9 9 1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+createNode animCurveTL -n "R_Shoulder_Ctrl_translateZ";
+	rename -uid "99F711C3-4564-BBE0-DE2B-48BA0A9C35E5";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
-createNode animCurveTU -n "L_Knee_Ctrl_visibility";
-	rename -uid "A70E8A63-4ABA-097B-08E5-0A8FECF0E2C1";
-	setAttr ".tan" 9;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Shoulder_Ctrl_scaleY";
+	rename -uid "54C5C806-49B7-A854-8347-7D9D33FD9571";
+	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 2 ".ktv[0:1]"  1 1 249 1;
-	setAttr -s 2 ".kot[0:1]"  5 5;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Shoulder_Ctrl_scaleX";
+	rename -uid "8AE4310B-455F-0A05-2A73-C49AC8FFAFEC";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "R_Shoulder_Ctrl_translateX";
+	rename -uid "6BB3AA9C-4AFB-D428-7BEA-C0942B64EF5E";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Elbow_Ctrl_visibility";
+	rename -uid "BCD4E5AC-4369-EB43-825F-9B8E0038E7D2";
+	setAttr ".tan" 5;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[0:2]"  9 9 1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+createNode animCurveTU -n "R_Elbow_Ctrl_scaleY";
+	rename -uid "1E2BA4F2-4A93-7F02-A498-61AE4369D305";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Elbow_Ctrl_scaleX";
+	rename -uid "407AEAA5-4F14-006B-B8B7-B0B89B40BDAD";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "R_Elbow_Ctrl_translateZ";
+	rename -uid "6B9FBCBB-4618-FCB5-8826-3CA3AE8BD203";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "R_Elbow_Ctrl_translateY";
+	rename -uid "8CF9154B-41E2-4E9E-4272-43849276E6C6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Elbow_Ctrl_scaleZ";
+	rename -uid "EC406B61-4E0E-AB73-ADAB-28A1F4985908";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "R_Elbow_Ctrl_translateX";
+	rename -uid "CDFBEED1-43EC-2D51-A1F2-EFBE5E120D6F";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "R_Elbow_Ctrl_rotateY";
+	rename -uid "9E42269E-45AC-FC22-6FB5-40BCFDFEDD85";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 -11.664652766171505 130 -11.664652766171505
+		 249 -11.664652766171505;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "R_Elbow_Ctrl_rotateX";
+	rename -uid "72C3408D-49EF-2583-3949-8485AE63E0D4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 5 ".ktv[0:4]"  1 -27.680312153255077 10 -52.374095164453024
+		 130 -27.680312153255077 139 -52.374095164453024 249 -27.680312153255077;
+	setAttr -s 5 ".kit[4]"  1;
+	setAttr -s 5 ".kot[4]"  1;
+	setAttr -s 5 ".kix[4]"  1;
+	setAttr -s 5 ".kiy[4]"  0;
+	setAttr -s 5 ".kox[4]"  1;
+	setAttr -s 5 ".koy[4]"  0;
+createNode animCurveTA -n "R_Elbow_Ctrl_rotateZ";
+	rename -uid "38C4AC59-44D3-FECF-E17F-2E86FDC32306";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 -16.863267450916812 130 -16.863267450916812
+		 249 -16.863267450916812;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode transformGeometry -n "transformGeometry1";
+	rename -uid "125AE3C9-4FBA-BC41-AF3D-BEB25EC7800A";
+	setAttr ".txf" -type "matrix" 1.0205651293191584 1.060539251437161 0 0 -1.060539251437161 1.0205651293191584 0 0
+		 0 0 1.4718344631856954 0 3.1072239875793457 6.5181088447570801 -1.5211910009384155 1;
+createNode makeNurbCircle -n "makeNurbCircle1";
+	rename -uid "04F93F84-47CB-2C07-52EF-129079FEAD62";
+	setAttr ".nr" -type "double3" 0 1 0 ;
+createNode animCurveTU -n "R_Wrist_Ctrl_scaleY";
+	rename -uid "2CD2D3CA-4EAD-34F7-9ACC-E8B1FA98EDF6";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Wrist_Ctrl_visibility";
+	rename -uid "AE7CC7D8-4B78-2CA0-89AB-0EAFA5BF6A28";
+	setAttr ".tan" 5;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[0:2]"  9 9 1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+createNode animCurveTL -n "R_Wrist_Ctrl_translateZ";
+	rename -uid "F6058413-47D1-5FFD-108B-AEB646F187C9";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "R_Wrist_Ctrl_translateY";
+	rename -uid "BC48354C-42FA-64DC-B142-B285C825641A";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Wrist_Ctrl_scaleX";
+	rename -uid "E7CF67BB-4F82-38E1-DF27-E489A16A6632";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTU -n "R_Wrist_Ctrl_scaleZ";
+	rename -uid "4ED224AA-4306-700A-4A39-8A945F2D01C1";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 1 130 1 249 1;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTL -n "R_Wrist_Ctrl_translateX";
+	rename -uid "664551A4-4D28-D385-764E-95B3B915CD41";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "R_Wrist_Ctrl_rotateY";
+	rename -uid "CACE8F41-44E6-D89C-2534-57A37444F682";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "R_Wrist_Ctrl_rotateZ";
+	rename -uid "FEA93666-482D-CF74-F3E1-E4AC4D1929D4";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode animCurveTA -n "R_Wrist_Ctrl_rotateX";
+	rename -uid "38B025D4-4B62-8CD0-7809-BF8DC94D2809";
+	setAttr ".tan" 18;
+	setAttr ".wgt" no;
+	setAttr -s 3 ".ktv[0:2]"  1 0 130 0 249 0;
+	setAttr -s 3 ".kit[2]"  1;
+	setAttr -s 3 ".kot[2]"  1;
+	setAttr -s 3 ".kix[2]"  1;
+	setAttr -s 3 ".kiy[2]"  0;
+	setAttr -s 3 ".kox[2]"  1;
+	setAttr -s 3 ".koy[2]"  0;
+createNode gameFbxExporter -n "gameExporterPreset1";
+	rename -uid "BBB3B31E-4275-06BD-9774-2CBFD020F34D";
+	setAttr ".pn" -type "string" "Model Default";
+	setAttr ".ils" yes;
+	setAttr ".ebm" yes;
+	setAttr ".ich" yes;
+	setAttr ".inc" yes;
+	setAttr ".fv" -type "string" "FBX201800";
+createNode gameFbxExporter -n "gameExporterPreset2";
+	rename -uid "E7F8AB0A-4819-B681-E6F0-4F9BB7DA7EF2";
+	setAttr ".pn" -type "string" "Anim Default";
+	setAttr ".ils" yes;
+	setAttr ".ilu" yes;
+	setAttr ".eti" 2;
+	setAttr ".ac[0].acn" -type "string" "Stomp";
+	setAttr ".ac[0].acs" 1;
+	setAttr ".ac[0].ace" 249;
+	setAttr ".spt" 2;
+	setAttr ".ic" no;
+	setAttr ".ebm" yes;
+	setAttr ".fv" -type "string" "FBX201800";
+	setAttr ".exp" -type "string" "D:/GSP_Project/GSP-Art-Collection/Lottie";
+	setAttr ".exf" -type "string" "Boss_";
+createNode gameFbxExporter -n "gameExporterPreset3";
+	rename -uid "8255A825-4D44-2C87-AC0F-D8A19E3DDC19";
+	setAttr ".pn" -type "string" "TE Anim Default";
+	setAttr ".ils" yes;
+	setAttr ".eti" 3;
+	setAttr ".ebm" yes;
+	setAttr ".fv" -type "string" "FBX201800";
 select -ne :time1;
 	setAttr ".o" 137;
 	setAttr ".unw" 137;
@@ -28363,13 +33545,27 @@ connectAttr "R_Knee_Ctrl.pm" "R_Leg_IK_poleVectorConstraint1.tg[0].tpm";
 connectAttr "R_Leg_IK_poleVectorConstraint1.w0" "R_Leg_IK_poleVectorConstraint1.tg[0].tw"
 		;
 connectAttr "Joints.di" "JOINTS.do";
-connectAttr "Root_Joint_parentConstraint1.ctx" "Root_Joint.tx";
-connectAttr "Root_Joint_parentConstraint1.cty" "Root_Joint.ty";
-connectAttr "Root_Joint_parentConstraint1.ctz" "Root_Joint.tz";
-connectAttr "Root_Joint_parentConstraint1.crx" "Root_Joint.rx";
-connectAttr "Root_Joint_parentConstraint1.cry" "Root_Joint.ry";
-connectAttr "Root_Joint_parentConstraint1.crz" "Root_Joint.rz";
+connectAttr "Root_Joint_translateX.o" "Root_Joint.tx";
+connectAttr "Root_Joint_translateY.o" "Root_Joint.ty";
+connectAttr "Root_Joint_translateZ.o" "Root_Joint.tz";
+connectAttr "Root_Joint_rotateX.o" "Root_Joint.rx";
+connectAttr "Root_Joint_rotateY.o" "Root_Joint.ry";
+connectAttr "Root_Joint_rotateZ.o" "Root_Joint.rz";
+connectAttr "Root_Joint_scaleX.o" "Root_Joint.sx";
+connectAttr "Root_Joint_scaleY.o" "Root_Joint.sy";
+connectAttr "Root_Joint_scaleZ.o" "Root_Joint.sz";
+connectAttr "Root_Joint_visibility.o" "Root_Joint.v";
 connectAttr "Root_Joint.s" "Spine_Joint1.is";
+connectAttr "Spine_Joint1_scaleX.o" "Spine_Joint1.sx";
+connectAttr "Spine_Joint1_scaleY.o" "Spine_Joint1.sy";
+connectAttr "Spine_Joint1_scaleZ.o" "Spine_Joint1.sz";
+connectAttr "Spine_Joint1_visibility.o" "Spine_Joint1.v";
+connectAttr "Spine_Joint1_translateX.o" "Spine_Joint1.tx";
+connectAttr "Spine_Joint1_translateY.o" "Spine_Joint1.ty";
+connectAttr "Spine_Joint1_translateZ.o" "Spine_Joint1.tz";
+connectAttr "Spine_Joint1_rotateX.o" "Spine_Joint1.rx";
+connectAttr "Spine_Joint1_rotateY.o" "Spine_Joint1.ry";
+connectAttr "Spine_Joint1_rotateZ.o" "Spine_Joint1.rz";
 connectAttr "Spine_Joint1.s" "Neck_Joint.is";
 connectAttr "Neck_Joint.s" "Head_Joint.is";
 connectAttr "Neck_Joint.s" "R_Shoulder_Joint.is";
@@ -28500,20 +33696,42 @@ connectAttr "L_Shoulder_Ctrl.s" "L_Shoulder_Joint_parentConstraint1.tg[0].ts";
 connectAttr "L_Shoulder_Ctrl.pm" "L_Shoulder_Joint_parentConstraint1.tg[0].tpm";
 connectAttr "L_Shoulder_Joint_parentConstraint1.w0" "L_Shoulder_Joint_parentConstraint1.tg[0].tw"
 		;
+connectAttr "L_Hip_Joint_translateX.o" "L_Hip_Joint.tx";
+connectAttr "L_Hip_Joint_translateY.o" "L_Hip_Joint.ty";
+connectAttr "L_Hip_Joint_translateZ.o" "L_Hip_Joint.tz";
 connectAttr "Root_Joint.s" "L_Hip_Joint.is";
+connectAttr "L_Hip_Joint_scaleX.o" "L_Hip_Joint.sx";
+connectAttr "L_Hip_Joint_scaleY.o" "L_Hip_Joint.sy";
+connectAttr "L_Hip_Joint_scaleZ.o" "L_Hip_Joint.sz";
+connectAttr "L_Hip_Joint_rotateX.o" "L_Hip_Joint.rx";
+connectAttr "L_Hip_Joint_rotateY.o" "L_Hip_Joint.ry";
+connectAttr "L_Hip_Joint_rotateZ.o" "L_Hip_Joint.rz";
+connectAttr "L_Hip_Joint_visibility.o" "L_Hip_Joint.v";
 connectAttr "L_Hip_Joint.s" "L_Knee_Joint.is";
 connectAttr "L_Knee_Joint.s" "L_Ankle_Joint.is";
 connectAttr "L_Ankle_Joint.tx" "effector1.tx";
 connectAttr "L_Ankle_Joint.ty" "effector1.ty";
 connectAttr "L_Ankle_Joint.tz" "effector1.tz";
 connectAttr "L_Ankle_Joint.opm" "effector1.opm";
+connectAttr "R_Hip_Joint_translateX.o" "R_Hip_Joint.tx";
+connectAttr "R_Hip_Joint_translateY.o" "R_Hip_Joint.ty";
+connectAttr "R_Hip_Joint_translateZ.o" "R_Hip_Joint.tz";
 connectAttr "Root_Joint.s" "R_Hip_Joint.is";
+connectAttr "R_Hip_Joint_scaleX.o" "R_Hip_Joint.sx";
+connectAttr "R_Hip_Joint_scaleY.o" "R_Hip_Joint.sy";
+connectAttr "R_Hip_Joint_scaleZ.o" "R_Hip_Joint.sz";
+connectAttr "R_Hip_Joint_rotateX.o" "R_Hip_Joint.rx";
+connectAttr "R_Hip_Joint_rotateY.o" "R_Hip_Joint.ry";
+connectAttr "R_Hip_Joint_rotateZ.o" "R_Hip_Joint.rz";
+connectAttr "R_Hip_Joint_visibility.o" "R_Hip_Joint.v";
 connectAttr "R_Hip_Joint.s" "R_Knee_Joint.is";
 connectAttr "R_Knee_Joint.s" "R_Ankle_Joint.is";
 connectAttr "R_Ankle_Joint.tx" "effector2.tx";
 connectAttr "R_Ankle_Joint.ty" "effector2.ty";
 connectAttr "R_Ankle_Joint.tz" "effector2.tz";
 connectAttr "R_Ankle_Joint.opm" "effector2.opm";
+connectAttr "Root_Joint_parentConstraint1_nodeState.o" "Root_Joint_parentConstraint1.nds"
+		;
 connectAttr "Root_Joint.ro" "Root_Joint_parentConstraint1.cro";
 connectAttr "Root_Joint.pim" "Root_Joint_parentConstraint1.cpim";
 connectAttr "Root_Joint.rp" "Root_Joint_parentConstraint1.crp";
@@ -28526,14 +33744,42 @@ connectAttr "Root_Ctrl.r" "Root_Joint_parentConstraint1.tg[0].tr";
 connectAttr "Root_Ctrl.ro" "Root_Joint_parentConstraint1.tg[0].tro";
 connectAttr "Root_Ctrl.s" "Root_Joint_parentConstraint1.tg[0].ts";
 connectAttr "Root_Ctrl.pm" "Root_Joint_parentConstraint1.tg[0].tpm";
-connectAttr "Root_Joint_parentConstraint1.w0" "Root_Joint_parentConstraint1.tg[0].tw"
+connectAttr "Root_Joint_parentConstraint1_target_0__targetWeight.o" "Root_Joint_parentConstraint1.tg[0].tw"
 		;
-connectAttr "General_Joint_parentConstraint1.ctx" "General_Joint.tx";
-connectAttr "General_Joint_parentConstraint1.cty" "General_Joint.ty";
-connectAttr "General_Joint_parentConstraint1.ctz" "General_Joint.tz";
-connectAttr "General_Joint_parentConstraint1.crx" "General_Joint.rx";
-connectAttr "General_Joint_parentConstraint1.cry" "General_Joint.ry";
-connectAttr "General_Joint_parentConstraint1.crz" "General_Joint.rz";
+connectAttr "Root_Joint_parentConstraint1_target_0__targetOffsetTranslateX.o" "Root_Joint_parentConstraint1.tg[0].totx"
+		;
+connectAttr "Root_Joint_parentConstraint1_target_0__targetOffsetTranslateY.o" "Root_Joint_parentConstraint1.tg[0].toty"
+		;
+connectAttr "Root_Joint_parentConstraint1_target_0__targetOffsetTranslateZ.o" "Root_Joint_parentConstraint1.tg[0].totz"
+		;
+connectAttr "Root_Joint_parentConstraint1_target_0__targetOffsetRotateX.o" "Root_Joint_parentConstraint1.tg[0].torx"
+		;
+connectAttr "Root_Joint_parentConstraint1_target_0__targetOffsetRotateY.o" "Root_Joint_parentConstraint1.tg[0].tory"
+		;
+connectAttr "Root_Joint_parentConstraint1_target_0__targetOffsetRotateZ.o" "Root_Joint_parentConstraint1.tg[0].torz"
+		;
+connectAttr "Root_Joint_parentConstraint1_Root_CtrlW0.o" "Root_Joint_parentConstraint1.w0"
+		;
+connectAttr "Root_Joint_parentConstraint1_interpType.o" "Root_Joint_parentConstraint1.int"
+		;
+connectAttr "Root_Joint_parentConstraint1_rotationDecompositionTargetX.o" "Root_Joint_parentConstraint1.rdtx"
+		;
+connectAttr "Root_Joint_parentConstraint1_rotationDecompositionTargetY.o" "Root_Joint_parentConstraint1.rdty"
+		;
+connectAttr "Root_Joint_parentConstraint1_rotationDecompositionTargetZ.o" "Root_Joint_parentConstraint1.rdtz"
+		;
+connectAttr "General_Joint_translateX.o" "General_Joint.tx";
+connectAttr "General_Joint_translateY.o" "General_Joint.ty";
+connectAttr "General_Joint_translateZ.o" "General_Joint.tz";
+connectAttr "General_Joint_rotateX.o" "General_Joint.rx";
+connectAttr "General_Joint_rotateY.o" "General_Joint.ry";
+connectAttr "General_Joint_rotateZ.o" "General_Joint.rz";
+connectAttr "General_Joint_visibility.o" "General_Joint.v";
+connectAttr "General_Joint_scaleX.o" "General_Joint.sx";
+connectAttr "General_Joint_scaleY.o" "General_Joint.sy";
+connectAttr "General_Joint_scaleZ.o" "General_Joint.sz";
+connectAttr "General_Joint_parentConstraint1_nodeState.o" "General_Joint_parentConstraint1.nds"
+		;
 connectAttr "General_Joint.ro" "General_Joint_parentConstraint1.cro";
 connectAttr "General_Joint.pim" "General_Joint_parentConstraint1.cpim";
 connectAttr "General_Joint.rp" "General_Joint_parentConstraint1.crp";
@@ -28546,135 +33792,241 @@ connectAttr "General_Ctrl.r" "General_Joint_parentConstraint1.tg[0].tr";
 connectAttr "General_Ctrl.ro" "General_Joint_parentConstraint1.tg[0].tro";
 connectAttr "General_Ctrl.s" "General_Joint_parentConstraint1.tg[0].ts";
 connectAttr "General_Ctrl.pm" "General_Joint_parentConstraint1.tg[0].tpm";
-connectAttr "General_Joint_parentConstraint1.w0" "General_Joint_parentConstraint1.tg[0].tw"
+connectAttr "General_Joint_parentConstraint1_target_0__targetWeight.o" "General_Joint_parentConstraint1.tg[0].tw"
 		;
+connectAttr "General_Joint_parentConstraint1_target_0__targetOffsetTranslateX.o" "General_Joint_parentConstraint1.tg[0].totx"
+		;
+connectAttr "General_Joint_parentConstraint1_target_0__targetOffsetTranslateY.o" "General_Joint_parentConstraint1.tg[0].toty"
+		;
+connectAttr "General_Joint_parentConstraint1_target_0__targetOffsetTranslateZ.o" "General_Joint_parentConstraint1.tg[0].totz"
+		;
+connectAttr "General_Joint_parentConstraint1_target_0__targetOffsetRotateX.o" "General_Joint_parentConstraint1.tg[0].torx"
+		;
+connectAttr "General_Joint_parentConstraint1_target_0__targetOffsetRotateY.o" "General_Joint_parentConstraint1.tg[0].tory"
+		;
+connectAttr "General_Joint_parentConstraint1_target_0__targetOffsetRotateZ.o" "General_Joint_parentConstraint1.tg[0].torz"
+		;
+connectAttr "General_Joint_parentConstraint1_General_CtrlW0.o" "General_Joint_parentConstraint1.w0"
+		;
+connectAttr "General_Joint_parentConstraint1_interpType.o" "General_Joint_parentConstraint1.int"
+		;
+connectAttr "General_Joint_parentConstraint1_rotationDecompositionTargetX.o" "General_Joint_parentConstraint1.rdtx"
+		;
+connectAttr "General_Joint_parentConstraint1_rotationDecompositionTargetY.o" "General_Joint_parentConstraint1.rdty"
+		;
+connectAttr "General_Joint_parentConstraint1_rotationDecompositionTargetZ.o" "General_Joint_parentConstraint1.rdtz"
+		;
+connectAttr "GEO_visibility.o" "GEO.v";
+connectAttr "GEO_translateX.o" "GEO.tx";
+connectAttr "GEO_translateY.o" "GEO.ty";
+connectAttr "GEO_translateZ.o" "GEO.tz";
+connectAttr "GEO_rotateX.o" "GEO.rx";
+connectAttr "GEO_rotateY.o" "GEO.ry";
+connectAttr "GEO_rotateZ.o" "GEO.rz";
+connectAttr "GEO_scaleX.o" "GEO.sx";
+connectAttr "GEO_scaleY.o" "GEO.sy";
+connectAttr "GEO_scaleZ.o" "GEO.sz";
 connectAttr "Goo_Body.di" "Bod.do";
+connectAttr "Bod_visibility.o" "Bod.v";
 connectAttr "skinCluster1.og[0]" "BodShape.i";
 connectAttr "Rock_Body.di" "Rocks.do";
+connectAttr "Rocks_visibility.o" "Rocks.v";
+connectAttr "Rocks_translateX.o" "Rocks.tx";
+connectAttr "Rocks_translateY.o" "Rocks.ty";
+connectAttr "Rocks_translateZ.o" "Rocks.tz";
+connectAttr "Rocks_rotateX.o" "Rocks.rx";
+connectAttr "Rocks_rotateY.o" "Rocks.ry";
+connectAttr "Rocks_rotateZ.o" "Rocks.rz";
+connectAttr "Rocks_scaleX.o" "Rocks.sx";
+connectAttr "Rocks_scaleY.o" "Rocks.sy";
+connectAttr "Rocks_scaleZ.o" "Rocks.sz";
+connectAttr "Rock_visibility.o" "Rock.v";
 connectAttr "skinCluster2.og[0]" "RockShape.i";
 connectAttr "polyTriangulate2.out" "RockShapeOrig.i";
+connectAttr "Rock62_visibility.o" "Rock62.v";
 connectAttr "skinCluster3.og[0]" "RockShape62.i";
 connectAttr "polyTriangulate3.out" "RockShape62Orig.i";
+connectAttr "Rock32_visibility.o" "Rock32.v";
 connectAttr "skinCluster4.og[0]" "RockShape32.i";
 connectAttr "polyTriangulate4.out" "RockShape32Orig.i";
+connectAttr "Rock63_visibility.o" "Rock63.v";
 connectAttr "skinCluster5.og[0]" "RockShape63.i";
 connectAttr "polyTriangulate5.out" "RockShape63Orig.i";
+connectAttr "Rock2_visibility.o" "Rock2.v";
 connectAttr "skinCluster6.og[0]" "RockShape2.i";
 connectAttr "polyTriangulate6.out" "RockShape2Orig.i";
+connectAttr "Rock64_visibility.o" "Rock64.v";
 connectAttr "skinCluster7.og[0]" "RockShape64.i";
 connectAttr "polyTriangulate7.out" "RockShape64Orig.i";
+connectAttr "Rock48_visibility.o" "Rock48.v";
 connectAttr "skinCluster8.og[0]" "RockShape48.i";
 connectAttr "polyTriangulate8.out" "RockShape48Orig.i";
+connectAttr "Rock65_visibility.o" "Rock65.v";
 connectAttr "skinCluster9.og[0]" "RockShape65.i";
 connectAttr "polyTriangulate9.out" "RockShape65Orig.i";
+connectAttr "Rock4_visibility.o" "Rock4.v";
 connectAttr "skinCluster10.og[0]" "RockShape4.i";
 connectAttr "polyTriangulate10.out" "RockShape4Orig.i";
+connectAttr "Rock66_visibility.o" "Rock66.v";
 connectAttr "skinCluster11.og[0]" "RockShape66.i";
 connectAttr "polyTriangulate11.out" "RockShape66Orig.i";
+connectAttr "Rock34_visibility.o" "Rock34.v";
 connectAttr "skinCluster12.og[0]" "RockShape34.i";
 connectAttr "polyTriangulate12.out" "RockShape34Orig.i";
+connectAttr "Rock67_visibility.o" "Rock67.v";
 connectAttr "skinCluster13.og[0]" "RockShape67.i";
 connectAttr "polyTriangulate13.out" "RockShape67Orig.i";
+connectAttr "Rock6_visibility.o" "Rock6.v";
 connectAttr "skinCluster14.og[0]" "RockShape6.i";
 connectAttr "polyTriangulate14.out" "RockShape6Orig.i";
+connectAttr "Rock68_visibility.o" "Rock68.v";
 connectAttr "skinCluster15.og[0]" "RockShape68.i";
 connectAttr "polyTriangulate15.out" "RockShape68Orig.i";
+connectAttr "Rock56_visibility.o" "Rock56.v";
 connectAttr "skinCluster16.og[0]" "RockShape56.i";
 connectAttr "polyTriangulate16.out" "RockShape56Orig.i";
+connectAttr "Rock69_visibility.o" "Rock69.v";
 connectAttr "skinCluster17.og[0]" "RockShape69.i";
 connectAttr "polyTriangulate17.out" "RockShape69Orig.i";
+connectAttr "Rock8_visibility.o" "Rock8.v";
 connectAttr "skinCluster18.og[0]" "RockShape8.i";
 connectAttr "polyTriangulate18.out" "RockShape8Orig.i";
+connectAttr "Rock70_visibility.o" "Rock70.v";
 connectAttr "skinCluster19.og[0]" "RockShape70.i";
 connectAttr "polyTriangulate19.out" "RockShape70Orig.i";
+connectAttr "Rock36_visibility.o" "Rock36.v";
 connectAttr "skinCluster20.og[0]" "RockShape36.i";
 connectAttr "polyTriangulate20.out" "RockShape36Orig.i";
+connectAttr "Rock71_visibility.o" "Rock71.v";
 connectAttr "skinCluster21.og[0]" "RockShape71.i";
 connectAttr "polyTriangulate21.out" "RockShape71Orig.i";
+connectAttr "Rock10_visibility.o" "Rock10.v";
 connectAttr "skinCluster22.og[0]" "RockShape10.i";
 connectAttr "polyTriangulate22.out" "RockShape10Orig.i";
+connectAttr "Rock72_visibility.o" "Rock72.v";
 connectAttr "skinCluster23.og[0]" "RockShape72.i";
 connectAttr "polyTriangulate23.out" "RockShape72Orig.i";
+connectAttr "Rock50_visibility.o" "Rock50.v";
 connectAttr "skinCluster24.og[0]" "RockShape50.i";
 connectAttr "polyTriangulate24.out" "RockShape50Orig.i";
+connectAttr "Rock73_visibility.o" "Rock73.v";
 connectAttr "skinCluster25.og[0]" "RockShape73.i";
 connectAttr "polyTriangulate25.out" "RockShape73Orig.i";
+connectAttr "Rock12_visibility.o" "Rock12.v";
 connectAttr "skinCluster26.og[0]" "RockShape12.i";
 connectAttr "polyTriangulate26.out" "RockShape12Orig.i";
+connectAttr "Rock74_visibility.o" "Rock74.v";
 connectAttr "skinCluster27.og[0]" "RockShape74.i";
 connectAttr "polyTriangulate27.out" "RockShape74Orig.i";
+connectAttr "Rock38_visibility.o" "Rock38.v";
 connectAttr "skinCluster28.og[0]" "RockShape38.i";
 connectAttr "polyTriangulate28.out" "RockShape38Orig.i";
+connectAttr "Rock75_visibility.o" "Rock75.v";
 connectAttr "skinCluster29.og[0]" "RockShape75.i";
 connectAttr "polyTriangulate29.out" "RockShape75Orig.i";
+connectAttr "Rock14_visibility.o" "Rock14.v";
 connectAttr "skinCluster30.og[0]" "RockShape14.i";
 connectAttr "polyTriangulate30.out" "RockShape14Orig.i";
+connectAttr "Rock76_visibility.o" "Rock76.v";
 connectAttr "skinCluster31.og[0]" "RockShape76.i";
 connectAttr "polyTriangulate31.out" "RockShape76Orig.i";
+connectAttr "Rock60_visibility.o" "Rock60.v";
 connectAttr "skinCluster32.og[0]" "RockShape60.i";
 connectAttr "polyTriangulate32.out" "RockShape60Orig.i";
+connectAttr "Rock77_visibility.o" "Rock77.v";
 connectAttr "skinCluster33.og[0]" "RockShape77.i";
 connectAttr "polyTriangulate33.out" "RockShape77Orig.i";
+connectAttr "Rock16_visibility.o" "Rock16.v";
 connectAttr "skinCluster34.og[0]" "RockShape16.i";
 connectAttr "polyTriangulate34.out" "RockShape16Orig.i";
+connectAttr "Rock78_visibility.o" "Rock78.v";
 connectAttr "skinCluster35.og[0]" "RockShape78.i";
 connectAttr "polyTriangulate35.out" "RockShape78Orig.i";
+connectAttr "Rock40_visibility.o" "Rock40.v";
 connectAttr "skinCluster36.og[0]" "RockShape40.i";
 connectAttr "polyTriangulate36.out" "RockShape40Orig.i";
+connectAttr "Rock79_visibility.o" "Rock79.v";
 connectAttr "skinCluster37.og[0]" "RockShape79.i";
 connectAttr "polyTriangulate37.out" "RockShape79Orig.i";
+connectAttr "Rock18_visibility.o" "Rock18.v";
 connectAttr "skinCluster38.og[0]" "RockShape18.i";
 connectAttr "polyTriangulate38.out" "RockShape18Orig.i";
+connectAttr "Rock80_visibility.o" "Rock80.v";
 connectAttr "skinCluster39.og[0]" "RockShape80.i";
 connectAttr "polyTriangulate39.out" "RockShape80Orig.i";
+connectAttr "Rock52_visibility.o" "Rock52.v";
 connectAttr "skinCluster40.og[0]" "RockShape52.i";
 connectAttr "polyTriangulate40.out" "RockShape52Orig.i";
+connectAttr "Rock81_visibility.o" "Rock81.v";
 connectAttr "skinCluster41.og[0]" "RockShape81.i";
 connectAttr "polyTriangulate41.out" "RockShape81Orig.i";
+connectAttr "Rock20_visibility.o" "Rock20.v";
 connectAttr "skinCluster42.og[0]" "RockShape20.i";
 connectAttr "polyTriangulate42.out" "RockShape20Orig.i";
+connectAttr "Rock82_visibility.o" "Rock82.v";
 connectAttr "skinCluster43.og[0]" "RockShape82.i";
 connectAttr "polyTriangulate43.out" "RockShape82Orig.i";
+connectAttr "Rock42_visibility.o" "Rock42.v";
 connectAttr "skinCluster44.og[0]" "RockShape42.i";
 connectAttr "polyTriangulate44.out" "RockShape42Orig.i";
+connectAttr "Rock83_visibility.o" "Rock83.v";
 connectAttr "skinCluster45.og[0]" "RockShape83.i";
 connectAttr "polyTriangulate45.out" "RockShape83Orig.i";
+connectAttr "Rock22_visibility.o" "Rock22.v";
 connectAttr "skinCluster46.og[0]" "RockShape22.i";
 connectAttr "polyTriangulate46.out" "RockShape22Orig.i";
+connectAttr "Rock58_visibility.o" "Rock58.v";
 connectAttr "skinCluster47.og[0]" "RockShape58.i";
 connectAttr "polyTriangulate47.out" "RockShape58Orig.i";
+connectAttr "Rock85_visibility.o" "Rock85.v";
 connectAttr "skinCluster48.og[0]" "RockShape85.i";
 connectAttr "polyTriangulate48.out" "RockShape85Orig.i";
+connectAttr "Rock24_visibility.o" "Rock24.v";
 connectAttr "skinCluster49.og[0]" "RockShape24.i";
 connectAttr "polyTriangulate49.out" "RockShape24Orig.i";
+connectAttr "Rock86_visibility.o" "Rock86.v";
 connectAttr "skinCluster50.og[0]" "RockShape86.i";
 connectAttr "polyTriangulate50.out" "RockShape86Orig.i";
+connectAttr "Rock44_visibility.o" "Rock44.v";
 connectAttr "skinCluster51.og[0]" "RockShape44.i";
 connectAttr "polyTriangulate51.out" "RockShape44Orig.i";
+connectAttr "Rock87_visibility.o" "Rock87.v";
 connectAttr "skinCluster52.og[0]" "RockShape87.i";
 connectAttr "polyTriangulate52.out" "RockShape87Orig.i";
+connectAttr "Rock26_visibility.o" "Rock26.v";
 connectAttr "skinCluster53.og[0]" "RockShape26.i";
 connectAttr "polyTriangulate53.out" "RockShape26Orig.i";
+connectAttr "Rock88_visibility.o" "Rock88.v";
 connectAttr "skinCluster54.og[0]" "RockShape88.i";
 connectAttr "polyTriangulate54.out" "RockShape88Orig.i";
+connectAttr "Rock54_visibility.o" "Rock54.v";
 connectAttr "skinCluster55.og[0]" "RockShape54.i";
 connectAttr "polyTriangulate55.out" "RockShape54Orig.i";
+connectAttr "Rock89_visibility.o" "Rock89.v";
 connectAttr "skinCluster56.og[0]" "RockShape89.i";
 connectAttr "polyTriangulate56.out" "RockShape89Orig.i";
+connectAttr "Rock28_visibility.o" "Rock28.v";
 connectAttr "skinCluster57.og[0]" "RockShape28.i";
 connectAttr "polyTriangulate57.out" "RockShape28Orig.i";
+connectAttr "Rock90_visibility.o" "Rock90.v";
 connectAttr "skinCluster58.og[0]" "RockShape90.i";
 connectAttr "polyTriangulate58.out" "RockShape90Orig.i";
+connectAttr "Rock46_visibility.o" "Rock46.v";
 connectAttr "skinCluster59.og[0]" "RockShape46.i";
 connectAttr "polyTriangulate59.out" "RockShape46Orig.i";
+connectAttr "Rock91_visibility.o" "Rock91.v";
 connectAttr "skinCluster60.og[0]" "RockShape91.i";
 connectAttr "polyTriangulate60.out" "RockShape91Orig.i";
+connectAttr "Rock30_visibility.o" "Rock30.v";
 connectAttr "skinCluster61.og[0]" "RockShape30.i";
 connectAttr "polyTriangulate61.out" "RockShape30Orig.i";
+connectAttr "Rock92_visibility.o" "Rock92.v";
 connectAttr "skinCluster62.og[0]" "RockShape92.i";
 connectAttr "polyTriangulate62.out" "RockShape92Orig.i";
+connectAttr "Rock61_visibility.o" "Rock61.v";
 connectAttr "skinCluster63.og[0]" "RockShape61.i";
 connectAttr "polyTriangulate63.out" "RockShape61Orig.i";
+connectAttr "Rock93_visibility.o" "Rock93.v";
 connectAttr "skinCluster64.og[0]" "RockShape93.i";
 connectAttr "polyTriangulate64.out" "RockShape93Orig.i";
 connectAttr "Rock94_visibility.o" "Rock94.v";
@@ -28689,19 +34041,36 @@ connectAttr "Rock94_scaleY.o" "Rock94.sy" -l on;
 connectAttr "Rock94_scaleZ.o" "Rock94.sz" -l on;
 connectAttr "skinCluster65.og[0]" "RockShape94.i";
 connectAttr "polyTriangulate65.out" "RockShape94Orig.i";
+connectAttr "Rock95_visibility.o" "Rock95.v";
 connectAttr "skinCluster66.og[0]" "RockShape95.i";
 connectAttr "polyTriangulate66.out" "RockShape95Orig.i";
 connectAttr "Props.di" "Other_Props.do";
+connectAttr "Other_Props_visibility.o" "Other_Props.v";
+connectAttr "Other_Props_translateX.o" "Other_Props.tx";
+connectAttr "Other_Props_translateY.o" "Other_Props.ty";
+connectAttr "Other_Props_translateZ.o" "Other_Props.tz";
+connectAttr "Other_Props_rotateX.o" "Other_Props.rx";
+connectAttr "Other_Props_rotateY.o" "Other_Props.ry";
+connectAttr "Other_Props_rotateZ.o" "Other_Props.rz";
+connectAttr "Other_Props_scaleX.o" "Other_Props.sx";
+connectAttr "Other_Props_scaleY.o" "Other_Props.sy";
+connectAttr "Other_Props_scaleZ.o" "Other_Props.sz";
+connectAttr "Bin_Lid_visibility.o" "Bin_Lid.v";
 connectAttr "skinCluster67.og[0]" "Bin_LidShape.i";
 connectAttr "polyTriangulate67.out" "Bin_LidShapeOrig.i";
+connectAttr "Lunchtray1_visibility.o" "Lunchtray1.v";
 connectAttr "skinCluster68.og[0]" "LunchtrayShape1.i";
 connectAttr "polyTriangulate68.out" "LunchtrayShape1Orig.i";
+connectAttr "Lunchtray2_visibility.o" "Lunchtray2.v";
 connectAttr "skinCluster69.og[0]" "LunchtrayShape2.i";
 connectAttr "polyTriangulate69.out" "LunchtrayShape2Orig.i";
+connectAttr "Broken_Bottle1_visibility.o" "Broken_Bottle1.v";
 connectAttr "skinCluster70.og[0]" "Broken_BottleShape1.i";
 connectAttr "polyTriangulate70.out" "Broken_BottleShape1Orig.i";
+connectAttr "Broken_Bottle2_visibility.o" "Broken_Bottle2.v";
 connectAttr "skinCluster71.og[0]" "Broken_BottleShape2.i";
 connectAttr "polyTriangulate71.out" "Broken_BottleShape2Orig.i";
+connectAttr "Fork_visibility.o" "Fork.v";
 connectAttr "skinCluster72.og[0]" "ForkShape.i";
 connectAttr "polyTriangulate72.out" "ForkShapeOrig.i";
 connectAttr "Book_translateX.o" "Book.tx" -l on;
@@ -28717,6 +34086,7 @@ connectAttr "Book_scaleZ.o" "Book.sz" -l on;
 connectAttr "skinCluster73.og[0]" "BookShape.i";
 connectAttr "polyTriangulate73.out" "BookShapeOrig.i";
 connectAttr "Eye.di" "Eyeball.do";
+connectAttr "Eyeball_visibility.o" "Eyeball.v";
 connectAttr "skinCluster74.og[0]" "EyeballShape.i";
 connectAttr "polyTriangulate74.out" "EyeballShapeOrig.i";
 connectAttr "polyTriangulate1.out" "BodShapeOrig.i";
@@ -29809,10 +35179,6 @@ connectAttr "polyTweak167.out" "polyTriangulate72.ip";
 connectAttr "polySplit51.out" "polyTweak167.ip";
 connectAttr "polySoftEdge16.out" "polyTriangulate73.ip";
 connectAttr "polySphere1.out" "polyTriangulate74.ip";
-connectAttr "makeNurbCircle1.oc" "transformGeometry1.ig";
-connectAttr "makeNurbCircle2.oc" "transformGeometry2.ig";
-connectAttr "makeNurbCircle3.oc" "transformGeometry3.ig";
-connectAttr "makeNurbCircle4.oc" "transformGeometry4.ig";
 connectAttr "EyeballShapeOrig.w" "skinCluster74.ip[0].ig";
 connectAttr "EyeballShapeOrig.o" "skinCluster74.orggeom[0]";
 connectAttr "Spine_Joint1.wm" "skinCluster74.ma[1]";
@@ -31325,6 +36691,10 @@ connectAttr "R_Knee_Joint.obcc" "skinCluster1.ifcl[14]";
 connectAttr "R_Ankle_Joint.obcc" "skinCluster1.ifcl[15]";
 connectAttr "layerManager.dli[7]" "Joints.id";
 connectAttr "layerManager.dli[8]" "Control.id";
+connectAttr "makeNurbCircle4.oc" "transformGeometry4.ig";
+connectAttr "makeNurbCircle3.oc" "transformGeometry3.ig";
+connectAttr "makeNurbCircle2.oc" "transformGeometry2.ig";
+connectAttr "makeNurbCircle1.oc" "transformGeometry1.ig";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "BodShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "RockShape.iog" ":initialShadingGroup.dsm" -na;
@@ -31401,4 +36771,4 @@ connectAttr "BookShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "RockShape95.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "EyeballShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "ikRPsolver.msg" ":ikSystem.sol" -na;
-// End of Boss_Anim.ma
+// End of Boss_Anim_Export.ma
