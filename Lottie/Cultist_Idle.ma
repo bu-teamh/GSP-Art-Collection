@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: Cultist_Idle.ma
-//Last modified: Wed, May 28, 2025 01:16:11 PM
+//Last modified: Wed, May 28, 2025 02:10:56 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiImagerDenoiserOidn" "mtoa" "5.4.4";
@@ -11,19 +11,19 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 10 Enterprise v2009 (Build: 19045)";
-fileInfo "UUID" "A1D8078D-4164-646F-C8E2-51BA7EDBC232";
+fileInfo "UUID" "714E2B8F-477C-48BD-B581-A383A0942498";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "1EB2CABC-4FA9-CBE3-43E1-5BB903509974";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -23.808561595853888 31.069369550485668 560.94353932556237 ;
-	setAttr ".r" -type "double3" 1.2000000000047397 -4683.1999999999061 6.8438941934172495e-17 ;
+	setAttr ".t" -type "double3" -345.59325382722591 43.571774875109213 42.735747786989691 ;
+	setAttr ".r" -type "double3" -1.7999999999915632 -4765.5999999999894 0 ;
 	setAttr ".rpt" -type "double3" -2.1711577455302928e-16 -5.7986090500462031e-17 -1.8279654095748354e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "744760DD-48A6-1775-52A0-7F812E445A70";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 543.97551253873939;
+	setAttr ".coi" 356.45934299166271;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -161,7 +161,7 @@ createNode parentConstraint -n "Head_Top_Joint_parentConstraint1" -p "Head_Top_J
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" 0.4021641730509749 1.4002662366680814 30.552985785729366 ;
+	setAttr ".lr" -type "double3" 0.40216417305097496 1.4002662366680814 30.552985785729366 ;
 	setAttr ".rst" -type "double3" 8.6847201859545535 0.8235233666591979 7.8326234387304794e-14 ;
 	setAttr ".rsrr" -type "double3" 0 0 2.8688603226800921e-12 ;
 	setAttr -k on ".w0";
@@ -368,7 +368,7 @@ createNode parentConstraint -n "R_Shoulder_Joint_parentConstraint1" -p "R_Should
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" -20.547540711582823 1.8423054338347011 -45.59670593813096 ;
+	setAttr ".lr" -type "double3" -20.547540711582823 1.8423054338347011 -45.596705938130967 ;
 	setAttr ".rst" -type "double3" 0.0086079376164178711 0.48735419205824382 5.0507870632301373 ;
 	setAttr ".rsrr" -type "double3" 2.9193373870007117e-15 3.1805546814634947e-15 8.6792298966484285e-13 ;
 	setAttr -k on ".w0";
@@ -11577,7 +11577,7 @@ createNode transform -n "R_heel_group" -p "R_foot_group";
 	setAttr ".sp" -type "double3" 7.6168050765991211 0.22423553466796875 -0.26040616631507874 ;
 createNode ikHandle -n "R_ball_IK" -p "R_heel_group";
 	rename -uid "D929E357-4556-D5F2-D158-46A2E6FF5F96";
-	setAttr ".t" -type "double3" 8.9654444789039438 0.98475103501548122 3.5670384560428179 ;
+	setAttr ".t" -type "double3" 8.9654444831297777 0.9847510299409209 3.5670384599711769 ;
 	setAttr ".r" -type "double3" 0.61075912364330509 0.17744582944598977 0.026542685450649198 ;
 	setAttr ".s" -type "double3" 1 1 0.99999999999999989 ;
 	setAttr ".hs" 1;
@@ -11591,7 +11591,7 @@ createNode transform -n "R_ankle_group" -p "R_foot_group";
 	setAttr ".sp" -type "double3" 8.885289192199707 0.93566787242889404 4.5103206634521484 ;
 createNode ikHandle -n "R_Leg_IK" -p "R_ankle_group";
 	rename -uid "CEFBC025-4F6B-28DC-0AEF-F98EB028792F";
-	setAttr ".t" -type "double3" 7.4611539803828366 2.8005714518700229 2.1623952559597348 ;
+	setAttr ".t" -type "double3" 7.4611539811595105 2.8005714397776766 2.1623952545107583 ;
 	setAttr ".r" -type "double3" 0.61075912364330509 0.17744582944598977 0.026542685450649198 ;
 	setAttr ".s" -type "double3" 1 1 0.99999999999999989 ;
 	setAttr ".hs" 1;
@@ -11621,7 +11621,7 @@ createNode transform -n "R_Toe_group" -p "R_foot_group";
 	setAttr ".sp" -type "double3" 8.885289192199707 0.93566787242889404 4.5103206634521484 ;
 createNode ikHandle -n "R_Toe_IK" -p "R_Toe_group";
 	rename -uid "842A9113-4F1C-B1F2-D030-1E8AA704BC29";
-	setAttr ".t" -type "double3" 11.908329006894609 0.77743982118441879 10.142502272992914 ;
+	setAttr ".t" -type "double3" 11.908329009123085 0.77743982102719644 10.142502277972127 ;
 	setAttr ".r" -type "double3" 0.61075912364330509 0.17744582944598977 0.026542685450649198 ;
 	setAttr ".s" -type "double3" 1 1 0.99999999999999989 ;
 	setAttr ".hs" 1;
@@ -11659,7 +11659,7 @@ createNode transform -n "L_heel_group" -p "L_foot_group1";
 	setAttr ".sp" -type "double3" -6.9048762321472168 0.22423553466796875 0.5447845458984375 ;
 createNode ikHandle -n "L_ball_IK" -p "L_heel_group";
 	rename -uid "2575F6D8-4E98-64A8-9551-35AF5E6E4D25";
-	setAttr ".t" -type "double3" -8.8622423281581018 0.9988855536653698 3.5915380611592949 ;
+	setAttr ".t" -type "double3" -8.8622253902829016 0.99888067795436664 3.5915184357159928 ;
 	setAttr ".hs" 1;
 	setAttr ".pv" -type "double3" 0.60353072289060672 -1.664216793998186 -0.93066273649563735 ;
 	setAttr ".roc" yes;
@@ -11670,7 +11670,7 @@ createNode transform -n "L_ankle_group" -p "L_foot_group1";
 	setAttr ".sp" -type "double3" -8.8852901458740234 0.93566799163818359 4.5103201866149902 ;
 createNode ikHandle -n "L_Leg_IK" -p "L_ankle_group";
 	rename -uid "6D1CCA41-4091-6943-99A5-C7A2356C4610";
-	setAttr ".t" -type "double3" -7.3628699999391953 2.8006100013437099 2.1627020420618748 ;
+	setAttr ".t" -type "double3" -7.3628688358964816 2.8006355848411317 2.1627042729262618 ;
 	setAttr ".hs" 1;
 	setAttr ".roc" yes;
 	setAttr ".ikb" 0;
@@ -11698,7 +11698,7 @@ createNode transform -n "L_Toe_group" -p "L_foot_group1";
 	setAttr ".sp" -type "double3" -8.8852901458740234 0.93566799163818359 4.5103201866149902 ;
 createNode ikHandle -n "L_Toe_IK" -p "L_Toe_group";
 	rename -uid "5E5EA20D-4097-1673-BB32-B9B63F68E25A";
-	setAttr ".t" -type "double3" -11.590448389837841 0.75272573205824589 10.294739320254163 ;
+	setAttr ".t" -type "double3" -11.590439022910129 0.75272623000800021 10.294716337062731 ;
 	setAttr ".hs" 1;
 	setAttr ".pv" -type "double3" 1.8147888031662929 -0.032305356231000844 0.839939262007107 ;
 	setAttr ".roc" yes;
@@ -11770,7 +11770,7 @@ createNode nurbsCurve -n "General_CtrlShape" -p "General_Ctrl";
 		;
 createNode transform -n "Root_ctrl______" -p "General_Ctrl";
 	rename -uid "BE9E1A62-4EFA-D04B-AFBD-C590F1D9372B";
-	setAttr ".t" -type "double3" 25.999999990690977 -0.39697556420508523 -18.248016645263021 ;
+	setAttr ".t" -type "double3" 25.999999990690977 -0.42815523360485963 -18.248016645263021 ;
 	setAttr ".s" -type "double3" 0.20653789005110199 0.20653789005110199 0.20653789005110199 ;
 	setAttr ".rp" -type "double3" 0.010147301981443792 6.9619075386240334 0.47184051306856356 ;
 	setAttr ".sp" -type "double3" 0.049130462110042572 33.707653045654297 2.2845227718353271 ;
@@ -12097,15 +12097,15 @@ createNode nurbsCurve -n "R_knee_ctrlShape" -p "R_knee_ctrl";
 		27.058022935741228 4.1924245036099625 -14.873867750939048
 		;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "4CF345F2-4EB1-7814-A125-5BB37E6D3F31";
+	rename -uid "13F78D96-4AF0-21FA-A252-138F45D7B7D5";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "4B4C8974-4102-D6F7-CFC7-1891E6FDACAD";
+	rename -uid "4E51DAF5-45F2-E5CE-D31E-6F93A7C60A07";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "8CA4DEA8-4443-2AD2-6403-ACB4F5F86F63";
+	rename -uid "E6DA448E-4242-3D52-CC36-C2815F9AAA74";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "5FE8DD82-48D2-7C5E-F5F9-FA9FDB126030";
+	rename -uid "979B847C-436E-D57F-2C41-ED8AD3E760F9";
 	setAttr ".cdl" 1;
 	setAttr -s 5 ".dli[1:4]"  3 2 1 4;
 	setAttr -s 3 ".dli";
@@ -12113,7 +12113,7 @@ createNode displayLayer -n "defaultLayer";
 	rename -uid "68D99BAD-40E2-A4B3-A1FC-37BD4B519A24";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "D574EF24-4FE5-EED9-2729-6D9D3A392237";
+	rename -uid "35D08BDB-49B7-ABBE-9285-CBBFA8E2605B";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "2C52E355-4A1A-2E36-265A-0297D6A77997";
 	setAttr ".g" yes;
@@ -12123,15 +12123,15 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1416\n            -height 354\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
 		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
 		+ "            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n"
-		+ "            -shadows 0\n            -captureSequenceNumber -1\n            -width 1416\n            -height 353\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n"
+		+ "            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n"
 		+ "            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
 		+ "            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n"
-		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1416\n            -height 353\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n"
-		+ "        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n"
+		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n"
+		+ "            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n"
 		+ "            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n"
 		+ "            -imagePlane 1\n            -joints 0\n            -ikHandles 0\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2839\n            -height 764\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -autoExpandAllAnimatedShapes 1\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n"
@@ -21485,7 +21485,7 @@ createNode skinCluster -n "skinCluster1";
 		8 0.00023387004743441117
 		4 0 0.00011804790365832202 6 0.51333500612247118 7 0.4861556902969556 
 		8 0.00039125567691484652
-		3 12 0.73608045644923836 13 0.26383249802777375 17 8.704552298787484e-05
+		3 12 0.73608045644923836 13 0.26383249802777375 17 8.7045522987874827e-05
 		3 12 0.93240836518052572 13 0.067582590299443884 17 9.0445200303420255e-06
 		3 12 0.96005936852437523 13 0.039938001772804821 17 2.629702819987223e-06
 		3 12 0.70086157512376723 13 0.29900736434287722 17 0.00013106053335558236
@@ -23843,7 +23843,7 @@ createNode animCurveTA -n "R_elbow_ctrl_rotateX";
 createNode animCurveTA -n "Root_ctrl_______rotateY";
 	rename -uid "C673E7E7-448B-1771-F6CA-0DA51032214F";
 	setAttr ".tan" 18;
-	setAttr -s 2 ".ktv[0:1]"  0 -0.078746639154973319 210 -0.078746639154973319;
+	setAttr -s 2 ".ktv[0:1]"  0 -0.078746639154973333 210 -0.078746639154973333;
 createNode animCurveTA -n "L_elbow_ctrl_rotateY";
 	rename -uid "F5851866-4A67-4D09-B474-2DA0BBFD1D5D";
 	setAttr ".tan" 18;
@@ -23913,9 +23913,9 @@ createNode animCurveTA -n "Head_ctrl_rotateZ";
 createNode animCurveTA -n "L_shoulder_ctrl_rotateZ";
 	rename -uid "03E2CE9E-42AB-A947-26BD-FAB8D089A466";
 	setAttr ".tan" 1;
-	setAttr -s 8 ".ktv[0:7]"  0 11.622071014063771 20 7.4032715136175113
+	setAttr -s 8 ".ktv[0:7]"  0 11.622071014063772 20 7.4032715136175113
 		 50 14.376136560874082 90 7.4032715136175113 114 14.376136560874082 145 7.4032715136175113
-		 178 14.376136560874082 210 11.622071014063771;
+		 178 14.376136560874082 210 11.622071014063772;
 	setAttr -s 8 ".kit[0:7]"  18 18 18 1 1 1 1 1;
 	setAttr -s 8 ".kot[0:7]"  18 18 18 1 1 1 1 1;
 	setAttr -s 8 ".kix[3:7]"  0.16666666666666663 0.08333333333333337 
@@ -23951,7 +23951,7 @@ createNode animCurveTA -n "R_wrist_ctrl_rotateY";
 createNode animCurveTA -n "R_wrist_ctrl_rotateZ";
 	rename -uid "597B8442-41D3-8326-D95F-8A97A7A1B693";
 	setAttr ".tan" 18;
-	setAttr ".ktv[0]"  0 -39.678518474903328;
+	setAttr ".ktv[0]"  0 -39.678518474903335;
 createNode animCurveTU -n "Animation_visibility";
 	rename -uid "6CF172C4-4B35-2607-27F5-24B25218E679";
 	setAttr ".tan" 18;
@@ -25943,60 +25943,60 @@ createNode animCurveTL -n "Head_Top_Joint_translateZ";
 createNode animCurveTA -n "Head_Top_Joint_rotateX";
 	rename -uid "6B9E432B-40A5-80ED-F881-8EB767D774E3";
 	setAttr ".tan" 18;
-	setAttr -s 211 ".ktv[0:210]"  0 0.4021641730509749 1 0.4021641730509749
-		 2 0.4021641730509749 3 0.4021641730509749 4 0.4021641730509749 5 0.4021641730509749
-		 6 0.4021641730509749 7 0.4021641730509749 8 0.4021641730509749 9 0.4021641730509749
-		 10 0.4021641730509749 11 0.4021641730509749 12 0.4021641730509749 13 0.4021641730509749
-		 14 0.4021641730509749 15 0.4021641730509749 16 0.4021641730509749 17 0.4021641730509749
-		 18 0.4021641730509749 19 0.4021641730509749 20 0.4021641730509749 21 0.4021641730509749
-		 22 0.4021641730509749 23 0.4021641730509749 24 0.4021641730509749 25 0.4021641730509749
-		 26 0.4021641730509749 27 0.4021641730509749 28 0.4021641730509749 29 0.4021641730509749
-		 30 0.4021641730509749 31 0.4021641730509749 32 0.4021641730509749 33 0.4021641730509749
-		 34 0.4021641730509749 35 0.4021641730509749 36 0.4021641730509749 37 0.4021641730509749
-		 38 0.4021641730509749 39 0.4021641730509749 40 0.4021641730509749 41 0.4021641730509749
-		 42 0.4021641730509749 43 0.4021641730509749 44 0.4021641730509749 45 0.4021641730509749
-		 46 0.4021641730509749 47 0.4021641730509749 48 0.4021641730509749 49 0.4021641730509749
-		 50 0.4021641730509749 51 0.4021641730509749 52 0.4021641730509749 53 0.4021641730509749
-		 54 0.4021641730509749 55 0.4021641730509749 56 0.4021641730509749 57 0.4021641730509749
-		 58 0.4021641730509749 59 0.4021641730509749 60 0.4021641730509749 61 0.4021641730509749
-		 62 0.4021641730509749 63 0.4021641730509749 64 0.4021641730509749 65 0.4021641730509749
-		 66 0.4021641730509749 67 0.4021641730509749 68 0.4021641730509749 69 0.4021641730509749
-		 70 0.4021641730509749 71 0.4021641730509749 72 0.4021641730509749 73 0.4021641730509749
-		 74 0.4021641730509749 75 0.4021641730509749 76 0.4021641730509749 77 0.4021641730509749
-		 78 0.4021641730509749 79 0.4021641730509749 80 0.4021641730509749 81 0.4021641730509749
-		 82 0.4021641730509749 83 0.4021641730509749 84 0.4021641730509749 85 0.4021641730509749
-		 86 0.4021641730509749 87 0.4021641730509749 88 0.4021641730509749 89 0.4021641730509749
-		 90 0.4021641730509749 91 0.4021641730509749 92 0.4021641730509749 93 0.4021641730509749
-		 94 0.4021641730509749 95 0.4021641730509749 96 0.4021641730509749 97 0.4021641730509749
-		 98 0.4021641730509749 99 0.4021641730509749 100 0.4021641730509749 101 0.4021641730509749
-		 102 0.4021641730509749 103 0.4021641730509749 104 0.4021641730509749 105 0.4021641730509749
-		 106 0.4021641730509749 107 0.4021641730509749 108 0.4021641730509749 109 0.4021641730509749
-		 110 0.4021641730509749 111 0.4021641730509749 112 0.4021641730509749 113 0.4021641730509749
-		 114 0.4021641730509749 115 0.4021641730509749 116 0.4021641730509749 117 0.4021641730509749
-		 118 0.4021641730509749 119 0.4021641730509749 120 0.4021641730509749 121 0.4021641730509749
-		 122 0.4021641730509749 123 0.4021641730509749 124 0.4021641730509749 125 0.4021641730509749
-		 126 0.4021641730509749 127 0.4021641730509749 128 0.4021641730509749 129 0.4021641730509749
-		 130 0.4021641730509749 131 0.4021641730509749 132 0.4021641730509749 133 0.4021641730509749
-		 134 0.4021641730509749 135 0.4021641730509749 136 0.4021641730509749 137 0.4021641730509749
-		 138 0.4021641730509749 139 0.4021641730509749 140 0.4021641730509749 141 0.4021641730509749
-		 142 0.4021641730509749 143 0.4021641730509749 144 0.4021641730509749 145 0.4021641730509749
-		 146 0.4021641730509749 147 0.4021641730509749 148 0.4021641730509749 149 0.4021641730509749
-		 150 0.4021641730509749 151 0.4021641730509749 152 0.4021641730509749 153 0.4021641730509749
-		 154 0.4021641730509749 155 0.4021641730509749 156 0.4021641730509749 157 0.4021641730509749
-		 158 0.4021641730509749 159 0.4021641730509749 160 0.4021641730509749 161 0.4021641730509749
-		 162 0.4021641730509749 163 0.4021641730509749 164 0.4021641730509749 165 0.4021641730509749
-		 166 0.4021641730509749 167 0.4021641730509749 168 0.4021641730509749 169 0.4021641730509749
-		 170 0.4021641730509749 171 0.4021641730509749 172 0.4021641730509749 173 0.4021641730509749
-		 174 0.4021641730509749 175 0.4021641730509749 176 0.4021641730509749 177 0.4021641730509749
-		 178 0.4021641730509749 179 0.4021641730509749 180 0.4021641730509749 181 0.4021641730509749
-		 182 0.4021641730509749 183 0.4021641730509749 184 0.4021641730509749 185 0.4021641730509749
-		 186 0.4021641730509749 187 0.4021641730509749 188 0.4021641730509749 189 0.4021641730509749
-		 190 0.4021641730509749 191 0.4021641730509749 192 0.4021641730509749 193 0.4021641730509749
-		 194 0.4021641730509749 195 0.4021641730509749 196 0.4021641730509749 197 0.4021641730509749
-		 198 0.4021641730509749 199 0.4021641730509749 200 0.4021641730509749 201 0.4021641730509749
-		 202 0.4021641730509749 203 0.4021641730509749 204 0.4021641730509749 205 0.4021641730509749
-		 206 0.4021641730509749 207 0.4021641730509749 208 0.4021641730509749 209 0.4021641730509749
-		 210 0.4021641730509749;
+	setAttr -s 211 ".ktv[0:210]"  0 0.40216417305097496 1 0.40216417305097496
+		 2 0.40216417305097496 3 0.40216417305097496 4 0.40216417305097496 5 0.40216417305097496
+		 6 0.40216417305097496 7 0.40216417305097496 8 0.40216417305097496 9 0.40216417305097496
+		 10 0.40216417305097496 11 0.40216417305097496 12 0.40216417305097496 13 0.40216417305097496
+		 14 0.40216417305097496 15 0.40216417305097496 16 0.40216417305097496 17 0.40216417305097496
+		 18 0.40216417305097496 19 0.40216417305097496 20 0.40216417305097496 21 0.40216417305097496
+		 22 0.40216417305097496 23 0.40216417305097496 24 0.40216417305097496 25 0.40216417305097496
+		 26 0.40216417305097496 27 0.40216417305097496 28 0.40216417305097496 29 0.40216417305097496
+		 30 0.40216417305097496 31 0.40216417305097496 32 0.40216417305097496 33 0.40216417305097496
+		 34 0.40216417305097496 35 0.40216417305097496 36 0.40216417305097496 37 0.40216417305097496
+		 38 0.40216417305097496 39 0.40216417305097496 40 0.40216417305097496 41 0.40216417305097496
+		 42 0.40216417305097496 43 0.40216417305097496 44 0.40216417305097496 45 0.40216417305097496
+		 46 0.40216417305097496 47 0.40216417305097496 48 0.40216417305097496 49 0.40216417305097496
+		 50 0.40216417305097496 51 0.40216417305097496 52 0.40216417305097496 53 0.40216417305097496
+		 54 0.40216417305097496 55 0.40216417305097496 56 0.40216417305097496 57 0.40216417305097496
+		 58 0.40216417305097496 59 0.40216417305097496 60 0.40216417305097496 61 0.40216417305097496
+		 62 0.40216417305097496 63 0.40216417305097496 64 0.40216417305097496 65 0.40216417305097496
+		 66 0.40216417305097496 67 0.40216417305097496 68 0.40216417305097496 69 0.40216417305097496
+		 70 0.40216417305097496 71 0.40216417305097496 72 0.40216417305097496 73 0.40216417305097496
+		 74 0.40216417305097496 75 0.40216417305097496 76 0.40216417305097496 77 0.40216417305097496
+		 78 0.40216417305097496 79 0.40216417305097496 80 0.40216417305097496 81 0.40216417305097496
+		 82 0.40216417305097496 83 0.40216417305097496 84 0.40216417305097496 85 0.40216417305097496
+		 86 0.40216417305097496 87 0.40216417305097496 88 0.40216417305097496 89 0.40216417305097496
+		 90 0.40216417305097496 91 0.40216417305097496 92 0.40216417305097496 93 0.40216417305097496
+		 94 0.40216417305097496 95 0.40216417305097496 96 0.40216417305097496 97 0.40216417305097496
+		 98 0.40216417305097496 99 0.40216417305097496 100 0.40216417305097496 101 0.40216417305097496
+		 102 0.40216417305097496 103 0.40216417305097496 104 0.40216417305097496 105 0.40216417305097496
+		 106 0.40216417305097496 107 0.40216417305097496 108 0.40216417305097496 109 0.40216417305097496
+		 110 0.40216417305097496 111 0.40216417305097496 112 0.40216417305097496 113 0.40216417305097496
+		 114 0.40216417305097496 115 0.40216417305097496 116 0.40216417305097496 117 0.40216417305097496
+		 118 0.40216417305097496 119 0.40216417305097496 120 0.40216417305097496 121 0.40216417305097496
+		 122 0.40216417305097496 123 0.40216417305097496 124 0.40216417305097496 125 0.40216417305097496
+		 126 0.40216417305097496 127 0.40216417305097496 128 0.40216417305097496 129 0.40216417305097496
+		 130 0.40216417305097496 131 0.40216417305097496 132 0.40216417305097496 133 0.40216417305097496
+		 134 0.40216417305097496 135 0.40216417305097496 136 0.40216417305097496 137 0.40216417305097496
+		 138 0.40216417305097496 139 0.40216417305097496 140 0.40216417305097496 141 0.40216417305097496
+		 142 0.40216417305097496 143 0.40216417305097496 144 0.40216417305097496 145 0.40216417305097496
+		 146 0.40216417305097496 147 0.40216417305097496 148 0.40216417305097496 149 0.40216417305097496
+		 150 0.40216417305097496 151 0.40216417305097496 152 0.40216417305097496 153 0.40216417305097496
+		 154 0.40216417305097496 155 0.40216417305097496 156 0.40216417305097496 157 0.40216417305097496
+		 158 0.40216417305097496 159 0.40216417305097496 160 0.40216417305097496 161 0.40216417305097496
+		 162 0.40216417305097496 163 0.40216417305097496 164 0.40216417305097496 165 0.40216417305097496
+		 166 0.40216417305097496 167 0.40216417305097496 168 0.40216417305097496 169 0.40216417305097496
+		 170 0.40216417305097496 171 0.40216417305097496 172 0.40216417305097496 173 0.40216417305097496
+		 174 0.40216417305097496 175 0.40216417305097496 176 0.40216417305097496 177 0.40216417305097496
+		 178 0.40216417305097496 179 0.40216417305097496 180 0.40216417305097496 181 0.40216417305097496
+		 182 0.40216417305097496 183 0.40216417305097496 184 0.40216417305097496 185 0.40216417305097496
+		 186 0.40216417305097496 187 0.40216417305097496 188 0.40216417305097496 189 0.40216417305097496
+		 190 0.40216417305097496 191 0.40216417305097496 192 0.40216417305097496 193 0.40216417305097496
+		 194 0.40216417305097496 195 0.40216417305097496 196 0.40216417305097496 197 0.40216417305097496
+		 198 0.40216417305097496 199 0.40216417305097496 200 0.40216417305097496 201 0.40216417305097496
+		 202 0.40216417305097496 203 0.40216417305097496 204 0.40216417305097496 205 0.40216417305097496
+		 206 0.40216417305097496 207 0.40216417305097496 208 0.40216417305097496 209 0.40216417305097496
+		 210 0.40216417305097496;
 createNode animCurveTA -n "Head_Top_Joint_rotateY";
 	rename -uid "E23DF448-47A3-E554-9F29-94B6F296D0CC";
 	setAttr ".tan" 18;
@@ -27356,48 +27356,48 @@ createNode animCurveTA -n "L_Shoulder_Joint_rotateX";
 	rename -uid "9FC9F67B-45AE-B37D-D7C1-17BA3490E6CB";
 	setAttr ".tan" 18;
 	setAttr -s 211 ".ktv[0:210]"  0 -13.234472028493874 1 -13.233087041735336
-		 2 -13.229244060280291 3 -13.223542655599836 4 -13.216694112797768 5 -13.209449707834914
-		 6 -13.202539043861211 7 -13.196618765041885 8 -13.192231715284416 9 -13.189776408985097
+		 2 -13.229244060280291 3 -13.223542655599836 4 -13.216694112797768 5 -13.209449707834915
+		 6 -13.202539043861211 7 -13.196618765041887 8 -13.192231715284416 9 -13.189776408985097
 		 10 -13.189486534505743 11 -13.191420117780307 12 -13.195457929429544 13 -13.201310718129108
 		 14 -13.208534888682085 15 -13.216556307983129 16 -13.224702009122735 17 -13.232239667952715
-		 18 -13.238424844351533 19 -13.242556111890451 20 -13.2440383478919 21 -13.241728614964009
+		 18 -13.238424844351535 19 -13.242556111890451 20 -13.2440383478919 21 -13.241728614964009
 		 22 -13.235072210956318 23 -13.224556118947538 24 -13.210749642456566 25 -13.194279479221137
 		 26 -13.175806855446977 27 -13.15600659855339 28 -13.135548054693984 29 -13.115077782078387
 		 30 -13.09520397384027 31 -13.07648258592053 32 -13.059405166796417 33 -13.044388407170356
-		 34 -13.031765448907704 35 -13.021779013274942 36 -13.014576428339424 37 -13.010206653507735
-		 38 -13.008619414700812 39 -13.009666575582651 40 -13.013105877494057 41 -13.018607182212829
+		 34 -13.031765448907704 35 -13.021779013274944 36 -13.014576428339424 37 -13.010206653507735
+		 38 -13.008619414700812 39 -13.009666575582653 40 -13.013105877494057 41 -13.018607182212829
 		 42 -13.025761346334932 43 -13.034091843031799 44 -13.043069225458927 45 -13.052128495691784
 		 46 -13.0606894035873 47 -13.068179651632908 48 -13.07406092530722 49 -13.077857604889477
 		 50 -13.079187945704355 51 -13.078459889545536 52 -13.076434111948185 53 -13.073335547541856
-		 54 -13.069372534241317 55 -13.064737660855849 56 -13.059608880933949 57 -13.054150681653883
-		 58 -13.048515210718529 59 -13.042843319606121 60 -13.037265508619603 61 -13.031902772230108
-		 62 -13.02686734915733 63 -13.022263383943598 64 -13.018187507224681 65 -13.014729341395848
+		 54 -13.069372534241319 55 -13.064737660855849 56 -13.059608880933949 57 -13.054150681653883
+		 58 -13.048515210718529 59 -13.042843319606122 60 -13.037265508619603 61 -13.03190277223011
+		 62 -13.026867349157332 63 -13.022263383943598 64 -13.018187507224681 65 -13.014729341395848
 		 66 -13.011971937373673 67 -13.009992146890893 68 -13.008860933315479 69 -13.008643622363179
 		 70 -13.009400092213966 71 -13.01118490033242 72 -13.014047341541895 73 -13.018031428326296
 		 74 -13.023175779486746 75 -13.029513396470236 76 -13.037071296791208 77 -13.045869959128002
-		 78 -13.055922511718885 79 -13.067233558977216 80 -13.07979748042205 81 -13.093595931080795
+		 78 -13.055922511718887 79 -13.067233558977216 80 -13.07979748042205 81 -13.093595931080795
 		 82 -13.108594082825832 83 -13.124734783789682 84 -13.141929073348747 85 -13.160039850321589
-		 86 -13.178851451279865 87 -13.198006426586151 88 -13.21685094230144 89 -13.233938200226376
+		 86 -13.178851451279865 87 -13.198006426586151 88 -13.216850942301441 89 -13.233938200226376
 		 90 -13.2440383478919 91 -13.225325774901306 92 -13.200380110635418 93 -13.175210769865879
-		 94 -13.15095056643576 95 -13.128089103558965 96 -13.106899007830229 97 -13.087554006712864
+		 94 -13.15095056643576 95 -13.128089103558965 96 -13.106899007830229 97 -13.087554006712866
 		 98 -13.070174401699447 99 -13.054848091397925 100 -13.041641466877833 101 -13.030605463808206
 		 102 -13.021779013274934 103 -13.015190926569622 104 -13.01086069769333 105 -13.008798407125088
 		 106 -13.009003692601738 107 -13.011463513040246 108 -13.01614804451059 109 -13.023003245831918
 		 110 -13.031936664384181 111 -13.0427873188625 112 -13.055249408694731 113 -13.068605079853672
 		 114 -13.079187945704355 115 -13.073511205294803 116 -13.064185667987733 117 -13.054298839973596
-		 118 -13.044751248377862 119 -13.035972300223742 120 -13.028209137913978 121 -13.021618733848898
+		 118 -13.044751248377862 119 -13.035972300223742 120 -13.028209137913979 121 -13.021618733848898
 		 122 -13.016306486015576 123 -13.012345230961541 124 -13.009785670349084 125 -13.008662530899045
 		 126 -13.00899839377745 127 -13.01080614781764 128 -13.014090570328543 129 -13.018849312842859
 		 130 -13.02507344520683 131 -13.032747636341101 132 -13.041849997529765 133 -13.052351569061768
 		 134 -13.064215381798444 135 -13.077394958575669 136 -13.091832015582932 137 -13.107452941838384
 		 138 -13.12416329277732 139 -13.141838840010962 140 -13.160310184164807 141 -13.179334155546648
-		 142 -13.198534477047941 143 -13.21725667312484 144 -13.234100171875825 145 -13.2440383478919
-		 146 -13.229686855737587 147 -13.211260292915265 148 -13.192557171343081 149 -13.174215257417424
+		 142 -13.198534477047943 143 -13.21725667312484 144 -13.234100171875825 145 -13.2440383478919
+		 146 -13.229686855737588 147 -13.211260292915265 148 -13.192557171343081 149 -13.174215257417424
 		 150 -13.156502194222954 151 -13.139564195079284 152 -13.123493273362985 153 -13.108352782466538
 		 154 -13.094189149558829 155 -13.081037979113546 156 -13.068927518179731 157 -13.057880753766463
 		 158 -13.047916743054914 159 -13.039051484524666 160 -13.031298498047608 161 -13.024669209748195
 		 162 -13.019173197503651 163 -13.014818329235235 164 -13.011610810650328 165 -13.009555147465313
-		 166 -13.008654016501778 167 -13.008908027868182 168 -13.010315343498803 169 -13.012871090272522
+		 166 -13.008654016501778 167 -13.008908027868182 168 -13.010315343498803 169 -13.012871090272524
 		 170 -13.016566458355221 171 -13.021387284785915 172 -13.027311735389505 173 -13.034306275153064
 		 174 -13.042318041921646 175 -13.051258537461695 176 -13.060961530746225 177 -13.071030783715244
 		 178 -13.079187945704355 179 -13.080148016511117 180 -13.081956177768797 181 -13.084225876715131
@@ -27405,7 +27405,7 @@ createNode animCurveTA -n "L_Shoulder_Joint_rotateX";
 		 186 -13.100660554549172 187 -13.104853059207496 188 -13.109325132113804 189 -13.11406763183591
 		 190 -13.119070749692836 191 -13.124323785160923 192 -13.129814946302302 193 -13.135531147128301
 		 194 -13.141457781692306 195 -13.147578456844347 196 -13.153874663999977 197 -13.160325365425113
-		 198 -13.166906461824714 199 -13.173590093774715 200 -13.180343706492181 201 -13.187128769497958
+		 198 -13.166906461824716 199 -13.173590093774715 200 -13.180343706492181 201 -13.187128769497958
 		 202 -13.193898978283141 203 -13.200597651113252 204 -13.207153822305184 205 -13.213476115446358
 		 206 -13.219442592584704 207 -13.224882707383294 208 -13.229542049646126 209 -13.233003652557253
 		 210 -13.234472028493874;
@@ -27420,13 +27420,13 @@ createNode animCurveTA -n "L_Shoulder_Joint_rotateY";
 		 18 5.9312422182020867 19 5.8273184816834931 20 5.7910013439141004 21 5.8185596028956841
 		 22 5.8987188754056117 23 6.0276930690302892 24 6.2016820370727874 25 6.4168750237912819
 		 26 6.669453785783336 27 6.9555955118214072 28 7.2714756309327147 29 7.6132705694609761
-		 30 7.9771604916684131 31 8.35933203471021 32 8.7559810272296534 33 9.1633151611952144
+		 30 7.9771604916684131 31 8.35933203471021 32 8.7559810272296534 33 9.1633151611952162
 		 34 9.5775565688444964 35 9.9949442407430613 36 10.411736207139434 37 10.824211393240038
 		 38 11.228671050081633 39 11.621439656779691 40 11.998865187595266 41 12.357318639064097
-		 42 12.693192718973991 43 13.002899610847427 44 13.282867745319889 45 13.529537533809812
+		 42 12.693192718973991 43 13.002899610847427 44 13.282867745319891 45 13.529537533809814
 		 46 13.739356050396772 47 13.908770684851152 48 14.034221832988541 49 14.112134739292912
 		 50 14.138910660004059 51 14.124289637573877 52 14.08318777606079 53 14.019072746857779
-		 54 13.934715138567432 55 13.832370646549364 56 13.71390557633015 57 13.580885839710472
+		 54 13.934715138567432 55 13.832370646549366 56 13.713905576330152 57 13.580885839710472
 		 58 13.434641652862812 59 13.276315601586116 60 13.106899041849754 61 12.927260146764223
 		 62 12.738165862108422 63 12.540299350863572 64 12.334274054063055 65 12.120645188164891
 		 66 11.899919287740072 67 11.672562255129723 68 11.439006275931373 69 11.199655887992678
@@ -27434,11 +27434,11 @@ createNode animCurveTA -n "L_Shoulder_Joint_rotateY";
 		 74 9.9288735864054356 75 9.6623592447895419 76 9.39254324222434 77 9.1197996765735176
 		 78 8.8445300586289175 79 8.5671762051304459 80 8.2882378554981546 81 8.0082977155254014
 		 82 7.7280585687002095 83 7.4484008522524228 84 7.1704768773879639 85 6.8958753857741906
-		 86 6.6269339535914087 87 6.3674031395877675 88 6.1241130691710248 89 5.9124869729188791
-		 90 5.7910013439141004 91 6.0181530594693466 92 6.3361378989807813 93 6.6778219806642864
+		 86 6.6269339535914087 87 6.3674031395877675 88 6.1241130691710257 89 5.9124869729188791
+		 90 5.7910013439141004 91 6.0181530594693466 92 6.3361378989807822 93 6.6778219806642864
 		 94 7.0315834865321927 95 7.3926970012482753 96 7.7586582853111441 97 8.1279282509031603
 		 98 8.4994606155318735 99 8.8724864750667773 100 9.2464020119881969 101 9.6207032892637709
-		 102 9.994944240743056 103 10.368706215428974 104 10.741572454309857 105 11.113102761695936
+		 102 9.994944240743056 103 10.368706215428976 104 10.741572454309857 105 11.113102761695936
 		 106 11.48280367999539 107 11.850087710032419 108 12.214210300062854 109 12.574161512806002
 		 110 12.928458198241101 111 13.274687945332804 112 13.608294929943686 113 13.91805395615784
 		 114 14.138910660004059 115 14.022749265516699 116 13.819895980284127 117 13.584601487932089
@@ -27454,14 +27454,14 @@ createNode animCurveTA -n "L_Shoulder_Joint_rotateY";
 		 154 7.9967779525090181 155 8.2620485810397355 156 8.5279743369347702 157 8.7943631294277758
 		 158 9.0610536086103366 159 9.3279057970398895 160 9.5947944053829151 161 9.8616037831336261
 		 162 10.128223846026181 163 10.394546529154383 164 10.660462417246258 165 10.92585723586059
-		 166 11.190607859755964 167 11.454577398216195 168 11.717608718487048 169 11.979515392332322
+		 166 11.190607859755966 167 11.454577398216195 168 11.717608718487048 169 11.979515392332322
 		 170 12.240068333374085 171 12.498974964738048 172 12.755844720581123 173 13.010127642353963
 		 174 13.260994495657846 175 13.507070923894476 176 13.745722767490703 177 13.970348459231952
 		 178 14.138910660004059 179 14.08909535865206 180 14.000570194062389 181 13.89748450021416
 		 182 13.78639995543671 183 13.670261950669161 184 13.550704965246876 185 13.428757981881697
 		 186 13.305128013724847 187 13.180334513451355 188 13.054780800429402 189 12.928795450586588
 		 190 12.802658053531569 191 12.676616305309485 192 12.550898096778127 193 12.425720666975735
-		 194 12.301298083915503 195 12.177847897041179 196 12.055597599059697 197 11.934791460083067
+		 194 12.301298083915503 195 12.177847897041179 196 12.055597599059697 197 11.934791460083069
 		 198 11.815698323366918 199 11.698621080690993 200 11.583908808312497 201 11.471973016305961
 		 202 11.363310297539833 203 11.258535168149255 204 11.158429728903856 205 11.064022439289676
 		 206 10.97672044785673 207 10.898548531403204 208 10.832623746794765 209 10.784233927119432
@@ -27519,7 +27519,7 @@ createNode animCurveTA -n "L_Shoulder_Joint_rotateZ";
 		 186 -33.46008398557268 187 -33.392132640336492 188 -33.32398193564071 189 -33.255811614827067
 		 190 -33.187772787857327 191 -33.119997549539384 192 -33.052605749814767 193 -32.985710078970527
 		 194 -32.919420174725396 195 -32.853846220232164 196 -32.789102382363119 197 -32.725310392760562
-		 198 -32.662603582013325 199 -32.601131739302623 200 -32.541067301416476 201 -32.482613614002936
+		 198 -32.662603582013325 199 -32.601131739302623 200 -32.541067301416483 201 -32.482613614002936
 		 202 -32.426016432101868 203 -32.371580595227677 204 -32.319695262508191 205 -32.270873991139226
 		 206 -32.225822167358302 207 -32.185558973608281 208 -32.151660129124885 209 -32.126810530088918
 		 210 -32.116353358998857;
@@ -27787,49 +27787,49 @@ createNode animCurveTA -n "L_Elbow_Joint_rotateX";
 	setAttr -s 211 ".ktv[0:210]"  0 -2.0566330978673584 1 -2.0566330978673482
 		 2 -2.0566330978673726 3 -2.0566330978673588 4 -2.0566330978673499 5 -2.0566330978673566
 		 6 -2.0566330978673433 7 -2.0566330978673566 8 -2.0566330978673566 9 -2.0566330978673566
-		 10 -2.0566330978673442 11 -2.0566330978673482 12 -2.0566330978673353 13 -2.0566330978673282
+		 10 -2.0566330978673442 11 -2.0566330978673482 12 -2.0566330978673357 13 -2.0566330978673282
 		 14 -2.0566330978673282 15 -2.0566330978673282 16 -2.0566330978673322 17 -2.0566330978673251
-		 18 -2.0566330978673353 19 -2.0566330978673184 20 -2.05663309786731 21 -2.0566330978673251
+		 18 -2.0566330978673357 19 -2.0566330978673184 20 -2.05663309786731 21 -2.0566330978673251
 		 22 -2.0566330978673322 23 -2.0566330978673188 24 -2.0566330978673282 25 -2.0566330978673322
 		 26 -2.0566330978673357 27 -2.0566330978673215 28 -2.0566330978673304 29 -2.0566330978673433
-		 30 -2.0566330978673473 31 -2.0566330978673353 32 -2.0566330978673317 33 -2.0566330978673495
+		 30 -2.0566330978673473 31 -2.0566330978673357 32 -2.0566330978673317 33 -2.0566330978673495
 		 34 -2.0566330978673579 35 -2.0566330978673482 36 -2.0566330978673633 37 -2.0566330978673775
 		 38 -2.0566330978673668 39 -2.0566330978673726 40 -2.0566330978673766 41 -2.0566330978673775
 		 42 -2.0566330978673704 43 -2.0566330978673983 44 -2.0566330978673868 45 -2.0566330978673761
-		 46 -2.0566330978673846 47 -2.056633097867393 48 -2.056633097867393 49 -2.0566330978673992
-		 50 -2.0566330978673868 51 -2.0566330978673846 52 -2.056633097867393 53 -2.056633097867385
+		 46 -2.056633097867385 47 -2.056633097867393 48 -2.056633097867393 49 -2.0566330978673992
+		 50 -2.0566330978673868 51 -2.056633097867385 52 -2.056633097867393 53 -2.056633097867385
 		 54 -2.056633097867393 55 -2.0566330978673983 56 -2.056633097867393 57 -2.056633097867393
-		 58 -2.0566330978674041 59 -2.056633097867385 60 -2.0566330978673846 61 -2.0566330978673726
+		 58 -2.0566330978674041 59 -2.056633097867385 60 -2.056633097867385 61 -2.0566330978673726
 		 62 -2.0566330978673775 63 -2.0566330978673726 64 -2.0566330978673668 65 -2.0566330978673766
 		 66 -2.0566330978673668 67 -2.0566330978673726 68 -2.0566330978673584 69 -2.0566330978673566
 		 70 -2.0566330978673633 71 -2.0566330978673566 72 -2.0566330978673588 73 -2.0566330978673566
 		 74 -2.0566330978673482 75 -2.0566330978673579 76 -2.0566330978673566 77 -2.0566330978673482
 		 78 -2.0566330978673495 79 -2.0566330978673335 80 -2.0566330978673566 81 -2.0566330978673335
 		 82 -2.0566330978673335 83 -2.0566330978673215 84 -2.0566330978673433 85 -2.0566330978673188
-		 86 -2.0566330978673304 87 -2.0566330978673353 88 -2.0566330978673202 89 -2.0566330978673077
+		 86 -2.0566330978673304 87 -2.0566330978673357 88 -2.0566330978673202 89 -2.0566330978673077
 		 90 -2.05663309786731 91 -2.0566330978673251 92 -2.0566330978673184 93 -2.0566330978673215
 		 94 -2.0566330978673304 95 -2.0566330978673322 96 -2.0566330978673317 97 -2.0566330978673202
 		 98 -2.0566330978673251 99 -2.0566330978673482 100 -2.0566330978673566 101 -2.0566330978673579
 		 102 -2.0566330978673482 103 -2.0566330978673579 104 -2.0566330978673579 105 -2.0566330978673726
 		 106 -2.0566330978673668 107 -2.0566330978673775 108 -2.0566330978673761 109 -2.0566330978673775
-		 110 -2.0566330978673704 111 -2.0566330978673983 112 -2.0566330978673846 113 -2.056633097867393
+		 110 -2.0566330978673704 111 -2.0566330978673983 112 -2.056633097867385 113 -2.056633097867393
 		 114 -2.0566330978673868 115 -2.056633097867393 116 -2.0566330978673983 117 -2.0566330978673757
 		 118 -2.056633097867385 119 -2.0566330978673775 120 -2.056633097867385 121 -2.0566330978673766
 		 122 -2.0566330978673775 123 -2.0566330978673668 124 -2.0566330978673633 125 -2.0566330978673713
 		 126 -2.0566330978673766 127 -2.0566330978673584 128 -2.0566330978673499 129 -2.0566330978673433
 		 130 -2.0566330978673579 131 -2.0566330978673566 132 -2.0566330978673566 133 -2.0566330978673566
 		 134 -2.0566330978673331 135 -2.0566330978673282 136 -2.0566330978673482 137 -2.0566330978673304
-		 138 -2.0566330978673304 139 -2.0566330978673282 140 -2.0566330978673317 141 -2.0566330978673353
+		 138 -2.0566330978673304 139 -2.0566330978673282 140 -2.0566330978673317 141 -2.0566330978673357
 		 142 -2.0566330978673322 143 -2.0566330978673251 144 -2.0566330978673304 145 -2.05663309786731
 		 146 -2.0566330978673166 147 -2.0566330978673202 148 -2.0566330978673202 149 -2.0566330978673322
 		 150 -2.0566330978673304 151 -2.0566330978673304 152 -2.0566330978673282 153 -2.0566330978673482
-		 154 -2.0566330978673566 155 -2.0566330978673353 156 -2.0566330978673317 157 -2.0566330978673566
+		 154 -2.0566330978673566 155 -2.0566330978673357 156 -2.0566330978673317 157 -2.0566330978673566
 		 158 -2.0566330978673579 159 -2.0566330978673482 160 -2.0566330978673588 161 -2.056633097867353
 		 162 -2.0566330978673579 163 -2.0566330978673584 164 -2.0566330978673686 165 -2.0566330978673588
 		 166 -2.0566330978673499 167 -2.0566330978673713 168 -2.0566330978673713 169 -2.0566330978673726
 		 170 -2.0566330978673704 171 -2.0566330978673704 172 -2.056633097867385 173 -2.0566330978673766
 		 174 -2.0566330978673983 175 -2.0566330978673761 176 -2.0566330978673983 177 -2.056633097867405
-		 178 -2.0566330978673868 179 -2.0566330978674041 180 -2.0566330978673846 181 -2.0566330978673983
+		 178 -2.0566330978673868 179 -2.0566330978674041 180 -2.056633097867385 181 -2.0566330978673983
 		 182 -2.056633097867393 183 -2.0566330978674041 184 -2.056633097867393 185 -2.056633097867385
 		 186 -2.0566330978673926 187 -2.056633097867385 188 -2.0566330978673868 189 -2.0566330978673757
 		 190 -2.0566330978673704 191 -2.0566330978673775 192 -2.0566330978673726 193 -2.0566330978673726
@@ -27900,16 +27900,16 @@ createNode animCurveTA -n "L_Elbow_Joint_rotateZ";
 	setAttr ".tan" 18;
 	setAttr -s 211 ".ktv[0:210]"  0 -22.9275994004471 1 -22.927599400447072
 		 2 -22.9275994004471 3 -22.927599400447072 4 -22.927599400447082 5 -22.927599400447068
-		 6 -22.92759940044705 7 -22.927599400447068 8 -22.927599400447068 9 -22.927599400447068
+		 6 -22.927599400447054 7 -22.927599400447068 8 -22.927599400447068 9 -22.927599400447068
 		 10 -22.927599400447054 11 -22.927599400447072 12 -22.927599400447029 13 -22.927599400447011
 		 14 -22.927599400447011 15 -22.927599400447011 16 -22.927599400447018 17 -22.927599400447008
 		 18 -22.927599400447029 19 -22.927599400446994 20 -22.927599400446987 21 -22.927599400447008
 		 22 -22.927599400447018 23 -22.927599400447004 24 -22.927599400447011 25 -22.927599400447018
-		 26 -22.927599400447022 27 -22.927599400447022 28 -22.927599400447022 29 -22.92759940044705
+		 26 -22.927599400447022 27 -22.927599400447022 28 -22.927599400447022 29 -22.927599400447054
 		 30 -22.92759940044704 31 -22.927599400447029 32 -22.927599400447029 33 -22.927599400447054
 		 34 -22.927599400447082 35 -22.927599400447072 36 -22.92759940044709 37 -22.927599400447118
 		 38 -22.927599400447107 39 -22.9275994004471 40 -22.927599400447114 41 -22.927599400447118
-		 42 -22.927599400447111 43 -22.927599400447153 44 -22.927599400447136 45 -22.927599400447132
+		 42 -22.927599400447114 43 -22.927599400447153 44 -22.927599400447136 45 -22.927599400447132
 		 46 -22.927599400447143 47 -22.927599400447153 48 -22.927599400447153 49 -22.92759940044715
 		 50 -22.927599400447136 51 -22.927599400447143 52 -22.927599400447153 53 -22.927599400447132
 		 54 -22.927599400447153 55 -22.927599400447153 56 -22.927599400447153 57 -22.927599400447153
@@ -27919,18 +27919,18 @@ createNode animCurveTA -n "L_Elbow_Joint_rotateZ";
 		 70 -22.92759940044709 71 -22.927599400447068 72 -22.927599400447072 73 -22.927599400447068
 		 74 -22.927599400447072 75 -22.927599400447072 76 -22.927599400447068 77 -22.927599400447072
 		 78 -22.927599400447054 79 -22.927599400447033 80 -22.927599400447068 81 -22.927599400447033
-		 82 -22.927599400447033 83 -22.927599400447022 84 -22.92759940044705 85 -22.927599400447004
-		 86 -22.927599400447022 87 -22.927599400447029 88 -22.927599400446994 89 -22.92759940044699
+		 82 -22.927599400447033 83 -22.927599400447022 84 -22.927599400447054 85 -22.927599400447004
+		 86 -22.927599400447022 87 -22.927599400447029 88 -22.927599400446994 89 -22.927599400446994
 		 90 -22.927599400446987 91 -22.927599400447008 92 -22.927599400446994 93 -22.927599400447022
 		 94 -22.927599400447022 95 -22.927599400447018 96 -22.927599400447029 97 -22.927599400446994
 		 98 -22.927599400447022 99 -22.927599400447072 100 -22.927599400447068 101 -22.927599400447072
 		 102 -22.927599400447072 103 -22.927599400447072 104 -22.927599400447072 105 -22.9275994004471
 		 106 -22.927599400447107 107 -22.927599400447118 108 -22.927599400447132 109 -22.927599400447118
-		 110 -22.927599400447111 111 -22.927599400447153 112 -22.927599400447143 113 -22.927599400447153
+		 110 -22.927599400447114 111 -22.927599400447153 112 -22.927599400447143 113 -22.927599400447153
 		 114 -22.927599400447136 115 -22.927599400447153 116 -22.927599400447153 117 -22.927599400447139
 		 118 -22.927599400447132 119 -22.927599400447118 120 -22.927599400447132 121 -22.927599400447114
 		 122 -22.927599400447118 123 -22.927599400447107 124 -22.92759940044709 125 -22.927599400447107
-		 126 -22.927599400447114 127 -22.9275994004471 128 -22.927599400447082 129 -22.92759940044705
+		 126 -22.927599400447114 127 -22.9275994004471 128 -22.927599400447082 129 -22.927599400447054
 		 130 -22.927599400447072 131 -22.927599400447068 132 -22.927599400447068 133 -22.927599400447068
 		 134 -22.927599400447054 135 -22.927599400447011 136 -22.927599400447072 137 -22.927599400447022
 		 138 -22.927599400447022 139 -22.927599400447011 140 -22.927599400447029 141 -22.927599400447029
@@ -27941,14 +27941,14 @@ createNode animCurveTA -n "L_Elbow_Joint_rotateZ";
 		 158 -22.927599400447072 159 -22.927599400447072 160 -22.927599400447072 161 -22.927599400447082
 		 162 -22.927599400447082 163 -22.9275994004471 164 -22.927599400447104 165 -22.927599400447072
 		 166 -22.927599400447082 167 -22.927599400447107 168 -22.927599400447107 169 -22.9275994004471
-		 170 -22.927599400447111 171 -22.927599400447111 172 -22.927599400447132 173 -22.927599400447114
+		 170 -22.927599400447114 171 -22.927599400447114 172 -22.927599400447132 173 -22.927599400447114
 		 174 -22.927599400447153 175 -22.927599400447132 176 -22.927599400447153 177 -22.927599400447175
 		 178 -22.927599400447136 179 -22.927599400447143 180 -22.927599400447143 181 -22.927599400447153
 		 182 -22.927599400447153 183 -22.927599400447143 184 -22.927599400447153 185 -22.927599400447132
 		 186 -22.927599400447132 187 -22.927599400447132 188 -22.927599400447136 189 -22.927599400447139
-		 190 -22.927599400447111 191 -22.927599400447118 192 -22.9275994004471 193 -22.9275994004471
+		 190 -22.927599400447114 191 -22.927599400447118 192 -22.9275994004471 193 -22.9275994004471
 		 194 -22.927599400447114 195 -22.927599400447153 196 -22.927599400447132 197 -22.927599400447118
-		 198 -22.92759940044709 199 -22.927599400447104 200 -22.927599400447111 201 -22.927599400447104
+		 198 -22.92759940044709 199 -22.927599400447104 200 -22.927599400447114 201 -22.927599400447104
 		 202 -22.92759940044709 203 -22.927599400447132 204 -22.927599400447082 205 -22.927599400447082
 		 206 -22.927599400447114 207 -22.927599400447068 208 -22.9275994004471 209 -22.92759940044709
 		 210 -22.9275994004471;
@@ -28214,11 +28214,11 @@ createNode animCurveTA -n "L_Wrist_Joint_rotateX";
 		 34 -11.803352590694308 35 -11.803352590694301 36 -11.803352590694317 37 -11.803352590694308
 		 38 -11.803352590694301 39 -11.803352590694317 40 -11.803352590694308 41 -11.803352590694317
 		 42 -11.803352590694317 43 -11.803352590694296 44 -11.803352590694326 45 -11.803352590694322
-		 46 -11.803352590694336 47 -11.803352590694301 48 -11.803352590694308 49 -11.803352590694322
+		 46 -11.803352590694338 47 -11.803352590694301 48 -11.803352590694308 49 -11.803352590694322
 		 50 -11.80335259069431 51 -11.803352590694322 52 -11.803352590694308 53 -11.803352590694317
-		 54 -11.803352590694308 55 -11.803352590694303 56 -11.80335259069432 57 -11.803352590694308
+		 54 -11.803352590694308 55 -11.803352590694303 56 -11.803352590694322 57 -11.803352590694308
 		 58 -11.803352590694296 59 -11.803352590694308 60 -11.803352590694317 61 -11.803352590694315
-		 62 -11.80335259069432 63 -11.803352590694301 64 -11.803352590694322 65 -11.803352590694308
+		 62 -11.803352590694322 63 -11.803352590694301 64 -11.803352590694322 65 -11.803352590694308
 		 66 -11.803352590694315 67 -11.803352590694308 68 -11.803352590694322 69 -11.803352590694317
 		 70 -11.803352590694317 71 -11.803352590694301 72 -11.803352590694301 73 -11.803352590694308
 		 74 -11.803352590694301 75 -11.803352590694308 76 -11.803352590694306 77 -11.803352590694301
@@ -28233,7 +28233,7 @@ createNode animCurveTA -n "L_Wrist_Joint_rotateX";
 		 110 -11.803352590694317 111 -11.803352590694308 112 -11.803352590694317 113 -11.803352590694296
 		 114 -11.80335259069431 115 -11.803352590694317 116 -11.80335259069431 117 -11.803352590694317
 		 118 -11.803352590694317 119 -11.803352590694308 120 -11.803352590694308 121 -11.803352590694317
-		 122 -11.80335259069432 123 -11.803352590694315 124 -11.803352590694317 125 -11.803352590694308
+		 122 -11.803352590694322 123 -11.803352590694315 124 -11.803352590694317 125 -11.803352590694308
 		 126 -11.803352590694315 127 -11.803352590694315 128 -11.803352590694315 129 -11.803352590694301
 		 130 -11.803352590694301 131 -11.803352590694296 132 -11.803352590694306 133 -11.803352590694296
 		 134 -11.803352590694301 135 -11.803352590694301 136 -11.803352590694296 137 -11.803352590694301
@@ -28246,11 +28246,11 @@ createNode animCurveTA -n "L_Wrist_Joint_rotateX";
 		 162 -11.803352590694317 163 -11.803352590694313 164 -11.803352590694301 165 -11.803352590694315
 		 166 -11.803352590694315 167 -11.803352590694328 168 -11.803352590694317 169 -11.803352590694301
 		 170 -11.803352590694317 171 -11.803352590694317 172 -11.803352590694308 173 -11.803352590694308
-		 174 -11.803352590694308 175 -11.803352590694315 176 -11.803352590694308 177 -11.80335259069432
+		 174 -11.803352590694308 175 -11.803352590694315 176 -11.803352590694308 177 -11.803352590694322
 		 178 -11.80335259069431 179 -11.80335259069431 180 -11.803352590694328 181 -11.803352590694317
 		 182 -11.803352590694317 183 -11.803352590694303 184 -11.803352590694308 185 -11.803352590694308
 		 186 -11.80335259069431 187 -11.80335259069431 188 -11.803352590694308 189 -11.803352590694315
-		 190 -11.80335259069432 191 -11.803352590694322 192 -11.803352590694301 193 -11.803352590694308
+		 190 -11.803352590694322 191 -11.803352590694322 192 -11.803352590694301 193 -11.803352590694308
 		 194 -11.803352590694308 195 -11.803352590694308 196 -11.803352590694301 197 -11.803352590694308
 		 198 -11.803352590694308 199 -11.803352590694308 200 -11.803352590694296 201 -11.803352590694308
 		 202 -11.803352590694308 203 -11.803352590694308 204 -11.803352590694328 205 -11.803352590694315
@@ -28324,16 +28324,16 @@ createNode animCurveTA -n "L_Wrist_Joint_rotateZ";
 		 22 -6.190764786788872 23 -6.1907647867888764 24 -6.190764786788872 25 -6.190764786788872
 		 26 -6.1907647867888755 27 -6.1907647867888764 28 -6.1907647867888844 29 -6.1907647867888844
 		 30 -6.190764786788872 31 -6.1907647867888764 32 -6.1907647867889111 33 -6.1907647867888942
-		 34 -6.1907647867888942 35 -6.1907647867888862 36 -6.1907647867889155 37 -6.1907647867888942
-		 38 -6.1907647867888862 39 -6.1907647867889155 40 -6.1907647867888942 41 -6.1907647867889155
-		 42 -6.1907647867889155 43 -6.1907647867888844 44 -6.1907647867889342 45 -6.1907647867889342
+		 34 -6.1907647867888942 35 -6.1907647867888862 36 -6.1907647867889164 37 -6.1907647867888942
+		 38 -6.1907647867888862 39 -6.1907647867889164 40 -6.1907647867888942 41 -6.1907647867889164
+		 42 -6.1907647867889164 43 -6.1907647867888844 44 -6.1907647867889342 45 -6.1907647867889342
 		 46 -6.1907647867889581 47 -6.1907647867888862 48 -6.1907647867888942 49 -6.1907647867889342
-		 50 -6.1907647867889004 51 -6.1907647867889342 52 -6.1907647867888942 53 -6.1907647867889155
+		 50 -6.1907647867889004 51 -6.1907647867889342 52 -6.1907647867888942 53 -6.1907647867889164
 		 54 -6.1907647867888889 55 -6.1907647867888755 56 -6.1907647867889199 57 -6.1907647867888889
-		 58 -6.1907647867888844 59 -6.1907647867888942 60 -6.1907647867889155 61 -6.1907647867889111
+		 58 -6.1907647867888844 59 -6.1907647867888942 60 -6.1907647867889164 61 -6.1907647867889111
 		 62 -6.1907647867889199 63 -6.1907647867888862 64 -6.1907647867889342 65 -6.1907647867888942
-		 66 -6.1907647867889111 67 -6.1907647867888942 68 -6.1907647867889342 69 -6.1907647867889155
-		 70 -6.1907647867889155 71 -6.1907647867888862 72 -6.1907647867888862 73 -6.1907647867888942
+		 66 -6.1907647867889111 67 -6.1907647867888942 68 -6.1907647867889342 69 -6.1907647867889164
+		 70 -6.1907647867889164 71 -6.1907647867888862 72 -6.1907647867888862 73 -6.1907647867888942
 		 74 -6.1907647867888862 75 -6.1907647867888942 76 -6.190764786788872 77 -6.1907647867888862
 		 78 -6.1907647867888755 79 -6.1907647867888942 80 -6.190764786788872 81 -6.1907647867888942
 		 82 -6.1907647867888844 83 -6.1907647867888862 84 -6.1907647867888844 85 -6.1907647867888862
@@ -28342,11 +28342,11 @@ createNode animCurveTA -n "L_Wrist_Joint_rotateZ";
 		 94 -6.1907647867888764 95 -6.1907647867888764 96 -6.1907647867888942 97 -6.1907647867888764
 		 98 -6.1907647867888942 99 -6.1907647867888764 100 -6.1907647867888844 101 -6.1907647867888862
 		 102 -6.1907647867889111 103 -6.1907647867888942 104 -6.1907647867888862 105 -6.1907647867889111
-		 106 -6.1907647867889111 107 -6.1907647867889155 108 -6.1907647867889386 109 -6.1907647867889155
-		 110 -6.1907647867889155 111 -6.1907647867888942 112 -6.1907647867889155 113 -6.1907647867888844
-		 114 -6.1907647867889004 115 -6.1907647867889155 116 -6.1907647867889004 117 -6.1907647867889155
-		 118 -6.1907647867889155 119 -6.1907647867888942 120 -6.1907647867888942 121 -6.1907647867889155
-		 122 -6.1907647867889199 123 -6.1907647867889111 124 -6.1907647867889155 125 -6.1907647867888942
+		 106 -6.1907647867889111 107 -6.1907647867889164 108 -6.1907647867889386 109 -6.1907647867889164
+		 110 -6.1907647867889164 111 -6.1907647867888942 112 -6.1907647867889164 113 -6.1907647867888844
+		 114 -6.1907647867889004 115 -6.1907647867889164 116 -6.1907647867889004 117 -6.1907647867889164
+		 118 -6.1907647867889164 119 -6.1907647867888942 120 -6.1907647867888942 121 -6.1907647867889164
+		 122 -6.1907647867889199 123 -6.1907647867889111 124 -6.1907647867889164 125 -6.1907647867888942
 		 126 -6.1907647867889111 127 -6.1907647867889111 128 -6.1907647867889111 129 -6.1907647867888862
 		 130 -6.1907647867888862 131 -6.1907647867888844 132 -6.190764786788872 133 -6.1907647867888844
 		 134 -6.1907647867888862 135 -6.1907647867888782 136 -6.1907647867888844 137 -6.1907647867888764
@@ -28356,18 +28356,18 @@ createNode animCurveTA -n "L_Wrist_Joint_rotateZ";
 		 150 -6.190764786788872 151 -6.1907647867888764 152 -6.190764786788872 153 -6.190764786788872
 		 154 -6.1907647867888844 155 -6.1907647867888889 156 -6.1907647867888942 157 -6.190764786788872
 		 158 -6.1907647867888862 159 -6.1907647867888942 160 -6.1907647867888942 161 -6.1907647867888862
-		 162 -6.1907647867889155 163 -6.1907647867889164 164 -6.1907647867888862 165 -6.1907647867889111
-		 166 -6.1907647867889111 167 -6.1907647867889386 168 -6.1907647867889155 169 -6.1907647867888862
-		 170 -6.1907647867889155 171 -6.1907647867889155 172 -6.1907647867888942 173 -6.1907647867888942
+		 162 -6.1907647867889164 163 -6.1907647867889164 164 -6.1907647867888862 165 -6.1907647867889111
+		 166 -6.1907647867889111 167 -6.1907647867889386 168 -6.1907647867889164 169 -6.1907647867888862
+		 170 -6.1907647867889164 171 -6.1907647867889164 172 -6.1907647867888942 173 -6.1907647867888942
 		 174 -6.1907647867888942 175 -6.1907647867889111 176 -6.1907647867888942 177 -6.1907647867889199
-		 178 -6.1907647867889004 179 -6.1907647867889004 180 -6.1907647867889386 181 -6.1907647867889155
-		 182 -6.1907647867889155 183 -6.1907647867888755 184 -6.1907647867888889 185 -6.1907647867888942
+		 178 -6.1907647867889004 179 -6.1907647867889004 180 -6.1907647867889386 181 -6.1907647867889164
+		 182 -6.1907647867889164 183 -6.1907647867888755 184 -6.1907647867888889 185 -6.1907647867888942
 		 186 -6.1907647867889004 187 -6.1907647867889004 188 -6.1907647867888942 189 -6.1907647867889111
 		 190 -6.1907647867889199 191 -6.1907647867889342 192 -6.1907647867888862 193 -6.1907647867888942
 		 194 -6.1907647867888942 195 -6.1907647867888942 196 -6.1907647867888862 197 -6.1907647867888942
 		 198 -6.1907647867888942 199 -6.1907647867888942 200 -6.1907647867888844 201 -6.1907647867888942
 		 202 -6.1907647867888942 203 -6.1907647867888942 204 -6.1907647867889386 205 -6.1907647867889111
-		 206 -6.1907647867889155 207 -6.1907647867888862 208 -6.1907647867889155 209 -6.1907647867888862
+		 206 -6.1907647867889164 207 -6.1907647867888862 208 -6.1907647867889164 209 -6.1907647867888862
 		 210 -6.1907647867888862;
 createNode animCurveTU -n "L_Wrist_Joint_scaleX";
 	rename -uid "C0C3742F-4F73-5A58-FED6-E3A853569DBC";
@@ -30147,7 +30147,7 @@ createNode animCurveTA -n "R_Shoulder_Joint_rotateX";
 		 82 -20.605371070567337 83 -20.59441164395038 84 -20.584142151085484 85 -20.574686370255375
 		 86 -20.566201674626377 87 -20.558894642173531 88 -20.553046767009914 89 -20.549059590197576
 		 90 -20.547540711582823 91 -20.557099615258167 92 -20.570609265035362 93 -20.585297485955433
-		 94 -20.600698368620744 95 -20.616629043288324 96 -20.632996896117209 97 -20.649748082751888
+		 94 -20.600698368620744 95 -20.616629043288327 96 -20.632996896117209 97 -20.649748082751888
 		 98 -20.666848243301285 99 -20.684273713217017 100 -20.702006916075145 101 -20.720033641035943
 		 102 -20.738341222488923 103 -20.756917134464036 104 -20.775747708197986 105 -20.794816742530177
 		 106 -20.814103750789215 107 -20.833581462066579 108 -20.853211886803795 109 -20.87293952158938
@@ -30155,7 +30155,7 @@ createNode animCurveTA -n "R_Shoulder_Joint_rotateX";
 		 114 -20.962634430963551 115 -20.954929264597734 116 -20.940997013430692 117 -20.924822542751741
 		 118 -20.907568873258278 119 -20.889769524866725 120 -20.871721541530562 121 -20.853609962999833
 		 122 -20.835559014807991 123 -20.817656809662331 124 -20.799968665460899 125 -20.782544913186445
-		 126 -20.765425796897674 127 -20.748644738342392 128 -20.732230640035837 129 -20.716209609354507
+		 126 -20.765425796897674 127 -20.748644738342392 128 -20.732230640035841 129 -20.716209609354507
 		 130 -20.700606336238636 131 -20.685445277448817 132 -20.67075175864883 133 -20.656553086767886
 		 134 -20.642879762550145 135 -20.629766895423153 136 -20.617255952460081 137 -20.60539702800234
 		 138 -20.59425191645963 139 -20.58389843973297 140 -20.574436787339838 141 -20.5659992101222
@@ -30165,15 +30165,15 @@ createNode animCurveTA -n "R_Shoulder_Joint_rotateX";
 		 154 -20.643771164311726 155 -20.655892198311246 156 -20.668171052039579 157 -20.68060258932821
 		 158 -20.693182813492918 159 -20.705908477172439 160 -20.718776797735938 161 -20.731785234732946
 		 162 -20.744931301467055 163 -20.758212390737746 164 -20.771625598236987 165 -20.785167527289452
-		 166 -20.798834055763002 167 -20.812620039228683 168 -20.82651891162773 169 -20.840522121092707
+		 166 -20.798834055763002 167 -20.812620039228687 168 -20.82651891162773 169 -20.840522121092711
 		 170 -20.854618294091839 171 -20.868791933108326 172 -20.88302126695168 173 -20.897274442735849
 		 174 -20.91150213304169 175 -20.925621242646493 176 -20.939471392410113 177 -20.952651216696474
-		 178 -20.962634430963551 179 -20.955394483236063 180 -20.942625740043805 181 -20.927911617469615
-		 182 -20.91223943959638 183 -20.896054680144108 184 -20.879603685664012 185 -20.86303953608784
-		 186 -20.84646496708768 187 -20.829952881914426 188 -20.813557326838655 189 -20.797319881978314
+		 178 -20.962634430963551 179 -20.955394483236066 180 -20.942625740043805 181 -20.927911617469615
+		 182 -20.91223943959638 183 -20.896054680144108 184 -20.879603685664012 185 -20.863039536087843
+		 186 -20.84646496708768 187 -20.829952881914426 188 -20.813557326838655 189 -20.797319881978318
 		 190 -20.781273643883694 191 -20.765445857260499 192 -20.749859752485694 193 -20.73453590303242
 		 194 -20.719493292400639 195 -20.704750214034721 196 -20.690325092970451 197 -20.676237302013927
-		 198 -20.662508042693265 199 -20.649161370931854 200 -20.636225471926352 201 -20.623734335378902
+		 198 -20.662508042693265 199 -20.649161370931854 200 -20.636225471926355 201 -20.623734335378902
 		 202 -20.61173006653642 203 -20.600266222446201 204 -20.589412854862907 205 -20.579264526781348
 		 206 -20.56995383142327 207 -20.561675925349942 208 -20.554737549208582 209 -20.549669140591014
 		 210 -20.547540711582823;
@@ -30200,14 +30200,14 @@ createNode animCurveTA -n "R_Shoulder_Joint_rotateY";
 		 66 6.1594877376267654 67 5.9655869609768439 68 5.766959057871949 69 5.5641800767271477
 		 70 5.3578249632353199 71 5.1484735681127836 72 4.9367170184094693 73 4.7231646676685681
 		 74 4.5084518844183936 75 4.2932490035383895 76 4.0782718592670006 77 3.8642944549072729
-		 78 3.6521645228658257 79 3.4428230218433566 80 3.2373290585081431 81 3.0368923971552912
+		 78 3.6521645228658257 79 3.4428230218433571 80 3.2373290585081431 81 3.0368923971552912
 		 82 2.8429167850890216 83 2.657059045828341 84 2.4813117816309362 85 2.3181225612416738
 		 86 2.1705716522532428 87 2.0426480493142121 88 1.939699963092989 89 1.8692172887840335
 		 90 1.8423054338347011 91 2.0111016942848901 92 2.2473532858707781 93 2.5011607044492892
 		 94 2.763887369130404 95 3.0320246610075725 96 3.3037160938137995 97 3.5778233314456687
 		 98 3.8535748801597554 99 4.1304058305367839 100 4.4078743029177216 101 4.6856129155057413
 		 102 4.9632975078030483 103 5.2406244588876234 104 5.51729167425 105 5.7929797153843614
-		 106 6.0673295809880994 107 6.3399123340641514 108 6.6101821844543149 109 6.8773958492299059
+		 106 6.0673295809881003 107 6.3399123340641514 108 6.6101821844543149 109 6.8773958492299059
 		 110 7.1404578977823467 111 7.3975814761332179 112 7.6453852767636548 113 7.8755281874861298
 		 114 8.0396533495245048 115 7.9430585463676513 116 7.7668934251130066 117 7.5599056886056735
 		 118 7.3361210739529854 119 7.1019578883045815 120 6.8610237481770691 121 6.615617378381069
@@ -30220,9 +30220,9 @@ createNode animCurveTA -n "R_Shoulder_Joint_rotateY";
 		 146 1.9711605447593372 147 2.1426081118351994 148 2.3244332179757112 149 2.5115647602511308
 		 150 2.7019770762032143 151 2.8946131042438608 152 3.0888355604706712 153 3.2842225704704164
 		 154 3.4804754183885875 155 3.6773712545724173 156 3.8747365067194153 157 4.072430817787942
-		 158 4.2703367449081018 159 4.4683527876030453 160 4.666388412492763 161 4.8643602942729363
+		 158 4.2703367449081018 159 4.4683527876030453 160 4.6663884124927639 161 4.8643602942729363
 		 162 5.0621892832144111 163 5.2597977636602886 164 5.4571071441720234 165 5.6540352440011414
-		 166 5.8504933200819629 167 6.0463824069705314 168 6.2415884943971616 169 6.4359757873110004
+		 166 5.8504933200819629 167 6.0463824069705314 168 6.2415884943971616 169 6.4359757873110013
 		 170 6.6293767597574043 171 6.8215766518045982 172 7.0122878010544509 173 7.2011039633553038
 		 174 7.3874111446383273 175 7.5701898982806837 176 7.7474839195733107 177 7.9143871029730999
 		 178 8.0396533495245048 179 7.9489074138121518 180 7.7875886336573643 181 7.5996446405814311
@@ -30231,20 +30231,20 @@ createNode animCurveTA -n "R_Shoulder_Joint_rotateY";
 		 190 5.5976420955544155 191 5.3664832752228495 192 5.1357818585347905 193 4.9059388636790029
 		 194 4.6773503686152731 195 4.4504196994583562 196 4.2255693064634769 197 4.0032533602225016
 		 198 3.7839721531054855 199 3.5682896318504418 200 3.3568558757216951 201 3.1504372097206454
-		 202 2.9499581864897633 203 2.7565624588038182 204 2.5717048178384347 205 2.3972971531099789
+		 202 2.9499581864897633 203 2.7565624588038187 204 2.5717048178384347 205 2.3972971531099789
 		 206 2.2359535771164936 207 2.0914328886351234 208 1.9695172254785211 209 1.8800078083112541
 		 210 1.8423054338347011;
 createNode animCurveTA -n "R_Shoulder_Joint_rotateZ";
 	rename -uid "545EA69E-45BD-BAEE-C145-E2AE4B833754";
 	setAttr ".tan" 18;
-	setAttr -s 211 ".ktv[0:210]"  0 -45.59670593813096 1 -45.59670593813096
-		 2 -45.59670593813096 3 -45.59670593813096 4 -45.59670593813096 5 -45.59670593813096
-		 6 -45.59670593813096 7 -45.59670593813096 8 -45.59670593813096 9 -45.59670593813096
-		 10 -45.59670593813096 11 -45.59670593813096 12 -45.59670593813096 13 -45.59670593813096
-		 14 -45.59670593813096 15 -45.59670593813096 16 -45.59670593813096 17 -45.59670593813096
-		 18 -45.59670593813096 19 -45.59670593813096 20 -45.59670593813096 21 -45.600027545161723
+	setAttr -s 211 ".ktv[0:210]"  0 -45.596705938130967 1 -45.596705938130967
+		 2 -45.596705938130967 3 -45.596705938130967 4 -45.596705938130967 5 -45.596705938130967
+		 6 -45.596705938130967 7 -45.596705938130967 8 -45.596705938130967 9 -45.596705938130967
+		 10 -45.596705938130967 11 -45.596705938130967 12 -45.596705938130967 13 -45.596705938130967
+		 14 -45.596705938130967 15 -45.596705938130967 16 -45.596705938130967 17 -45.596705938130967
+		 18 -45.596705938130967 19 -45.596705938130967 20 -45.596705938130967 21 -45.600027545161723
 		 22 -45.609716102495696 23 -45.625388977799304 24 -45.646696999653813 25 -45.673314062923893
-		 26 -45.704927577618101 27 -45.741229743758502 28 -45.781909638251356 29 -45.826646102728539
+		 26 -45.704927577618101 27 -45.741229743758502 28 -45.781909638251364 29 -45.826646102728539
 		 30 -45.875101424151644 31 -45.926915802858559 32 -45.981702605814597 33 -46.039044406150119
 		 34 -46.098489813591605 35 -46.159551104033 36 -46.221702660110623 37 -46.284380238063797
 		 38 -46.346981079186008 39 -46.40886488658365 40 -46.469355689551151 41 -46.527744618428819
@@ -30255,42 +30255,42 @@ createNode animCurveTA -n "R_Shoulder_Joint_rotateZ";
 		 58 -46.697239951751698 59 -46.666591530157106 60 -46.633876179323444 61 -46.599333659899628
 		 62 -46.563187538491974 63 -46.525647015188873 64 -46.48690853075454 65 -46.447157197506954
 		 66 -46.406568090627822 67 -46.365307431459435 68 -46.32353369084457 69 -46.281398638529112
-		 70 -46.239048363974732 71 -46.196624294648686 72 -46.154264240124597 73 -46.112103494468386
-		 74 -46.07027603593923 75 -46.028915872869554 76 -45.988158599050692 77 -45.948143243141629
+		 70 -46.239048363974732 71 -46.196624294648693 72 -46.154264240124597 73 -46.112103494468386
+		 74 -46.07027603593923 75 -46.028915872869554 76 -45.988158599050692 77 -45.948143243141637
 		 78 -45.909014527870447 79 -45.870925701459861 80 -45.834042174586173 81 -45.798546306138533
 		 82 -45.764643855922898 83 -45.732572908750988 84 -45.702616559024058 85 -45.675121498059305
 		 86 -45.650526218578172 87 -45.629405610517701 88 -45.612545084501335 89 -45.601071719905107
-		 90 -45.59670593813096 91 -45.624226118560536 92 -45.663293612176233 93 -45.705981864768091
+		 90 -45.596705938130967 91 -45.624226118560536 92 -45.663293612176233 93 -45.705981864768091
 		 94 -45.750957569587356 95 -45.797690141958917 96 -45.845903208323932 97 -45.895428810035227
-		 98 -45.946153047058665 99 -45.997991417030946 100 -46.050875939465577 101 -46.104747566153996
+		 98 -45.946153047058672 99 -45.997991417030946 100 -46.050875939465577 101 -46.104747566153996
 		 102 -46.159551104033 103 -46.215231274752924 104 -46.271729084203066 105 -46.328977841557261
-		 106 -46.386898082349568 107 -46.445390272965454 108 -46.504323258216559 109 -46.563514231238528
-		 110 -46.622690322245838 111 -46.681404718648956 112 -46.738814929464048 113 -46.792863255057227
+		 106 -46.386898082349568 107 -46.445390272965454 108 -46.504323258216559 109 -46.563514231238536
+		 110 -46.622690322245838 111 -46.681404718648956 112 -46.738814929464056 113 -46.792863255057227
 		 114 -46.83183960705383 115 -46.808856638251385 116 -46.767262832929376 117 -46.718919596064829
-		 118 -46.667291230669761 119 -46.613973361438497 120 -46.559861053755462 121 -46.505518035993006
+		 118 -46.667291230669768 119 -46.613973361438497 120 -46.559861053755462 121 -46.505518035993006
 		 122 -46.451328214272237 123 -46.39756859994047 124 -46.344448509376349 125 -46.292132458300856
-		 126 -46.240754459994221 127 -46.190427492051263 128 -46.141250121734949 129 -46.093311417193675
+		 126 -46.240754459994228 127 -46.190427492051263 128 -46.141250121734949 129 -46.093311417193675
 		 130 -46.046694827807869 131 -46.001481481010813 132 -45.957753219163983 133 -45.91559564359774
 		 134 -45.875101424151637 135 -45.836374166843797 136 -45.799533217237624 137 -45.764719935089452
 		 138 -45.73210625360722 139 -45.701906827024906 140 -45.674396962518315 141 -45.649940232312645
-		 142 -45.629033097638697 143 -45.612381358801571 144 -45.601041164927807 145 -45.59670593813096
-		 146 -45.617684701262704 147 -45.645893264636584 148 -45.676179026674369 149 -45.70774765674561
+		 142 -45.629033097638697 143 -45.612381358801571 144 -45.601041164927807 145 -45.596705938130967
+		 146 -45.617684701262704 147 -45.645893264636591 148 -45.676179026674369 149 -45.70774765674561
 		 150 -45.740286887996952 151 -45.773636101855665 152 -45.807699687040724 153 -45.842415003122284
 		 154 -45.877738012023933 155 -45.913635952423874 156 -45.950083237200204 157 -45.987058977967607
 		 158 -46.024545391962413 159 -46.062526712043891 160 -46.100988391663492 161 -46.139916481901821
-		 162 -46.1792971016447 163 -46.219115944244976 164 -46.259357773419929 165 -46.300005861237828
+		 162 -46.179297101644707 163 -46.219115944244976 164 -46.259357773419929 165 -46.300005861237828
 		 166 -46.341041312247455 167 -46.382442197593214 168 -46.424182384800709 169 -46.466229878780013
 		 170 -46.508544357528265 171 -46.551073324800598 172 -46.593745749101906 173 -46.63646078013732
 		 174 -46.679065816797888 175 -46.721308118110116 176 -46.762705434575402 177 -46.802058856376739
 		 178 -46.83183960705383 179 -46.810244711934523 180 -46.772127644834818 181 -46.728156773466928
-		 182 -46.681272692899235 183 -46.63280655366399 184 -46.583499188880502 185 -46.533815403545177
-		 186 -46.484071185510956 187 -46.434494376835623 188 -46.385257061273073 189 -46.336494368220919
+		 182 -46.681272692899235 183 -46.63280655366399 184 -46.583499188880509 185 -46.533815403545177
+		 186 -46.484071185510963 187 -46.434494376835623 188 -46.385257061273073 189 -46.336494368220919
 		 190 -46.288316147383135 191 -46.240814646169383 192 -46.19406983620123 193 -46.14815331603296
-		 194 -46.103131347929335 195 -46.059067390241268 196 -46.016024383314488 197 -45.974066998530908
-		 198 -45.93326405076283 199 -45.89369130060701 200 -45.855434941311778 201 -45.818596197016646
-		 202 -45.783297698039611 203 -45.749692737082505 204 -45.717979343573205 205 -45.688422788459178
-		 206 -45.661393750128958 207 -45.637437944732625 208 -45.617415956385202 209 -45.602824542309698
-		 210 -45.59670593813096;
+		 194 -46.103131347929335 195 -46.059067390241275 196 -46.016024383314488 197 -45.974066998530908
+		 198 -45.93326405076283 199 -45.89369130060701 200 -45.855434941311785 201 -45.818596197016653
+		 202 -45.783297698039611 203 -45.749692737082505 204 -45.717979343573212 205 -45.688422788459178
+		 206 -45.661393750128958 207 -45.637437944732632 208 -45.617415956385202 209 -45.602824542309698
+		 210 -45.596705938130967;
 createNode animCurveTU -n "R_Shoulder_Joint_scaleX";
 	rename -uid "13C640D9-4C61-5283-A114-C09C7C771EB5";
 	setAttr ".tan" 18;
@@ -30669,10 +30669,10 @@ createNode animCurveTA -n "R_Elbow_Joint_rotateZ";
 		 39 1.5196284247377005 40 1.5196284247376854 41 1.5196284247377005 42 1.5196284247377003
 		 43 1.519628424737677 44 1.5196284247377005 45 1.519628424737677 46 1.519628424737677
 		 47 1.5196284247376728 48 1.5196284247376732 49 1.5196284247377005 50 1.5196284247376732
-		 51 1.5196284247376501 52 1.519628424737691 53 1.5196284247376541 54 1.5196284247376524
-		 55 1.5196284247377001 56 1.5196284247376894 57 1.519628424737693 58 1.519628424737691
+		 51 1.5196284247376501 52 1.5196284247376912 53 1.5196284247376541 54 1.5196284247376524
+		 55 1.5196284247377001 56 1.5196284247376894 57 1.519628424737693 58 1.5196284247376912
 		 59 1.5196284247377005 60 1.5196284247377236 61 1.5196284247377003 62 1.5196284247377005
-		 63 1.519628424737733 64 1.5196284247377005 65 1.519628424737691 66 1.5196284247377032
+		 63 1.519628424737733 64 1.5196284247377005 65 1.5196284247376912 66 1.5196284247377032
 		 67 1.5196284247377074 68 1.5196284247377236 69 1.5196284247377203 70 1.5196284247377299
 		 71 1.5196284247377265 72 1.519628424737733 73 1.5196284247377299 74 1.5196284247377203
 		 75 1.5196284247377487 76 1.5196284247377518 77 1.5196284247377734 78 1.5196284247377563
@@ -30683,8 +30683,8 @@ createNode animCurveTA -n "R_Elbow_Joint_rotateZ";
 		 95 1.519628424737733 96 1.5196284247377496 97 1.5196284247377299 98 1.519628424737733
 		 99 1.519628424737772 100 1.5196284247377299 101 1.5196284247377265 102 1.5196284247377225
 		 103 1.5196284247377394 104 1.519628424737733 105 1.5196284247377203 106 1.5196284247377032
-		 107 1.5196284247377074 108 1.5196284247377005 109 1.519628424737677 110 1.519628424737691
-		 111 1.519628424737677 112 1.5196284247377005 113 1.519628424737691 114 1.5196284247376732
+		 107 1.5196284247377074 108 1.5196284247377005 109 1.519628424737677 110 1.5196284247376912
+		 111 1.519628424737677 112 1.5196284247377005 113 1.5196284247376912 114 1.5196284247376732
 		 115 1.519628424737695 116 1.5196284247377074 117 1.5196284247377032 118 1.5196284247376894
 		 119 1.5196284247377005 120 1.5196284247377032 121 1.5196284247377003 122 1.519628424737693
 		 123 1.5196284247377074 124 1.5196284247377394 125 1.5196284247377005 126 1.519628424737733
@@ -30700,9 +30700,9 @@ createNode animCurveTA -n "R_Elbow_Joint_rotateZ";
 		 163 1.5196284247377299 164 1.5196284247377203 165 1.5196284247377203 166 1.519628424737693
 		 167 1.5196284247377074 168 1.5196284247377203 169 1.5196284247377203 170 1.5196284247377032
 		 171 1.5196284247377003 172 1.5196284247376732 173 1.5196284247377032 174 1.5196284247377001
-		 175 1.5196284247376972 176 1.519628424737693 177 1.519628424737691 178 1.5196284247376732
+		 175 1.5196284247376972 176 1.519628424737693 177 1.5196284247376912 178 1.5196284247376732
 		 179 1.519628424737695 180 1.519628424737657 181 1.5196284247377005 182 1.5196284247377001
-		 183 1.519628424737677 184 1.519628424737691 185 1.5196284247377005 186 1.5196284247377074
+		 183 1.519628424737677 184 1.5196284247376912 185 1.5196284247377005 186 1.5196284247377074
 		 187 1.5196284247377299 188 1.5196284247377203 189 1.5196284247377203 190 1.5196284247377032
 		 191 1.5196284247377203 192 1.5196284247377299 193 1.5196284247377203 194 1.519628424737733
 		 195 1.5196284247377496 196 1.5196284247377394 197 1.5196284247377394 198 1.5196284247377299
@@ -31027,53 +31027,53 @@ createNode animCurveTA -n "R_Wrist_Joint_rotateY";
 		 10 39.388510097787915 11 39.388510097787915 12 39.388510097787915 13 39.388510097787915
 		 14 39.388510097787915 15 39.388510097787915 16 39.388510097787915 17 39.388510097787915
 		 18 39.388510097787915 19 39.388510097787915 20 39.388510097787915 21 39.388510097787936
-		 22 39.388510097787936 23 39.388510097787929 24 39.388510097787943 25 39.388510097787943
-		 26 39.388510097787936 27 39.388510097787929 28 39.388510097787936 29 39.388510097787943
-		 30 39.388510097787929 31 39.388510097787929 32 39.388510097787929 33 39.388510097787915
-		 34 39.388510097787936 35 39.388510097787915 36 39.388510097787929 37 39.388510097787915
-		 38 39.388510097787915 39 39.388510097787929 40 39.388510097787936 41 39.388510097787915
-		 42 39.388510097787922 43 39.388510097787929 44 39.388510097787922 45 39.388510097787915
-		 46 39.388510097787943 47 39.388510097787929 48 39.388510097787943 49 39.388510097787915
+		 22 39.388510097787936 23 39.388510097787936 24 39.388510097787943 25 39.388510097787943
+		 26 39.388510097787936 27 39.388510097787936 28 39.388510097787936 29 39.388510097787943
+		 30 39.388510097787936 31 39.388510097787936 32 39.388510097787936 33 39.388510097787915
+		 34 39.388510097787936 35 39.388510097787915 36 39.388510097787936 37 39.388510097787915
+		 38 39.388510097787915 39 39.388510097787936 40 39.388510097787936 41 39.388510097787915
+		 42 39.388510097787922 43 39.388510097787936 44 39.388510097787922 45 39.388510097787915
+		 46 39.388510097787943 47 39.388510097787936 48 39.388510097787943 49 39.388510097787915
 		 50 39.388510097787936 51 39.388510097787943 52 39.388510097787943 53 39.388510097787943
-		 54 39.388510097787943 55 39.388510097787936 56 39.388510097787929 57 39.388510097787936
-		 58 39.388510097787936 59 39.388510097787922 60 39.388510097787936 61 39.388510097787929
+		 54 39.388510097787943 55 39.388510097787936 56 39.388510097787936 57 39.388510097787936
+		 58 39.388510097787936 59 39.388510097787922 60 39.388510097787936 61 39.388510097787936
 		 62 39.388510097787922 63 39.388510097787936 64 39.388510097787922 65 39.388510097787936
-		 66 39.388510097787915 67 39.388510097787929 68 39.388510097787915 69 39.388510097787936
+		 66 39.388510097787915 67 39.388510097787936 68 39.388510097787915 69 39.388510097787936
 		 70 39.388510097787936 71 39.388510097787915 72 39.388510097787936 73 39.388510097787943
 		 74 39.388510097787915 75 39.388510097787936 76 39.388510097787943 77 39.388510097787908
 		 78 39.388510097787936 79 39.388510097787943 80 39.388510097787915 81 39.388510097787936
 		 82 39.388510097787936 83 39.388510097787901 84 39.388510097787943 85 39.388510097787936
-		 86 39.388510097787929 87 39.388510097787936 88 39.388510097787936 89 39.388510097787915
+		 86 39.388510097787936 87 39.388510097787936 88 39.388510097787936 89 39.388510097787915
 		 90 39.388510097787915 91 39.388510097787915 92 39.388510097787915 93 39.388510097787936
-		 94 39.388510097787936 95 39.388510097787929 96 39.388510097787915 97 39.388510097787943
+		 94 39.388510097787936 95 39.388510097787936 96 39.388510097787915 97 39.388510097787943
 		 98 39.388510097787915 99 39.388510097787936 100 39.388510097787943 101 39.388510097787936
-		 102 39.388510097787915 103 39.388510097787929 104 39.388510097787943 105 39.388510097787929
-		 106 39.388510097787915 107 39.388510097787929 108 39.388510097787893 109 39.388510097787936
-		 110 39.388510097787943 111 39.388510097787929 112 39.388510097787922 113 39.388510097787915
+		 102 39.388510097787915 103 39.388510097787936 104 39.388510097787943 105 39.388510097787936
+		 106 39.388510097787915 107 39.388510097787936 108 39.388510097787893 109 39.388510097787936
+		 110 39.388510097787943 111 39.388510097787936 112 39.388510097787922 113 39.388510097787915
 		 114 39.388510097787936 115 39.388510097787915 116 39.388510097787922 117 39.388510097787936
-		 118 39.388510097787943 119 39.388510097787929 120 39.388510097787915 121 39.388510097787936
-		 122 39.388510097787936 123 39.388510097787929 124 39.388510097787943 125 39.388510097787893
-		 126 39.388510097787915 127 39.388510097787936 128 39.388510097787929 129 39.388510097787943
+		 118 39.388510097787943 119 39.388510097787936 120 39.388510097787915 121 39.388510097787936
+		 122 39.388510097787936 123 39.388510097787936 124 39.388510097787943 125 39.388510097787893
+		 126 39.388510097787915 127 39.388510097787936 128 39.388510097787936 129 39.388510097787943
 		 130 39.388510097787936 131 39.388510097787943 132 39.388510097787915 133 39.388510097787915
 		 134 39.388510097787943 135 39.388510097787936 136 39.388510097787915 137 39.388510097787943
-		 138 39.388510097787936 139 39.388510097787943 140 39.388510097787929 141 39.388510097787929
-		 142 39.388510097787936 143 39.388510097787929 144 39.388510097787929 145 39.388510097787915
-		 146 39.388510097787936 147 39.388510097787915 148 39.388510097787936 149 39.388510097787929
-		 150 39.388510097787929 151 39.388510097787929 152 39.388510097787936 153 39.388510097787943
-		 154 39.388510097787943 155 39.388510097787929 156 39.388510097787915 157 39.388510097787943
-		 158 39.388510097787915 159 39.388510097787929 160 39.388510097787936 161 39.388510097787943
+		 138 39.388510097787936 139 39.388510097787943 140 39.388510097787936 141 39.388510097787936
+		 142 39.388510097787936 143 39.388510097787936 144 39.388510097787936 145 39.388510097787915
+		 146 39.388510097787936 147 39.388510097787915 148 39.388510097787936 149 39.388510097787936
+		 150 39.388510097787936 151 39.388510097787936 152 39.388510097787936 153 39.388510097787943
+		 154 39.388510097787943 155 39.388510097787936 156 39.388510097787915 157 39.388510097787943
+		 158 39.388510097787915 159 39.388510097787936 160 39.388510097787936 161 39.388510097787943
 		 162 39.388510097787915 163 39.388510097787915 164 39.388510097787901 165 39.388510097787936
 		 166 39.388510097787922 167 39.388510097787915 168 39.388510097787936 169 39.388510097787922
-		 170 39.388510097787943 171 39.388510097787929 172 39.388510097787936 173 39.388510097787943
-		 174 39.388510097787929 175 39.388510097787908 176 39.388510097787929 177 39.388510097787936
+		 170 39.388510097787943 171 39.388510097787936 172 39.388510097787936 173 39.388510097787943
+		 174 39.388510097787936 175 39.388510097787908 176 39.388510097787936 177 39.388510097787936
 		 178 39.388510097787936 179 39.388510097787915 180 39.388510097787943 181 39.388510097787922
-		 182 39.388510097787929 183 39.388510097787929 184 39.388510097787915 185 39.388510097787922
-		 186 39.388510097787922 187 39.388510097787929 188 39.388510097787936 189 39.388510097787936
-		 190 39.388510097787915 191 39.388510097787936 192 39.388510097787929 193 39.388510097787936
-		 194 39.388510097787936 195 39.388510097787929 196 39.388510097787915 197 39.388510097787943
-		 198 39.388510097787943 199 39.388510097787943 200 39.388510097787929 201 39.388510097787915
-		 202 39.388510097787915 203 39.388510097787929 204 39.388510097787929 205 39.388510097787915
-		 206 39.388510097787943 207 39.388510097787929 208 39.388510097787929 209 39.388510097787915
+		 182 39.388510097787936 183 39.388510097787936 184 39.388510097787915 185 39.388510097787922
+		 186 39.388510097787922 187 39.388510097787936 188 39.388510097787936 189 39.388510097787936
+		 190 39.388510097787915 191 39.388510097787936 192 39.388510097787936 193 39.388510097787936
+		 194 39.388510097787936 195 39.388510097787936 196 39.388510097787915 197 39.388510097787943
+		 198 39.388510097787943 199 39.388510097787943 200 39.388510097787936 201 39.388510097787915
+		 202 39.388510097787915 203 39.388510097787936 204 39.388510097787936 205 39.388510097787915
+		 206 39.388510097787943 207 39.388510097787936 208 39.388510097787936 209 39.388510097787915
 		 210 39.388510097787915;
 createNode animCurveTA -n "R_Wrist_Joint_rotateZ";
 	rename -uid "462FF903-4FE9-6B6B-E941-2EBD9688D552";
@@ -32933,7 +32933,7 @@ createNode animCurveTA -n "L_Hip_Joint_rotateX";
 		 46 10.029090904881262 47 10.046097226999482 48 10.063101833854956 49 10.080047429113929
 		 50 10.096875357849296 51 10.113525636668776 52 10.129936995263197 53 10.146046929628522
 		 54 10.161791767222381 55 10.177106744325521 56 10.191926095872029 57 10.206183158008654
-		 58 10.219810483622775 59 10.232739971051441 60 10.244903006149963 61 10.256230617844848
+		 58 10.219810483622776 59 10.232739971051441 60 10.244903006149963 61 10.256230617844848
 		 62 10.266653647241659 63 10.27610293028355 64 10.284509493879545 65 10.29180476532596
 		 66 10.297920794750985 67 10.302790490204689 68 10.306347864911874 69 10.308528296096249
 		 70 10.309268794683993 71 10.308176040873994 72 10.305093441528339 73 10.300272486137835
@@ -32942,28 +32942,28 @@ createNode animCurveTA -n "L_Hip_Joint_rotateX";
 		 82 10.204364232186347 83 10.189739143750471 84 10.174576320914891 85 10.158925757769625
 		 86 10.142833218717698 87 10.126340801411532 88 10.109487415690861 89 10.092309195720652
 		 90 10.074839859074048 91 10.057111023988897 92 10.03915249424465 93 10.020992519910163
-		 94 10.002658041518742 95 9.9841749250242362 96 9.9655681951990882 97 9.9468622760601608
+		 94 10.002658041518742 95 9.9841749250242362 96 9.96556819519909 97 9.9468622760601608
 		 98 9.9280812486486276 99 9.9092491393835633 100 9.8903902568516049 101 9.8715296022974961
 		 102 9.8526933910027008 103 9.8339097414066305 104 9.815209622197866 105 9.7966282064755763
 		 106 9.7782068906992787 107 9.7599964479244274 108 9.7420622264035348 109 9.7245386318003337
 		 110 9.7074528095428665 111 9.6910742985533016 112 9.6757878544691138 113 9.6624795247567867
-		 114 9.6547078278101495 115 9.6614777112392716 116 9.6745629012090557 117 9.6904328140605394
+		 114 9.6547078278101495 115 9.6614777112392733 116 9.6745629012090575 117 9.6904328140605394
 		 118 9.7079745539558928 119 9.726667787599661 120 9.7461558810304201 121 9.7663620352448479
-		 122 9.7871131136908165 123 9.8083176846127742 124 9.8299062103897032 125 9.8518236492882618
+		 122 9.7871131136908165 123 9.8083176846127742 124 9.8299062103897032 125 9.8518236492882636
 		 126 9.8740249144910912 127 9.8964719492312963 128 9.9191317659712261 129 9.9419750862300091
 		 130 9.9649753684202462 131 9.9881080940373703 132 10.011350230304224 133 10.034679815925662
-		 134 10.058075634241623 135 10.081516949275056 136 10.104983287474912 137 10.128454252816299
-		 138 10.151909366212248 139 10.175327922467465 140 10.198688859578208 141 10.221970636296856
-		 142 10.245151114653469 143 10.268207444670074 144 10.291115948867358 145 10.313852004397059
+		 134 10.058075634241623 135 10.081516949275057 136 10.104983287474912 137 10.128454252816299
+		 138 10.15190936621225 139 10.175327922467465 140 10.19868885957821 141 10.221970636296856
+		 142 10.245151114653469 143 10.268207444670075 144 10.291115948867358 145 10.313852004397059
 		 146 10.336389920759585 147 10.3587028111024 148 10.380762455055894 149 10.402539150943598
 		 150 10.424001555012577 151 10.445116505053127 152 10.465848825406718 153 10.48616110988149
-		 154 10.506013478477795 155 10.525363303044411 156 10.544164895990063 157 10.562369154904106
+		 154 10.506013478477795 155 10.525363303044413 156 10.544164895990063 157 10.562369154904106
 		 158 10.579923154319296 159 10.596769673754441 160 10.612846648461993 161 10.62808652575184
 		 162 10.642415505066221 163 10.655752633710604 164 10.668008721670111 165 10.679085027344502
-		 166 10.688871649940685 167 10.697245541581363 168 10.70406801968387 169 10.709181612702453
+		 166 10.688871649940685 167 10.697245541581363 168 10.70406801968387 169 10.709181612702455
 		 170 10.712406001566222 171 10.713532711175931 172 10.71138250230176 173 10.705267098950712
 		 174 10.695636317697971 175 10.682880686364751 176 10.667342660711517 177 10.649325146281813
-		 178 10.629098101094081 179 10.606903742882588 180 10.582960722854097 181 10.557467521526426
+		 178 10.629098101094083 179 10.606903742882588 180 10.582960722854097 181 10.557467521526426
 		 182 10.530605250684532 183 10.502539996500373 184 10.473424804780148 185 10.443401385295454
 		 186 10.412601595120021 187 10.381148748791734 188 10.349158794632398 189 10.316741390810048
 		 190 10.284000911219009 191 10.251037409677449 192 10.217947571286063 193 10.184825682215925
@@ -32982,35 +32982,35 @@ createNode animCurveTA -n "L_Hip_Joint_rotateY";
 		 14 -4.8180770824710093 15 -4.8180770824710093 16 -4.8180770824710093 17 -4.8180770824710093
 		 18 -4.8180770824710093 19 -4.8180770824710093 20 -4.8180770824710093 21 -4.8159406198305375
 		 22 -4.8096475783819406 23 -4.7993736333582291 24 -4.785295813288311 25 -4.7675922717691126
-		 26 -4.746442067351655 27 -4.7220249524627809 28 -4.6945211721526707 29 -4.6641112733485794
-		 30 -4.6309759251865223 31 -4.5952957508976269 32 -4.5572511716353246 33 -4.51702226254677
+		 26 -4.746442067351655 27 -4.7220249524627818 28 -4.6945211721526707 29 -4.6641112733485794
+		 30 -4.6309759251865223 31 -4.5952957508976269 32 -4.5572511716353254 33 -4.51702226254677
 		 34 -4.4747886213116734 35 -4.4307292493013231 36 -4.3850224454380333 37 -4.33784571277236
 		 38 -4.2893756777303453 39 -4.2397880219255182 40 -4.1892574263710065 41 -4.1379575278731675
 		 42 -4.0860608873343267 43 -4.0337389696408659 44 -3.9811621347635624 45 -3.9284996396502652
 		 46 -3.8759196504452462 47 -3.8235892645276754 48 -3.7716745418233057 49 -3.7203405448079256
 		 50 -3.6697513865923597 51 -3.6200702864536334 52 -3.5714596321624126 53 -3.5240810484475356
-		 54 -3.4780954709429448 55 -3.4336632249754921 56 -3.3909441085822287 57 -3.3500974791897677
-		 58 -3.3112823434491832 59 -3.2746574498026133 60 -3.2403813834562931 61 -3.2086126635595407
-		 62 -3.1795098425322905 63 -3.1532316076499831 64 -3.1299368851821359 65 -3.1097849475876997
-		 66 -3.0929355244936927 67 -3.0795489184199925 68 -3.0697861264605533 69 -3.0638089693789712
-		 70 -3.0617802298244539 71 -3.064774248862256 72 -3.073227175682391 73 -3.086467590057274
+		 54 -3.4780954709429448 55 -3.4336632249754926 56 -3.3909441085822287 57 -3.3500974791897677
+		 58 -3.3112823434491836 59 -3.2746574498026133 60 -3.2403813834562931 61 -3.2086126635595407
+		 62 -3.1795098425322905 63 -3.1532316076499831 64 -3.1299368851821363 65 -3.1097849475876997
+		 66 -3.0929355244936927 67 -3.0795489184199925 68 -3.0697861264605537 69 -3.0638089693789712
+		 70 -3.0617802298244539 71 -3.064774248862256 72 -3.0732271756823915 73 -3.086467590057274
 		 74 -3.1039524481173202 75 -3.1252352158483894 76 -3.1499434758543146 77 -3.1777627764111309
-		 78 -3.2084247174784424 79 -3.2416979870075879 80 -3.2773814978295102 81 -3.3152990495455965
-		 82 -3.3552951166510847 83 -3.3972314809491104 84 -3.4409845051901025 85 -3.4864428991343699
+		 78 -3.2084247174784424 79 -3.2416979870075884 80 -3.2773814978295102 81 -3.3152990495455965
+		 82 -3.3552951166510847 83 -3.3972314809491104 84 -3.4409845051901029 85 -3.4864428991343699
 		 86 -3.5335058671878112 87 -3.5820815536714155 88 -3.6320857210660846 89 -3.683440610479197
 		 90 -3.7360739435904509 91 -3.7899180324513311 92 -3.8449089683770659 93 -3.9009858641746851
 		 94 -3.9580901252947744 95 -4.0161647251747077 96 -4.0751534578721733 97 -4.1350001366139484
-		 98 -4.1956476992891885 99 -4.2570371698037759 100 -4.3191064052321364 101 -4.3817885288423302
+		 98 -4.1956476992891885 99 -4.2570371698037759 100 -4.3191064052321364 101 -4.3817885288423311
 		 102 -4.4450099013528801 103 -4.508687404619824 104 -4.572724679883331 105 -4.6370067308102856
 		 106 -4.7013918753507191 107 -4.7656992025849672 108 -4.8296879710906744 109 -4.8932319568988509
-		 110 -4.9553476534480598 111 -5.0155056071306534 112 -5.0722077524271594 113 -5.122019101389391
+		 110 -4.9553476534480607 111 -5.0155056071306543 112 -5.0722077524271594 113 -5.122019101389391
 		 114 -5.1513034435763299 115 -5.125785841175821 116 -5.0767750747567701 117 -5.0178742009588522
-		 118 -4.9534412503813545 119 -4.8855363956519371 120 -4.8150236585988138 121 -4.7431445806290062
+		 118 -4.9534412503813554 119 -4.8855363956519371 120 -4.8150236585988138 121 -4.7431445806290062
 		 122 -4.6701806345610546 123 -4.596490604420497 124 -4.5223427152413072 125 -4.4479443038584501
 		 126 -4.3734601629281693 127 -4.2990244353515417 128 -4.2247486351437367 129 -4.1507272379614868
 		 130 -4.0770416901891071 131 -4.0037633568169646 132 -3.9309557383240716 133 -3.8586761726501591
 		 134 -3.7869771675160373 135 -3.7159074631107254 136 -3.6455128955381171 137 -3.5758371115801078
-		 138 -3.5069221717983514 139 -3.4388090696016875 140 -3.3715381873056831 141 -3.3051497055121986
+		 138 -3.5069221717983514 139 -3.438809069601688 140 -3.3715381873056831 141 -3.3051497055121986
 		 142 -3.2396839787851115 143 -3.175181888194675 144 -3.1116851796054474 145 -3.049236795403623
 		 146 -2.9878812065935492 147 -2.9276647517540453 148 -2.8686359891873385 149 -2.81084606869234
 		 150 -2.7543491297357843 151 -2.6992027333933515 152 -2.6454683363081415 153 -2.5932118161103621
@@ -33023,11 +33023,11 @@ createNode animCurveTA -n "L_Hip_Joint_rotateY";
 		 178 -2.2358085136969827 179 -2.2901657819775085 180 -2.3492619324491049 181 -2.4127153709182543
 		 182 -2.480182305363853 183 -2.5513503733163723 184 -2.6259332815186709 185 -2.7036662168776986
 		 186 -2.7843018414235843 187 -2.8676067214037197 188 -2.9533580661227017 189 -3.0413406684691267
-		 190 -3.1313439478783311 191 -3.223158998526876 192 -3.3165755408006925 193 -3.4113786616785196
+		 190 -3.1313439478783311 191 -3.223158998526876 192 -3.3165755408006929 193 -3.41137866167852
 		 194 -3.5073452077453182 195 -3.604239659813457 196 -3.7018092651183836 197 -3.7997781228465253
 		 198 -3.897839796575028 199 -3.9956478381702234 200 -4.0928033086532016 201 -4.1888378952190921
 		 202 -4.2831904060684582 203 -4.3751729956243866 204 -4.4639208562404313 205 -4.5483140495857448
-		 206 -4.6268496725568413 207 -4.6974189748213 208 -4.7568849822574943 209 -4.8001853192181461
+		 206 -4.6268496725568413 207 -4.6974189748213 208 -4.7568849822574943 209 -4.800185319218147
 		 210 -4.8180770824710093;
 createNode animCurveTA -n "L_Hip_Joint_rotateZ";
 	rename -uid "45511FAD-4B30-491E-52C6-0288233D6162";
@@ -33046,11 +33046,11 @@ createNode animCurveTA -n "L_Hip_Joint_rotateZ";
 		 42 -58.369142200969122 43 -58.274572934916648 44 -58.178981917533918 45 -58.082666307787449
 		 46 -57.985928443973336 47 -57.88907599056575 48 -57.792422046651197 49 -57.696285213149203
 		 50 -57.600989615833356 51 -57.50686488101173 52 -57.414246060610814 53 -57.323473503337638
-		 54 -57.234892668579882 55 -57.148853879757603 56 -57.065712013961296 57 -56.985826124925843
+		 54 -57.234892668579882 55 -57.148853879757603 56 -57.065712013961296 57 -56.98582612492585
 		 58 -56.909558996685675 59 -56.837276625664479 60 -56.769347629458984 61 -56.706142581200027
 		 62 -56.648033269111693 63 -56.595391881735246 64 -56.548590120247503 65 -56.507998240355263
-		 66 -56.473984027395254 67 -56.446911709472481 68 -56.427140814727139 69 -56.415024980078492
-		 70 -56.410910720044924 71 -56.416982206979213 72 -56.434111995503592 73 -56.460909016476727
+		 66 -56.473984027395261 67 -56.446911709472481 68 -56.427140814727139 69 -56.415024980078492
+		 70 -56.410910720044932 71 -56.416982206979213 72 -56.434111995503592 73 -56.460909016476727
 		 74 -56.496231772359856 75 -56.539128257691324 76 -56.58879346935236 77 -56.644538562767728
 		 78 -56.705767950936362 79 -56.771961961334661 80 -56.842663469728357 81 -56.917467435995391
 		 82 -56.996012594507121 83 -57.077974768698319 84 -57.163061426512016 85 -57.251007194933202
@@ -33071,16 +33071,16 @@ createNode animCurveTA -n "L_Hip_Joint_rotateZ";
 		 142 -56.767962654183634 143 -56.639374618169079 144 -56.511830005018538 145 -56.38545071563297
 		 146 -56.260364500813083 147 -56.136705711173761 148 -56.014616090273371 149 -55.894245623213983
 		 150 -55.775753453911712 151 -55.659308885651626 152 -55.545092481478854 153 -55.43329728353001
-		 154 -55.324130173705662 155 -55.217813402304493 156 -55.114586316628902 157 -55.014707328457945
+		 154 -55.324130173705662 155 -55.217813402304493 156 -55.114586316628902 157 -55.014707328457952
 		 158 -54.918456168126539 159 -54.826136484366295 160 -54.738078863901265 161 -54.654644364267376
 		 162 -54.576228679090946 163 -54.503267089552658 164 -54.43624040244292 165 -54.375682139210689
-		 166 -54.322187329370188 167 -54.276423387215473 168 -54.239143731069134 169 -54.211205067993539
+		 166 -54.322187329370195 167 -54.27642338721548 168 -54.239143731069134 169 -54.211205067993539
 		 170 -54.193589660669389 171 -54.187434495022131 172 -54.199181103766193 173 -54.232592187850223
 		 174 -54.285217308977792 175 -54.354933293642127 176 -54.439882490919729 177 -54.538426002576919
-		 178 -54.649107502394536 179 -54.77062470491483 180 -54.90180646492994 181 -55.041594091471538
+		 178 -54.649107502394536 179 -54.77062470491483 180 -54.90180646492994 181 -55.041594091471545
 		 182 -55.189025862553002 183 -55.343224000757388 184 -55.503383558907537 185 -55.668762797194859
 		 186 -55.838674726030284 187 -56.012479554045584 188 -56.189577825615579 189 -56.369404061774169
-		 190 -56.551420735356757 191 -56.735112417001154 192 -56.919979923385803 193 -57.105534281522637
+		 190 -56.551420735356757 191 -56.735112417001154 192 -56.919979923385803 193 -57.105534281522644
 		 194 -57.291290290126284 195 -57.476759405861252 196 -57.661441599866379 197 -57.844815704025251
 		 198 -58.026327573088622 199 -58.205375087517666 200 -58.381288542365894 201 -58.553304182949205
 		 202 -58.720527321447484 203 -58.881879136218501 204 -59.036016960746998 205 -59.181209510430357
@@ -33351,22 +33351,22 @@ createNode animCurveTA -n "L_Knee_Joint_rotateX";
 		 26 -3.7882924231538326 27 -3.7791589704464355 28 -3.7688484091891548 29 -3.7574205104421368
 		 30 -3.7449348683324151 31 -3.7314509867927512 32 -3.7170283625925418 33 -3.7017265649568545
 		 34 -3.6856053120021923 35 -3.6687245441540903 36 -3.651144494649798 37 -3.6329257571710918
-		 38 -3.6141293505936547 39 -3.5948167807842673 40 -3.5750500993203711 41 -3.55489195895285
+		 38 -3.6141293505936547 39 -3.5948167807842673 40 -3.5750500993203715 41 -3.55489195895285
 		 42 -3.5344056655776344 43 -3.5136552264291225 44 -3.4927053941549988 45 -3.4716217063812476
-		 46 -3.4504705203254367 47 -3.4293190419695168 48 -3.4082353492581592 49 -3.3872884087482729
+		 46 -3.4504705203254367 47 -3.4293190419695168 48 -3.4082353492581596 49 -3.3872884087482729
 		 50 -3.3665480850998 51 -3.3460851427682909 52 -3.3259712392387213 53 -3.3062789091277578
 		 54 -3.2870815384809116 55 -3.2684533286030524 56 -3.2504692487873461 57 -3.2332049773520248
 		 58 -3.2167368304551958 59 -3.2011416782410689 60 -3.1864968479735278 61 -3.1728800139387943
-		 62 -3.1603690740477317 63 -3.149042013238168 64 -3.1389767539712676 65 -3.1302509943271142
+		 62 -3.1603690740477317 63 -3.149042013238168 64 -3.1389767539712676 65 -3.1302509943271146
 		 66 -3.122942034434907 67 -3.117126592214972 68 -3.1128806096621928 69 -3.1102790511535088
 		 70 -3.1093956955141882 71 -3.1106992923664936 72 -3.1143776360574149 73 -3.1201331692224996
 		 74 -3.1277223278274229 75 -3.136942471050264 76 -3.1476226489830665 77 -3.1596169089053503
 		 78 -3.1727993312972527 79 -3.1870602750629891 80 -3.2023034871686433 81 -3.2184438424400623
 		 82 -3.2354055507448982 83 -3.2531207161386235 84 -3.2715281646127892 85 -3.2905724792011175
-		 86 -3.3102031967150647 87 -3.3303741314202209 88 -3.3510427989077445 89 -3.3721699191732357
+		 86 -3.3102031967150647 87 -3.3303741314202213 88 -3.3510427989077445 89 -3.3721699191732357
 		 90 -3.3937189820945384 91 -3.4156558615063868 92 -3.437948466172223 93 -3.4605664173176534
 		 94 -3.4834807431064423 95 -3.5066635805244037 96 -3.5300878745335678 97 -3.5537270629172637
-		 98 -3.5775547326741117 99 -3.601544229647228 100 -3.6256681964668052 101 -3.6498980034223694
+		 98 -3.5775547326741122 99 -3.601544229647228 100 -3.6256681964668052 101 -3.6498980034223694
 		 102 -3.6742030200921074 103 -3.6985496479796436 104 -3.7228999876983946 105 -3.747209932068452
 		 106 -3.7714263251707041 107 -3.7954825329736805 108 -3.8192911584619966 109 -3.8428369950715231
 		 110 -3.865698582579272 111 -3.8877296660602561 112 -3.9083971053709718 113 -3.9264751301296337
@@ -33374,24 +33374,24 @@ createNode animCurveTA -n "L_Knee_Joint_rotateX";
 		 118 -3.8649986557544924 119 -3.8399965649073504 120 -3.8138461729015933 121 -3.7870600618246879
 		 122 -3.7597036954630654 123 -3.7319031961009883 124 -3.7037533228707988 125 -3.6753279060640107
 		 126 -3.6466862788647614 127 -3.6178774369798288 128 -3.5889428379308876 129 -3.5599183495950388
-		 130 -3.5308356470354205 131 -3.5017232404731566 132 -3.4726072502167202 133 -3.4435120041893885
+		 130 -3.5308356470354205 131 -3.5017232404731571 132 -3.4726072502167202 133 -3.4435120041893885
 		 134 -3.4144605088160183 135 -3.3854748281740354 136 -3.356576395954721 137 -3.3277862778629106
-		 138 -3.2991253973763364 139 -3.2706147345307954 140 -3.242275505120102 141 -3.2141293260887411
+		 138 -3.2991253973763364 139 -3.2706147345307954 140 -3.2422755051201024 141 -3.2141293260887411
 		 142 -3.1861983717558928 143 -3.1585055247025822 144 -3.1310745245959115 145 -3.1039301178503478
-		 146 -3.0770982108004565 147 -3.0506060289527901 148 -3.0244822848835438 149 -2.9987573574447519
+		 146 -3.0770982108004565 147 -3.0506060289527905 148 -3.0244822848835438 149 -2.9987573574447519
 		 150 -2.9734634851342245 151 -2.9486349767791684 152 -2.9243084430924746 153 -2.9005230532024826
 		 154 -2.8773208209599015 155 -2.8547469267280192 156 -2.832850081516292 157 -2.8116829417949463
 		 158 -2.7913025852272026 159 -2.771771060009788 160 -2.7531560237049826 161 -2.7355314916403932
 		 162 -2.7189787205045532 163 -2.7035872602030775 164 -2.689456217111287 165 -2.6766957856759617
 		 166 -2.6654291245385555 167 -2.6557946805017592 168 -2.6479491026613746 169 -2.6420709461112559
-		 170 -2.6383654499329516 171 -2.6370708046575464 172 -2.6395415817931442 173 -2.6465705682399059
-		 174 -2.6576457335156607 175 -2.6723252247609892 176 -2.6902238616939669 177 -2.7110029366278967
+		 170 -2.6383654499329516 171 -2.6370708046575464 172 -2.6395415817931442 173 -2.6465705682399063
+		 174 -2.6576457335156607 175 -2.6723252247609892 176 -2.6902238616939669 177 -2.7110029366278972
 		 178 -2.734362347662977 179 -2.7600344139727704 180 -2.7877789266019644 181 -2.8173791217885751
 		 182 -2.8486383529858648 183 -2.8813772983598755 184 -2.9154315823524022 185 -2.950649719076988
 		 186 -2.9868913057967887 187 -3.024025409071684 188 -3.0619290960175469 189 -3.1004860695498198
 		 190 -3.1395853701212975 191 -3.1791201076118725 192 -3.2189861856997353 193 -3.2590809769502349
 		 194 -3.299301899335676 195 -3.3395448327734947 196 -3.3797022955689293 197 -3.4196612721421422
-		 198 -3.4593005397370868 199 -3.4984872738721369 200 -3.5370726043027152 201 -3.5748856168400804
+		 198 -3.4593005397370868 199 -3.4984872738721369 200 -3.5370726043027152 201 -3.5748856168400809
 		 202 -3.6117249984603919 203 -3.6473470000655346 204 -3.6814474293244017 205 -3.7136335163413046
 		 206 -3.7433776078417251 207 -3.7699358588519232 208 -3.7921929761278901 209 -3.8083297807635565
 		 210 -3.8149804847199182;
@@ -33406,7 +33406,7 @@ createNode animCurveTA -n "L_Knee_Joint_rotateY";
 		 18 16.711886094438995 19 16.711886094438995 20 16.711886094438995 21 16.708409474722131
 		 22 16.698165339731194 23 16.681429309843967 24 16.658473493804237 25 16.629567012949941
 		 26 16.594976493784365 27 16.554966532552243 28 16.50980013498047 29 16.45973913390225
-		 30 16.405044587078393 31 16.345977157165102 32 16.282797475438763 33 16.215766490574754
+		 30 16.405044587078393 31 16.345977157165102 32 16.282797475438763 33 16.215766490574758
 		 34 16.145145803481583 35 16.071197988913703 36 15.994186904315217 37 15.914377986091884
 		 38 15.832038533251945 39 15.747437978114617 40 15.660848143536747 41 15.57254348587283
 		 42 15.482801322641553 43 15.391902043641709 44 15.300129304026118 45 15.207770197619965
@@ -33433,17 +33433,17 @@ createNode animCurveTA -n "L_Knee_Joint_rotateY";
 		 126 15.974657264600843 127 15.848457383363693 128 15.72170661086802 129 15.5945620697725
 		 130 15.467162515714106 131 15.339632840437334 132 15.212087466446231 133 15.084632964530437
 		 134 14.957370116529653 135 14.830395576240706 136 14.70380323599378 137 14.577685376119302
-		 138 14.452133653908296 139 14.3272399744098 140 14.203097275433329 141 14.079800252067214
+		 138 14.452133653908296 139 14.3272399744098 140 14.203097275433331 141 14.079800252067214
 		 142 13.957446041032814 143 13.836134881660101 144 13.715970767826402 145 13.597062103561955
 		 146 13.479522374037682 147 13.363470843183292 148 13.249033289178984 149 13.136342789485285
 		 150 13.025540567918521 151 12.916776917570518 152 12.810212215163029 153 12.70601804480083
-		 154 12.604378452166532 155 12.505491354153282 156 12.409570133986724 157 12.316845458359929
+		 154 12.604378452166532 155 12.505491354153282 156 12.409570133986726 157 12.316845458359929
 		 158 12.227567361423821 159 12.142007651225709 160 12.060462708174027 161 11.983256763474987
-		 162 11.910745769807404 163 11.843322009078989 164 11.781419626225004 165 11.725521338535934
+		 162 11.910745769807404 163 11.843322009078989 164 11.781419626225006 165 11.725521338535934
 		 166 11.676166654194265 167 11.6339620526318 168 11.599593750162439 169 11.573843924415145
 		 170 11.55761164477355 171 11.551940327590689 172 11.562763802630794 173 11.593554948569318
 		 174 11.642070767013692 175 11.706375679345181 176 11.784782366579282 177 11.875807087369992
-		 178 11.978135216705132 179 12.090594153178474 180 12.212131638537027 181 12.341798118434658
+		 178 11.978135216705134 179 12.090594153178474 180 12.212131638537027 181 12.341798118434658
 		 182 12.478732163906503 183 12.622148238545401 184 12.771326279531516 185 12.925602688482236
 		 186 13.084362417809531 187 13.247031901083371 188 13.413072619072796 189 13.581975121300131
 		 190 13.753253338879466 191 13.926439029438649 192 14.101076189105612 193 14.276715248608651
@@ -33473,9 +33473,9 @@ createNode animCurveTA -n "L_Knee_Joint_rotateZ";
 		 58 28.432890975717307 59 28.295044678048232 60 28.165598321600118 61 28.045238473110675
 		 62 27.934653675946521 63 27.834533242709817 64 27.745565933768471 65 27.668438526175283
 		 66 27.603834279476121 67 27.552431307044706 68 27.51490086381262 69 27.491905563499571
-		 70 27.484097540677251 71 27.495620095717182 72 27.528133151850653 73 27.579006585275671
-		 74 27.646087521822373 75 27.727584809556184 76 27.821987414049527 77 27.928005252212699
-		 78 28.044525315376145 79 28.170578480640717 80 28.30531396282764 81 28.447979336443755
+		 70 27.484097540677251 71 27.495620095717182 72 27.528133151850657 73 27.579006585275671
+		 74 27.646087521822373 75 27.727584809556184 76 27.821987414049531 77 27.928005252212699
+		 78 28.044525315376145 79 28.170578480640717 80 28.305313962827643 81 28.447979336443755
 		 82 28.597904688877719 83 28.754489884622597 84 28.917194203686531 85 29.085527812849261
 		 86 29.259044665569281 87 29.437336523927137 88 29.620027866197422 89 29.80677149453912
 		 90 29.997244694233103 91 30.191145822469402 92 30.388191223270436 93 30.588112377193717
@@ -33496,14 +33496,14 @@ createNode animCurveTA -n "L_Knee_Joint_rotateZ";
 		 150 26.282586219878642 151 26.063125844859677 152 25.848102447986705 153 25.637862247061914
 		 154 25.43277660452484 155 25.233244871771415 156 25.039697607748238 157 24.852600245518691
 		 158 24.672457297282882 159 24.499817210024755 160 24.335278012179135 161 24.179493928773223
-		 162 24.033183191570409 163 23.89713733647725 164 23.772232369493931 165 23.659442304615546
-		 166 23.559855746975117 167 23.47469643449536 168 23.405348996039976 169 23.353391688639086
+		 162 24.033183191570409 163 23.89713733647725 164 23.772232369493935 165 23.659442304615546
+		 166 23.559855746975117 167 23.47469643449536 168 23.405348996039979 169 23.353391688639086
 		 170 23.320638630368613 171 23.309195198745829 172 23.331034516235722 173 23.393164064235545
 		 174 23.491057980779232 175 23.620810707270806 176 23.779017616742255 177 23.962684855721538
 		 178 24.169159809136808 179 24.396076433337132 180 24.641311509856788 181 24.902949053417277
 		 182 25.179250895769584 183 25.468632002631065 184 25.769639450566615 185 26.080934248567345
 		 186 26.401275370114828 187 26.729505488258095 188 27.064537993343983 189 27.405344929869653
-		 190 27.750945521080691 191 28.100394960083772 192 28.45277313450261 193 28.80717291552488
+		 190 27.750945521080695 191 28.100394960083772 192 28.45277313450261 193 28.80717291552488
 		 194 29.16268757569253 195 29.518396792606811 196 29.873350530417696 197 30.226549838999812
 		 198 30.576923224604023 199 30.923296645272888 200 31.264354229781421 201 31.598585259425889
 		 202 31.924210318742581 203 32.239074897773911 204 32.540490225929716 205 32.824984591282281
@@ -33779,9 +33779,9 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateX";
 		 46 -3.9954831937883828 47 -3.9512684705681416 48 -3.9073626113064375 49 -3.863906938245282
 		 50 -3.8210424721087022 51 -3.7789099405355371 52 -3.737649788561864 53 -3.6974021912108004
 		 54 -3.6583070682968639 55 -3.6205041015369006 56 -3.5841327541128014 57 -3.5493322928146784
-		 58 -3.5162418129227477 59 -3.4850002659604491 60 -3.4557464904750881 61 -3.4286192459547387
+		 58 -3.5162418129227482 59 -3.4850002659604491 60 -3.4557464904750881 61 -3.4286192459547387
 		 62 -3.4037572499926529 63 -3.3812992187636515 64 -3.3613839108443599 65 -3.3441501743639828
-		 66 -3.3297369974196473 67 -3.3182835616418487 68 -3.3099292987374342 69 -3.3048139497927145
+		 66 -3.3297369974196473 67 -3.3182835616418491 68 -3.3099292987374342 69 -3.3048139497927145
 		 70 -3.3030776270678328 71 -3.305640079857699 72 -3.3128740166533435 73 -3.3242033654147929
 		 74 -3.3391613730852088 75 -3.3573635259850012 76 -3.378488503181015 77 -3.4022644283072343
 		 78 -3.4284587211686914 79 -3.4568704582836514 80 -3.4873245213702089 81 -3.5196670449706149
@@ -33789,7 +33789,7 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateX";
 		 86 -3.7054110613692708 87 -3.7466685156632091 88 -3.7891031200947731 89 -3.8326452470263002
 		 90 -3.8772299992477528 91 -3.9227964592220208 92 -3.9692870072157849 93 -4.0166466865845303
 		 94 -4.0648225957267732 95 -4.1137632860761366 96 -4.163418143823737 97 -4.2137367294846815
-		 98 -4.2646680432938764 99 -4.3161596745720132 100 -4.368156777747612 101 -4.4206007933674689
+		 98 -4.2646680432938773 99 -4.3161596745720132 100 -4.368156777747612 101 -4.4206007933674689
 		 102 -4.4734277934647411 103 -4.5265662667721758 104 -4.5799340512992597 105 -4.6334339320425677
 		 106 -4.6869470727314164 107 -4.7403227725268229 108 -4.793361629554159 109 -4.8456738875879006
 		 110 -4.8971097295888146 111 -4.9468412447852828 112 -4.9936421810271741 113 -5.034697450129662
@@ -33799,18 +33799,18 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateX";
 		 126 -4.4136365989059065 127 -4.3513407096266841 128 -4.2890849285958073 129 -4.2269501027311547
 		 130 -4.165006656402003 131 -4.1033169806579419 132 -4.0419372277080106 133 -3.9809186867645945
 		 134 -3.9203088595549525 135 -3.8601523169230507 136 -3.8004913937744549 137 -3.741366763484498
-		 138 -3.6828179218582346 139 -3.6248836031006713 140 -3.5676021448889101 141 -3.5110118158388657
+		 138 -3.6828179218582346 139 -3.6248836031006713 140 -3.5676021448889101 141 -3.5110118158388661
 		 142 -3.4551511159367365 143 -3.4000590585750157 144 -3.3457754414725511 145 -3.2923411128274438
 		 146 -3.2397982384398141 147 -3.1881905752444561 148 -3.1375637565781545 149 -3.0879655946495861
 		 150 -3.0394464060019284 151 -2.9920593663217505 152 -2.9458609017256481 153 -2.9009111247396464
-		 154 -2.8572743245697088 155 -2.8150195230945387 156 -2.7742211103196026 157 -2.7349595760247234
+		 154 -2.8572743245697092 155 -2.8150195230945387 156 -2.7742211103196026 157 -2.7349595760247234
 		 158 -2.6973223582046031 159 -2.6614048338567016 160 -2.6273114841922558 161 -2.5951572748647078
 		 162 -2.565069303136212 163 -2.5371887790728724 164 -2.511673428428574 165 -2.4887004331243712
 		 166 -2.4684700645726632 167 -2.4512102207283757 168 -2.4371821577750978 169 -2.4266878246548345
 		 170 -2.4200793841763719 171 -2.4177717733627127 172 -2.4221763281321209 173 -2.4347198203052831
 		 174 -2.4545234880852189 175 -2.4808467301345836 176 -2.5130574874357863 177 -2.550610123135213
 		 178 -2.5930285937424808 179 -2.6398934298515107 180 -2.6908315068908575 181 -2.7455078889163964
-		 182 -2.8036192308959125 183 -2.8648883630143933 184 -2.9290597762273571 185 -2.9958957954093219
+		 182 -2.8036192308959125 183 -2.8648883630143933 184 -2.9290597762273576 185 -2.9958957954093219
 		 186 -3.0651732738307969 187 -3.1366806760692874 188 -3.2102154395251374 189 -3.2855815198921783
 		 190 -3.362587034587424 191 -3.4410419210217937 192 -3.5207555236605197 193 -3.6015340144630823
 		 194 -3.6831775339886628 195 -3.7654769125104202 196 -3.8482097874621406 197 -3.9311358681059816
@@ -33846,11 +33846,11 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateY";
 		 86 -3.9998985458631138 87 -3.9224316074073644 88 -3.8426450301133959 89 -3.7606608612657646
 		 90 -3.6765927560881484 91 -3.590547377956709 92 -3.5026256739926618 93 -3.41292406723404
 		 94 -3.3215356044803626 95 -3.2285510994459221 96 -3.1340603143864993 97 -3.0381532306006487
-		 98 -2.9409214704632332 99 -2.8424599531891395 100 -2.7428688971286923 101 -2.6422563295216399
+		 98 -2.9409214704632336 99 -2.8424599531891395 100 -2.7428688971286923 101 -2.6422563295216399
 		 102 -2.5407413415536708 103 -2.4384584525102357 104 -2.3355636596405445 105 -2.232243124027832
 		 106 -2.1287261295067581 107 -2.0253052855456959 108 -1.9223697156468769 109 -1.8204365884661442
 		 110 -1.7203791986007868 111 -1.6234688005928657 112 -1.532120857530163 113 -1.4518713175271891
-		 114 -1.4046913204696512 115 -1.4458027557474342 116 -1.524762678997946 117 -1.6196530440881827
+		 114 -1.4046913204696514 115 -1.4458027557474342 116 -1.524762678997946 117 -1.6196530440881827
 		 118 -1.7234501872686112 119 -1.8328322138478867 120 -1.9459617672404288 121 -2.061581447717094
 		 122 -2.178910595275882 123 -2.2973683798142486 124 -2.4165199612628667 125 -2.5360286842978845
 		 126 -2.655626525468171 127 -2.7750949341980311 128 -2.8942519167787544 129 -3.0129430377445061
@@ -33858,20 +33858,20 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateY";
 		 134 -3.5952481238567429 135 -3.7088085243304607 136 -3.8212136546629996 137 -3.9323922987587538
 		 138 -4.042276039994614 139 -4.1507984467491728 140 -4.2578943609502842 141 -4.3634992634100653
 		 142 -4.4675486951175101 143 -4.5699777175501222 144 -4.6707203977869458 145 -4.7697093061180187
-		 146 -4.8668750150937754 147 -4.9621455896418682 148 -5.0554460581601646 149 -5.146697854328762
+		 146 -4.8668750150937754 147 -4.9621455896418691 148 -5.0554460581601646 149 -5.146697854328762
 		 150 -5.2358182188313958 151 -5.3227195492176431 152 -5.4073086847336356 153 -5.4894861110102795
 		 154 -5.5691450669793436 155 -5.6461705330558312 156 -5.7204380754002262 157 -5.7918125155748372
 		 158 -5.8601463878362434 159 -5.9252781371347316 160 -5.9870299989090769 161 -6.0452054859986486
 		 162 -6.0995863870638996 163 -6.149929152784102 164 -6.1959605079596249 165 -6.2373720751611543
-		 166 -6.2738137223949701 167 -6.3048852436503013 168 -6.3301258319585694 169 -6.3490005856222211
+		 166 -6.2738137223949701 167 -6.3048852436503022 168 -6.3301258319585694 169 -6.3490005856222211
 		 170 -6.3608829601569754 171 -6.3650315752802262 172 -6.3571128081940413 173 -6.3345550944775191
 		 174 -6.2989220035232396 175 -6.251522105768168 176 -6.1934645718673229 177 -6.1257005645907538
-		 178 -6.0490546422398452 179 -5.9642489976176387 180 -5.871922469094498 181 -5.7726456812030547
-		 182 -5.6669332858252321 183 -5.5552540123270777 184 -5.4380390535883487 185 -5.3156891881520192
+		 178 -6.0490546422398461 179 -5.9642489976176387 180 -5.871922469094498 181 -5.7726456812030547
+		 182 -5.6669332858252321 183 -5.5552540123270777 184 -5.4380390535883496 185 -5.3156891881520192
 		 186 -5.1885809496628488 187 -5.0570720924298476 188 -4.9215065592086242 189 -4.7822191295874328
 		 190 -4.6395399120456435 191 -4.4937988385397718 192 -4.3453303274047768 193 -4.194478299728666
 		 194 -4.0416017692298016 195 -3.8870812812617741 196 -3.7313265616645732 197 -3.5747858651619153
-		 198 -3.4179577096209566 199 -3.2614059867777541 200 -3.1057799214964801 201 -2.9518411345763904
+		 198 -3.4179577096209566 199 -3.2614059867777541 200 -3.1057799214964801 201 -2.9518411345763909
 		 202 -2.800501380263551 203 -2.6528768300061327 204 -2.5103689852405635 205 -2.374790449539721
 		 206 -2.2485706500816294 207 -2.1351145278182204 208 -2.0394822099924594 209 -1.9698324200455148
 		 210 -1.9410495075797936;
@@ -33900,21 +33900,21 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateZ";
 		 74 -4.9042762252782968 75 -4.8651599420452643 76 -4.8198801575583303 77 -4.7690685727228725
 		 78 -4.7132718277345989 79 -4.6529672707633898 80 -4.5885751164864352 81 -4.5204679692081822
 		 82 -4.4489783885666183 83 -4.3744049790471227 84 -4.2970173512066756 85 -4.2170602104005859
-		 86 -4.1347567641687997 87 -4.0503115933546736 88 -3.9639130988494382 89 -3.8757356117332784
+		 86 -4.1347567641688006 87 -4.0503115933546736 88 -3.9639130988494382 89 -3.8757356117332784
 		 90 -3.7859412370767682 91 -3.6946814889423165 92 -3.6020987652641958 93 -3.5083277053321025
-		 94 -3.4134964694315832 95 -3.3177279794882399 96 -3.2211411616735859 97 -3.1238522373781041
+		 94 -3.4134964694315837 95 -3.3177279794882399 96 -3.2211411616735859 97 -3.1238522373781041
 		 98 -3.0259761188200822 99 -2.92762798180404 100 -2.8289251139999956 101 -2.7299891781284193
 		 102 -2.6309490954215082 103 -2.5319448632174453 104 -2.4331328045137912 105 -2.3346930712177927
 		 106 -2.2368408198145331 107 -2.1398436406059389 108 -2.0440502425212532 109 -1.954195010982412
 		 110 -1.8612410730879365 111 -1.7720717122248304 112 -1.6887843462495535 113 -1.6162189117569858
 		 114 -1.5738165973754759 115 -1.6107541417223386 116 -1.6821073783050289 117 -1.768577904024683
 		 118 -1.864080534823827 119 -1.9657741968484259 120 -2.0659398905519626 121 -2.1737802734731861
-		 122 -2.2841828600319261 123 -2.3966512001966573 124 -2.5108112258412398 125 -2.6263702656319223
+		 122 -2.2841828600319261 123 -2.3966512001966573 124 -2.5108112258412398 125 -2.6263702656319228
 		 126 -2.7430918173264618 127 -2.8607792525877236 128 -2.9792648623286002 129 -3.0984022371445046
-		 130 -3.2180608072542616 131 -3.3381218238354644 132 -3.4584753273773039 133 -3.5790178065468981
+		 130 -3.2180608072542616 131 -3.3381218238354644 132 -3.4584753273773043 133 -3.5790178065468981
 		 134 -3.6996503487752102 135 -3.8202771459219433 136 -3.9408042590187047 137 -4.0611385731141256
 		 138 -4.1811868916853223 139 -4.3008551327400077 140 -4.4200475976462137 141 -4.5386662899411139
-		 142 -4.6566102658127475 143 -4.7737750010240037 144 -4.8900517611975935 145 -5.0053269637483053
+		 142 -4.6566102658127475 143 -4.7737750010240045 144 -4.8900517611975935 145 -5.0053269637483053
 		 146 -5.1194815206033697 147 -5.2323901511394784 148 -5.343920654703421 149 -5.4539331316083226
 		 150 -5.5622791405798999 151 -5.6688007793622788 152 -5.773329673383147 153 -5.8756858550504614
 		 154 -5.9756765132339229 155 -6.0730945886153398 156 -6.1677171856875557 157 -6.2593037658740345
@@ -34184,21 +34184,21 @@ createNode animCurveTA -n "L_Ball_Joint_rotateX";
 		 10 9.5626795143253993 11 9.5626795143253993 12 9.5626795143253993 13 9.5626795143253993
 		 14 9.5626795143253993 15 9.5626795143253993 16 9.5626795143253993 17 9.5626795143253993
 		 18 9.5626795143253993 19 9.5626795143253993 20 9.5626795143253993 21 9.5626795147869768
-		 22 9.5626795161833087 23 9.5626795185971343 24 9.562679522186043 25 9.5626795271925005
+		 22 9.5626795161833087 23 9.5626795185971343 24 9.5626795221860448 25 9.5626795271925005
 		 26 9.5626795339563202 27 9.5626795429323295 28 9.5626795547078238 29 9.5626795700346321
 		 30 9.5626795898509478 31 9.5626796153209117 32 9.562679647864563 33 9.5626796891957628
 		 34 9.562679741355268 35 9.5626798067460257 36 9.562679888158069 37 9.5626799887936205
 		 38 9.562680112273144 39 9.5626802626362064 40 9.5626804443212805 41 9.5626806621309655
-		 42 9.5626809211678108 43 9.562681226755581 44 9.5626815843264303 45 9.5626819992874115
+		 42 9.5626809211678125 43 9.562681226755581 44 9.5626815843264303 45 9.5626819992874115
 		 46 9.5626824768556915 47 9.5626830218743422 48 9.5626836386024294 49 9.5626843304850713
-		 50 9.562685099920607 51 9.5626859480134065 52 9.5626868743346609 53 9.5626878766931327
+		 50 9.5626850999206088 51 9.5626859480134065 52 9.5626868743346609 53 9.5626878766931327
 		 54 9.5626889509337616 55 9.5626900907664414 56 9.5626912876346495 57 9.5626925306492545
 		 58 9.5626938065742557 59 9.562695099892025 60 9.5626963929415005 61 9.5626976661412542
 		 62 9.5626988982943164 63 9.5627000669779534 64 9.5627011490120317 65 9.5627021209975869
 		 66 9.5627029599225306 67 9.5627036438158282 68 9.5627041524377674 69 9.5627044679879365
 		 70 9.5627045758133082 71 9.5627044168136237 72 9.5627039722087961 73 9.5627032884156105
 		 74 9.5627024086631547 75 9.5627013727710235 76 9.5627002170557525 77 9.5626989743180673
-		 78 9.5626976738935774 79 9.5626963417501063 80 9.5626950006103453 81 9.5626936701010496
+		 78 9.5626976738935792 79 9.5626963417501063 80 9.5626950006103453 81 9.5626936701010496
 		 82 9.5626923669205706 83 9.5626911050147285 84 9.5626898957651214 85 9.562688748182687
 		 86 9.5626876690997911 87 9.5626866633710446 88 9.5626857340692748 89 9.5626848826787612
 		 90 9.5626841092874333 91 9.5626834127699514 92 9.5626827909699994 93 9.5626822408695862
@@ -34206,7 +34206,7 @@ createNode animCurveTA -n "L_Ball_Joint_rotateX";
 		 98 9.5626804196286788 99 9.5626802073737451 100 9.5626800339702438 101 9.56267989449276
 		 102 9.5626797842290738 103 9.5626796987398208 104 9.5626796339103901 105 9.5626795859833944
 		 106 9.5626795515903833 107 9.5626795277619703 108 9.5626795119385424 109 9.5652050628003487
-		 110 9.5644698322951047 111 9.5638830233038057 112 9.5634399203282285 113 9.5631365666183239
+		 110 9.5644698322951047 111 9.5638830233038057 112 9.5634399203282285 113 9.5631365666183257
 		 114 9.5629949342909644 115 9.5631168386776437 116 9.5634087909701719 117 9.5638623969334287
 		 118 9.5644904261869961 119 9.5653054612444244 120 9.5626795149859003 121 9.5626795350931673
 		 122 9.5626795667679474 123 9.5626796143926125 124 9.5626796832865377 125 9.5626797797631991
@@ -34215,7 +34215,7 @@ createNode animCurveTA -n "L_Ball_Joint_rotateX";
 		 134 9.5626834484916863 135 9.5626843943185804 136 9.5626855017461239 137 9.5626867867991656
 		 138 9.5626882654559218 139 9.5626899534058492 140 9.5626918657970954 141 9.5626940169573089
 		 142 9.5626964201076454 143 9.5626990870574371 144 9.5627020278963304 145 9.5627052506742523
-		 146 9.5627087610843482 147 9.5627125621452311 148 9.5627166538857118 149 9.5627210330424948
+		 146 9.56270876108435 147 9.5627125621452311 148 9.5627166538857118 149 9.5627210330424948
 		 150 9.5627256927650635 151 9.5627306223413981 152 9.562735806936324 153 9.562741227357094
 		 154 9.5627468598360359 155 9.5627526758399402 156 9.5627586419062265 157 9.5627647195018337
 		 158 9.562770864901692 159 9.562777029096047 160 9.5627831577070346 161 9.5627891909229952
@@ -34224,10 +34224,10 @@ createNode animCurveTA -n "L_Ball_Joint_rotateX";
 		 170 9.5628265548784199 171 9.5628271000125196 172 9.5628260607269802 173 9.5628231289514858
 		 174 9.5628185841101772 175 9.5628127007873243 176 9.5628057438325875 177 9.5627979647859931
 		 178 9.5627895991329073 179 9.5627808641138827 180 9.5627719569803169 181 9.5627630536458099
-		 182 9.5627543077427983 183 9.5627458500994624 184 9.5627377886622487 185 9.5627302088642701
+		 182 9.5627543077427983 183 9.5627458500994642 184 9.5627377886622487 185 9.5627302088642701
 		 186 9.5627231744303742 187 9.5627167285835917 188 9.5627108956244218 189 9.5627056827987609
 		 190 9.5627010824012242 191 9.562697074037434 192 9.5626936269479312 193 9.5626907023513432
-		 194 9.5626882557007562 195 9.5626862388154841 196 9.562684601823884 197 9.5626832948831257
+		 194 9.5626882557007562 195 9.5626862388154841 196 9.562684601823884 197 9.5626832948831275
 		 198 9.5626822696392324 199 9.5626814804206237 200 9.5626808851435356 201 9.5626804459608046
 		 202 9.5626801296366555 203 9.5626799077001028 204 9.5626797563846413 205 9.5626796563984122
 		 206 9.5626795925668961 207 9.5626795533787643 208 9.5626795305055268 209 9.562679518400369
@@ -34260,7 +34260,7 @@ createNode animCurveTA -n "L_Ball_Joint_rotateY";
 		 86 -17.485488267659527 87 -17.485487804994204 88 -17.485487377212195 89 -17.485486985034875
 		 90 -17.485486628544692 91 -17.485486307265798 92 -17.485486020247723 93 -17.485485766140865
 		 94 -17.485485543272265 95 -17.485485349715226 96 -17.485485183351663 97 -17.485485041936052
-		 98 -17.485484923149464 99 -17.485484824648509 100 -17.485484744112483 101 -17.485484679280383
+		 98 -17.485484923149468 99 -17.485484824648509 100 -17.485484744112483 101 -17.485484679280383
 		 102 -17.485484627983951 103 -17.485484588180487 104 -17.485484557970693 105 -17.485484535619165
 		 106 -17.48548451956535 107 -17.485484508433029 108 -17.485484501034204 109 -17.486668208530922
 		 110 -17.486324165809862 111 -17.486049313570756 112 -17.485841580525982 113 -17.485699243892789
@@ -34279,10 +34279,10 @@ createNode animCurveTA -n "L_Ball_Joint_rotateY";
 		 162 -17.485537094162645 163 -17.485539642404365 164 -17.485542050472272 165 -17.48554428148779
 		 166 -17.485546295993668 167 -17.485548051901635 168 -17.485549504427372 169 -17.48555060602089
 		 170 -17.48555130630686 171 -17.485551552044242 172 -17.485551083544216 173 -17.485549761747507
-		 174 -17.485547712162035 175 -17.485545057980282 176 -17.485541917970245 177 -17.485538404955708
+		 174 -17.485547712162035 175 -17.485545057980282 176 -17.485541917970249 177 -17.485538404955708
 		 178 -17.48553462462645 179 -17.485530674594361 180 -17.485526643624251 181 -17.485522611029793
 		 182 -17.485518646243975 183 -17.485514808567206 184 -17.485511147104102 185 -17.485507700903433
-		 186 -17.485504499291874 187 -17.485501562381742 188 -17.485498901753015 189 -17.485496521268164
+		 186 -17.485504499291874 187 -17.485501562381746 188 -17.485498901753019 189 -17.485496521268164
 		 190 -17.485494417996922 191 -17.485492583212213 192 -17.485491003429178 193 -17.485489661451407
 		 194 -17.485488537383262 195 -17.485487609594472 196 -17.485486855604723 197 -17.485486252865446
 		 198 -17.485485779435212 199 -17.485485414528409 200 -17.485485138942735 201 -17.485484935363385
@@ -34309,23 +34309,23 @@ createNode animCurveTA -n "L_Ball_Joint_rotateZ";
 		 54 33.669355841332639 55 33.66935736082371 56 33.669358956037584 57 33.66936061244607
 		 58 33.669362312406484 59 33.669364035248499 60 33.669365757459673 61 33.669367452980737
 		 62 33.669369093617647 63 33.669370649549698 64 33.669372089961058 65 33.669373383747939
-		 66 33.669374500328708 67 33.669375410504806 68 33.669376087382396 69 33.669376507304733
+		 66 33.669374500328708 67 33.669375410504806 68 33.669376087382396 69 33.66937650730474
 		 70 33.669376650791499 71 33.669376439204328 72 33.66937584753655 73 33.669374937519535
 		 74 33.669373766630457 75 33.669372387811627 76 33.669370849343714 77 33.669369194837401
-		 78 33.669367463304553 79 33.669365689282785 80 33.669363903004133 81 33.669362130592155
+		 78 33.669367463304553 79 33.669365689282792 80 33.669363903004133 81 33.669362130592155
 		 82 33.66936039428272 83 33.669358712656759 84 33.669357100892611 85 33.669355571015345
 		 86 33.669354132159462 87 33.669352790826643 88 33.669351551150392 89 33.66935041514742
 		 90 33.669349382978147 91 33.669348453182558 92 33.669347622926217 93 33.669346888222229
 		 94 33.669346244150972 95 33.669345685062012 96 33.669345204763395 97 33.669344796698162
-		 98 33.669344454107005 99 33.669344170171271 100 33.669343938143385 101 33.669343751458051
+		 98 33.669344454107012 99 33.669344170171271 100 33.669343938143385 101 33.669343751458051
 		 102 33.669343603831344 103 33.669343489341408 104 33.669343402494178 105 33.669343338273045
 		 106 33.669343292171916 107 33.669343260222291 108 33.669343239000135 109 33.672733249241212
 		 110 33.671746925369042 111 33.670959443032125 112 33.670364616170623 113 33.669957268638569
 		 114 33.669767039840202 115 33.669930773539313 116 33.670322820298701 117 33.670931757981045
-		 118 33.671774557201012 119 33.672867909892027 120 33.669343243088477 121 33.669343270052735
-		 122 33.669343312517299 123 33.669343376342837 124 33.669343468642431 125 33.669343597851388
+		 118 33.671774557201012 119 33.672867909892027 120 33.669343243088477 121 33.669343270052742
+		 122 33.669343312517299 123 33.669343376342837 124 33.669343468642431 125 33.669343597851395
 		 126 33.669343773789443 127 33.669344007686526 128 33.66934431220222 129 33.669344701403126
-		 130 33.669345190723959 131 33.669345796895641 132 33.669346537841079 133 33.669347432541265
+		 130 33.669345190723966 131 33.669345796895648 132 33.669346537841079 133 33.669347432541265
 		 134 33.669348500874058 135 33.669349763409734 136 33.669351241188984 137 33.669352955457512
 		 138 33.669354927381484 139 33.669357177726951 140 33.669359726519474 141 33.669362592679533
 		 142 33.669365793638967 143 33.6693693449403 144 33.669373259827793 145 33.669377548823597
@@ -34340,7 +34340,7 @@ createNode animCurveTA -n "L_Ball_Joint_rotateZ";
 		 178 33.669489544136454 179 33.669477962320542 180 33.669466149204361 181 33.66945433779857
 		 182 33.669442731764434 183 33.669431504706864 184 33.669420800042026 185 33.669410731460125
 		 186 33.669401383960412 187 33.66939281541886 188 33.66938505864244 189 33.669378123821382
-		 190 33.66937200129275 191 33.669366664505574 192 33.66936207310124 193 33.66935817599704
+		 190 33.66937200129275 191 33.669366664505581 192 33.66936207310124 193 33.66935817599704
 		 194 33.669354914374544 195 33.669352224509119 196 33.669350040346309 197 33.669348295789604
 		 198 33.669346926651478 199 33.66934587224312 200 33.669345076595143 201 33.669344489326107
 		 202 33.669344066160647 203 33.669343769137676 204 33.669343566545258 205 33.669343432623684
@@ -36276,13 +36276,13 @@ createNode animCurveTA -n "L_Hip_Joint1_rotateX";
 		 63 19.758247088964783 64 19.773266709613498 65 19.786285392689411 66 19.797188678382859
 		 67 19.805862937215764 68 19.812195608701405 69 19.816075451212743 70 19.817392802413675
 		 71 19.815448736239972 72 19.809962926423179 73 19.801378472062957 74 19.79005774390556
-		 75 19.776302002209995 76 19.760365252073374 77 19.742464286055238 78 19.722786128353803
+		 75 19.776302002209995 76 19.760365252073374 77 19.742464286055242 78 19.722786128353803
 		 79 19.701493662212375 80 19.678729958480659 81 19.654621657292513 82 19.629281647481967
 		 83 19.602811217216477 84 19.575301801159178 85 19.546836416225815 86 19.517490854673859
 		 87 19.487334686658965 88 19.456432112439852 89 19.424842695746214 90 19.392622003524888
 		 91 19.359822172742653 92 19.326492421743765 93 19.292679521579796 94 19.258428241622671
 		 95 19.223781783597392 96 19.188782219017469 97 19.15347094709217 98 19.117889193907462
-		 99 19.082078579786103 100 19.046081791415485 101 19.00994341068315 102 18.973710976810874
+		 99 19.082078579786103 100 19.046081791415485 101 19.009943410683153 102 18.973710976810874
 		 103 18.93743639889896 104 18.901177904659914 105 18.865002831982352 106 18.828991792626979
 		 107 18.793245170780562 108 18.757893821511075 109 18.723117876609802 110 18.689182713102539
 		 111 18.656516128033342 112 18.625904462476679 113 18.599155052115748 114 18.583490748426691
@@ -36290,7 +36290,7 @@ createNode animCurveTA -n "L_Hip_Joint1_rotateX";
 		 119 18.727336719468941 120 18.765976117820479 121 18.805757569184152 122 18.846420753134957
 		 123 18.887777633622068 124 18.929686073601214 125 18.972034532761171 126 19.014732647312108
 		 127 19.057705146144748 128 19.100887762955715 129 19.144224395687967 130 19.187665074257925
-		 131 19.231164468309466 132 19.274680765206167 133 19.31817480745169 134 19.361609415234724
+		 131 19.231164468309466 132 19.27468076520617 133 19.31817480745169 134 19.361609415234728
 		 135 19.4049488430419 136 19.448158334465418 137 19.491203749460002 138 19.534051245194298
 		 139 19.57666699639914 140 19.619016944442158 141 19.661066566708143 142 19.702780659523246
 		 143 19.744123129031287 144 19.785056785239352 145 19.825543134982855 146 19.865542169878875
@@ -36298,14 +36298,14 @@ createNode animCurveTA -n "L_Hip_Joint1_rotateX";
 		 151 20.056692231523829 152 20.092812588292411 153 20.128102474704153 154 20.162500199266411
 		 155 20.195939720798652 156 20.22835012294027 157 20.259655012485304 158 20.289771825964426
 		 159 20.318611025157107 160 20.34607515735394 161 20.37205774980826 162 20.396441999380698
-		 163 20.419099207080514 164 20.439886891927337 165 20.458646497601912 166 20.475200576231536
-		 167 20.489349292546148 168 20.500866032624018 169 20.509491815125859 170 20.514928074001144
+		 163 20.419099207080514 164 20.439886891927337 165 20.458646497601915 166 20.475200576231536
+		 167 20.489349292546148 168 20.500866032624018 169 20.509491815125859 170 20.514928074001148
 		 171 20.516827184601024 172 20.513202703622056 173 20.502889160999281 174 20.486631433912326
 		 175 20.465069215234752 176 20.438757988051865 177 20.408184841370986 178 20.37378062898523
-		 179 20.335929482425655 180 20.294976374793421 181 20.251233226191946 182 20.204983903321242
-		 183 20.156488371417648 184 20.105986191226386 185 20.053699507699967 186 19.999835644577761
+		 179 20.335929482425659 180 20.294976374793421 181 20.251233226191946 182 20.204983903321242
+		 183 20.156488371417648 184 20.105986191226386 185 20.053699507699967 186 19.999835644577765
 		 187 19.944589396014916 188 19.888145090415765 189 19.830678490959514 190 19.772358590972178
-		 191 19.713349359818 192 19.65381149628606 193 19.593904251936252 194 19.533787397498664
+		 191 19.713349359818 192 19.65381149628606 193 19.593904251936255 194 19.533787397498664
 		 195 19.473623422901852 196 19.413580088740098 197 19.353833488733045 198 19.294571846921169
 		 199 19.236000373401936 200 19.178347661729259 201 19.121874371743036 202 19.066885382204951
 		 203 19.013747372063268 204 18.96291521471472 205 18.914973342904606 206 18.870704012341928
@@ -36322,18 +36322,18 @@ createNode animCurveTA -n "L_Hip_Joint1_rotateY";
 		 22 -0.80528691866315283 23 -0.79696827443924001 24 -0.78557715065525291 25 -0.77126452372567045
 		 26 -0.75418336614591586 27 -0.73448821597701353 28 -0.71233476734727907 29 -0.68787948210000538
 		 30 -0.66127922268916206 31 -0.63269090639872239 32 -0.60227118093733023 33 -0.57017612143481422
-		 34 -0.53656094884788685 35 -0.50157976976034602 36 -0.46538533754922445 37 -0.42812883487079517
+		 34 -0.53656094884788685 35 -0.50157976976034602 36 -0.46538533754922445 37 -0.42812883487079523
 		 38 -0.38995967741155735 39 -0.35102533883836001 40 -0.31147119687558417 41 -0.27144040043395129
 		 42 -0.23107375771309385 43 -0.19050964520079336 44 -0.14988393749417248 45 -0.10932995787208336
 		 46 -0.068978449553740412 47 -0.02895756758495386 48 0.010607108698465904 49 0.049592542673257904
 		 50 0.087878186930898383 51 0.12534590930552333 52 0.16187989844434922 53 0.19736654893050834
 		 54 0.23169432596064321 55 0.2647536095726179 56 0.2964365184141261 57 0.32663671303781144
-		 58 0.35524917870541328 59 0.38216998768023114 60 0.40729604098695837 61 0.43052478961549212
+		 58 0.35524917870541328 59 0.38216998768023114 60 0.40729604098695837 61 0.43052478961549218
 		 62 0.45175393514610707 63 0.47088110977399811 64 0.48780353571039509 65 0.50241766394030585
 		 66 0.51461879231393648 67 0.52430066295287037 68 0.53135503894662239 69 0.53567126031716428
 		 70 0.53713577922159039 71 0.53497435420838191 72 0.52886924644438993 73 0.51929802907836153
 		 74 0.50664299706542448 75 0.49121526934790094 76 0.4732716604305473 77 0.45302680086837693
-		 78 0.43066204220560161 79 0.40633212941422242 80 0.38017028860749102 81 0.35229216784248724
+		 78 0.43066204220560161 79 0.40633212941422248 80 0.38017028860749102 81 0.35229216784248724
 		 82 0.32279893367505214 83 0.29177973699442755 84 0.25931370161174583 85 0.22547154784328474
 		 86 0.19031693456061122 87 0.15390758283243733 88 0.1162962297479222 89 0.077531450574361283
 		 90 0.03765837993247171 91 -0.0032806425881350787 92 -0.045245480478642637 93 -0.088197642221134756
@@ -36346,10 +36346,10 @@ createNode animCurveTA -n "L_Hip_Joint1_rotateY";
 		 118 -0.92206853266316535 119 -0.86669636334832933 120 -0.80964166917821245 121 -0.75152204265487155
 		 122 -0.69275711483817215 123 -0.63364734444450799 124 -0.5744166190667459 125 -0.51523712290707024
 		 126 -0.45624473903048146 127 -0.39754905194289908 128 -0.3392401011583932 129 -0.28139309238778709
-		 130 -0.22407177708368617 131 -0.16733093648834518 132 -0.11121824737341164 133 -0.05577571107270881
-		 134 -0.0010407680082428353 135 0.052952818078566458 136 0.10617424689314418 137 0.15859509675888112
+		 130 -0.22407177708368617 131 -0.16733093648834518 132 -0.11121824737341164 133 -0.055775711072708817
+		 134 -0.0010407680082428353 135 0.052952818078566458 136 0.1061742468931442 137 0.15859509675888112
 		 138 0.21018883702002916 139 0.26093041444410653 140 0.31079589598803725 141 0.35976215428537517
-		 142 0.40780658507992945 143 0.45490684789533542 144 0.50104062271267058 145 0.54618537646949783
+		 142 0.40780658507992945 143 0.45490684789533542 144 0.50104062271267058 145 0.54618537646949794
 		 146 0.59031813389870968 147 0.63341524766179613 148 0.67545216293692212 149 0.71640317162842004
 		 150 0.75624115117658242 151 0.79493728256507779 152 0.83246074153048732 153 0.86877835614625554
 		 154 0.90385422283737737 155 0.93764927141694465 156 0.97012076783261281 157 1.0012217408479445
@@ -36360,8 +36360,8 @@ createNode animCurveTA -n "L_Hip_Joint1_rotateY";
 		 174 1.2191630891181584 175 1.1990198778770116 176 1.1742828836698509 177 1.1453204950860716
 		 178 1.112446121688599 179 1.0759294468867149 180 1.0360052004063063 181 0.99288010703979002
 		 182 0.94673847931552868 183 0.89774679379140099 184 0.84605750276959113 185 0.79181227217319794
-		 186 0.73514479371879482 187 0.67618328996252652 188 0.61505281079994778 189 0.55187740736577207
-		 190 0.48678226272120784 191 0.41989585765966841 192 0.35135225447036744 193 0.28129359230264089
+		 186 0.73514479371879493 187 0.67618328996252652 188 0.61505281079994778 189 0.55187740736577207
+		 190 0.48678226272120784 191 0.41989585765966847 192 0.35135225447036744 193 0.28129359230264089
 		 194 0.20987290644234799 195 0.13725741307395994 196 0.063632445462924597 197 -0.010793705688935454
 		 198 -0.0857836935654262 199 -0.16106324770461009 200 -0.23631078043773546 201 -0.31114331014192781
 		 202 -0.3850968736526032 203 -0.45759843136311473 204 -0.52792413458380039 205 -0.59513470718459949
@@ -36386,10 +36386,10 @@ createNode animCurveTA -n "L_Hip_Joint1_rotateZ";
 		 50 -58.227797834406147 51 -58.126396498791884 52 -58.026619580938942 53 -57.928833438751781
 		 54 -57.833409929033593 55 -57.740726149030387 56 -57.651164109003204 57 -57.565110332432205
 		 58 -57.48295538078353 59 -57.405093300214467 60 -57.331920988162381 61 -57.263837478467806
-		 62 -57.201243144518351 63 -57.144538820870665 64 -57.09412484490975 65 -57.050400021318943
+		 62 -57.201243144518351 63 -57.144538820870672 64 -57.09412484490975 65 -57.050400021318943
 		 66 -57.013760513456887 67 -56.984598667125844 68 -56.963301773668746 69 -56.950250780777907
 		 70 -56.945818960838153 71 -56.952359076304596 72 -56.970811020625959 73 -56.999676334393122
-		 74 -57.037725393669376 75 -57.083932703305067 76 -57.137431135438113 77 -57.19747871062998
+		 74 -57.037725393669376 75 -57.083932703305074 76 -57.137431135438113 77 -57.197478710629987
 		 78 -57.263433932979382 79 -57.334737110490138 80 -57.410895958002541 81 -57.491474325095574
 		 82 -57.576083244042103 83 -57.664373726705108 84 -57.756030897625145 85 -57.850769159895407
 		 86 -57.948328167163375 87 -58.048469429756274 88 -58.150973422285603 89 -58.255637088657089
@@ -36407,14 +36407,14 @@ createNode animCurveTA -n "L_Hip_Joint1_rotateZ";
 		 134 -58.464795617070678 135 -58.321490121315719 136 -58.178398003381091 137 -58.035627517126173
 		 138 -57.893286756454387 139 -57.751484622226513 140 -57.610331699918845 141 -57.469941075546402
 		 142 -57.330429111997852 143 -57.191916204164862 144 -57.054527528636243 145 -56.91839380201624
-		 146 -56.783652060908338 147 -56.650446476163346 148 -56.518929214058957 149 -56.389261357614203
-		 150 -56.261613902251305 151 -56.136168841527827 152 -56.01312036073719 153 -55.892676158906688
+		 146 -56.783652060908338 147 -56.650446476163353 148 -56.518929214058964 149 -56.389261357614203
+		 150 -56.261613902251305 151 -56.136168841527834 152 -56.01312036073719 153 -55.892676158906688
 		 154 -55.775058923255173 155 -55.660507984695521 156 -55.549281188740537 157 -55.441657023561469
 		 158 -55.337937056429446 159 -55.238448742024566 160 -55.143548682024097 161 -55.053626436295609
-		 162 -54.969109013697697 163 -54.890466207554503 164 -54.818216991039158 165 -54.752937256509888
+		 162 -54.969109013697697 163 -54.890466207554503 164 -54.818216991039158 165 -54.752937256509895
 		 166 -54.695269278512114 167 -54.645933415239917 168 -54.605742757213697 169 -54.57562171568037
-		 170 -54.556629967038489 171 -54.549993817434078 172 -54.562658314454261 173 -54.598679511875012
-		 174 -54.655413845440215 175 -54.730570050543498 176 -54.822142947588738 177 -54.928363276894331
+		 170 -54.556629967038489 171 -54.549993817434078 172 -54.562658314454261 173 -54.598679511875019
+		 174 -54.655413845440215 175 -54.730570050543498 176 -54.822142947588738 177 -54.928363276894338
 		 178 -55.04765887368756 179 -55.178624028065791 180 -55.319994866117028 181 -55.470629236161621
 		 182 -55.629490016357984 183 -55.795631053627282 184 -55.968185146393779 185 -56.146353624880085
 		 186 -56.329397181786582 187 -56.516627675536142 188 -56.70740067595527 189 -56.901108553446456
@@ -36695,20 +36695,20 @@ createNode animCurveTA -n "L_Knee_Joint_rotateX1";
 		 22 -3.6819950567730779 23 -3.678117551311876 24 -3.6727988219746988 25 -3.6661010515886416
 		 26 -3.6580858118234874 27 -3.6488141765449522 28 -3.6383468290808132 29 -3.6267441640806708
 		 30 -3.6140663845496221 31 -3.6003735945451507 32 -3.5857258879431053 33 -3.5701834336002003
-		 34 -3.5538065571684321 35 -3.536655819746426 36 -3.5187920934874568 37 -3.5002766342185412
-		 38 -3.4811711510633376 39 -3.4615378729992949 40 -3.4414396122185802 41 -3.4209398241025566
-		 42 -3.4001026635588589 43 -3.3789930374108703 44 -3.3576766524706247 45 -3.3362200588677977
+		 34 -3.5538065571684321 35 -3.5366558197464264 36 -3.5187920934874568 37 -3.5002766342185412
+		 38 -3.4811711510633376 39 -3.4615378729992949 40 -3.4414396122185802 41 -3.420939824102557
+		 42 -3.4001026635588589 43 -3.3789930374108708 44 -3.3576766524706247 45 -3.3362200588677977
 		 46 -3.3146906881510465 47 -3.2931568856236049 48 -3.2716879363234477 49 -3.2503540840109735
 		 50 -3.2292265424852262 51 -3.2083774985142681 52 -3.1878801056390826 53 -3.1678084680934182
 		 54 -3.1482376140785586 55 -3.1292434576429753 56 -3.1109027484436713 57 -3.0932930087131125
 		 58 -3.0764924568234755 59 -3.060579916930589 60 -3.0456347142956863 61 -3.0317365560249288
-		 62 -3.0189653971348025 63 -3.0074012920457336 64 -2.9971242318267226 65 -2.988213967755974
-		 66 -2.9807498220268793 67 -2.9748104867055511 68 -2.9704738123363534 69 -2.9678165878813529
+		 62 -3.0189653971348025 63 -3.0074012920457336 64 -2.9971242318267231 65 -2.988213967755974
+		 66 -2.9807498220268793 67 -2.9748104867055511 68 -2.9704738123363534 69 -2.9678165878813534
 		 70 -2.9669143139680321 71 -2.9682458261144138 72 -2.9720028370265648 73 -2.9778811626460677
-		 74 -2.9856316779958152 75 -2.9950470084753396 76 -3.0059521268523079 77 -3.0181975340327449
+		 74 -2.9856316779958152 75 -2.9950470084753396 76 -3.0059521268523084 77 -3.0181975340327449
 		 78 -3.0316542005991218 79 -3.0462097394197571 80 -3.0617654584322689 81 -3.0782340551829366
 		 82 -3.0955377874381238 83 -3.1136070023770421 84 -3.1323789394993473 85 -3.1517967448945381
-		 86 -3.171808650311307 87 -3.1923672817036128 88 -3.2134290700168413 89 -3.2349537428405015
+		 86 -3.1718086503113074 87 -3.1923672817036128 88 -3.2134290700168413 89 -3.2349537428405015
 		 90 -3.2569038798089869 91 -3.2792445176963709 92 -3.3019427932931449 93 -3.3249676135455259
 		 94 -3.3482893431728766 95 -3.3718795000696207 96 -3.3957104481940643 97 -3.419755076189479
 		 98 -3.4439864473904263 99 -3.4683774026452299 100 -3.4929000906910761 101 -3.5175253902231205
@@ -36718,26 +36718,26 @@ createNode animCurveTA -n "L_Knee_Joint_rotateX1";
 		 114 -3.8090097258341888 115 -3.7996451210613307 116 -3.7816007338463598 117 -3.7598130763803894
 		 118 -3.7358501087536329 119 -3.7104482500600859 120 -3.6840226802321272 121 -3.6568348442546221
 		 122 -3.629062349123211 123 -3.6008328338325168 124 -3.5722421771551707 125 -3.5433650691197172
-		 126 -3.5142615269060835 127 -3.4849811087773825 128 -3.4555657499410715 129 -3.4260517366691929
+		 126 -3.514261526906084 127 -3.4849811087773825 128 -3.4555657499410715 129 -3.4260517366691929
 		 130 -3.3964711216571102 131 -3.3668527658695919 132 -3.3372231242035628 133 -3.3076068515940054
 		 134 -3.2780272809846429 135 -3.2485068085238646 136 -3.2190672108529625 137 -3.189729912347302
 		 138 -3.1605162154045616 139 -3.1314475035780527 140 -3.1025454250469213 141 -3.0738320622860802
-		 142 -3.0453300926428857 143 -3.017062943714889 144 -2.9890549468556324 145 -2.9613314917600824
+		 142 -3.0453300926428857 143 -3.017062943714889 144 -2.9890549468556324 145 -2.9613314917600828
 		 146 -2.9339191848527788 147 -2.906846014094743 148 -2.8801415228256975 149 -2.8538369953562346
-		 150 -2.8279656572208953 151 -2.8025628933030204 152 -2.7776664874581032 153 -2.7533168878129755
+		 150 -2.8279656572208953 151 -2.8025628933030209 152 -2.7776664874581032 153 -2.7533168878129755
 		 154 -2.7295575026323986 155 -2.7064350325617608 156 -2.6839998462263366 157 -2.662306407669992
 		 158 -2.6414137660451948 159 -2.6213861204612301 160 -2.6022934761427821 161 -2.5842124123151353
 		 162 -2.5672269878782727 163 -2.5514298184974691 164 -2.5369233689841191 165 -2.523821518900724
 		 166 -2.5122514788842043 167 -2.5023561628145745 168 -2.4942971606565449 169 -2.4882585149128569
 		 170 -2.4844515904702829 171 -2.4831214604491119 172 -2.4856599375512145 173 -2.4928810336678984
 		 174 -2.504257440562669 175 -2.5193334867015054 176 -2.5377114791347055 177 -2.5590413797115219
-		 178 -2.5830128334116043 179 -2.6093488914732355 180 -2.6378009789813066 181 -2.6681447916902035
+		 178 -2.5830128334116043 179 -2.6093488914732359 180 -2.6378009789813066 181 -2.6681447916902035
 		 182 -2.7001768969343534 183 -2.7337118746229883 184 -2.7685798764391469 185 -2.8046245107049259
 		 186 -2.8417009809319369 187 -2.8796744204348892 188 -2.918418375228768 189 -2.9578133938267692
 		 190 -2.9977456861439342 191 -3.0381058147993851 192 -3.078787380702507 193 -3.1196856606142953
-		 194 -3.1606961467186689 195 -3.2017129259222181 196 -3.2426268176316766 197 -3.2833231598497075
+		 194 -3.1606961467186689 195 -3.2017129259222181 196 -3.2426268176316766 197 -3.2833231598497079
 		 198 -3.3236790891414816 199 -3.3635600911409003 200 -3.4028154887641877 201 -3.4412723563814316
-		 202 -3.4787270460438049 203 -3.5149329812652006 204 -3.5495823979505867 205 -3.5822778149476275
+		 202 -3.4787270460438053 203 -3.5149329812652006 204 -3.5495823979505867 205 -3.5822778149476275
 		 206 -3.6124850720251054 207 -3.6394508547767139 208 -3.6620451764845972 209 -3.6784240162169541
 		 210 -3.6851738797874791;
 createNode animCurveTA -n "L_Knee_Joint_rotateY1";
@@ -36757,21 +36757,21 @@ createNode animCurveTA -n "L_Knee_Joint_rotateY1";
 		 42 14.894448021367007 43 14.801975451999761 44 14.708597157603313 45 14.614604666859403
 		 46 14.520293369582939 47 14.42596265837093 48 14.331916042410855 49 14.238461230657881
 		 50 14.145910181406581 51 14.054579115127659 52 13.964788487325428 53 13.876862918097261
-		 54 13.791131075061386 55 13.707925506367355 56 13.627582420621199 57 13.55044141076355
+		 54 13.791131075061388 55 13.707925506367356 56 13.627582420621199 57 13.55044141076355
 		 58 13.476845119236119 59 13.407138842169045 60 13.341670070828663 61 13.280787969186516
-		 62 13.22484278720707 63 13.17418521030247 64 13.12916564636839 65 13.090133452875882
-		 66 13.057436107652331 67 13.031418328197283 68 13.012421145650448 69 13.000780940797137
-		 70 12.996828450759992 71 13.002661256535728 72 13.019119172452941 73 13.044869693556533
+		 62 13.22484278720707 63 13.174185210302472 64 13.12916564636839 65 13.090133452875882
+		 66 13.057436107652332 67 13.031418328197283 68 13.012421145650448 69 13.000780940797137
+		 70 12.996828450759992 71 13.002661256535728 72 13.019119172452942 73 13.044869693556535
 		 74 13.078821506027626 75 13.120066187235132 76 13.167837015032019 77 13.221479095521019
 		 78 13.280427204018419 79 13.344189018833749 80 13.412332210729117 81 13.484474343646635
-		 82 13.560274860911246 83 13.639428642230582 84 13.721660759726671 85 13.806722159856564
-		 86 13.894386067253581 87 13.984444955752743 88 14.076707967287829 89 14.170998685031442
+		 82 13.560274860911246 83 13.639428642230584 84 13.721660759726671 85 13.806722159856564
+		 86 13.894386067253581 87 13.984444955752744 88 14.076707967287829 89 14.170998685031442
 		 90 14.267153185789015 91 14.36501831008192 92 14.464450097737693 93 14.565312342906328
 		 94 14.667475225640985 95 14.770813977579339 96 14.87520753661614 97 14.980537139074659
 		 98 15.086684786528691 99 15.193531505931544 100 15.300955292382962 101 15.408828577452162
 		 102 15.517014991458803 103 15.625365065722605 104 15.733710313455854 105 15.841854763201001
 		 106 15.949562346970398 107 16.056537238131124 108 16.162391513926458 109 16.266588362565606
-		 110 16.368333547518343 111 16.46634270728326 112 16.558250424747659 113 16.638615677682619
+		 110 16.368333547518343 111 16.466342707283264 112 16.558250424747659 113 16.638615677682619
 		 114 16.685701282600881 115 16.644678809801782 116 16.56563378850543 117 16.470191043463554
 		 118 16.365219161414309 119 16.253944090807725 120 16.138184563762866 121 16.019085862973476
 		 122 15.897426011466081 123 15.773764143054867 124 15.648520263115149 125 15.522021557869801
@@ -36779,17 +36779,17 @@ createNode animCurveTA -n "L_Knee_Joint_rotateY1";
 		 130 14.878539733457725 131 14.74879392740203 132 14.618998682565373 133 14.489262002053504
 		 134 14.359686097873494 135 14.230369078318253 136 14.101406337875515 137 13.972891727901203
 		 138 13.844918565417286 139 13.717580522955105 140 13.590972432262683 141 13.465191027558756
-		 142 13.340335648952982 143 13.216508923091826 144 13.09381743560416 145 12.972372408276318
+		 142 13.340335648952983 143 13.216508923091826 144 13.093817435604162 145 12.972372408276318
 		 146 12.852290392885278 147 12.73369399314978 148 12.616712626261428 149 12.501483335887457
 		 150 12.388151669396922 151 12.276872633375755 152 12.167811743317852 153 12.061146185791463
-		 154 11.957066114508757 155 11.855776105744063 156 11.757496803679432 157 11.662466792837348
+		 154 11.957066114508759 155 11.855776105744063 156 11.757496803679432 157 11.662466792837348
 		 158 11.570944743210802 159 11.483211884630439 160 11.39957488112481 161 11.320369194708853
 		 162 11.245963052768742 163 11.176762166351731 164 11.113215391553755 165 11.055821587789428
 		 166 11.005138012414434 167 10.961790712218555 168 10.926487546219088 169 10.90003472874602
 		 170 10.883358162229689 171 10.877531410974699 172 10.888651432630493 173 10.920284077703236
 		 174 10.970119426200249 175 11.036161368988997 176 11.116667777212232 177 11.210105278040455
 		 178 11.315114334078419 179 11.430481746977678 180 11.555118612514198 181 11.688042346261021
-		 182 11.828361793578701 183 11.975264705492034 184 12.128007046547147 185 12.285903729278159
+		 182 11.828361793578701 183 11.975264705492036 184 12.128007046547149 185 12.285903729278159
 		 186 12.448320459964156 187 12.61466644325786 188 12.784387736383641 189 12.956961071623631
 		 190 13.131887981527433 191 13.308689066046773 192 13.48689823463042 193 13.666056737942155
 		 194 13.845706770324776 195 14.025384370180452 196 14.204611262341563 197 14.382885159869049
@@ -36813,13 +36813,13 @@ createNode animCurveTA -n "L_Knee_Joint_rotateZ1";
 		 38 30.770228103564776 39 30.596688677252232 40 30.41903924783 41 30.237840700263007
 		 42 30.053660102660299 43 29.867071169347962 44 29.678654685787702 45 29.488998891563742
 		 46 29.298699817162216 47 29.108361569787018 48 28.9185965629996 49 28.730025684551958
-		 50 28.543278396411242 51 28.358992760661422 52 28.177815384735741 53 28.000401279283462
+		 50 28.543278396411246 51 28.358992760661422 52 28.177815384735741 53 28.000401279283462
 		 54 27.827413621944395 55 27.659523420401396 56 27.497409068318664 57 27.341755788189595
 		 58 27.193254955717741 59 27.05260330115556 60 26.920501984048677 61 26.797655539087181
 		 62 26.68477069225165 63 26.58255504815855 64 26.491715651458264 65 26.412957427279544
 		 66 26.346981508051233 67 26.294483456478844 68 26.256151397019394 69 26.232664070756286
 		 70 26.224688831125711 71 26.236458126770458 72 26.269666514907065 73 26.321625298985772
-		 74 26.390132452148599 75 26.473354980991207 76 26.56974581194854 77 26.677983515816667
+		 74 26.390132452148599 75 26.473354980991211 76 26.56974581194854 77 26.677983515816667
 		 78 26.796927595780836 79 26.925584656938099 80 27.063082355717928 81 27.208649021812146
 		 82 27.361597488127138 83 27.521312090252639 84 27.687238085308259 85 27.858872939026426
 		 86 28.03575906950951 87 28.217477735437541 88 28.403643827980581 89 28.593901377494142
@@ -36835,9 +36835,9 @@ createNode animCurveTA -n "L_Knee_Joint_rotateZ1";
 		 126 31.062715421346596 127 30.803904490860553 128 30.543900813401311 129 30.283025124956648
 		 130 30.021560740740004 131 29.759762764114775 132 29.497865031102684 133 29.236085467780988
 		 134 28.974630315086884 135 28.713697533581527 136 28.453479607975044 137 28.194165909283214
-		 138 27.935944730355551 139 27.679005081379874 140 27.42353831158362 141 27.169739608954018
-		 142 26.917809419582518 143 26.667954821055755 144 26.420390879300115 145 26.175342014969374
-		 146 25.933043403444628 147 25.693742431569955 148 25.457700234251625 149 25.22519333491557
+		 138 27.935944730355551 139 27.679005081379874 140 27.423538311583624 141 27.169739608954018
+		 142 26.917809419582518 143 26.667954821055758 144 26.420390879300115 145 26.175342014969374
+		 146 25.933043403444632 147 25.693742431569955 148 25.457700234251625 149 25.22519333491557
 		 150 24.996515415553375 151 24.771979244737626 152 24.551918795663465 153 24.336691591140006
 		 154 24.126681318768458 155 23.922300767650178 156 23.723995148325454 157 23.532245870923365
 		 158 23.347574873553793 159 23.170549615026157 160 23.001788874664559 161 22.841969539679592
@@ -37124,7 +37124,7 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateX1";
 		 18 0.93095645368055857 19 0.93095645368055857 20 0.93095645368055857 21 0.93296887317984734
 		 22 0.93889689348634686 23 0.94857604209337398 24 0.96184112533563082 25 0.97852634882288714
 		 26 0.99846543323004133 27 1.0214917250255489 28 1.0474383017180235 29 1.0761380713273927
-		 30 1.1074238658047371 31 1.1411285282083723 32 1.177084993538859 33 1.2151263631183955
+		 30 1.1074238658047373 31 1.1411285282083723 32 1.177084993538859 33 1.2151263631183957
 		 34 1.2550859725374133 35 1.2967974532066477 36 1.3400947875627462 37 1.3848123581029792
 		 38 1.4307849903576457 39 1.4778479900046795 40 1.5258371743268175 41 1.5745888982149849
 		 42 1.6239400749382347 43 1.6737281919212599 44 1.7237913216956158 45 1.7739681282745805
@@ -37142,10 +37142,10 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateX1";
 		 90 1.9575758797118783 91 1.9061582775576906 92 1.8536779983478016 93 1.8001958532320541
 		 94 1.7457703982381054 95 1.6904586146534526 96 1.6343166090915158 97 1.5774003626569084
 		 98 1.5197665657480599 99 1.461473586222416 100 1.4025826363903655 101 1.3431592320819721
-		 102 1.2832750815706007 103 1.2230106151248277 104 1.1624584891836536 105 1.1017286158867192
+		 102 1.2832750815706009 103 1.2230106151248277 104 1.1624584891836536 105 1.1017286158867192
 		 106 1.0409556668334079 107 0.98031077381446408 108 0.92002075715505982 109 0.86040184502710926
 		 110 0.8019239858751086 111 0.74534841245060302 112 0.69207606694682888 113 0.64532020522131961
-		 114 0.61785070801609665 115 0.64178613515990335 116 0.68778725606383151 117 0.74312205757237626
+		 114 0.61785070801609665 115 0.64178613515990335 116 0.68778725606383162 117 0.74312205757237626
 		 118 0.80371781508899864 119 0.86765104094092926 120 0.93383261423626895 121 1.0015746308782241
 		 122 1.0704090538054696 123 1.1399995610383464 124 1.2100940188742835 125 1.2804968145480378
 		 126 1.3510517637925215 127 1.4216310365664655 128 1.4921276954199347 129 1.5624504993162955
@@ -37155,13 +37155,13 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateX1";
 		 142 2.4329438394527174 143 2.4948714977174453 144 2.5558635478131806 145 2.6158753751648782
 		 146 2.6748609364232605 147 2.7327724526788688 148 2.789560090013036 149 2.8451716212268967
 		 150 2.8995520622230595 151 2.9526432758920418 152 3.0043835355039663 153 3.0547070383688841
-		 154 3.1035433590034227 155 3.1508168289747882 156 3.1964458280198333 157 3.2403419676494361
+		 154 3.1035433590034227 155 3.1508168289747882 156 3.1964458280198338 157 3.2403419676494365
 		 158 3.2824091441535548 159 3.3225424323161641 160 3.3606267838485673 161 3.3965354849843536
 		 162 3.4301283149365305 163 3.4612493298963862 164 3.4897241740948095 165 3.515356787751569
-		 166 3.5379253374269197 167 3.5571771317812311 168 3.5728221956901982 169 3.5845250436747005
+		 166 3.5379253374269197 167 3.5571771317812315 168 3.5728221956901982 169 3.5845250436747005
 		 170 3.591893996072161 171 3.5944670785923667 172 3.5895557743593787 173 3.5755681819068728
 		 174 3.5534816892668544 175 3.524118640357436 176 3.4881797294078098 177 3.4462689213673312
-		 178 3.3989123958763283 179 3.3465731912245928 180 3.2896627012246147 181 3.2285498355304423
+		 178 3.3989123958763283 179 3.3465731912245928 180 3.2896627012246147 181 3.2285498355304427
 		 182 3.1635684248860771 183 3.0950232966495523 184 3.0231953377272722 185 2.9483457862219664
 		 186 2.8707199395878877 187 2.7905504294155161 188 2.7080601869788121 189 2.6234652066176918
 		 190 2.5369772043725543 191 2.4488062661507075 192 2.3591635832347153 193 2.268264383705445
@@ -37173,12 +37173,12 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateX1";
 createNode animCurveTA -n "L_Ankle_Joint_rotateY1";
 	rename -uid "20EFAC95-49FB-D4BB-BD2F-FDAE1673A84E";
 	setAttr ".tan" 18;
-	setAttr -s 211 ".ktv[0:210]"  0 -1.5708855525976435 1 -1.5708855525976435
-		 2 -1.5708855525976435 3 -1.5708855525976435 4 -1.5708855525976435 5 -1.5708855525976435
-		 6 -1.5708855525976435 7 -1.5708855525976435 8 -1.5708855525976435 9 -1.5708855525976435
-		 10 -1.5708855525976435 11 -1.5708855525976435 12 -1.5708855525976435 13 -1.5708855525976435
-		 14 -1.5708855525976435 15 -1.5708855525976435 16 -1.5708855525976435 17 -1.5708855525976435
-		 18 -1.5708855525976435 19 -1.5708855525976435 20 -1.5708855525976435 21 -1.5745628249016455
+	setAttr -s 211 ".ktv[0:210]"  0 -1.5708855525976437 1 -1.5708855525976437
+		 2 -1.5708855525976437 3 -1.5708855525976437 4 -1.5708855525976437 5 -1.5708855525976437
+		 6 -1.5708855525976437 7 -1.5708855525976437 8 -1.5708855525976437 9 -1.5708855525976437
+		 10 -1.5708855525976437 11 -1.5708855525976437 12 -1.5708855525976437 13 -1.5708855525976437
+		 14 -1.5708855525976437 15 -1.5708855525976437 16 -1.5708855525976437 17 -1.5708855525976437
+		 18 -1.5708855525976437 19 -1.5708855525976437 20 -1.5708855525976437 21 -1.5745628249016455
 		 22 -1.5853941560398503 23 -1.6030765155763629 24 -1.6273041678659519 25 -1.6577691113487989
 		 26 -1.6941614989393878 27 -1.7361700391237931 28 -1.7834823774648674 29 -1.8357854582432915
 		 30 -1.8927658660318758 31 -1.9541101470461972 32 -2.0195051101585264 33 -2.0886381075252327
@@ -37193,40 +37193,40 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateY1";
 		 66 -4.5200326700146496 67 -4.5426877428251853 68 -4.5592068893379549 69 -4.5693192502330451
 		 70 -4.5727513172970147 71 -4.5676862239137668 72 -4.5533847561693914 73 -4.5309794108246813
 		 74 -4.5013843143547492 75 -4.465349683716739 76 -4.4235000712387889 77 -4.3763619275570544
-		 78 -4.3243839166303468 79 -4.2679521857349831 80 -4.2074020449661553 81 -4.1430270412728039
+		 78 -4.3243839166303468 79 -4.267952185734984 80 -4.2074020449661553 81 -4.1430270412728039
 		 82 -4.0750861093512629 83 -4.0038092816725417 84 -3.9294023049446349 85 -3.8520504174169012
 		 86 -3.7719214765091453 87 -3.6891685802137952 88 -3.603932292733111 89 -3.5163425610560926
 		 90 -3.4265203920626282 91 -3.3345793475994214 92 -3.2406269066703381 93 -3.1447657387907655
 		 94 -3.0470949302836998 95 -2.9477112059205046 96 -2.8467101920641089 97 -2.7441877752607353
-		 98 -2.640241623330339 99 -2.534972956950472 100 -2.4284886924880791 101 -2.3209041283699263
+		 98 -2.6402416233303394 99 -2.534972956950472 100 -2.4284886924880791 101 -2.3209041283699263
 		 102 -2.2123464296396467 103 -2.1029593001705442 104 -1.9929094599019703 105 -1.8823959444513139
 		 106 -1.7716639797124187 107 -1.6610266119499506 108 -1.5509002398648206 109 -1.4418668936136818
 		 110 -1.334792949818606 111 -1.2310828989663511 112 -1.1333216420559631 113 -1.04743443115096
-		 114 -0.99693827361154641 115 -1.0409393977801615 116 -1.1254466822398401 117 -1.2269993278517073
+		 114 -0.99693827361154641 115 -1.0409393977801618 116 -1.1254466822398401 117 -1.2269993278517073
 		 118 -1.3380793481990776 119 -1.4551315222489987 120 -1.576141083331057 121 -1.6998349967804016
-		 122 -1.8253472588256139 123 -1.9520560663725552 124 -2.0794959578272469 125 -2.2073066280624603
+		 122 -1.8253472588256139 123 -1.9520560663725552 124 -2.0794959578272474 125 -2.2073066280624603
 		 126 -2.3352012847209171 127 -2.4629461328778826 128 -2.5903465441038165 129 -2.717237420109222
 		 130 -2.8434762863519589 131 -2.9689382180253512 132 -3.0935120286846898 133 -3.2170973486767069
-		 134 -3.3396023427744055 135 -3.4609418944681622 136 -3.5810361354907045 137 -3.6998092334174935
+		 134 -3.3396023427744055 135 -3.4609418944681627 136 -3.5810361354907045 137 -3.6998092334174935
 		 138 -3.8171883735074332 139 -3.9331028871977995 140 -4.047483491053848 141 -4.1602616080859844
 		 142 -4.2713687491416845 143 -4.3807359362281515 144 -4.4882931525683238 145 -4.5939688062184647
 		 146 -4.6976891954134761 147 -4.7993779645686603 148 -4.8989555401431373 149 -4.9963385354036092
 		 150 -5.0914391125529912 151 -5.1841642896528795 152 -5.2744151782736406 153 -5.3620861357514897
-		 154 -5.4470638132200158 155 -5.529226077058877 156 -5.6084407768626292 157 -5.6845643271870827
+		 154 -5.4470638132200166 155 -5.529226077058877 156 -5.6084407768626292 157 -5.6845643271870827
 		 158 -5.7574400627623143 159 -5.826896317082694 160 -5.8927441614883183 161 -5.9547747250176659
 		 162 -6.012755992954105 163 -6.0664289519840953 164 -6.1155029091322657 165 -6.1596497556008751
-		 166 -6.1984968685075836 167 -6.2316182328591179 168 -6.258523206726057 169 -6.2786421187079009
+		 166 -6.1984968685075845 167 -6.2316182328591188 168 -6.2585232067260579 169 -6.2786421187079009
 		 170 -6.2913075363291071 171 -6.2957295065189518 172 -6.2872889499742701 173 -6.2632444661695903
 		 174 -6.2252616693767564 175 -6.1747339834641934 176 -6.1128420542550073 177 -6.0405979732447754
 		 178 -5.9588788239894193 179 -5.868452570762229 180 -5.7699983600357356 181 -5.664122686074041
 		 182 -5.5513724587678714 183 -5.4322457309852528 184 -5.3072006487317402 185 -5.1766630519388235
 		 186 -5.0410330585055387 187 -4.9006908975918053 188 -4.756002212470686 189 -4.6073230236631657
 		 190 -4.4550045267218925 191 -4.2993978945721523 192 -4.1408592617572859 193 -3.9797550887274835
-		 194 -3.8164681416490245 195 -3.651404382756898 196 -3.4850011573747008 197 -3.3177372018296856
+		 194 -3.8164681416490245 195 -3.651404382756898 196 -3.4850011573747013 197 -3.3177372018296856
 		 198 -3.1501452069321627 199 -2.9828279974184055 200 -2.8164799030442955 201 -2.6519157349807694
 		 202 -2.4901111896162096 203 -2.3322609635510365 204 -2.1798653697067731 205 -2.0348649620840269
-		 206 -1.8998607148123423 207 -1.7784978791425814 208 -1.676193263176579 209 -1.601679566783653
-		 210 -1.5708855525976435;
+		 206 -1.8998607148123423 207 -1.7784978791425816 208 -1.676193263176579 209 -1.601679566783653
+		 210 -1.5708855525976437;
 createNode animCurveTA -n "L_Ankle_Joint_rotateZ1";
 	rename -uid "94FF01D4-4064-4A0D-FBC1-BAAA0283853B";
 	setAttr ".tan" 18;
@@ -37239,33 +37239,33 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateZ1";
 		 22 -2.2177720534091914 23 -2.2333457052157009 24 -2.2547174612101188 25 -2.2816461878955909
 		 26 -2.3138948144268978 27 -2.351229539295574 28 -2.393419078298805 29 -2.4402339508499451
 		 30 -2.4914458020811425 31 -2.5468267586047415 32 -2.6061488161292501 33 -2.6691832574589633
-		 34 -2.7357000997156593 35 -2.8054675699094411 36 -2.8782516082645655 37 -2.9538153989873446
+		 34 -2.7357000997156593 35 -2.8054675699094416 36 -2.8782516082645659 37 -2.9538153989873446
 		 38 -3.0319189284401888 39 -3.1123185709392662 40 -3.1947667026833426 41 -3.2790113445801357
 		 42 -3.364795835018259 43 -3.4518585338995575 44 -3.5399325595344115 45 -3.6287455602513701
 		 46 -3.7180195228756605 47 -3.8074706204538407 48 -3.8968091018773499 49 -3.9857392262816012
 		 50 -4.0739592452875364 51 -4.1611614363553082 52 -4.2470321906338491 53 -4.3312521587846948
 		 54 -4.4134964582864669 55 -4.4934349456948111 56 -4.5707325572024349 57 -4.6450497206386538
 		 58 -4.7160428417560301 59 -4.7833648672165445 60 -4.8466659261648068 61 -4.9055940516364105
-		 62 -4.9597959822540796 63 -5.0089180437783831 64 -5.0526071090576599 65 -5.0905116338051544
+		 62 -4.9597959822540796 63 -5.008918043778384 64 -5.0526071090576599 65 -5.0905116338051544
 		 66 -5.1222827644050968 67 -5.1475755126678608 68 -5.1660499911354973 69 -5.1773727011617927
-		 70 -5.1812178647220124 71 -5.1755435292654433 72 -5.1595356160334189 73 -5.1344976703873773
+		 70 -5.1812178647220133 71 -5.1755435292654433 72 -5.1595356160334189 73 -5.1344976703873773
 		 74 -5.1015012496004886 75 -5.0614415330481028 76 -5.0150766846189745 77 -4.9630564511868238
-		 78 -4.9059434152713077 79 -4.8442291043624595 80 -4.7783464175916892 81 -4.7086793633216217
+		 78 -4.9059434152713077 79 -4.8442291043624595 80 -4.7783464175916892 81 -4.7086793633216226
 		 82 -4.6355707988824175 83 -4.5593286631452425 84 -4.4802310567103438 85 -4.3985304306463773
 		 86 -4.3144570787604311 87 -4.2282220814182017 88 -4.1400198150770189 89 -4.0500301171065933
 		 90 -3.9584201775509493 91 -3.8653462165636188 92 -3.7709549971052976 93 -3.6753852164550795
 		 94 -3.578768816770308 95 -3.4812322541758323 96 -3.3828977679381049 97 -3.2838846967241451
 		 98 -3.1843108988825803 99 -3.0842943500432769 100 -2.9839550173871157 101 -2.8834171513318592
 		 102 -2.7828122019488553 103 -2.6822826769336778 104 -2.5819874436694787 105 -2.4821093049629268
-		 106 -2.3828662808908692 107 -2.284529203186862 108 -2.1874506739206852 109 -2.0921159779957668
+		 106 -2.3828662808908692 107 -2.2845292031868625 108 -2.1874506739206852 109 -2.0921159779957668
 		 110 -1.9992405034959064 111 -1.9099789043684079 112 -1.8264570691453887 113 -1.753570649806345
-		 114 -1.7109305611431949 115 -1.748077312747979 116 -1.8197551032518842 117 -1.9064781392401855
-		 118 -2.0020802058239311 119 -2.1036729280317936 120 -2.2096306290967744 121 -2.3189302259690576
+		 114 -1.7109305611431951 115 -1.748077312747979 116 -1.8197551032518842 117 -1.9064781392401855
+		 118 -2.0020802058239311 119 -2.1036729280317936 120 -2.2096306290967744 121 -2.3189302259690581
 		 122 -2.4308763126703341 123 -2.5449681923385263 124 -2.6608285243617296 125 -2.7781619669638054
-		 126 -2.8967297259464786 127 -3.0163331180162078 128 -3.1368025222630203 129 -3.257989695557034
-		 130 -3.3797622654311557 131 -3.5019996758644991 132 -3.6245901275590531 133 -3.7474282136102195
+		 126 -2.896729725946479 127 -3.0163331180162078 128 -3.1368025222630203 129 -3.257989695557034
+		 130 -3.3797622654311557 131 -3.5019996758644996 132 -3.6245901275590531 133 -3.7474282136102195
 		 134 -3.8704130500605163 135 -3.993446763543778 136 -4.1164332391732978 137 -4.2392770591224158
-		 138 -4.3618825809013471 139 -4.484153117118109 140 -4.6059901874559284 141 -4.7272928199113773
+		 138 -4.3618825809013471 139 -4.484153117118109 140 -4.6059901874559284 141 -4.7272928199113782
 		 142 -4.8479568827371127 143 -4.9678744316895855 144 -5.086933059294287 145 -5.2050152342359306
 		 146 -5.3219976198052557 147 -5.4377503606383666 148 -5.5521363269007757 149 -5.665010304546521
 		 150 -5.7762181193952085 151 -5.8855956814109458 152 -5.9929679337708013 153 -6.098147688902765
@@ -37274,8 +37274,8 @@ createNode animCurveTA -n "L_Ankle_Joint_rotateZ1";
 		 162 -6.9072087117836647 163 -6.9763020886967642 164 -7.039805123822358 165 -7.0972043673754115
 		 166 -7.1479280012660933 167 -7.1913356546197669 168 -7.2267056672746133 169 -7.2532189443330477
 		 170 -7.2699381796175855 171 -7.2757806678844723 172 -7.2646309848764057 173 -7.2329225179107413
-		 174 -7.182993482998671 175 -7.1168762101113048 176 -7.0363537682387243 177 -6.9430029587601529
-		 178 -6.8382276643363209 179 -6.7232852267885015 180 -6.5993076889471816 181 -6.4673191870976385
+		 174 -7.182993482998671 175 -7.1168762101113057 176 -7.0363537682387243 177 -6.9430029587601529
+		 178 -6.8382276643363218 179 -6.7232852267885015 180 -6.5993076889471816 181 -6.4673191870976385
 		 182 -6.3282504144457539 183 -6.1829508270479732 184 -6.0321990917972776 185 -5.8767121561237969
 		 186 -5.7171532348271024 187 -5.5541389504205991 188 -5.3882458226500551 189 -5.2200162761393392
 		 190 -5.0499643197009716 191 -4.8785810455542027 192 -4.7063401013124606 193 -4.5337033033369201
@@ -37536,14 +37536,14 @@ createNode animCurveTA -n "L_Ball_Joint_rotateX1";
 		 10 17.542044932079062 11 17.542044932079062 12 17.542044932079062 13 17.542044932079062
 		 14 17.542044932079062 15 17.542044932079062 16 17.542044932079062 17 17.542044932079062
 		 18 17.542044932079062 19 17.542044932079062 20 17.542044932079062 21 17.542044933135429
-		 22 17.54204493630338 23 17.542044941658951 24 17.542044949372755 25 17.542044959719664
+		 22 17.542044936303384 23 17.542044941658951 24 17.542044949372755 25 17.542044959719664
 		 26 17.542044973073843 27 17.542044989924282 28 17.542045010876166 29 17.542045036669965
 		 30 17.54204506819142 31 17.542045106482373 32 17.542045152762075 33 17.542045208433557
-		 34 17.542045275094395 35 17.542045354549479 36 17.542045448806856 37 17.542045560079647
-		 38 17.542045690775304 39 17.542045843475535 40 17.5420460209114 41 17.542046225923478
+		 34 17.542045275094399 35 17.542045354549479 36 17.542045448806856 37 17.542045560079647
+		 38 17.542045690775307 39 17.542045843475535 40 17.5420460209114 41 17.542046225923478
 		 42 17.5420464614098 43 17.542046730270229 44 17.542047035325655 45 17.542047379234035
 		 46 17.542047764398855 47 17.542048192859689 48 17.542048666180392 49 17.542049185330761
-		 50 17.542049750572588 51 17.542050361342728 52 17.542051016144061 53 17.542051712451208
+		 50 17.542049750572591 51 17.542050361342728 52 17.542051016144061 53 17.542051712451208
 		 54 17.542052446627203 55 17.542053213867899 56 17.542054008162843 57 17.542054822290666
 		 58 17.542055647845601 59 17.542056475297485 60 17.542057294088689 61 17.542058092766467
 		 62 17.542058859157351 63 17.542059580570342 64 17.542060244038414 65 17.542060836585513
@@ -37554,12 +37554,12 @@ createNode animCurveTA -n "L_Ball_Joint_rotateX1";
 		 82 17.542054715635974 83 17.542053887659812 84 17.542053083397295 85 17.54205230893157
 		 86 17.542051569192129 87 17.542050868039517 88 17.542050208358688 89 17.542049592141595
 		 90 17.542049020576254 91 17.542048494127815 92 17.542048012626967 93 17.542047575342561
-		 94 17.542047181068213 95 17.542046828187932 96 17.542046514755963 97 17.542046238557877
+		 94 17.542047181068213 95 17.542046828187935 96 17.542046514755963 97 17.542046238557877
 		 98 17.542045997178999 99 17.542045788058591 100 17.542045608548861 101 17.542045455965486
 		 102 17.542045327624837 103 17.542045220896455 104 17.542045133226441 105 17.542045062174385
 		 106 17.542045005438474 107 17.542044960869426 108 17.542044926497148 109 17.542044900534787
-		 110 17.542044881388893 111 17.542044867669354 112 17.542044858207081 113 17.542044852106127
-		 114 17.542044849310209 115 17.542044851716039 116 17.542044857568943 117 17.542044867213178
+		 110 17.542044881388897 111 17.542044867669354 112 17.542044858207081 113 17.542044852106127
+		 114 17.542044849310209 115 17.542044851716042 116 17.542044857568943 117 17.542044867213178
 		 118 17.542044881894885 119 17.542044903316416 120 17.542044933592607 121 17.542044975257767
 		 122 17.542045031290506 123 17.542045105122408 124 17.542045200650158 125 17.542045322234355
 		 126 17.542045474708868 127 17.542045663353566 128 17.542045893883465 129 17.542046172413119
@@ -37569,7 +37569,7 @@ createNode animCurveTA -n "L_Ball_Joint_rotateX1";
 		 142 17.542057311205216 143 17.542058976030908 144 17.542060779965308 145 17.542062724259338
 		 146 17.542064808866925 147 17.542067032327516 148 17.54206939165601 149 17.542071882242777
 		 150 17.542074497763842 151 17.542077230097803 152 17.54208006926179 153 17.542083003353561
-		 154 17.542086018508076 155 17.542089098865052 156 17.542092226549645 157 17.542095381657955
+		 154 17.542086018508076 155 17.542089098865052 156 17.542092226549645 157 17.542095381657958
 		 158 17.542098542251036 159 17.542101684357199 160 17.542104781964529 161 17.542107807017011
 		 162 17.542110729396242 163 17.542113516890396 164 17.542116135131899 165 17.54211854751513
 		 166 17.542120715067867 167 17.542122596278457 168 17.542124146870684 169 17.542125319518139
@@ -37587,30 +37587,30 @@ createNode animCurveTA -n "L_Ball_Joint_rotateX1";
 createNode animCurveTA -n "L_Ball_Joint_rotateY1";
 	rename -uid "E45B3D95-411C-DC9E-186C-20B7A03B382F";
 	setAttr ".tan" 18;
-	setAttr -s 211 ".ktv[0:210]"  0 -23.883669638426099 1 -23.883669638426099
-		 2 -23.883669638426099 3 -23.883669638426099 4 -23.883669638426099 5 -23.883669638426099
-		 6 -23.883669638426099 7 -23.883669638426099 8 -23.883669638426099 9 -23.883669638426099
-		 10 -23.883669638426099 11 -23.883669638426099 12 -23.883669638426099 13 -23.883669638426099
-		 14 -23.883669638426099 15 -23.883669638426099 16 -23.883669638426099 17 -23.883669638426099
-		 18 -23.883669638426099 19 -23.883669638426099 20 -23.883669638426099 21 -23.883669638975608
-		 22 -23.883669640625275 23 -23.883669643413469 24 -23.883669647428686 25 -23.883669652812671
+	setAttr -s 211 ".ktv[0:210]"  0 -23.883669638426102 1 -23.883669638426102
+		 2 -23.883669638426102 3 -23.883669638426102 4 -23.883669638426102 5 -23.883669638426102
+		 6 -23.883669638426102 7 -23.883669638426102 8 -23.883669638426102 9 -23.883669638426102
+		 10 -23.883669638426102 11 -23.883669638426102 12 -23.883669638426102 13 -23.883669638426102
+		 14 -23.883669638426102 15 -23.883669638426102 16 -23.883669638426102 17 -23.883669638426102
+		 18 -23.883669638426102 19 -23.883669638426102 20 -23.883669638426102 21 -23.883669638975608
+		 22 -23.883669640625275 23 -23.883669643413473 24 -23.883669647428686 25 -23.883669652812671
 		 26 -23.883669659758482 27 -23.883669668518916 28 -23.883669679405727 29 -23.883669692800407
 		 30 -23.883669709159868 31 -23.883669729017704 32 -23.883669753001179 33 -23.883669781829219
 		 34 -23.883669816317987 35 -23.883669857391506 36 -23.883669906072214 37 -23.883669963487009
 		 38 -23.883670030858841 39 -23.883670109495512 40 -23.8836702007778 41 -23.883670306139042
 		 42 -23.883670427034406 43 -23.883670564919512 44 -23.883670721201778 45 -23.883670897200396
 		 46 -23.883671094102478 47 -23.883671312906309 48 -23.883671554363939 49 -23.883671818924103
-		 50 -23.883672106673789 51 -23.883672417284927 52 -23.883672749956229 53 -23.883673103369407
+		 50 -23.883672106673792 51 -23.883672417284927 52 -23.883672749956229 53 -23.883673103369407
 		 54 -23.88367347564845 55 -23.883673864335169 56 -23.883674266369791 57 -23.883674678091648
 		 58 -23.883675095251586 59 -23.883675513047915 60 -23.883675926169978 61 -23.883676328870756
 		 62 -23.883676715050211 63 -23.883677078358712 64 -23.883677412315073 65 -23.883677710439773
 		 66 -23.883677966403454 67 -23.883678174177252 68 -23.883678328202365 69 -23.883678423549803
 		 70 -23.883678456094167 71 -23.883678408097722 72 -23.88367827367215 73 -23.883678066301066
 		 74 -23.883677798346913 75 -23.88367748109841 76 -23.883677124814373 77 -23.883676738770085
-		 78 -23.883676331310671 79 -23.883675909896361 80 -23.883675481143253 81 -23.883675050878093
+		 78 -23.883676331310671 79 -23.883675909896361 80 -23.883675481143253 81 -23.883675050878097
 		 82 -23.883674624173157 83 -23.883674205399281 84 -23.883673798262716 85 -23.883673405853099
 		 86 -23.883673030685443 87 -23.88367267474036 88 -23.883672339513097 89 -23.883672026050252
-		 90 -23.883671734993992 91 -23.883671466623039 92 -23.883671220894882 93 -23.883670997480209
+		 90 -23.883671734993992 91 -23.883671466623039 92 -23.883671220894882 93 -23.883670997480213
 		 94 -23.883670795809877 95 -23.883670615101828 96 -23.883670454405387 97 -23.883670312628354
 		 98 -23.883670188574452 99 -23.883670080966297 100 -23.883669988479927 101 -23.883669909767924
 		 102 -23.883669843477083 103 -23.883669788279466 104 -23.883669742879384 105 -23.88366970603748
@@ -37618,29 +37618,29 @@ createNode animCurveTA -n "L_Ball_Joint_rotateY1";
 		 110 -23.883669611995135 111 -23.883669604825965 112 -23.883669599875923 113 -23.883669596680548
 		 114 -23.883669595214986 115 -23.883669596476164 116 -23.883669599542113 117 -23.883669604587705
 		 118 -23.883669612259016 119 -23.883669623437115 120 -23.883669639214016 121 -23.883669660894078
-		 122 -23.88366969000748 123 -23.883669728312572 124 -23.883669777800435 125 -23.883669840690825
-		 126 -23.883669919442212 127 -23.883670016728537 128 -23.883670135437505 129 -23.883670278648875
+		 122 -23.88366969000748 123 -23.883669728312576 124 -23.883669777800439 125 -23.883669840690825
+		 126 -23.883669919442212 127 -23.883670016728541 128 -23.883670135437505 129 -23.883670278648875
 		 130 -23.883670449616474 131 -23.883670651740097 132 -23.883670888533477 133 -23.883671163592222
 		 134 -23.883671480551946 135 -23.883671843037387 136 -23.88367225462628 137 -23.883672718785036
 		 138 -23.883673238817508 139 -23.883673817810454 140 -23.883674458566926 141 -23.883675163545938
 		 142 -23.883675934802515 143 -23.883676773922062 144 -23.883677681958396 145 -23.883678659374464
 		 146 -23.883679705984953 147 -23.88368082089999 148 -23.883682002474618 149 -23.883683248261033
 		 150 -23.883684554971371 151 -23.883685918435894 152 -23.883687333578774 153 -23.883688794390014
-		 154 -23.883690293911801 155 -23.883691824221952 156 -23.883693376429402 157 -23.883694940670878
+		 154 -23.883690293911801 155 -23.883691824221955 156 -23.883693376429402 157 -23.883694940670878
 		 158 -23.883696506109356 159 -23.883698060938137 160 -23.883699592377031 161 -23.883701086674424
 		 162 -23.883702529094286 163 -23.883703903904603 164 -23.88370519433877 165 -23.883706382558099
 		 166 -23.883707449579376 167 -23.883708375183549 168 -23.883709137798814 169 -23.883709714343848
 		 170 -23.883710080048836 171 -23.883710208230518 172 -23.883709963784845 173 -23.883709272613057
-		 174 -23.883708196413352 175 -23.883706794494937 176 -23.883705123549476 177 -23.883703237494874
+		 174 -23.883708196413352 175 -23.883706794494941 176 -23.883705123549476 177 -23.883703237494874
 		 178 -23.883701187318064 179 -23.883699020878545 180 -23.883696782667592 181 -23.883694513552104
-		 182 -23.883692250510293 183 -23.883690026401258 184 -23.883687869778353 185 -23.883685804770568
+		 182 -23.883692250510293 183 -23.883690026401258 184 -23.883687869778353 185 -23.883685804770572
 		 186 -23.883683851049266 187 -23.883682023880386 188 -23.883680334266824 189 -23.883678789170983
 		 190 -23.883677391821326 191 -23.883676142074428 192 -23.883675036835722 193 -23.883674070500422
 		 194 -23.883673235429516 195 -23.883672522409491 196 -23.883671921110992 197 -23.883671420520606
 		 198 -23.883671009327937 199 -23.883670676277394 200 -23.883670410466681 201 -23.883670201586472
 		 202 -23.883670040110268 203 -23.883669917434474 204 -23.88366982594675 205 -23.883669759085855
 		 206 -23.88366971133286 207 -23.883669678205543 208 -23.883669656257219 209 -23.883669643188817
-		 210 -23.883669638426099;
+		 210 -23.883669638426102;
 createNode animCurveTA -n "L_Ball_Joint_rotateZ1";
 	rename -uid "83C4E538-49A9-2906-85AE-47923E258F2A";
 	setAttr ".tan" 18;
@@ -39443,11 +39443,11 @@ createNode animCurveTU -n "Body_visibility";
 		 194 1 195 1 196 1 197 1 198 1 199 1 200 1 201 1 202 1 203 1 204 1 205 1 206 1 207 1
 		 208 1 209 1 210 1;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "04BE9552-4057-A885-A786-6C83793658E2";
+	rename -uid "B9017501-4739-7F28-1319-74A311FF7D3A";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
-	setAttr ".o" 16;
-	setAttr ".unw" 16;
+	setAttr ".o" 113;
+	setAttr ".unw" 113;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
