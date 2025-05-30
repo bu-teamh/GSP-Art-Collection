@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: Arnion_Rig.ma
-//Last modified: Fri, May 30, 2025 12:17:18 AM
+//Last modified: Fri, May 30, 2025 12:40:48 AM
 //Codeset: 1252
 requires maya "2024";
 requires "stereoCamera" "10.0";
@@ -14,12 +14,12 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 10 Enterprise v2009 (Build: 19045)";
-fileInfo "UUID" "5F7FA9EE-4415-01D0-02C4-458D08AF4A49";
+fileInfo "UUID" "183AAACC-4757-3A80-9832-23BC558CBC22";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "58545AC2-458E-63A4-5105-CB97F2309322";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 75.843860224472934 107.85260692393643 159.90303347963427 ;
+	setAttr ".t" -type "double3" 114.8756970124159 137.45640424792106 258.48619990828615 ;
 	setAttr ".r" -type "double3" 344.39999999533501 -2498.3999999985817 359.99999999990416 ;
 	setAttr ".rpt" -type "double3" -4.5141328568477347e-13 -3.4853317377837459e-13 6.2209933512471226e-13 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -27,7 +27,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".pze" yes;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 194.45531864944869;
+	setAttr ".coi" 304.53942196204929;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -18157,6 +18157,7 @@ createNode transform -n "Geo_Grp" -p "Arnion_All";
 	setAttr -l on -k off ".sz";
 createNode transform -n "Scarf_Animated" -p "Geo_Grp";
 	rename -uid "BEF86675-498B-7354-E193-058D388C72E8";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" 23.804317299096979 57.090347548175302 0.0019455227863760527 ;
 	setAttr ".r" -type "double3" 10.497245954275716 0 0 ;
 	setAttr ".s" -type "double3" 45.761401387481321 0.76017727275449154 8.1880863930218108 ;
@@ -18181,7 +18182,7 @@ createNode poseInterpolatorManager -n "poseInterpolatorManager";
 	rename -uid "AA8951F2-4531-2E57-F4A9-9D87306271A2";
 createNode displayLayerManager -n "layerManager";
 	rename -uid "2DF2CCA1-428D-936D-9B00-20980D7E8136";
-	setAttr ".cdl" 10;
+	setAttr ".cdl" 4;
 	setAttr -s 13 ".dli[1:12]"  1 2 13 3 4 5 7 8 
 		9 10 11 12;
 	setAttr -s 6 ".dli";
@@ -70856,7 +70857,7 @@ createNode polyTweakUV -n "polyTweakUV439";
 		 0.095984921 -0.28914797 0.33172736 -0.28914797 0.095984921 -0.30489731 0.33172736
 		 -0.30489731 0.095984921;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "2D3951D2-4A3C-E8F1-BFCC-10BED48BFB4E";
+	rename -uid "418421B5-4397-241F-AA7E-BF8C3BA0978C";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
