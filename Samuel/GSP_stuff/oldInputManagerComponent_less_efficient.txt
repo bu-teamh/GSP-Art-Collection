@@ -1,0 +1,355 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+using GSP.Events;
+using System.Linq;
+
+namespace GSP.InputHandling
+{
+    public class InputManagerComponent : MonoBehaviour
+    {
+        private InputManager m_inputManager;
+
+        private HashSet<KeyCode> m_heldKeys;
+        private HashSet<string> m_heldAxes;
+        private HashSet<string> m_heldDualAxes;
+
+        private void Awake()
+        {
+            m_inputManager = new InputManager();
+
+            m_heldKeys = new HashSet<KeyCode>();
+            m_heldAxes = new HashSet<string>();
+            m_heldDualAxes = new HashSet<string>();
+    }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+
+            //Below is debug stuff to log the conntected gamepads
+            string[] names = Input.GetJoystickNames();
+
+            foreach (var name in names)
+            {
+                Debug.Log($"{name}");
+            }
+            //End debug
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (m_heldKeys.Count > 0)
+            {
+                CatchKeyRelease();
+            }
+
+            if (m_heldAxes.Count > 0)
+            {
+                CatchAxisRelease();
+            }
+
+            if (m_heldDualAxes.Count > 0)
+            {
+                CatchDualAxisRelease();
+            }
+
+            if (Input.anyKeyDown)
+            {
+                CatchKeyPress();
+            }
+
+            CatchAxisPress();
+
+            CatchDualAxesPress();
+
+            if (m_heldAxes.Count > 0)
+            {
+                ConvertAxesToDirections();
+            }
+        }
+
+        private void CatchKeyPress()
+        {
+            foreach (var kvp in m_inputManager.InputModeKeyMap)
+            {
+                //<HashSet>.Add() returns true only if key is added (no duplicates allowed in sets).
+                if (Input.GetKeyDown(kvp.Key) && m_heldKeys.Add(kvp.Key))
+                {
+                    GenerateEvent(kvp.Value, InputEventFlag.KeyDown);
+                }
+            }
+        }
+
+        //Older, less efficient function
+        /*
+        private void CatchKeyPress()
+        {
+            if (Input.anyKeyDown)
+            {
+                foreach (var kvp in m_inputManager.InputModeKeyMap)
+                {
+                    if (Input.GetKeyDown(kvp.Key))
+                    {
+                        m_heldKeys.Add(kvp.Key);
+
+                        GenerateEvent(kvp.Value, InputEventFlag.KeyDown);
+                    }
+                }
+            }
+        }
+        */
+
+        private void CatchAxisPress()
+        {
+            foreach (var kvp in m_inputManager.InputModeAxisMap)
+            {
+                //<HashSet>.Add() returns true only if key is added (no duplicates allowed in sets).
+                if (Input.GetAxisRaw(kvp.Key) != 0 && m_heldAxes.Add(kvp.Key))
+                {
+                    GenerateEvent(kvp.Value, InputEventFlag.KeyDown);
+                }
+            }
+        }
+
+
+        //Older, less efficient function
+        /*
+        private void CatchAxisPress()
+        {
+            foreach (var kvp in m_inputManager.InputModeAxisMap)
+            {
+                //0 is a magic number that should in future represent dead zone, need to wrap it into player preferences - there is a dead zone in the input manager tho?
+                if (Input.GetAxisRaw(kvp.Key) != 0)
+                {
+                    if (!m_heldAxes.Contains(kvp.Key))
+                    {
+                        m_heldAxes.Add(kvp.Key);
+
+                        GenerateEvent(kvp.Value, InputEventFlag.KeyDown);
+                    }
+                }
+            }
+        }
+        */
+        private void CatchDualAxesPress()
+        {
+            foreach (var kvp in m_inputManager.InputModeDualAxisMap)
+            {
+                if (
+                    (
+                        Input.GetAxisRaw(kvp.Key.m_xAxis) != 0 || 
+                        Input.GetAxisRaw(kvp.Key.m_yAxis) != 0
+                    ) &&
+                    !m_heldDualAxes.Contains(kvp.Key.m_xAxis) && 
+                    !m_heldDualAxes.Contains(kvp.Key.m_yAxis)
+                )
+                {
+                    GenerateEvent(kvp.Value, InputEventFlag.KeyDown);
+
+                    if (Input.GetAxisRaw(kvp.Key.m_xAxis) != 0)
+                    {
+                        m_heldDualAxes.Add(kvp.Key.m_xAxis);
+                    }
+                        
+                    if (Input.GetAxisRaw(kvp.Key.m_yAxis) != 0)
+                    {
+                        m_heldDualAxes.Add(kvp.Key.m_yAxis);
+                    }
+                }
+            }
+        }
+
+        //Older, less efficient function
+        /*
+        private void CatchDualAxesPress()
+        {
+            foreach (var kvp in m_inputManager.InputModeDualAxisMap)
+            {
+                // Check if either the xAxis or yAxis is pressed
+                bool xAxisPressed = Input.GetAxisRaw(kvp.Key.m_xAxis) != 0;
+                bool yAxisPressed = Input.GetAxisRaw(kvp.Key.m_yAxis) != 0;
+
+                // Generate event if either axis is pressed and is not already held
+                if (xAxisPressed || yAxisPressed)
+                {
+                    if (!m_heldDualAxes.Contains(kvp.Key.m_xAxis) && !m_heldDualAxes.Contains(kvp.Key.m_yAxis))
+                    {
+                        GenerateEvent(kvp.Value, InputEventFlag.KeyDown);
+                    }
+
+                    // Add the axes to the held set if they are pressed
+                    if (xAxisPressed)
+                    {
+                        m_heldDualAxes.Add(kvp.Key.m_xAxis);
+                        //Debug.Log("X added to helddualaxes");
+                    }
+                    if (yAxisPressed)
+                    {
+                        m_heldDualAxes.Add(kvp.Key.m_yAxis);
+                        //Debug.Log("Y added to helddualaxes");
+                    }
+                }
+            }
+        }
+        */
+
+        private void CatchKeyRelease()
+        {
+            //.ToArray() allows for con-currency safe iteration, quicker than lists.
+            foreach (KeyCode key in m_heldKeys.ToArray())
+            {
+                //<HashSet>.Add() returns true only if key is removed.
+                if (!Input.GetKey(key) && m_heldKeys.Remove(key))
+                {
+                    GenerateEvent(m_inputManager.InputModeKeyMap[key], InputEventFlag.KeyUp);
+                }
+            }
+        }
+
+        //Old, ineffecient function
+        /*
+        private void CatchKeyRelease()
+        {
+            var releasedKeys = new List<KeyCode>();
+
+            foreach (KeyCode key in m_heldKeys)
+            {
+                if (!Input.GetKey(key))
+                {
+                    releasedKeys.Add(key);
+                }
+            }
+
+            foreach (KeyCode releasedKey in releasedKeys)
+            {
+                m_heldKeys.Remove(releasedKey);
+
+                GenerateEvent(m_inputManager.InputModeKeyMap[releasedKey], InputEventFlag.KeyUp);
+            }
+        }
+        */
+
+        private void CatchAxisRelease()
+        {
+            //.ToArray() allows for con-currency safe iteration, quicker than lists.
+            foreach (var axis in m_heldAxes.ToArray())
+            {
+                //<HashSet>.Add() returns true only if key is removed.
+                if (Input.GetAxisRaw(axis) == 0 && m_heldAxes.Remove(axis))
+                {
+                    GenerateEvent(m_inputManager.InputModeAxisMap[axis], InputEventFlag.KeyUp);
+                }
+            }
+        }
+
+        //Older, less efficient function
+        /*
+        private void CatchAxisRelease()
+        {
+            var releasedAxes = new List<string>();
+
+            foreach (string axis in m_heldAxes)
+            {
+                if (Input.GetAxisRaw(axis) == 0)
+                {
+                    releasedAxes.Add(axis);
+                }
+            }
+
+            foreach (string releasedAxis in releasedAxes)
+            {
+                m_heldAxes.Remove(releasedAxis);
+
+                GenerateEvent(m_inputManager.InputModeAxisMap[releasedAxis], InputEventFlag.KeyUp);
+            }
+        }
+        */
+
+        private void CatchDualAxisRelease()
+        {
+            foreach (var kvp in m_inputManager.InputModeDualAxisMap)
+            {
+                bool xAxisHeld = Input.GetAxisRaw(kvp.Key.m_xAxis) != 0;
+                bool yAxisHeld = Input.GetAxisRaw(kvp.Key.m_yAxis) != 0;
+
+                if (
+                    (
+                        !xAxisHeld && 
+                        m_heldDualAxes.Remove(kvp.Key.m_xAxis)
+                    ) |
+                    (
+                        !yAxisHeld && 
+                        m_heldDualAxes.Remove(kvp.Key.m_yAxis)
+                    )
+                )
+                {
+                    if (!xAxisHeld && !yAxisHeld)
+                    {
+                        GenerateEvent(kvp.Value, InputEventFlag.KeyUp);
+                    }
+                }       
+            }
+        }
+
+        //Old, much less efficient function
+        /*
+        private void CatchDualAxisRelease()
+        {
+            // Temporary set to track axes being released
+            var releasedAxes = new HashSet<string>();
+
+            foreach (var kvp in m_inputManager.InputModeDualAxisMap)
+            {
+                var dualAxis = kvp.Key;
+                var eventType = kvp.Value;
+
+                // Check the state of xAxis and yAxis
+                bool xAxisHeld = Input.GetAxisRaw(dualAxis.m_xAxis) != 0;
+                bool yAxisHeld = Input.GetAxisRaw(dualAxis.m_yAxis) != 0;
+
+                // Release individual axes if necessary
+                if (!xAxisHeld && m_heldDualAxes.Contains(dualAxis.m_xAxis))
+                {
+                    releasedAxes.Add(dualAxis.m_xAxis);
+                    m_heldDualAxes.Remove(dualAxis.m_xAxis);
+
+                    //Debug.Log($"Removed axis {dualAxis.m_xAxis}");
+                }
+
+                if (!yAxisHeld && m_heldDualAxes.Contains(dualAxis.m_yAxis))
+                {
+                    releasedAxes.Add(dualAxis.m_yAxis);
+                    m_heldDualAxes.Remove(dualAxis.m_yAxis);
+                    //Debug.Log($"Removed axis {dualAxis.m_yAxis}");
+                }
+
+                // Generate KeyUp event only if neither axis is held and at least one was just released
+                if (!xAxisHeld && !yAxisHeld &&
+                    (releasedAxes.Contains(dualAxis.m_xAxis) || releasedAxes.Contains(dualAxis.m_yAxis)))
+                {
+                    GenerateEvent(eventType, InputEventFlag.KeyUp);
+                }
+            }
+        }
+        */
+
+        private void ConvertAxesToDirections()
+        {
+
+        }
+
+        private void GenerateEvent(InputEventType _type, InputEventFlag _flag)
+        {
+            //DEBUG shit
+            Debug.Log($"Input event generated: {_type}, {_flag}");
+
+
+            //TODO, handle event
+        }
+    }
+}
+

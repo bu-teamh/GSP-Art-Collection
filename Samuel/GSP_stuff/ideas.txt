@@ -1,0 +1,98 @@
+1. Observer Pattern
+The observer pattern defines a one-to-many relationship between objects, so when one object changes state, all its dependents are notified and updated automatically.
+
+Use case: UI event listeners, event handling in game engines.
+
+Example: In C#, the delegate and event keywords are used to implement the observer pattern.
+
+2. Event Bus Pattern
+An event bus is a central piece of infrastructure where events are published, and any component interested in those events can subscribe to them.
+
+Use case: Decoupling event producers and consumers, facilitating communication in complex systems.
+
+Example: In Unity, you can create a custom event bus to manage game events.
+
+3. Command Pattern
+The command pattern encapsulates a request as an object, thereby allowing for parameterization of clients with different requests, queuing of requests, and logging the requests.
+
+Use case: Game actions (e.g., undo/redo functionality), remote control operations.
+
+Example: Create command classes that implement a common interface and invoke them to execute operations.
+
+4. Pub-Sub Pattern (Publish-Subscribe)
+The publish-subscribe pattern is a messaging pattern where senders (publishers) do not send messages directly to specific receivers (subscribers). Instead, messages are published to channels, and subscribers listen to those channels for relevant messages.
+
+Use case: Asynchronous communication, real-time data updates.
+
+Example: Event-driven systems, message queues like RabbitMQ or Kafka.
+
+5. Event Sourcing
+Event sourcing captures all changes to an application's state as a sequence of events, providing a complete history of changes.
+
+Use case: Auditing, debugging, replaying events to reconstruct past states.
+
+Example: Building systems with high levels of traceability and reliability, often used in financial systems.
+
+6. Mediator Pattern
+The mediator pattern defines an object that encapsulates how a set of objects interact, promoting loose coupling by keeping objects from referring to each other explicitly.
+
+Use case: Complex object interactions, reducing dependencies between objects.
+
+Example: In Unity, you can use a mediator to manage interactions between various UI components.
+
+7. State Pattern
+The state pattern allows an object to change its behavior when its internal state changes, effectively enabling it to respond to events in a state-specific manner.
+
+Use case: Finite state machines, game AI.
+
+Example: Managing character states in a game (e.g., idle, running, jumping).
+
+Each of these patterns provides a structured approach to handling events, ensuring maintainability, scalability, and flexibility in your application. Depending on your specific requirements, you can choose the most appropriate pattern or combine multiple patterns to build a robust event system.
+
+Let me know if you’d like more details or examples on any of these patterns!
+
+Event Type:
+
+Describes the nature or category of the event (e.g., "Click", "KeyPress", "Collision").
+
+Useful for distinguishing between different types of events.
+
+Event ID:
+
+A unique identifier for the event.
+
+Can be useful for tracking and managing events.
+
+Timestamp:
+
+The time when the event occurred.
+
+Helps in understanding the sequence and timing of events.
+
+Event Data:
+
+Any additional data relevant to the event (e.g., keycode for a keypress event, position for a click event).
+
+Can be encapsulated in a dictionary or a more structured format.
+
+Author/Source:
+
+The origin or source of the event (e.g., the object or component that triggered the event).
+
+Useful for tracing the event back to its source.
+
+Priority:
+
+Indicates the priority or importance of the event.
+
+Helps in managing event queues and processing order.
+
+Context:
+
+Any contextual information relevant to the event (e.g., the state of the system or environment when the event occurred).
+
+Can be useful for event handling and decision-making.
+
+Flags/Status:
+
+Flags or status indicators that provide additional information about the event (e.g., whether the event has been handled, canceled, or requires special processing).

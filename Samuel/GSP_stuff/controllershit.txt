@@ -1,0 +1,5 @@
+trigger is 3
+dpad is 7
+
+right trigger is 9th axis
+left trigger is 10th axis
